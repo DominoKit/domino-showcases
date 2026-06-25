@@ -1,0 +1,24 @@
+DominoRestConfig.getInstance()
+        .addResponseInterceptor(new ResponseInterceptor() {
+            @Override
+            public void onBeforeSuccessCallback(ServerRequest serverRequest, Response response) {
+                // inspect or log the response before the success callback
+            }
+
+            @Override
+            public void onBeforeFailedCallback(ServerRequest serverRequest, FailedResponseBean failedResponse) {
+                if (failedResponse.getStatusCode() == 401) {
+                    serverRequest.skipFailHandler(); // suppress the fail handler when we want custom handling
+                }
+            }
+
+            @Override
+            public void onBeforeCompleteCallback(ServerRequest serverRequest) {
+                // runs for both success and failure before completion
+            }
+
+            @Override
+            public void onAfterCompleteCallback(ServerRequest serverRequest) {
+                // runs for both success and failure after completion callbacks
+            }
+        });

@@ -1,0 +1,14 @@
+@RequestFactory
+@Path("library/movies")
+public interface MoviesService {
+
+    @Path(":movieId")
+    @GET
+    Movie getMovie(
+        @PathParam("movieId") String movieId,
+        @MatrixParam("lang") String language,
+        @MatrixParam("region") String region);
+}
+
+// Resulting call example:
+// GET /library/movies/123;lang=en;region=eu

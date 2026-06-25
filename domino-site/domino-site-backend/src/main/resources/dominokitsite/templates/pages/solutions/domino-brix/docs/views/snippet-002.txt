@@ -1,0 +1,12 @@
+@UiView
+public class DashboardViewImpl extends BrixView<Element, DashboardUiHandlers>
+    implements DashboardView {
+
+  @Handlers DashboardUiHandlers handlers;
+
+  @Inject
+  DashboardViewImpl() { setText("Loading..."); }
+
+  @Override public void showMessage(String text) { setText(text); }
+  @Override public void showUser(String userId) { handlers.onRefreshUser(userId); }
+}

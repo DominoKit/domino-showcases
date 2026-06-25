@@ -1,0 +1,14 @@
+import javax.ws.rs.FormParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.Consumes;
+
+@RequestFactory
+public interface MultipartService {
+
+  @POST
+  @Path("upload")
+  @Consumes(MediaType.MULTIPART_FORM_DATA)
+  void textMultipart(@FormParam("id") String id, @FormParam("file") byte[] fileContent);
+}

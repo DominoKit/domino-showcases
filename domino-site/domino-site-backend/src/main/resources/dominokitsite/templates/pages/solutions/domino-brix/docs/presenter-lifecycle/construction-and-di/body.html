@@ -1,0 +1,36 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/presenter-lifecycle"
+               aria-expanded="true">
+                Presenter lifecycle
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/presenter-lifecycle/construction-and-di" aria-expanded="true">
+                Construction &amp; DI
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Construction &amp; dependency injection</h1>
+    <p class="dui dui-leading-6">Generated <code>*PresenterImpl</code> instances are created by Dagger. Global services
+        (<code>@Global</code> history, events, slots, config, security) and the concrete view are injected automatically;
+        you never bind the view by hand.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">What happens</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Dagger constructs the generated presenter implementation.</span></li>
+        <li class="dui"><span>Global services and injected fields/constructors are satisfied.</span></li>
+        <li class="dui"><span>The concrete view is injected and stored in <code>view</code>.</span></li>
+        <li class="dui"><span>Handlers, event listeners, routing params, and slot metadata are wired during construction.</span></li>
+    </ul>
+</div>

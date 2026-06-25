@@ -1,0 +1,32 @@
+@import "prettify/desert.css";
+@import "prettify/prettify.css";
+
+/*------------- Application specific styles ------------------*/
+.demo-flex-layout-result-container {
+    height: 500px;
+    background: #777777;
+}
+
+.demo-flex-layout-counter {
+    counter-reset: section;
+}
+
+.demo-flex-layout-block {
+    width: 100px;
+    min-height: 100px;
+    background: var(--dui-clr-dominant);
+    margin: 10px;
+    line-height: 100px;
+}
+
+.demo-flex-layout-block h4 {
+    text-align: center;
+    line-height: 100px;
+    font-size: larger;
+    margin: 0px;
+}
+
+.demo-flex-layout-block h4::before {
+    counter-increment: section;
+    content: counter(section);
+}

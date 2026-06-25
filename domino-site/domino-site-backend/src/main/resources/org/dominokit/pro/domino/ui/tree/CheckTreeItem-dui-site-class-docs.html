@@ -1,0 +1,23 @@
+ A specialized <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/tree/TreeNode.html">TreeNode</a>  that uses a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/forms/CheckBox.html">CheckBox</a>  for selection rather than a simple
+ "active" or "highlighted" state. This enables a multi-select (checkbox) style in a tree
+ structure.
+
+ <p> Key behaviors:
+
+ <ul> 
+   <li> The <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/forms/CheckBox.html">CheckBox</a>  indicates whether an item is selected.
+   <li> Supports partial selection states (indeterminate) if child items are not uniformly
+       selected.
+   <li> Interaction with the checkbox triggers select/deselect operations, which can cascade to
+       descendants or bubble up to ancestors (depending on configuration).
+   <li> Selection events may be silenced (silent) to avoid triggering listeners when needed.
+ </ul> 
+
+ <p> Example Usage:
+
+ <pre><code>
+ CheckTreeItem<String> item = CheckTreeItem.create("My Item", "dataValue");
+ // mark as selected:
+ item.select();
+ </code></pre>
+<div class="dui dui-site-member-param"><p><b>V</b><p> the type of value or data object associated with this node</p></div>

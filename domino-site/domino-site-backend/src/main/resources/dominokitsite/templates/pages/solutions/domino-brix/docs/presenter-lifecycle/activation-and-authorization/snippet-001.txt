@@ -1,0 +1,7 @@
+@Override
+public Set<String> getRoles() { return Set.of("admin"); }
+
+@Override
+public Authorizer getAuthorizer() {
+  return RolesAllowedAuthorizer.INSTANCE;
+}

@@ -1,0 +1,32 @@
+import java.util.Deque;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.dominokit.domino.logger.MDCUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class UserFlow {
+  private static final Logger log = LoggerFactory.getLogger(UserFlow.class);
+
+  public void execute(String userId) throws Exception {
+    try (AutoCloseable scope = MDCUtils.withMdc("userId", userId)) {
+      log.info("Starting user flow");
+      nested();
+    }
+  }
+
+  public void executeWithContext() throws Exception {
+    Map<String, String> ctx = new LinkedHashMap<>();
+    ctx.put("flow", "onboarding");
+    ctx.put("step", "emailVerification");
+
+    try (AutoCloseable scope = MDCUtils.withMdc(ctx)) {
+      log.info("Verifying email");
+    }
+  }
+
+  private void nested() {
+    Deque<String> userIdStack = MDCUtils.getMdcStack("userId");
+    log.info("Nested step {}", userIdStack);
+  }
+}

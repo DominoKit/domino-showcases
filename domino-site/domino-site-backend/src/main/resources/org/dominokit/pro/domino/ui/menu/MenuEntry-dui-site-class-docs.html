@@ -1,0 +1,22 @@
+ Represents a single entry in a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/menu/MenuBar.html">MenuBar</a> . A <code>MenuEntry</code>  displays a label (text or
+ HTML) and can optionally host a drop-down <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/menu/Menu.html">Menu</a>  for nested items.
+
+ <p> Each entry may contain:
+
+ <ul> 
+   <li> A text/HTML label
+   <li> A unique key for identification (optional)
+   <li> Zero or more handlers responding to activation/deactivation events
+ </ul> 
+
+ <p> When activated, an entry becomes highlighted (via the <code>dui_active</code>  CSS class). If it has
+ an attached drop-down menu, that menu opens. Similarly, deactivation closes the menu and removes
+ the highlight.
+
+ <p> Example usage:
+
+ <pre><code>
+ MenuEntry entry = MenuEntry.create("homeKey", "Home");
+ entry.addActivationHandler(e -> DomGlobal.console.log("Activated: " + e.getKey()));
+ </code></pre>
+

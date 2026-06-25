@@ -1,0 +1,9 @@
+@Override
+protected void onDeactivated() {
+  disposables.forEach(AutoCloseable::close);
+}
+
+@Override
+protected void onRemoved() {
+  view.clear();
+}

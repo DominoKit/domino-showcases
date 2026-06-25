@@ -1,0 +1,998 @@
+Brix started with following routes:
+[
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@ef,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/basic"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@f0,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/basic")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@f1,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/check-box"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@f2,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/check-box")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@f3,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/colors"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@f4,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/colors")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@f5,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/info-box"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@f6,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/info-box")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@f7,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/menu"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@f8,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/menu")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@f9,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/helpers"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@fa,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/helpers")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@fb,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/pagination"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@fc,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/pagination")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@fd,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/cards"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@fe,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/cards")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@ff,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/pagination"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@100,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/pagination")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@101,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/header-bar"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@102,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/header-bar")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@103,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/menubar"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@104,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/menubar")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@105,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/notifications"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@106,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/notifications")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@107,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/sliders"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@108,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/sliders")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@109,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/file-upload"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@10a,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/file-upload")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@10b,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/record-details"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@10c,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/record-details")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@10d,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/row-menu"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@10e,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/row-menu")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@10f,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/split-panel"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@110,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/split-panel")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@111,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/buttons"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@112,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/buttons")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@113,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/grouping"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@114,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/grouping")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@115,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/range-slider"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@116,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/range-slider")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@117,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/responsive-grids"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@118,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/responsive-grids")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@119,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/check-tree"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@11a,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/check-tree")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@11b,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/switch"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@11c,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/switch")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@11d,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/column-resize"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@11e,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/column-resize")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@11f,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/flex-layout"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@120,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/flex-layout")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@121,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/alerts"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@122,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/alerts")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@123,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/selection"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@124,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/selection")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@125,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/mdi-icons"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@126,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/mdi-icons")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@127,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/mix"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@128,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/mix")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@129,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/waves"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@12a,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/waves")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@12b,
+    tokenFilter=TokenFilter.any(),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@12c,
+    tokenFilter=TokenFilter.not(TokenFilter.any()),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@12d,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/field-decoration"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@12e,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/field-decoration")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@12f,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/drag-and-drop"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@130,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/drag-and-drop")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@131,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/text-box"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@132,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/text-box")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@133,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/tabs"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@134,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/tabs")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@135,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/summary"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@136,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/summary")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@137,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/boards"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@138,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/boards")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@139,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/chips"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@13a,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/chips")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@13b,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/steppers"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@13c,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/steppers")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@13d,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/collapsible"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@13e,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/collapsible")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@13f,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/live-grid"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@140,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/live-grid")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@141,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/tree-lazy"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@142,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/tree-lazy")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@143,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/radio"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@144,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/radio")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@145,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/tree"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@146,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/tree")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@147,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/navbar"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@148,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/navbar")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@149,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/rich-text-editor"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@14a,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/rich-text-editor")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@14b,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/column-groups"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@14c,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/column-groups")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@14d,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/loaders"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@14e,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/loaders")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@14f,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/dialogs"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@150,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/dialogs")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@151,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/fixed-table"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@152,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/fixed-table")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@153,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/suggest-box"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@154,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/suggest-box")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@155,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/counters"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@156,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/counters")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@157,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/lists"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@158,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/lists")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@159,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/progress-bars"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@15a,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/progress-bars")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@15b,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/date-picker"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@15c,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/date-picker")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@15d,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/thumbnails"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@15e,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/thumbnails")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@15f,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/carousel"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@160,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/carousel")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@161,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/labels"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@162,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/labels")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@163,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/column-pin"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@164,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/column-pin")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@165,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/breadcrumbs"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@166,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/breadcrumbs")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@167,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/spin"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@168,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/spin")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@169,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/time-picker"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@16a,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/time-picker")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@16b,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/text-area"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@16c,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/text-area")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@16d,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/drag-drop"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@16e,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/drag-drop")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@16f,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/scroll-loading"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@170,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/scroll-loading")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@171,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/badges"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@172,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/badges")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@173,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/colorpicker"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@174,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/colorpicker")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@175,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/empty-state"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@176,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/empty-state")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@177,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/sort-search"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@178,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/sort-search")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@179,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/editable-table"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@17a,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/editable-table")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@17b,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/app-layout"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@17c,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/app-layout")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@17d,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/popover"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@17e,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/popover")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@17f,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/input-mask"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@180,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/input-mask")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@181,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/animations"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@182,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/animations")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@183,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/marker"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@184,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/marker")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@185,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/tree-eager"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@186,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/tree-eager")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@187,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/grid-layout"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@188,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/layouts/grid-layout")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@189,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/modals"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@18a,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/modals")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@18b,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/media-objects"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@18c,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/media-objects")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@18d,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/typography"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@18e,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/typography")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@18f,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/pre-loaders"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@190,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/components/pre-loaders")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@191,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/select"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@192,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/forms/select")),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$0$Type@193,
+    tokenFilter=TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/top-panel"),
+    removeOnComplete=false
+  },
+
+  HistoryListener{
+    listener=org.dominokit.brix.api.RouterManager$lambda$1$Type@194,
+    tokenFilter=TokenFilter.not(TokenFilter.startsWithPathFilter("solutions/domino-ui/v2/docs/data-table/top-panel")),
+    removeOnComplete=false
+  }
+]

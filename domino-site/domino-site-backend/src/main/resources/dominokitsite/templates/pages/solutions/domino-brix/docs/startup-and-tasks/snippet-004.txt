@@ -1,0 +1,6 @@
+@AutoService(BrixStartupTask.class)
+public class FetchConfigTask extends BrixStartupTask { /* ... */ }
+
+List<BrixStartupTask> tasks = BrixStartupTask_ServiceLoader.load();
+Brix.get().init(Map.of());
+Brix.get().start(new LinkedHashSet<>(tasks), () -> DomGlobal.console.info("App started"));

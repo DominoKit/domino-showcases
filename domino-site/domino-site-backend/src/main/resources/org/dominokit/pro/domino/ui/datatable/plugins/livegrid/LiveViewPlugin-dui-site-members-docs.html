@@ -1,0 +1,70 @@
+<div class="dui dui-members-summary"><h4>Public methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void appendRow(DataTable&lt;T&gt; dataTable, TableRow&lt;T&gt; tableRow)</code></div>
+<div class="dui dui-summary-docs"> Appends a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/TableRow.html">TableRow</a>  to the <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/DataTable.html">DataTable</a> . This method is called during the data load
+ process, once for each record that needs to be rendered.
+
+ <p> It also stores the row in an LRU cache, assigning the row an index attribute and setting
+ selection listeners.
+<div class="dui dui-site-member-param"><p><b>dataTable</b><p> the data table to which the row should be appended</p></div>
+<div class="dui dui-site-member-param"><p><b>tableRow</b><p> the table row instance representing a single record</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public List&lt;T&gt; getSelectedRecords()</code></div>
+<div class="dui dui-summary-docs"> Returns a list of all currently selected records.
+</br></br><b>Returns: </b> <p> a list of selected records</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void handleEvent(DominoEvent event)</code></div>
+<div class="dui dui-summary-docs"> Handles <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/events/TableEvent.html">TableEvent</a> s from the <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/DataTable.html">DataTable</a> . Specifically, it listens for search
+ events and resets the scroll to the top when a new search is performed.
+<div class="dui dui-site-member-param"><p><b>event</b><p> the table event to handle</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void init(DataTable&lt;T&gt; dataTable)</code></div>
+<div class="dui dui-summary-docs"> Initializes this plugin with the provided <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/DataTable.html">DataTable</a> .
+
+ <p> Performs the following:
+
+ <ul> 
+   <li> Validates the data store is a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/LocalListLiveViewDataStore.html">LocalListLiveViewDataStore</a> .
+   <li> Overrides the data table's <code>rowAppender</code>  to use this plugin.
+   <li> Sets up scroll listeners and a select-all listener.
+   <li> Configures the data store to reset when data changes (if not in append mode).
+ </ul>
+<div class="dui dui-site-member-param"><p><b>dataTable</b><p> the data table this plugin is attached to</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void onAllRowsAdded(DataTable&lt;T&gt; dataTable)</code></div>
+<div class="dui dui-summary-docs"> Called after all rows in the current load operation have been appended. Updates the placeholder
+ row (sizing row) to represent the full height of the data set, and triggers the final scaling
+ and selection logic.
+<div class="dui dui-site-member-param"><p><b>dataTable</b><p> the data table</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void onBeforeAddRow(DataTable&lt;T&gt; dataTable, TableRow&lt;T&gt; tableRow)</code></div>
+<div class="dui dui-summary-docs"> Called before a row is added to the table. Calculates the row height if not already set,
+ assigns an index, and sets up position, style, and selection listeners.
+<div class="dui dui-site-member-param"><p><b>dataTable</b><p> the data table</p></div>
+<div class="dui dui-site-member-param"><p><b>tableRow</b><p> the row to be added</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public LiveViewPlugin&lt;T&gt; setRowHeight(Integer rowHeight)</code></div>
+<div class="dui dui-summary-docs"> Manually sets the row height if it is known beforehand.
+<div class="dui dui-site-member-param"><p><b>rowHeight</b><p> the row height in pixels</p></div>
+</br></br><b>Returns: </b> <p> this plugin instance for method chaining</p>
+</div>
+</div>
+</div>
+</div>

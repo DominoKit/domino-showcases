@@ -1,0 +1,17 @@
+@RequestFactory
+public interface MoviesService {
+
+    @Path("library/movies/:movieName")
+    @GET
+    Movie getMovieByName(@PathParam("movieName") String movieName);
+
+    @Path("library/movies")
+    @GET
+    List<Movie> listMovies();
+
+    @Path("movies/:name")
+    @PUT
+    @Consumes(MediaType.APPLICATION_XML)
+    @Writer(MovieXmlWriter.class)
+    void updateMovie(@BeanParam @RequestBody Movie movie);
+}

@@ -1,0 +1,7 @@
+@BrixPresenter
+@BrixRoute("dashboard")
+@BrixComponent(presenter = DashboardPresenter.class)
+public class DashboardComponent {}
+
+// navigate
+Brix.get().router().pushToken("dashboard");

@@ -1,0 +1,8 @@
+Element contentHost = DomGlobal.document.getElementById("content");
+Slot contentSlot = AcceptOneElementSlot.of("content-slot", contentHost);
+Brix.get().slots().register(contentSlot);
+
+@Override
+protected void registerSlots() {
+  registerSlot(AppendElementSlot.of("notifications", notificationsContainer));
+}

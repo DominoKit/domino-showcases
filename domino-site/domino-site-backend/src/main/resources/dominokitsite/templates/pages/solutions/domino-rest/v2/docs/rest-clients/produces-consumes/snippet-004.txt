@@ -1,0 +1,7 @@
+public class XmlMovieReader implements RequestReader<Movie>{
+        @Override
+        public Movie read(String request) {
+            Movie movieFromXml = //convert the xml to Movie
+            return movieFromXml;
+        }
+    }

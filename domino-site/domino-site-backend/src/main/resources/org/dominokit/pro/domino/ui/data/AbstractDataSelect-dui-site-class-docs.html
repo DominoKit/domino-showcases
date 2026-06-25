@@ -1,0 +1,16 @@
+Base form element for select components backed by a virtualized
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataList.html">DataList</a>.
+
+<p><code>AbstractDataSelect</code> keeps selection controls responsive for huge option sets by
+delegating option rendering to the moving-window infrastructure in this package.
+
+<p>It owns the text input, placeholder, type-to-select behavior, option search, selection helpers,
+and missing-option hooks that concrete controls such as
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataSelect.html">DataSelect</a>
+build on.
+
+<div class="dui dui-site-member-param"><p><b>T</b><p>the value type represented by the select</p></div>
+<div class="dui dui-site-member-param"><p><b>I</b><p>the rendered data list item type used for options</p></div>
+<div class="dui dui-site-member-param"><p><b>C</b><p>the concrete select subtype</p></div>

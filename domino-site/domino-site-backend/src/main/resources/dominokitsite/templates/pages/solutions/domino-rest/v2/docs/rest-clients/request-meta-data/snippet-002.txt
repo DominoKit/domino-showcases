@@ -1,0 +1,9 @@
+service.getMovie("123")
+        .onBeforeSend(request -> {
+            RequestMeta meta = request.getRequestMeta();
+
+            // Meta parameters reflect all annotations and arguments applied to the request
+            meta.getMetaParameters().forEach(param ->
+                    LOGGER.info("{} -> {}", param.getName(), param.getValue()));
+        })
+        .send();

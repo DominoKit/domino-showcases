@@ -1,0 +1,57 @@
+<div class="dui dui-members-summary">
+<h4>Static methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static DataList&lt;V, I&gt; create(VirtualScrollItemMapper&lt;V, I&gt; mapper, KeyProvider&lt;V&gt; keyProvider)</code></div>
+<div class="dui dui-summary-docs">Creates a virtualized data list backed by the supplied row mapper and key provider.
+<div class="dui dui-site-member-param"><p><b>mapper</b><p>maps each record into its rendered list item</p></div>
+<div class="dui dui-site-member-param"><p><b>keyProvider</b><p>resolves stable keys for record lookup and selection</p></div>
+<div class="dui dui-site-member-param"><p><b>V</b><p>the record type</p></div>
+<div class="dui dui-site-member-param"><p><b>I</b><p>the rendered row type</p></div>
+</br></br><b>Returns: </b><p>a new <code>DataList</code> instance</p>
+</div></div>
+</div>
+<h4>Public methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DataList&lt;V, I&gt; setItems(List&lt;V&gt; items)</code></div>
+<div class="dui dui-summary-docs">Replaces the backing records for the list and rebuilds the virtual window from the new data set.
+<div class="dui dui-site-member-param"><p><b>items</b><p>the records to expose through the list</p></div>
+</br></br><b>Returns: </b><p>this <code>DataList</code> instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DataList&lt;V, I&gt; setSearchable(DataFilter&lt;V&gt; dataFilter)</code></div>
+<div class="dui dui-summary-docs">Enables search by attaching a filter that decides whether each record matches the current token.
+<div class="dui dui-site-member-param"><p><b>dataFilter</b><p>the search predicate to apply for each record, or <code>null</code> to disable searching</p></div>
+</br></br><b>Returns: </b><p>this <code>DataList</code> instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public List&lt;I&gt; getWindowItems()</code></div>
+<div class="dui dui-summary-docs">Returns the currently rendered rows in the visible window rather than the full backing collection.
+</br></br><b>Returns: </b><p>the list items currently materialized in the viewport</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public Optional&lt;I&gt; findOptionStarsWith(String token)</code></div>
+<div class="dui dui-summary-docs">Searches the rendered window for the first row whose text starts with the supplied token.
+<div class="dui dui-site-member-param"><p><b>token</b><p>the prefix to match against visible rows</p></div>
+</br></br><b>Returns: </b><p>the first matching rendered row, if one is currently in the window</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DataList&lt;V, I&gt; selectAll(boolean silent)</code></div>
+<div class="dui dui-summary-docs">Marks every virtual item in the list as selected.
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code> to suppress selection listener callbacks while selecting</p></div>
+</br></br><b>Returns: </b><p>this <code>DataList</code> instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DataList&lt;V, I&gt; deselectAll(boolean silent)</code></div>
+<div class="dui dui-summary-docs">Clears the selection state from every virtual item in the list.
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code> to suppress deselection listener callbacks while clearing</p></div>
+</br></br><b>Returns: </b><p>this <code>DataList</code> instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public VirtualScrollListVirtualScroll&lt;V, I&gt; getVirtualScrollPanel()</code></div>
+<div class="dui dui-summary-docs">Exposes the virtual scroll container that owns window sizing, scroll synchronization, and row recycling.
+</br></br><b>Returns: </b><p>the virtual scroll panel used by this list</p>
+</div></div>
+</div>
+</div>

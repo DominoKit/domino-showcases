@@ -1,0 +1,23 @@
+import org.dominokit.domino.logger.ConsoleLoggingAdapter;
+import org.dominokit.domino.logger.LoggingRouter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
+
+public class PaymentFlow {
+  private static final Logger log = LoggerFactory.getLogger(PaymentFlow.class);
+  private static final Marker PAYMENT = MarkerFactory.getMarker("PAYMENT");
+  private static final Marker ONLINE = MarkerFactory.getMarker("ONLINE");
+
+  public void initLogging() {
+    PAYMENT.add(ONLINE);
+    LoggingRouter.setDefaultAdapter(new ConsoleLoggingAdapter());
+    LoggingRouter.register("PAYMENT", new ConsoleLoggingAdapter());
+    LoggingRouter.register("ONLINE", new ConsoleLoggingAdapter());
+  }
+
+  public void charge(String orderId) {
+    log.info(PAYMENT, "Charging order {}", orderId);
+  }
+}

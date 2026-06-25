@@ -1,0 +1,34 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/presenter-lifecycle"
+               aria-expanded="true">
+                Presenter lifecycle
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/presenter-lifecycle/routing-updates" aria-expanded="true">
+                Routing updates
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Routing state updates</h1>
+    <p class="dui dui-leading-6">Map routing parameters into presenter fields with annotations. Fields are set before
+        activation and reveal, then refreshed whenever the token changes while the presenter is active.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Flow</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Fields populate before <code>onActivated()</code> → use them to load data.</span></li>
+        <li class="dui"><span><code>setRoutingState(...)</code> refreshes fields and calls <code>onStateChanged()</code> if active.</span></li>
+        <li class="dui"><span>Use <code>onStateChanged()</code> or <code>@OnStateChanged</code> methods to respond without reactivation.</span></li>
+    </ul>
+</div>

@@ -1,0 +1,10 @@
+@BrixPresenter
+@BrixRoute("dashboard")
+@BrixSlot(BrixSlots.BRIX_BODY_SLOT)
+public class DashboardPresenter extends Presenter<DashboardView> {
+
+  @Override
+  protected void onRevealed() {
+    view.showMessage("Hello, Brix!");
+  }
+}

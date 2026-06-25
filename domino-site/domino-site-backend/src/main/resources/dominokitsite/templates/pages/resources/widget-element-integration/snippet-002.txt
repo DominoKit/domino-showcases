@@ -1,0 +1,116 @@
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.WidgetWrapper;
+import elemental2.dom.HTMLElement;
+import jsinterop.base.Js;
+import org.dominokit.domino.ui.IsElement;
+import org.dominokit.domino.ui.utils.BaseDominoElement;
+import org.dominokit.domino.ui.utils.DominoElement;
+
+import static org.dominokit.domino.ui.utils.Domino.wrap;
+
+/**
+ * Bridges GWT widgets and Domino UI elements without requiring a full rewrite.
+ *
+ * <p>This helper supports both directions:
+ * <ul>
+ *   <li>wrap a GWT {@link Widget} or {@link IsWidget} as a Domino {@link DominoElement}</li>
+ *   <li>wrap a Domino {@link IsElement} back into a GWT {@link Widget}</li>
+ * </ul>
+ *
+ * <p>The widget-to-element path keeps the original widget root element and forwards attachment and
+ * detachment through {@link WidgetWrapper} so the widget lifecycle stays aligned with the Domino
+ * element lifecycle.
+ */
+public class WidgetElement extends BaseDominoElement<HTMLElement, WidgetElement> {
+
+    private final HTMLElement root;
+
+    /**
+     * Creates a Domino element view over the supplied widget.
+     *
+     * @param widget the widget whose root element should back this Domino element
+     */
+    private WidgetElement(Widget widget) {
+        this.root = Js.uncheckedCast(widget.getElement());
+        init(this);
+    }
+
+    /**
+     * Returns the underlying HTML element that backs this Domino wrapper.
+     *
+     * @return the widget root element exposed as an {@link HTMLElement}
+     */
+    @Override
+    public HTMLElement element() {
+        return this.root;
+    }
+
+    /**
+     * Wraps a Domino element as a GWT widget.
+     *
+     * <p>If the supplied element already is a {@link Widget}, it is returned unchanged. Otherwise a
+     * lightweight adapter is created that points the widget to the same DOM element.
+     *
+     * @param element the Domino element to expose through the Widget API
+     * @return the original widget or a widget adapter over the same root element
+     */
+    public static Widget toElementWidget(IsElement<? extends HTMLElement> element) {
+        if (element instanceof Widget) {
+            return (Widget) element;
+        }
+        return new ElementWidget(element);
+    }
+
+    /**
+     * Converts an {@link IsWidget} into a {@link WidgetElement}.
+     *
+     * <p>The returned Domino element is backed by the same HTML element used by the widget.
+     *
+     * @param isWidget the source widget abstraction
+     * @return a Domino element wrapper over the widget root element
+     * @throws NullPointerException when the {@link IsWidget} cannot be resolved to a widget instance
+     */
+    public static WidgetElement toWidgetElement(IsWidget isWidget) {
+        Widget widget = Widget.asWidgetOrNull(isWidget);
+        if (widget == null) {
+            throw new NullPointerException("isWidget cannot be null");
+        }
+        return new WidgetElement(widget);
+    }
+
+    /**
+     * Converts a GWT {@link Widget} into a Domino element and keeps its lifecycle synchronized.
+     *
+     * <p>When the Domino element is attached, the widget receives {@link Widget#onAttach()}; when
+     * it is detached, the widget receives {@link Widget#onDetach()}.
+     *
+     * @param widget the widget to expose as a Domino element
+     * @return a Domino element view backed by the widget's root HTML element
+     */
+    public static DominoElement<HTMLElement> toWidgetElement(Widget widget) {
+        return wrap(Js.<HTMLElement>uncheckedCast(widget.getElement()))
+                .apply(dominoElement -> {
+                    dominoElement.registerNowAndWhenAttached(() -> {
+                        new WidgetWrapper(widget).attach();
+                    });
+                    dominoElement.nowAndWhenDetached(() -> {
+                        new WidgetWrapper(widget).detach();
+                    });
+                });
+    }
+
+    /**
+     * Simple widget adapter that exposes a Domino element as a GWT widget.
+     */
+    private static class ElementWidget extends Widget {
+        /**
+         * Creates a widget that reuses the supplied Domino element's root HTML element.
+         *
+         * @param dominoElement the Domino element to expose through the Widget API
+         */
+        public ElementWidget(IsElement<? extends HTMLElement> dominoElement) {
+            setElement(Js.uncheckedCast(dominoElement.element()));
+        }
+    }
+}

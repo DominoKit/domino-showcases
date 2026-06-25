@@ -1,0 +1,6 @@
+@RequestFactory
+public interface SomeService extends FirstService, SecondService {
+
+    @Path("some-path")
+    SomeResponse someRequest();
+}

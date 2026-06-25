@@ -1,0 +1,56 @@
+<div class="dui dui-members-summary">
+<h4>Constructors</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void AbstractDataSelect(VirtualScrollItemMapper&lt;T, I&gt; mapper, KeyProvider&lt;T&gt; keyProvider)</code></div>
+<div class="dui dui-summary-docs">Creates the form field, hidden input, type-ahead input, and virtualized options menu used by the select.
+<div class="dui dui-site-member-param"><p><b>mapper</b><p>maps each option record into its rendered list row</p></div>
+<div class="dui dui-site-member-param"><p><b>keyProvider</b><p>resolves stable keys for the option records</p></div>
+</div></div>
+</div>
+<h4>Public methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C setPlaceholder(String placeholder)</code></div>
+<div class="dui dui-summary-docs">Sets the placeholder text shown when the select has no value.
+<div class="dui dui-site-member-param"><p><b>placeholder</b><p>the placeholder text to display</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C setTypeToSelect(boolean typeToSelect)</code></div>
+<div class="dui dui-summary-docs">Enables or disables the type-ahead selection input.
+<div class="dui dui-site-member-param"><p><b>typeToSelect</b><p><code>true</code> to allow typing directly into the select for quick matching</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C withValue(T value, boolean silent)</code></div>
+<div class="dui dui-summary-docs">Sets the selected value and optionally suppresses change listeners.
+<div class="dui dui-site-member-param"><p><b>value</b><p>the value to select</p></div>
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code> to avoid notifying change listeners</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DataList&lt;T, I&gt; getOptionsMenu()</code></div>
+<div class="dui dui-summary-docs">Exposes the underlying virtualized options list used by the select.
+</br></br><b>Returns: </b><p>the backing <code>DataList</code> instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C selectByValue(T value, boolean silent)</code></div>
+<div class="dui dui-summary-docs">Finds an option by its record value and selects it.
+<div class="dui dui-site-member-param"><p><b>value</b><p>the option value to select</p></div>
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code> to avoid notifying change listeners</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C setSearchable(DataFilter&lt;T&gt; dataFilter)</code></div>
+<div class="dui dui-summary-docs">Turns on option searching by delegating token matching to the provided data filter.
+<div class="dui dui-site-member-param"><p><b>dataFilter</b><p>the search predicate applied to each option record</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C withOptionsMenu(ChildHandler&lt;C, DataList&lt;T, I&gt;&gt; handler)</code></div>
+<div class="dui dui-summary-docs">Applies custom configuration directly to the backing options menu.
+<div class="dui dui-site-member-param"><p><b>handler</b><p>receives the select instance and its options menu</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C setOptions(Collection&lt;T&gt; records)</code></div>
+<div class="dui dui-summary-docs">Replaces the available option records shown by the select.
+<div class="dui dui-site-member-param"><p><b>records</b><p>the new option records</p></div>
+</div></div>
+</div>
+</div>

@@ -1,0 +1,12 @@
+@BrixPresenter
+@BrixRoute("dashboard")
+@BrixSlot(BrixSlots.BRIX_BODY_SLOT)
+public class DashboardPresenter extends Presenter<DashboardView> {
+  // No manual view binding needed
+}
+
+@UiView
+public class DashboardView extends BrixView<Element, DashboardHandlers>
+    implements DashboardPresenter.DashboardView {
+  @Handlers DashboardHandlers handlers;
+}

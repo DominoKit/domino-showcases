@@ -1,0 +1,128 @@
+<div class="dui dui-members-summary"><h4>Constructors</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void ColorPicker()</code></div>
+<div class="dui dui-summary-docs"> Constructs a new <code>ColorPicker</code>  with default settings and UI components.
+
+</div>
+</div>
+</div>
+<h4>Static methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static ColorPicker create()</code></div>
+<div class="dui dui-summary-docs"> Creates a new instance of <code>ColorPicker</code> .
+</br></br><b>Returns: </b> <p> A new 
+<code>ColorPicker</code>
+  instance.</p>
+</div>
+</div>
+</div>
+<h4>Public methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public ColorPicker addChangeListener(ChangeListener&lt;? super Color&gt; changeListener)</code></div>
+<div class="dui dui-summary-docs"> Adds a change listener to monitor color value changes.
+<div class="dui dui-site-member-param"><p><b>changeListener</b><p> The listener to add.</p></div>
+</br></br><b>Returns: </b> <p> This 
+<code>ColorPicker</code>
+  instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public HTMLDivElement element()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the root HTML element of the color picker.
+</br></br><b>Returns: </b> <p> The HTML element representing the color picker.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public Set&lt;ChangeListener&lt;? super Color&gt;&gt; getChangeListeners()</code></div>
+<div class="dui dui-summary-docs"> Retrieves an unmodifiable set of registered change listeners.
+</br></br><b>Returns: </b> <p> The set of change listeners.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public Color getValue()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the current color value.
+</br></br><b>Returns: </b> <p> The current color.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void setValue(Color value)</code></div>
+<div class="dui dui-summary-docs"> Sets a new color value.
+<div class="dui dui-site-member-param"><p><b>value</b><p> The new color value to set.</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public boolean hasChangeListener(ChangeListener&lt;? super Color&gt; changeListener)</code></div>
+<div class="dui dui-summary-docs"> Checks if a specific change listener is registered.
+<div class="dui dui-site-member-param"><p><b>changeListener</b><p> The listener to check.</p></div>
+</br></br><b>Returns: </b> <p><code>true</code>
+  if the listener is registered, otherwise 
+<code>false</code>
+ .</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public boolean isChangeListenersPaused()</code></div>
+<div class="dui dui-summary-docs"> Checks if change listeners are currently paused.
+</br></br><b>Returns: </b> <p><code>true</code>
+  if listeners are paused, otherwise 
+<code>false</code>
+ .</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public boolean isFieldsVisible()</code></div>
+<div class="dui dui-summary-docs"> Checks if the fields panel is visible.
+</br></br><b>Returns: </b> <p><code>true</code>
+  if fields are visible, otherwise 
+<code>false</code>
+ .</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public ColorPicker setFieldsVisible(boolean fieldsVisible)</code></div>
+<div class="dui dui-summary-docs"> Sets the visibility of the fields panel.
+<div class="dui dui-site-member-param"><p><b>fieldsVisible</b><p><code>true</code>  to show fields, <code>false</code>  to hide them.</p></div>
+</br></br><b>Returns: </b> <p> This 
+<code>ColorPicker</code>
+  instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public ColorPicker pauseChangeListeners()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p><b> ColorPicker-specific behavior:</b>  Pausing listeners will suppress change events while
+ allowing internal component updates.
+</br></br><b>Returns: </b> <p> This ColorPicker instance for chaining</p>
+</div>
+</div>
+
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public ColorPicker resumeChangeListeners()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Resumes firing change events if they were paused. Any changes made while paused will trigger
+ a single composite change event.
+</br></br><b>Returns: </b> <p> This ColorPicker instance for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public ColorPicker togglePauseChangeListeners(boolean toggle)</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation.
+<div class="dui dui-site-member-param"><p><b>toggle</b><p> true to pause listeners, false to resume</p></div>
+</br></br><b>Returns: </b> <p> This ColorPicker instance for chaining</p>
+</div>
+</div>
+
+
+
+</div>
+</div>

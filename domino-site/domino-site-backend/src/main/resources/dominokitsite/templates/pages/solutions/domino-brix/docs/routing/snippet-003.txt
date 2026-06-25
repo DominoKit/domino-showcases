@@ -1,0 +1,15 @@
+public class CustomerPresenter extends Presenter<CustomerView> {
+  @PathParameter("customerId") String id;
+  @QueryParameter("filter") String filter;
+  @FragmentParameter String tab;
+
+  @Override
+  protected void onActivated() {
+    view.loadCustomer(id, filter, tab);
+  }
+
+  @Override
+  protected void onStateChanged() {
+    view.reload(id, filter, tab);
+  }
+}

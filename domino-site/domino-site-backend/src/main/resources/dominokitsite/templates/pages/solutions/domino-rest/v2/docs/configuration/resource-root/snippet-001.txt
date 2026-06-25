@@ -1,0 +1,2 @@
+DominoRestConfig.getInstance()
+        .setDefaultResourceRootPath("endpoint");

@@ -1,0 +1,4 @@
+public interface DashboardView extends View, DashboardUiHandlers.HasUiHandlers {
+  void showMessage(String text);
+  void showUser(String userId);
+}

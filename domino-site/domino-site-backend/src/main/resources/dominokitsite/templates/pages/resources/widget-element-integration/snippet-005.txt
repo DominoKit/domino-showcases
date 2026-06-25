@@ -1,0 +1,8 @@
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.Widget;
+import org.dominokit.domino.ui.forms.TextBox;
+
+TextBox dominoTextBox = TextBox.create().withValue("Domino element exposed as a Widget");
+
+Widget widgetAdapter = WidgetElement.toElementWidget(dominoTextBox);
+RootPanel.get().add(widgetAdapter);

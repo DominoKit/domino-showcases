@@ -1,0 +1,5 @@
+dominokit generate module \
+  -n <name> \
+  [-sp <subPackage>] \
+  [-p <prefix>] \
+  [-d <absoluteOutputDir>]

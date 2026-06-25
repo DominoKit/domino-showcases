@@ -1,0 +1,6 @@
+GenericResponseResourceFactory.INSTANCE
+        .ready()
+        .onSuccess(wrapper -> LOGGER.info(wrapper.getResponse().getStatusCode() +" : "+wrapper.getResponse().getStatusText()))
+        .onFailed(failedResponse -> LOGGER.error("Failed to execute request", failedResponse.getThrowable()))
+        .onComplete(() -> LOGGER.info("Request completed"))
+        .send();

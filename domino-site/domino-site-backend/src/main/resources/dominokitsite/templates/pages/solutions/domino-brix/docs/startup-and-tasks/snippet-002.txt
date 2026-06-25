@@ -1,0 +1,9 @@
+@Module
+public class AppTasksModule {
+  @Provides
+  @BrixTask
+  static List<BrixStartupTask> tasks(FetchConfigTask fetchConfig,
+                                     WarmupTask warmup) {
+    return List.of(fetchConfig, warmup);
+  }
+}

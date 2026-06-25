@@ -1,0 +1,12 @@
+import com.google.gwt.user.client.ui.TextBox;
+import elemental2.dom.HTMLElement;
+import org.dominokit.domino.ui.grid.Row;
+import org.dominokit.domino.ui.utils.DominoElement;
+
+TextBox legacyTextBox = new TextBox();
+legacyTextBox.setValue("Legacy GWT widget");
+
+DominoElement<HTMLElement> bridgedWidget = WidgetElement.toWidgetElement(legacyTextBox);
+
+Row row = Row.create();
+row.appendChild(bridgedWidget);

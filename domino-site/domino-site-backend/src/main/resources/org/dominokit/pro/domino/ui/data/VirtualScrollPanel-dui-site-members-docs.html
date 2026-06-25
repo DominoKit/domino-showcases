@@ -1,0 +1,44 @@
+<div class="dui dui-members-summary">
+<h4>Constructors</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void VirtualScrollPanel(VirtualScrollItemMapper&lt;T, I&gt; mapper, KeyProvider&lt;T&gt; keyProvider)</code></div>
+<div class="dui dui-summary-docs">Creates the virtual scroll viewport and its backing <code>ScrollingWindowList</code>.
+<div class="dui dui-site-member-param"><p><b>mapper</b><p>maps records into rendered items</p></div>
+<div class="dui dui-site-member-param"><p><b>keyProvider</b><p>resolves stable keys for the records in the viewport</p></div>
+</div></div>
+</div>
+<h4>Public methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C setItems(List&lt;T&gt; items)</code></div>
+<div class="dui dui-summary-docs">Measures the row height from the provided data, configures the scroll container, and initializes the backing window list.
+<div class="dui dui-site-member-param"><p><b>items</b><p>the full record collection to virtualize</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C updateItems(List&lt;VirtualItem&lt;T, I&gt;&gt; items)</code></div>
+<div class="dui dui-summary-docs">Replaces the active virtual item set without remeasuring row structure, which is useful for filtered views.
+<div class="dui dui-site-member-param"><p><b>items</b><p>the virtual items that should back the current viewport</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C addOnListReadyListener(Consumer&lt;C&gt; listener)</code></div>
+<div class="dui dui-summary-docs">Registers a callback that runs when the virtual list has been initialized and is ready for interaction.
+<div class="dui dui-site-member-param"><p><b>listener</b><p>the callback to invoke once the list is ready</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C withBodyElement(ChildHandler&lt;C, DivElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs">Exposes the body element that holds rendered viewport items for advanced customization.
+<div class="dui dui-site-member-param"><p><b>handler</b><p>receives the panel and its body element</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public ScrollingWindowList&lt;T, I&gt; getWindowList()</code></div>
+<div class="dui dui-summary-docs">Returns the window manager used by the panel.
+</br></br><b>Returns: </b><p>the backing <code>ScrollingWindowList</code> instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public int getItemHeight()</code></div>
+<div class="dui dui-summary-docs">Returns the measured row height used to size and recycle the virtual viewport.
+</br></br><b>Returns: </b><p>the item height in pixels</p>
+</div></div>
+</div>
+</div>

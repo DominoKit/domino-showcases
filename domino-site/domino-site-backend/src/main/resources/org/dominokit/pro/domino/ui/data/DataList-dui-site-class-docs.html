@@ -1,0 +1,19 @@
+Virtualized list component for huge data sets.
+
+<p><code>DataList</code> renders only the visible slice of its backing collection while the full
+record set remains searchable, selectable, and incrementally mutable.
+
+<p>It works with rendered rows such as <a class="dui" tabindex="0" aria-expanded="true"
+target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataListItem.html">DataListItem</a>
+and <a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/CheckableDataListItem.html">CheckableDataListItem</a>,
+wraps each record as a <a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/VirtualItem.html">VirtualItem</a>,
+and delegates window management to <a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/ScrollingWindowList.html">ScrollingWindowList</a>
+and <a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/VirtualScrollPanel.html">VirtualScrollPanel</a>.
+
+<div class="dui dui-site-member-param"><p><b>V</b><p>the record type represented by the list</p></div>
+<div class="dui dui-site-member-param"><p><b>I</b><p>the rendered row type used for visible items</p></div>

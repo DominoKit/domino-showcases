@@ -1,0 +1,7 @@
+@RequestFactory
+public interface MoviesService {
+
+    @Path("library/movies/{name}")
+    @GET
+    Movie getMovieByName(@PathParam("name") String movieName, @HeaderParam("token") String requestToken);
+}

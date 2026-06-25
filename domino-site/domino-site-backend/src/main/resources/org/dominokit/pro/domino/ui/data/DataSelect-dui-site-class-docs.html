@@ -1,0 +1,17 @@
+Single-selection form control built on top of the package virtualized list infrastructure.
+
+<p><code>DataSelect</code> is intended for huge option sets where eagerly rendering every option
+would be expensive. It delegates option presentation to a virtualized
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataList.html">DataList</a>.
+
+<p>The selected option is tracked as a <a class="dui" tabindex="0" aria-expanded="true"
+target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/VirtualItem.html">VirtualItem</a>,
+and its rendered field value can be customized through
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataSelectItemValueMapper.html">DataSelectItemValueMapper</a>
+and <a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataOptionMeta.html">DataOptionMeta</a>.
+
+<div class="dui dui-site-member-param"><p><b>V</b><p>the value type represented by each option</p></div>

@@ -1,0 +1,6 @@
+Map<String, String> config = Map.of("apiBase", "/api");
+Brix.get().init(config);
+Brix.get().start(Set.of(/* startup tasks */), () -> DomGlobal.console.info("Ready"));
+
+// navigate
+Brix.get().router().pushToken("dashboard");

@@ -1,0 +1,23 @@
+<app-root>/
+  pom.xml                          # aggregator
+  <app-name>-backend/
+    pom.xml
+    src/main/java/
+    src/main/resources/
+    src/test/java/
+  <app-name>-frontend/
+    pom.xml
+    src/main/java/
+    src/main/resources/
+    src/test/java/
+  <app-name>-shared/
+    pom.xml
+    src/main/java/
+    src/test/java/
+  <feature-a>/
+    pom.xml                        # aggregator for the feature
+    <feature-a>-frontend/
+    <feature-a>-shared/
+    <feature-a>-ui/
+  <feature-b>/
+    ...

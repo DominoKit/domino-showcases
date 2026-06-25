@@ -1,0 +1,42 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/codegen-and-annotations"
+               aria-expanded="true">
+                Codegen &amp; annotations
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Key annotations</h1>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><code>@BrixPresenter</code> – generate presenter impl and lifecycle wiring.</span></li>
+        <li class="dui"><span><code>@UiView</code> – generate a <code>_UiView</code> subclass and DI bindings.</span></li>
+        <li class="dui"><span><code>@BrixComponent</code> – generate component initializer for router registration.</span></li>
+        <li class="dui"><span><code>@BrixRoute</code> – map presenter to a route; supports custom routing provider.</span></li>
+        <li class="dui"><span><code>@BrixSlot</code> / <code>@RegisterSlots</code> – declare and supply slots.</span></li>
+        <li class="dui"><span><code>@ListenFor</code>, <code>@PathParameter</code>, <code>@QueryParameter</code>,
+            <code>@FragmentParameter</code> – wire events and routing state.</span></li>
+        <li class="dui"><span>Lifecycle annotations: <code>@OnReveal</code>, <code>@OnBeforeReveal</code>,
+            <code>@OnActivated</code>, <code>@OnDeactivated</code>, <code>@OnStateChanged</code>, <code>@OnRemove</code>.</span></li>
+        <li class="dui"><span>Handlers: <code>@UiHandler</code> on presenter methods, <code>@Handlers</code> on view fields.</span></li>
+        <li class="dui"><span>Qualifiers: <code>@BrixTask</code> for startup tasks, <code>@Global</code> for shared core beans.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Minimal example</h2>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">What gets generated</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><b>*PresenterImpl</b>: lifecycle hooks, routing parameter mapping, event/handler wiring.</span></li>
+        <li class="dui"><span><b>*_UiView</b>: handler injection and Dagger bindings.</span></li>
+        <li class="dui"><span><b>*Routing</b>: token filters for the router.</span></li>
+        <li class="dui"><span><b>BrixComponentInitializer</b>: service entry in <code>META-INF/services</code> for router registration.</span></li>
+    </ul>
+</div>

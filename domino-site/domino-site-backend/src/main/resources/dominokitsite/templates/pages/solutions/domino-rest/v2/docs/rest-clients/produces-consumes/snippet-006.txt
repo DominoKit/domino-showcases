@@ -1,0 +1,4 @@
+CustomMapper.matcher(meta -> MoviesService.class.equals(meta.getServiceClass())
+                && MediaType.APPLICATION_ATOM_XML.equals(meta.getProduce())
+                && Movie.class.equals(meta.getResponseClass()))
+                .reader(() -> new XmlMovieReader());

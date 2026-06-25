@@ -1,0 +1,22 @@
+ A double-ended (range) slider component that allows selecting a lower and upper value within a
+ defined range.
+
+ <p> This component internally manages two separate <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/sliders/Slider.html">Slider</a>  instances—one for the lower
+ value and one for the upper value. Both sliders enforce a minimal gap to ensure the lower value
+ does not exceed the upper, and vice versa.
+
+ <p> Example:
+
+ <pre><code>
+ RangeSlider slider = RangeSlider.create(0, 100)
+     .setStep(5)
+     .setValue(Range.of(20.0, 80.0))
+     .addChangeListener((oldValue, newValue) -> {
+       console.log("Range changed: " + newValue);
+     });
+ </code></pre> 
+
+ <p> In this example, the slider covers values from 0 to 100. Both the lower and upper slider
+ thumbs move in increments of 5, and their combined range is enforced by a minimal gap (if
+ specified).
+

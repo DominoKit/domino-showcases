@@ -1,0 +1,5 @@
+@Override
+protected void postConstruct() {
+  LOGGER.info("Dashboard ready");
+  view.setTitle("Dashboard");
+}

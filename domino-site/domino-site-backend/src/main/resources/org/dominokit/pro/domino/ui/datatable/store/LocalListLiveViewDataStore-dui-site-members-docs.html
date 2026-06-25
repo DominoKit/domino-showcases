@@ -1,0 +1,261 @@
+<div class="dui dui-members-summary"><h4>Constructors</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void LocalListLiveViewDataStore()</code></div>
+<div class="dui dui-summary-docs"> Creates a new store with empty data.
+
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void LocalListLiveViewDataStore(List&lt;T&gt; data)</code></div>
+<div class="dui dui-summary-docs"> Creates a new store with a custom initial list of data.
+<div class="dui dui-site-member-param"><p><b>data</b><p> the list of records to initialize this store with</p></div>
+</div>
+</div>
+</div>
+<h4>Public methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public List&lt;T&gt; getFilteredRecords()</code></div>
+<div class="dui dui-summary-docs">
+</br></br><b>Returns: </b> <p> an unmodifiable list of the currently filtered (and possibly sorted) records</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void setData(List&lt;T&gt; data)</code></div>
+<div class="dui dui-summary-docs"> Replaces all existing data in this store with the specified list, then reloads the table. Any
+ active filters or sorts are cleared, and the table is refreshed.
+<div class="dui dui-site-member-param"><p><b>data</b><p> the new list of records</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public SearchFilter&lt;T&gt; getSearchFilter()</code></div>
+<div class="dui dui-summary-docs"> Returns the current <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/store/SearchFilter.html">SearchFilter</a>  being used by this store, or <code>null</code>  if no filter
+ is set.
+</br></br><b>Returns: </b> <p> the current 
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/store/SearchFilter.html">SearchFilter</a>
+ , or 
+<code>null</code></p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public LocalListLiveViewDataStore&lt;T&gt; setSearchFilter(SearchFilter&lt;T&gt; searchFilter)</code></div>
+<div class="dui dui-summary-docs"> Sets a new <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/store/SearchFilter.html">SearchFilter</a>  to be used upon receiving <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/events/SearchEvent.html">SearchEvent</a> s. When a search
+ event occurs, this filter is applied to <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/original.html">original</a>  to create the new <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/filtered.html">filtered</a> 
+ list.
+<div class="dui dui-site-member-param"><p><b>searchFilter</b><p> the new filter</p></div>
+</br></br><b>Returns: </b> <p> this instance, for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public LocalListLiveViewDataStore&lt;T&gt; setAutoSort(boolean autoSort)</code></div>
+<div class="dui dui-summary-docs"> Enables or disables automatic sorting. If enabled, the store will automatically sort the data
+ upon loading using <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/autoSortBy.html">autoSortBy</a>  and <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/autoSortDirection.html">autoSortDirection</a> .
+<div class="dui dui-site-member-param"><p><b>autoSort</b><p><code>true</code>  to auto-sort data on load, <code>false</code>  otherwise</p></div>
+</br></br><b>Returns: </b> <p> this instance, for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public LocalListLiveViewDataStore&lt;T&gt; setAutoSortBy(String autoSortBy)</code></div>
+<div class="dui dui-summary-docs"> Sets the default column/field to sort by if <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/autoSort.html">autoSort</a>  is enabled.
+<div class="dui dui-site-member-param"><p><b>autoSortBy</b><p> the sort key</p></div>
+</br></br><b>Returns: </b> <p> this instance, for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public LocalListLiveViewDataStore&lt;T&gt; setAutoSortDirection(SortDirection autoSortDirection)</code></div>
+<div class="dui dui-summary-docs"> Sets the default sort direction (ASC or DESC) if <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/autoSort.html">autoSort</a>  is enabled.
+<div class="dui dui-site-member-param"><p><b>autoSortDirection</b><p> the desired <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/plugins/pagination/SortDirection.html">SortDirection</a></p></div>
+</br></br><b>Returns: </b> <p> this instance, for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public RecordsSorter&lt;T&gt; getRecordsSorter()</code></div>
+<div class="dui dui-summary-docs"> Returns the current <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/store/RecordsSorter.html">RecordsSorter</a>  used by this store for sorting.
+</br></br><b>Returns: </b> <p> the records sorter</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public LocalListLiveViewDataStore&lt;T&gt; setRecordsSorter(RecordsSorter&lt;T&gt; recordsSorter)</code></div>
+<div class="dui dui-summary-docs"> Sets the <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/store/RecordsSorter.html">RecordsSorter</a>  for this data store, using the default <code>List::sort</code> 
+ function to apply the comparator.
+<div class="dui dui-site-member-param"><p><b>recordsSorter</b><p> the new sorter</p></div>
+</br></br><b>Returns: </b> <p> this instance, for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public LocalListLiveViewDataStore&lt;T&gt; setRecordsSorter(RecordsSorter&lt;T&gt; recordsSorter, SortFunction&lt;T&gt; sortFunction)</code></div>
+<div class="dui dui-summary-docs"> Sets a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/store/RecordsSorter.html">RecordsSorter</a>  and a custom <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/SortFunction.html">SortFunction</a>  for applying the sort.
+
+ <p> This can be used to override how the actual sorting is performed, e.g., by calling a custom
+ parallel sort method.
+<div class="dui dui-site-member-param"><p><b>recordsSorter</b><p> the records sorter</p></div>
+<div class="dui dui-site-member-param"><p><b>sortFunction</b><p> the function that applies the comparator</p></div>
+</br></br><b>Returns: </b> <p> this instance, for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void onDataChanged(StoreDataChangeListener&lt;T&gt; dataChangeListener)</code></div>
+<div class="dui dui-summary-docs"> Registers a new <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/data/StoreDataChangeListener.html">StoreDataChangeListener</a>  that will be notified whenever the data in this
+ store changes (due to searching, sorting, or record manipulation).
+<div class="dui dui-site-member-param"><p><b>dataChangeListener</b><p> the listener to register</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void onDataChanged(int index, StoreDataChangeListener&lt;T&gt; dataChangeListener)</code></div>
+<div class="dui dui-summary-docs"> Inserts a new data change listener at the specified index in the listener list.
+<div class="dui dui-site-member-param"><p><b>index</b><p> the index position</p></div>
+<div class="dui dui-site-member-param"><p><b>dataChangeListener</b><p> the listener</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void removeDataChangeListener(StoreDataChangeListener&lt;T&gt; dataChangeListener)</code></div>
+<div class="dui dui-summary-docs"> Removes a previously registered data change listener.
+<div class="dui dui-site-member-param"><p><b>dataChangeListener</b><p> the listener to remove</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void handleEvent(DominoEvent event)</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> This data store reacts to:
+
+ <ul> 
+   <li><a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/events/SearchEvent.html">SearchEvent</a>  - filters the data using <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/searchFilter.html">searchFilter</a> 
+   <li><a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/events/SortEvent.html">SortEvent</a>  - sorts the data using <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/recordsSorter.html">recordsSorter</a> 
+ </ul>
+
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void load(boolean flush, int startIndex, int endIndex)</code></div>
+<div class="dui dui-summary-docs"> Loads a specified range of the filtered data, optionally flushing the existing rows. If <code>
+ flush</code>  is true, the store signals that rows should not be appended but rather replaced.
+<div class="dui dui-site-member-param"><p><b>flush</b><p> whether to replace the current rows instead of appending</p></div>
+<div class="dui dui-site-member-param"><p><b>startIndex</b><p> the start index (inclusive)</p></div>
+<div class="dui dui-site-member-param"><p><b>endIndex</b><p> the end index (inclusive)</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void load(int startIndex, int endIndex)</code></div>
+<div class="dui dui-summary-docs"> Loads a specified range of the filtered data without flushing existing rows.
+<div class="dui dui-site-member-param"><p><b>startIndex</b><p> the start index (inclusive)</p></div>
+<div class="dui dui-site-member-param"><p><b>endIndex</b><p> the end index (inclusive)</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public int getFilteredCount()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the number of currently filtered records.
+</br></br><b>Returns: </b> <p> the filtered record count</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void load()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> This implementation resets the load indexes to cover the same "page size" (delta) from zero
+ to preserve user-defined ranges, then reloads the table.
+
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void addRecord(T record)</code></div>
+<div class="dui dui-summary-docs"> Appends a single record to the original data set, then updates the table.
+<div class="dui dui-site-member-param"><p><b>record</b><p> the record to add</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void removeRecord(T record)</code></div>
+<div class="dui dui-summary-docs"> Removes a single record from both the original and filtered lists, then updates the table.
+<div class="dui dui-site-member-param"><p><b>record</b><p> the record to remove</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void updateRecord(T record)</code></div>
+<div class="dui dui-summary-docs"> Updates an existing record in the data store (via the record's index in <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/original.html">original</a> ),
+ then refreshes the table.
+<div class="dui dui-site-member-param"><p><b>record</b><p> the updated record</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void updateRecord(int index, T record)</code></div>
+<div class="dui dui-summary-docs"> Updates the record at the specified index in <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/original.html">original</a> , then refreshes the table.
+<div class="dui dui-site-member-param"><p><b>record</b><p> the new record</p></div>
+<div class="dui dui-site-member-param"><p><b>index</b><p> the index to replace</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void updateRecords(Collection&lt;T&gt; records)</code></div>
+<div class="dui dui-summary-docs"> Updates multiple records in place, based on their existing positions in <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/original.html">original</a> , then
+ triggers a reload.
+<div class="dui dui-site-member-param"><p><b>records</b><p> the records to update</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void updateRecords(int startIndex, Collection&lt;T&gt; records)</code></div>
+<div class="dui dui-summary-docs"> Updates multiple records in place, starting from a specific index, then reloads. If the index
+ is out of range, the process stops.
+<div class="dui dui-site-member-param"><p><b>startIndex</b><p> the initial index to begin updates</p></div>
+<div class="dui dui-site-member-param"><p><b>records</b><p> the records to update</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void addRecords(Collection&lt;T&gt; records)</code></div>
+<div class="dui dui-summary-docs"> Adds multiple records to the store, replacing the existing data and triggering a reload.
+<div class="dui dui-site-member-param"><p><b>records</b><p> the collection of records to add</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void removeRecord(Collection&lt;T&gt; records)</code></div>
+<div class="dui dui-summary-docs"> Removes multiple records from this store (both original and filtered), then updates the table.
+@deprecated use {@link #removeRecords(Collection)} instead
+<div class="dui dui-site-member-param"><p><b>records</b><p> the records to remove</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void removeRecords(Collection&lt;T&gt; records)</code></div>
+<div class="dui dui-summary-docs"> Removes multiple records from the store, then updates the table.
+<div class="dui dui-site-member-param"><p><b>records</b><p> the records to remove</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public List&lt;T&gt; getRecords()</code></div>
+<div class="dui dui-summary-docs"> Returns an <i> independent</i>  copy of the entire original data list. Modifications to the
+ returned list will not affect this store.
+</br></br><b>Returns: </b> <p> a new list containing the original data</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void setDragDropRecordActions(DragDropRecordActions&lt;T&gt; dragDropRecordActions)</code></div>
+<div class="dui dui-summary-docs"> Assigns a custom <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/DragDropRecordActions.html">DragDropRecordActions</a>  handler to define how records should be moved or
+ removed when drag-and-drop actions occur on the UI.
+<div class="dui dui-site-member-param"><p><b>dragDropRecordActions</b><p> the new handler</p></div>
+</div>
+</div>
+</div>
+</div>

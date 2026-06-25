@@ -1,0 +1,48 @@
+<div class="dui dui-members-summary">
+<h4>Constructors</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void ScrollingWindowList(VirtualScrollItemMapper&lt;T, I&gt; mapper, KeyProvider&lt;T&gt; keyProvider, ScrollingListWindowListener&lt;T, I&gt; listener)</code></div>
+<div class="dui dui-summary-docs">Creates a window manager that can materialize records, resolve keys, and report window lifecycle events.
+<div class="dui dui-site-member-param"><p><b>mapper</b><p>maps records into rendered window items</p></div>
+<div class="dui dui-site-member-param"><p><b>keyProvider</b><p>resolves stable keys for the backing records</p></div>
+<div class="dui dui-site-member-param"><p><b>listener</b><p>receives enter, exit, add, and remove notifications</p></div>
+</div></div>
+</div>
+<h4>Public methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void setList(List&lt;T&gt; list, int windowSize)</code></div>
+<div class="dui dui-summary-docs">Builds a virtual item list from raw records and initializes the visible window size.
+<div class="dui dui-site-member-param"><p><b>list</b><p>the full backing record collection</p></div>
+<div class="dui dui-site-member-param"><p><b>windowSize</b><p>the number of records to keep inside the active window</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public ListWindow&lt;T, I&gt; getWindow()</code></div>
+<div class="dui dui-summary-docs">Returns a view over the currently visible window.
+</br></br><b>Returns: </b><p>the current visible window of rendered items</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void scroll(int offset)</code></div>
+<div class="dui dui-summary-docs">Moves the active window forward or backward and emits enter and exit events for affected items.
+<div class="dui dui-site-member-param"><p><b>offset</b><p>the number of records to move the window by</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void add(T item, int index)</code></div>
+<div class="dui dui-summary-docs">Inserts a record into the backing list and updates the visible window if the insertion overlaps it.
+<div class="dui dui-site-member-param"><p><b>item</b><p>the record to insert</p></div>
+<div class="dui dui-site-member-param"><p><b>index</b><p>the insertion position in the backing list</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void remove(int startIndex, int numberOfItems)</code></div>
+<div class="dui dui-summary-docs">Removes a range of records and refreshes the visible window boundaries and enter and exit callbacks.
+<div class="dui dui-site-member-param"><p><b>startIndex</b><p>the first index to remove</p></div>
+<div class="dui dui-site-member-param"><p><b>numberOfItems</b><p>how many records to remove</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public List&lt;VirtualItem&lt;T, I&gt;&gt; getAll()</code></div>
+<div class="dui dui-summary-docs">Returns the full virtual item collection managed by the window list.
+</br></br><b>Returns: </b><p>all virtual items, not just the visible subset</p>
+</div></div>
+</div>
+</div>

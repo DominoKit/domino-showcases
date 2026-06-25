@@ -1,0 +1,37 @@
+import javax.ws.rs.FormParam;
+
+public class SampleMultipartRequest {
+
+  @FormParam("sampleObjectJson")
+  private SampleObject sampleObject;
+
+  @FormParam("file")
+  private byte[] fileContent;
+
+  @FormParam("size")
+  private int size;
+
+  public SampleObject getSampleObject() {
+    return sampleObject;
+  }
+
+  public void setSampleObject(SampleObject sampleObject) {
+    this.sampleObject = sampleObject;
+  }
+
+  public byte[] getFileContent() {
+    return fileContent;
+  }
+
+  public void setFileContent(byte[] fileContent) {
+    this.fileContent = fileContent;
+  }
+
+  public int getSize() {
+    return size;
+  }
+
+  public void setSize(int size) {
+    this.size = size;
+  }
+}

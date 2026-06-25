@@ -1,0 +1,12 @@
+@PathParameter("id") String id;
+@QueryParameter("filter") String filter;
+
+@Override
+protected void onActivated() {
+  view.load(id, filter);
+}
+
+@Override
+protected void onStateChanged() {
+  view.load(id, filter);
+}

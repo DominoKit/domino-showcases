@@ -1,0 +1,35 @@
+<div class="dui dui-members-summary">
+<h4>Constructors</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void CheckableDataListItem(String text, V value)</code></div>
+<div class="dui dui-summary-docs">Creates a text row with an embedded checkbox and disables the default click-to-select behavior in favor of checkbox-driven selection.
+<div class="dui dui-site-member-param"><p><b>text</b><p>the text displayed inside the row body</p></div>
+<div class="dui dui-site-member-param"><p><b>value</b><p>the record represented by the row</p></div>
+</div></div>
+</div>
+<h4>Static methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static CheckableDataListItem&lt;V&gt; create(String text, V value)</code></div>
+<div class="dui dui-summary-docs">Convenience factory for a checkbox-enabled data list row.
+<div class="dui dui-site-member-param"><p><b>text</b><p>the text displayed inside the row body</p></div>
+<div class="dui dui-site-member-param"><p><b>value</b><p>the record represented by the row</p></div>
+<div class="dui dui-site-member-param"><p><b>V</b><p>the value type represented by the row</p></div>
+</br></br><b>Returns: </b><p>a new <code>CheckableDataListItem</code> instance</p>
+</div></div>
+</div>
+<h4>Public methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void onSelectionChanged(boolean selection)</code></div>
+<div class="dui dui-summary-docs">Updates the checkbox state whenever the backing virtual item becomes selected or deselected.
+<div class="dui dui-site-member-param"><p><b>selection</b><p>the current selected state for the row</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void setVirtualItem(VirtualItem&lt;V, DataListItem&lt;V&gt;&gt; virtualItem)</code></div>
+<div class="dui dui-summary-docs">Associates the row with its virtual item and marks that item as selectable.
+<div class="dui dui-site-member-param"><p><b>virtualItem</b><p>the virtual item that owns this rendered row</p></div>
+</div></div>
+</div>
+</div>

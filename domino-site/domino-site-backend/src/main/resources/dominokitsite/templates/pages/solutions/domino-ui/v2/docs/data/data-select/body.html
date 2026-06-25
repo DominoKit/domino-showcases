@@ -1,0 +1,82 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true"
+         dui-site-data-id-prefix="dui-abstract-data-select"
+         dui-site-data="org.dominokit.pro.domino.ui.data.AbstractDataSelect"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true"
+         dui-site-data-id-prefix="dui-data-select"
+         dui-site-data="org.dominokit.pro.domino.ui.data.DataSelect"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-data-list"
+         dui-site-data="org.dominokit.pro.domino.ui.data.DataList"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-data-list-item"
+         dui-site-data="org.dominokit.pro.domino.ui.data.DataListItem"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-virtual-item"
+         dui-site-data="org.dominokit.pro.domino.ui.data.VirtualItem"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true"
+         dui-site-data-id-prefix="dui-data-select-item-value-mapper"
+         dui-site-data="org.dominokit.pro.domino.ui.data.DataSelectItemValueMapper"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true"
+         dui-site-data-id-prefix="dui-data-option-meta"
+         dui-site-data="org.dominokit.pro.domino.ui.data.DataOptionMeta"></div>
+
+    <div id="dui-side-nav-top"></div>
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2"
+               aria-expanded="true">
+                Domino UI
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" aria-expanded="true">
+                Data
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-ui/v2/docs/data/data-select" aria-expanded="true">
+                Data select <span class="dui dui-badge dui-rounded-full">Pro</span>
+            </a>
+        </li>
+    </ol>
+
+    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav" dui-site-data="Top,Examples,Docs"></div>
+
+    <h1 class="dui dui-site-docs-title">Data select</h1>
+    <div class="dui dui-site-component-docs" id="dui-data-select-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Abstract data select</h3>
+    <div class="dui dui-site-component-docs" id="dui-abstract-data-select-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Backed by data list</h3>
+    <div class="dui dui-site-component-docs" id="dui-data-list-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Rendered data list item</h3>
+    <div class="dui dui-site-component-docs" id="dui-data-list-item-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Virtual item</h3>
+    <div class="dui dui-site-component-docs" id="dui-virtual-item-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Selected value mapper</h3>
+    <div class="dui dui-site-component-docs" id="dui-data-select-item-value-mapper-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Selected value metadata</h3>
+    <div class="dui dui-site-component-docs" id="dui-data-option-meta-class-docs"></div>
+
+    <div id="dui-side-nav-examples"></div>
+    <h2 class="dui dui-site-docs-subtitle">Examples</h2>
+
+    <div id="dui-demo-sample-slot"></div>
+
+    <div class="dui dui-flex dui-justify-center">
+        <div th:replace="fragments/commons/components/open-menu :: content"></div>
+    </div>
+
+    <div id="dui-side-nav-docs"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-data-select-method-docs', 'DataSelect', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataSelect.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-abstract-data-select-method-docs', 'AbstractDataSelect', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/AbstractDataSelect.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-data-list-method-docs', 'DataList', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataList.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-data-list-item-method-docs', 'DataListItem', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataListItem.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-virtual-item-method-docs', 'VirtualItem', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/VirtualItem.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-data-select-item-value-mapper-method-docs', 'DataSelectItemValueMapper', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataSelectItemValueMapper.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-data-option-meta-method-docs', 'DataOptionMeta', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataOptionMeta.html')"></div>
+</div>

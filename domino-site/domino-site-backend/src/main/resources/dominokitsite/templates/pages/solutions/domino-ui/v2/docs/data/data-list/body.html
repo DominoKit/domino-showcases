@@ -1,0 +1,95 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-data-list"
+         dui-site-data="org.dominokit.pro.domino.ui.data.DataList"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true"
+         dui-site-data-id-prefix="dui-abstract-data-list-item"
+         dui-site-data="org.dominokit.pro.domino.ui.data.AbstractDataListItem"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-data-list-item"
+         dui-site-data="org.dominokit.pro.domino.ui.data.DataListItem"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true"
+         dui-site-data-id-prefix="dui-checkable-data-list-item"
+         dui-site-data="org.dominokit.pro.domino.ui.data.CheckableDataListItem"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-data-filter"
+         dui-site-data="org.dominokit.pro.domino.ui.data.DataFilter"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-virtual-item"
+         dui-site-data="org.dominokit.pro.domino.ui.data.VirtualItem"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true"
+         dui-site-data-id-prefix="dui-scrolling-window-list"
+         dui-site-data="org.dominokit.pro.domino.ui.data.ScrollingWindowList"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true"
+         dui-site-data-id-prefix="dui-virtual-scroll-item-mapper"
+         dui-site-data="org.dominokit.pro.domino.ui.data.VirtualScrollItemMapper"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true"
+         dui-site-data-id-prefix="dui-virtual-scroll-panel"
+         dui-site-data="org.dominokit.pro.domino.ui.data.VirtualScrollPanel"></div>
+
+    <div id="dui-side-nav-top"></div>
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2"
+               aria-expanded="true">
+                Domino UI
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" aria-expanded="true">
+                Data
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-ui/v2/docs/data/data-list" aria-expanded="true">
+                Data list <span class="dui dui-badge dui-rounded-full">Pro</span>
+            </a>
+        </li>
+    </ol>
+
+    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav" dui-site-data="Top,Examples,Docs"></div>
+
+    <h1 class="dui dui-site-docs-title">Data list</h1>
+    <div class="dui dui-site-component-docs" id="dui-data-list-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Abstract data list item</h3>
+    <div class="dui dui-site-component-docs" id="dui-abstract-data-list-item-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Data list item</h3>
+    <div class="dui dui-site-component-docs" id="dui-data-list-item-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Checkable data list item</h3>
+    <div class="dui dui-site-component-docs" id="dui-checkable-data-list-item-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Data filter</h3>
+    <div class="dui dui-site-component-docs" id="dui-data-filter-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Virtual item</h3>
+    <div class="dui dui-site-component-docs" id="dui-virtual-item-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Scrolling window list</h3>
+    <div class="dui dui-site-component-docs" id="dui-scrolling-window-list-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Virtual scroll item mapper</h3>
+    <div class="dui dui-site-component-docs" id="dui-virtual-scroll-item-mapper-class-docs"></div>
+
+    <h3 class="dui dui-site-docs-title">Virtual scroll panel</h3>
+    <div class="dui dui-site-component-docs" id="dui-virtual-scroll-panel-class-docs"></div>
+
+    <div id="dui-side-nav-examples"></div>
+    <h2 class="dui dui-site-docs-subtitle">Examples</h2>
+
+    <div id="dui-demo-sample-slot"></div>
+
+    <div class="dui dui-flex dui-justify-center">
+        <div th:replace="fragments/commons/components/open-menu :: content"></div>
+    </div>
+
+    <div id="dui-side-nav-docs"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-data-list-method-docs', 'DataList', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataList.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-abstract-data-list-item-method-docs', 'AbstractDataListItem', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/AbstractDataListItem.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-data-list-item-method-docs', 'DataListItem', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataListItem.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-checkable-data-list-item-method-docs', 'CheckableDataListItem', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/CheckableDataListItem.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-data-filter-method-docs', 'DataFilter', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataFilter.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-virtual-item-method-docs', 'VirtualItem', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/VirtualItem.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-scrolling-window-list-method-docs', 'ScrollingWindowList', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/ScrollingWindowList.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-virtual-scroll-item-mapper-method-docs', 'VirtualScrollItemMapper', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/VirtualScrollItemMapper.html')"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-virtual-scroll-panel-method-docs', 'VirtualScrollPanel', 'https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/VirtualScrollPanel.html')"></div>
+</div>

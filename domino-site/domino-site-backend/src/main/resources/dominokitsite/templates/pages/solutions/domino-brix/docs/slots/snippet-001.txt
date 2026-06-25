@@ -1,0 +1,5 @@
+@BrixPresenter
+@BrixSlot(BrixSlots.BRIX_BODY_SLOT)
+@BrixRoute("dashboard")
+@BrixComponent(presenter = DashboardPresenter.class)
+public class DashboardComponent {}

@@ -1,0 +1,37 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/presenter-lifecycle"
+               aria-expanded="true">
+                Presenter lifecycle
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/presenter-lifecycle/post-construct" aria-expanded="true">
+                Post construct
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">postConstruct()</h1>
+    <p class="dui dui-leading-6">Called once after DI completes and before any routing. Use it for one-time setup and
+        idempotent initialization.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Good uses</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Initialize in-memory state or default view values.</span></li>
+        <li class="dui"><span>Register long-lived listeners that should outlive activations.</span></li>
+        <li class="dui"><span>Warm caches that do not depend on routing context.</span></li>
+    </ul>
+
+    <p class="dui dui-leading-6">Avoid heavy network calls here—prefer <code>onActivated()</code> when work should align
+        with route entry.</p>
+</div>

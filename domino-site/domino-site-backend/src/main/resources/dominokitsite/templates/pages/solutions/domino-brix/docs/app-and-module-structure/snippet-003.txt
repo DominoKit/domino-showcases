@@ -1,0 +1,9 @@
+<app-root> (aggregator)
+|-- <app-name>-backend -> <app-name>-shared
+|-- <app-name>-frontend -> <app-name>-shared
+|   |-- <feature-a>-frontend -> <feature-a>-shared
+|   `-- <feature-a>-ui -> <feature-a>-shared
+`-- <feature-a> (aggregator)
+    |-- <feature-a>-frontend
+    |-- <feature-a>-shared
+    `-- <feature-a>-ui

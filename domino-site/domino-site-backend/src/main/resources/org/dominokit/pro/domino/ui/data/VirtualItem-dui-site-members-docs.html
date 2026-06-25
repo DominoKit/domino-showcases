@@ -1,0 +1,45 @@
+<div class="dui dui-members-summary">
+<h4>Constructors</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void VirtualItem(T record, VirtualScrollItemMapper&lt;T, I&gt; mapper, KeyProvider&lt;T&gt; keyProvider)</code></div>
+<div class="dui dui-summary-docs">Creates a virtual wrapper for a record and stores the mapper and key provider needed to materialize it on demand.
+<div class="dui dui-site-member-param"><p><b>record</b><p>the underlying record</p></div>
+<div class="dui dui-site-member-param"><p><b>mapper</b><p>creates the rendered window item when needed</p></div>
+<div class="dui dui-site-member-param"><p><b>keyProvider</b><p>resolves stable keys for the wrapped record</p></div>
+</div></div>
+</div>
+<h4>Public methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public VirtualItem&lt;T, I&gt; select(boolean silent)</code></div>
+<div class="dui dui-summary-docs">Marks the wrapped record as selected and updates the rendered row if that row is currently materialized.
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code> to suppress selection listeners</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public VirtualItem&lt;T, I&gt; deselect(boolean silent)</code></div>
+<div class="dui dui-summary-docs">Clears selection state for the wrapped record and updates the rendered row if present.
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code> to suppress deselection listeners</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public I windowItem()</code></div>
+<div class="dui dui-summary-docs">Materializes the rendered window item the first time it is needed and binds it back to this virtual item.
+</br></br><b>Returns: </b><p>the rendered window item for the current record</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public T getRecord()</code></div>
+<div class="dui dui-summary-docs">Returns the wrapped backing record.
+</br></br><b>Returns: </b><p>the record associated with this virtual item</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public VirtualItem&lt;T, I&gt; setSelectable(boolean selectable)</code></div>
+<div class="dui dui-summary-docs">Controls whether the wrapped record can enter the selected state.
+<div class="dui dui-site-member-param"><p><b>selectable</b><p><code>true</code> when the record should be selectable</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public String getKey()</code></div>
+<div class="dui dui-summary-docs">Returns the stable key resolved by the configured key provider.
+</br></br><b>Returns: </b><p>the key that identifies this virtual item</p>
+</div></div>
+</div>
+</div>

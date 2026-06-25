@@ -1,0 +1,23 @@
+@BrixPresenter
+@BrixRoute("todos")
+@BrixSlot(BrixSlots.BRIX_BODY_SLOT)
+@BrixComponent(presenter = TodosPresenter.class)
+public class TodosPresenter extends Presenter<TodosView> {
+
+  @PathParameter("id") String todoId;
+
+  @ListenFor(TodoCreated.class)
+  void onTodoCreated(TodoCreated event) { view.add(event.todo()); }
+
+  @Override
+  protected void onRevealed() {
+    view.show(todoId);
+  }
+}
+
+@UiView
+public class TodosView extends BrixView<Element, TodosHandlers>
+    implements TodosPresenter.TodosView {
+  @Handlers TodosHandlers handlers;
+  public void show(String id) { /* ... */ }
+}

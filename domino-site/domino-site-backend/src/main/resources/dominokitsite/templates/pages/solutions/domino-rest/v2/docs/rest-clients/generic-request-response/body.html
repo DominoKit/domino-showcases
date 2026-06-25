@@ -1,0 +1,56 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-rest/v2"
+               aria-expanded="true">
+                Domino REST
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-rest/v2/docs/rest-clients"
+               aria-expanded="true">
+                Rest clients
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-rest/v2/docs/rest-clients/generic-request-response" aria-expanded="true">
+                Generic Request/Response
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Generic Request/Response</h1>
+
+    <p class="dui dui-leading-6">Beyond generated clients, Domino REST lets you build and send ad-hoc requests
+        without declaring an interface. And when you do not need a strongly typed response, you can receive a raw
+        <code class="dui dui-inlined">jakarta.ws.rs.core.Response</code> instead.</p>
+
+    <h3>Generic Request</h3>
+
+    <p>Use <code class="dui dui-inlined">RestRequestBuilder</code> to assemble a request step by step, setting the
+        required parts until you call <code class="dui dui-inlined">build()</code>. The result behaves like a generated
+        request class, and you can still tweak it before sending.</p>
+
+    <h4>Example</h4>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h3>Generic Response</h3>
+
+    <p>When all you need is the status or the shape of the response varies, return
+        <code class="dui dui-inlined">jakarta.ws.rs.core.Response</code>. Domino REST will skip object mapping and hand
+        you the raw response in <b>onSuccess</b>, so you can inspect headers, status, or payload as needed.</p>
+
+    <h4>Example</h4>
+
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <p>Then using the generated request factory:</p>
+
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <p>The response metadata you can inspect includes the <b>resource interface</b>, <b>HTTP method</b>, <b>request class</b>,
+        <b>response class</b>, <b>Consumes</b>/<b>Produces</b> headers, and all parameters: <b>header</b>, <b>query</b>,
+        <b>path</b>, <b>matrix</b>, <b>fragment</b>, and <b>meta</b>.</p>
+
+</div>

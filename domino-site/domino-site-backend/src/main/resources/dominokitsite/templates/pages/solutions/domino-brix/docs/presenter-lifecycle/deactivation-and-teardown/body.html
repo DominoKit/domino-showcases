@@ -1,0 +1,45 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/presenter-lifecycle"
+               aria-expanded="true">
+                Presenter lifecycle
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/presenter-lifecycle/deactivation-and-teardown" aria-expanded="true">
+                Deactivation &amp; teardown
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Deactivation &amp; teardown</h1>
+    <p class="dui dui-leading-6">Deactivation cleans up listeners, slots, and navigation interceptors. Detach handles
+        view removal; teardown resets cached instances so a fresh presenter/view is created on the next activation.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Triggers</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Router token no longer matches.</span></li>
+        <li class="dui"><span>Explicit <code>deactivate()</code> call.</span></li>
+        <li class="dui"><span>Slot removal detaches the view and can cascade to deactivation.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Steps</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Remove the view from its slot if attached.</span></li>
+        <li class="dui"><span>Remove event/slot listeners and navigation interceptor.</span></li>
+        <li class="dui"><span>Mark inactive, call <code>onDeactivated()</code>, reset the component provider.</span></li>
+    </ul>
+
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <p class="dui dui-leading-6">After reset, a new presenter/view is constructed on the next matching route. Persist
+        important state in services or stores rather than the presenter.</p>
+</div>

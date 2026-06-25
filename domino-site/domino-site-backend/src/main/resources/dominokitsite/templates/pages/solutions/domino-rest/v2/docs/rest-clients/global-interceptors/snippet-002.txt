@@ -1,0 +1,7 @@
+public class TokenInterceptor implements RequestInterceptor {
+    @Override
+    public void interceptRequest(ServerRequest request, ContextAggregator.ContextWait<ServerRequest> contextWait) {
+        request.setHeader("Authorization", "some token goes here");
+        contextWait.complete(request);
+    }
+}

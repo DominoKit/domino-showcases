@@ -1,0 +1,49 @@
+<div class="dui dui-members-summary">
+<h4>Constructors</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void AbstractDataListItem(V value)</code></div>
+<div class="dui dui-summary-docs">Initializes the shared DOM structure, stores the record value, and wires touch and click selection handlers.
+<div class="dui dui-site-member-param"><p><b>value</b><p>the record represented by this row</p></div>
+</div></div>
+</div>
+<h4>Public methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C setSearchable(boolean searchable)</code></div>
+<div class="dui dui-summary-docs">Marks the row as searchable or not for list-side filtering logic.
+<div class="dui dui-site-member-param"><p><b>searchable</b><p><code>true</code> when this row should participate in search matching</p></div>
+</br></br><b>Returns: </b><p>the current row instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public boolean onSearch(String token, boolean caseSensitive)</code></div>
+<div class="dui dui-summary-docs">Default search behavior that shows the row only when the token is empty, leaving richer matching to concrete item types.
+<div class="dui dui-site-member-param"><p><b>token</b><p>the current search token</p></div>
+<div class="dui dui-site-member-param"><p><b>caseSensitive</b><p>whether search comparisons should preserve case</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C select(boolean silent)</code></div>
+<div class="dui dui-summary-docs">Applies selection styling and forwards the selection change to the parent list.
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code> to avoid notifying listeners while selecting</p></div>
+</br></br><b>Returns: </b><p>the current row instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C deselect(boolean silent)</code></div>
+<div class="dui dui-summary-docs">Removes selection styling and forwards the deselection change to the parent list.
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code> to avoid notifying listeners while deselecting</p></div>
+</br></br><b>Returns: </b><p>the current row instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C setSelectable(boolean selectable)</code></div>
+<div class="dui dui-summary-docs">Controls whether the row can transition into the selected state.
+<div class="dui dui-site-member-param"><p><b>selectable</b><p><code>true</code> when selection is allowed for this row</p></div>
+</br></br><b>Returns: </b><p>the current row instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public C withBodyElement(ChildHandler&lt;C, DivElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs">Applies custom rendering logic directly to the row body container.
+<div class="dui dui-site-member-param"><p><b>handler</b><p>receives the row and its body element for customization</p></div>
+</br></br><b>Returns: </b><p>the current row instance</p>
+</div></div>
+</div>
+</div>

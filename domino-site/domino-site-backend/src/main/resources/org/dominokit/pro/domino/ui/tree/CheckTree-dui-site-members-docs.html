@@ -1,0 +1,176 @@
+<div class="dui dui-members-summary"><h4>Constructors</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void CheckTree()</code></div>
+<div class="dui dui-summary-docs"> Constructs an empty <code>CheckTree</code>  with no title or associated value.
+
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void CheckTree(String treeTitle)</code></div>
+<div class="dui dui-summary-docs"> Constructs a <code>CheckTree</code>  with the given title.
+<div class="dui dui-site-member-param"><p><b>treeTitle</b><p> the title of the tree</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void CheckTree(String treeTitle, V value)</code></div>
+<div class="dui dui-summary-docs"> Constructs a <code>CheckTree</code>  with the given title and associated data value.
+<div class="dui dui-site-member-param"><p><b>treeTitle</b><p> the title of the tree</p></div>
+<div class="dui dui-site-member-param"><p><b>value</b><p> the data value associated with the root item</p></div>
+</div>
+</div>
+</div>
+<h4>Static methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static CheckTree&lt;V&gt; create(String title, V value)</code></div>
+<div class="dui dui-summary-docs"> Creates a new <code>CheckTree</code>  with the specified title and associated data value.
+<div class="dui dui-site-member-param"><p><b>title</b><p> the title of the root item</p></div>
+<div class="dui dui-site-member-param"><p><b>value</b><p> the data value associated with the root item</p></div>
+<div class="dui dui-site-member-param"><p><b>V</b><p> the type of data</p></div>
+</br></br><b>Returns: </b> <p> a new 
+<code>CheckTree</code>
+  instance</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static CheckTree&lt;V&gt; create(String title)</code></div>
+<div class="dui dui-summary-docs"> Creates a new <code>CheckTree</code>  with the specified title and no associated data value.
+<div class="dui dui-site-member-param"><p><b>title</b><p> the title of the root item</p></div>
+<div class="dui dui-site-member-param"><p><b>V</b><p> the type of data</p></div>
+</br></br><b>Returns: </b> <p> a new 
+<code>CheckTree</code>
+  instance</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static CheckTree&lt;V&gt; create()</code></div>
+<div class="dui dui-summary-docs"> Creates a new empty <code>CheckTree</code>  (no title or value).
+<div class="dui dui-site-member-param"><p><b>V</b><p> the type of data</p></div>
+</br></br><b>Returns: </b> <p> a new 
+<code>CheckTree</code>
+  instance</p>
+</div>
+</div>
+</div>
+<h4>Public methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public List&lt;CheckTreeItem&lt;V&gt;&gt; getSelection()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the currently selected <em> root-level</em>  items in this check tree. That is, only
+ items directly under this tree (not nested children) that are checked.
+</br></br><b>Returns: </b> <p> a list of checked root-level items</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public List&lt;CheckTreeItem&lt;V&gt;&gt; getFlatSelection()</code></div>
+<div class="dui dui-summary-docs"> Retrieves <em> all</em>  items in the entire tree (including nested children) that are currently
+ checked.
+</br></br><b>Returns: </b> <p> a list of all checked items in this tree</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void onSelectionChanged(CheckTreeItem&lt;V&gt; source, List&lt;CheckTreeItem&lt;V&gt;&gt; selection, boolean silent)</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> When the selection changes (an item is checked or unchecked), notifies any registered
+ listeners.
+<div class="dui dui-site-member-param"><p><b>source</b><p> the item that triggered the selection change</p></div>
+<div class="dui dui-site-member-param"><p><b>selection</b><p> the new selection</p></div>
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code>  to suppress event notifications</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void setActiveNode(CheckTreeItem&lt;V&gt; node, boolean silent)</code></div>
+<div class="dui dui-summary-docs"> Activates a specified node in this tree, optionally silent. An active node is conceptually
+ "focused" but not necessarily "selected" (checked).
+
+ <p> The previously active node (if any) will be deactivated.
+<div class="dui dui-site-member-param"><p><b>node</b><p> the node to activate</p></div>
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code>  to suppress event notifications</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CheckTree&lt;V&gt; selectAll()</code></div>
+<div class="dui dui-summary-docs"> Selects (checks) all items in this tree.
+</br></br><b>Returns: </b> <p> this 
+<code>CheckTree</code>
+  (for method chaining)</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CheckTree&lt;V&gt; selectAll(boolean silent)</code></div>
+<div class="dui dui-summary-docs"> Selects (checks) all items in this tree, optionally suppressing selection event notifications.
+<div class="dui dui-site-member-param"><p><b>silent</b><p> if <code>true</code> , no selection listeners are triggered</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>CheckTree</code>
+  (for method chaining)</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CheckTree&lt;V&gt; deselectAll()</code></div>
+<div class="dui dui-summary-docs"> Deselects (unchecks) all items in this tree.
+</br></br><b>Returns: </b> <p> this 
+<code>CheckTree</code>
+  (for method chaining)</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CheckTree&lt;V&gt; deselectAll(boolean silent)</code></div>
+<div class="dui dui-summary-docs"> Deselects (unchecks) all items in this tree, optionally suppressing selection event
+ notifications.
+<div class="dui dui-site-member-param"><p><b>silent</b><p> if <code>true</code> , no selection listeners are triggered</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>CheckTree</code>
+  (for method chaining)</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CheckTree&lt;V&gt; addNodeActivationListener(ChildHandler&lt;CheckTree&lt;V&gt;, CheckTreeItem&lt;V&gt;&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Registers a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  to be called whenever a node is activated. This allows custom
+ logic (e.g., expansions, UI changes) when items become active in the tree.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a functional interface that receives this tree and the newly activated item</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>CheckTree</code>
+  (for method chaining)</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CheckTree&lt;V&gt; addNodeActivationListener(RegistryRecord&lt;ChildHandler&lt;CheckTree&lt;V&gt;, CheckTreeItem&lt;V&gt;&gt;&gt; record)</code></div>
+<div class="dui dui-summary-docs"> Registers a handler (wrapped in a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/RegistryRecord.html">RegistryRecord</a> ) for node activation events.
+<div class="dui dui-site-member-param"><p><b>record</b><p> the registry record containing the handler</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>CheckTree</code>
+  (for method chaining)</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CheckTree&lt;V&gt; removeNodeActivationListener(ChildHandler&lt;CheckTree&lt;V&gt;, CheckTreeItem&lt;V&gt;&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Removes a previously registered node activation handler.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> the <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  to remove</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>CheckTree</code>
+  (for method chaining)</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void onActiveNodeChanged(CheckTreeItem&lt;V&gt; source, List&lt;CheckTreeItem&lt;V&gt;&gt; selection, boolean silent)</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Notifies all registered activation handlers when the active node changes.
+<div class="dui dui-site-member-param"><p><b>source</b><p> the newly active node</p></div>
+<div class="dui dui-site-member-param"><p><b>selection</b><p> the current selection (checked items)</p></div>
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code>  to suppress notifications</p></div>
+</div>
+</div>
+</div>
+</div>

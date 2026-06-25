@@ -1,0 +1,12 @@
+public class ConfirmingView extends BrixView<Element, FormHandlers>
+    implements CanConfirmNavigation {
+  private boolean dirty;
+
+  @Override public boolean isConfirmNavigation() { return dirty; }
+
+  @Override
+  public void confirmNavigation(ConfirmNavigationHandlers handlers) {
+    if (window.confirm("Discard changes?")) handlers.onConfirmed();
+    else handlers.onCanceled();
+  }
+}

@@ -1,0 +1,125 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/resources"
+               aria-expanded="true">
+                Resources
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/resources/domino-slf4j-logger" aria-expanded="true">
+                Domino SLF4J Logger
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Domino SLF4J Logger</h1>
+    <p class="dui dui-leading-6"><code>domino-slf4j-logger</code> is an SLF4J implementation for browser-side Java applications built with GWT or J2CL. It keeps the familiar SLF4J API, but adds browser-friendly routing, scoped MDC helpers, and console adapters that work well in web apps.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">What it gives you</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Standard <code>Logger</code>, <code>Marker</code>, and <code>MDC</code> entry points</span></li>
+        <li class="dui"><span>Marker-based routing to different adapters</span></li>
+        <li class="dui"><span>Browser console output out of the box</span></li>
+        <li class="dui"><span>Scoped MDC helpers that work with try-with-resources</span></li>
+        <li class="dui"><span>A default SLF4J provider you can extend if you need custom factories</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Requirements</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Java 11+</span></li>
+        <li class="dui"><span>SLF4J 2.x</span></li>
+        <li class="dui"><span>A GWT or J2CL browser runtime</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Install</h2>
+    <p class="dui dui-leading-6">Add the dependency, then inherit the GWT module in your app module.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+    <p class="dui dui-leading-6">That is usually enough to start using SLF4J in the client.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Quick start</h2>
+    <p class="dui dui-leading-6">Basic logging looks the same as regular SLF4J. By default, output goes to the browser console through the built-in console adapter.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">How it works</h2>
+    <ol class="dui dui-site-docs-list">
+        <li class="dui"><span><code>LoggerFactory.getLogger(...)</code> returns a <code>DominoLoggingAdapter</code>.</span></li>
+        <li class="dui"><span>The logger formats SLF4J placeholders and enriches messages with marker and MDC context.</span></li>
+        <li class="dui"><span><code>LoggingRouter</code> chooses the adapter for marker-aware calls.</span></li>
+        <li class="dui"><span>The selected <code>LoggingAdapter</code> writes to the final destination, such as the browser console or a remote endpoint.</span></li>
+    </ol>
+
+    <h2 class="dui dui-site-docs-sub-title">Routing by marker</h2>
+    <p class="dui dui-leading-6">Marker routing lets you send different log streams to different adapters. Register routes once during startup, using marker names rather than marker instances.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-004']})"></div>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>A direct marker mapping wins first.</span></li>
+        <li class="dui"><span>If no direct mapping exists, the router walks referenced markers recursively.</span></li>
+        <li class="dui"><span>If nothing matches, the default adapter is used when one is configured.</span></li>
+        <li class="dui"><span><code>LoggingRouter.clear()</code> removes all marker mappings, and <code>unregister(...)</code> removes one mapping.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Custom adapters</h2>
+    <p class="dui dui-leading-6">Implement <code>LoggingAdapter</code> when you want to send logs somewhere other than the browser console.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-005']})"></div>
+    <p class="dui dui-leading-6">If you need to fan out to more than one destination, use <code>CompositeLoggingAdapter</code>.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-006']})"></div>
+    <p class="dui dui-leading-6"><code>CompositeLoggingAdapter</code> broadcasts to every delegate. Because it stores delegates in a set, the call order is not guaranteed. If order matters, write a small custom adapter instead.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">MDC utilities</h2>
+    <p class="dui dui-leading-6">The MDC helpers are scoped and work well with browser-style, single-threaded code. Use them for request IDs, user IDs, correlation IDs, and similar context.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-007']})"></div>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Values are pushed for the lifetime of the scope and popped automatically on close.</span></li>
+        <li class="dui"><span>Multi-value scopes are popped in reverse insertion order.</span></li>
+        <li class="dui"><span><code>getMdcStack(...)</code> returns a defensive copy, so reading it does not mutate live MDC state.</span></li>
+        <li class="dui"><span>The implementation is designed for the single-threaded browser environment.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Built-in adapters</h2>
+    <h3 class="dui dui-site-docs-sub-title">ConsoleLoggingAdapter</h3>
+    <p class="dui dui-leading-6">This adapter writes to the browser console and maps levels to matching console methods: <code>TRACE</code> and <code>DEBUG</code> to <code>console.debug</code>, <code>INFO</code> to <code>console.info</code>, <code>WARN</code> to <code>console.warn</code>, and <code>ERROR</code> to <code>console.error</code>.</p>
+    <h3 class="dui dui-site-docs-sub-title">CompositeLoggingAdapter</h3>
+    <p class="dui dui-leading-6">This adapter forwards each event to multiple adapters. It is useful when you want console output and a remote sink at the same time.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Logging controls</h2>
+    <p class="dui dui-leading-6">The module defines a few GWT properties with defaults.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-008']})"></div>
+    <p class="dui dui-leading-6">Default values are <code>domino.slf4j.logging.level=INFO</code>, <code>domino.slf4j.logging.showCaller=false</code>, and <code>domino.slf4j.logging.showMdc=false</code>.</p>
+    <p class="dui dui-leading-6">Override them in your app module before compilation.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-009']})"></div>
+    <p class="dui dui-leading-6"><code>showCaller</code> prepends source location information like <code>[MyClass:42]</code>. <code>showMdc</code> prepends the current MDC context when one is available.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Advanced topics</h2>
+    <h3 class="dui dui-site-docs-sub-title">Service provider wiring</h3>
+    <p class="dui dui-leading-6">The library ships a default SLF4J service provider for GWT/J2CL environments. In normal use, you just inherit the GWT module and start logging. You do not need to wire <code>META-INF/services</code> by hand.</p>
+    <p class="dui dui-leading-6">If you need custom behavior, extend <code>DefaultDominoLoggingServiceProvider</code> and install your provider early in application startup, before the first <code>LoggerFactory</code>, <code>MarkerFactory</code>, or <code>MDC</code> access.</p>
+
+    <h3 class="dui dui-site-docs-sub-title">Marker factories</h3>
+    <p class="dui dui-leading-6">The bundled marker factory caches markers by name, so repeated <code>MarkerFactory.getMarker("PAYMENT")</code> calls return the same marker instance. Use <code>getDetachedMarker(...)</code> when you need a standalone marker that is not cached.</p>
+
+    <h3 class="dui dui-site-docs-sub-title">Startup order</h3>
+    <p class="dui dui-leading-6">Routing is global state. Register adapters during bootstrap, before the first log event, if you want marker-specific routing to apply consistently.</p>
+    <p class="dui dui-leading-6">If you reconfigure logging in tests or hot-reload flows, clear router state and MDC state explicitly so one run does not leak into the next.</p>
+
+    <h3 class="dui dui-site-docs-sub-title">Marker hierarchies</h3>
+    <p class="dui dui-leading-6">The router searches the marker itself first, then walks referenced markers recursively, and finally falls back to the default adapter. That makes marker hierarchies useful for broad categories.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Troubleshooting</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>No output: confirm the GWT module inherits <code>org.dominokit.domino.logger.Logging</code> and that your level property is not set to <code>OFF</code>.</span></li>
+        <li class="dui"><span>Wrong adapter: verify the marker name matches the registered route and that the route is installed before the first log call.</span></li>
+        <li class="dui"><span>Missing MDC data: make sure the log call happens inside the scope returned by <code>MDCUtils.withMdc(...)</code>.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Best practices</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Keep the marker set small and stable, for example <code>SECURITY</code>, <code>AUDIT</code>, and <code>PAYMENT</code>.</span></li>
+        <li class="dui"><span>Use scoped MDC for correlation IDs and similar request context.</span></li>
+        <li class="dui"><span>Use <code>CompositeLoggingAdapter</code> when you want the same event in both the console and a backend.</span></li>
+        <li class="dui"><span>Avoid logging sensitive data to the browser console.</span></li>
+        <li class="dui"><span>Reset router and MDC state in tests when you change them.</span></li>
+    </ul>
+</div>

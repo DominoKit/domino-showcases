@@ -1,0 +1,10 @@
+MoviesServiceFactory.INSTANCE
+    .updateMovie(movie)
+    .setUrl("http://localhost:6060/movies")
+    .onSuccess(aVoid -> {
+        //do something on success
+    })
+    .onFailed(failedResponse -> {
+        //do something on error
+    })
+    .send();

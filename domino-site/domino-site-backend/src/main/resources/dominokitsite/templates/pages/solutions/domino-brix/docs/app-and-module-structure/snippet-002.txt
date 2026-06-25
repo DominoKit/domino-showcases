@@ -1,0 +1,14 @@
+<feature-x>/
+  pom.xml                          # aggregator for the feature
+  <feature-x>-frontend/
+    pom.xml
+    src/main/java/
+    src/test/java/
+  <feature-x>-shared/
+    pom.xml
+    src/main/java/
+    src/test/java/
+  <feature-x>-ui/
+    pom.xml
+    src/main/java/
+    src/test/java/

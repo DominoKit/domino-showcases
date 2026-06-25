@@ -1,0 +1,71 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/resources"
+               aria-expanded="true">
+                Resources
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/resources/widget-element-integration" aria-expanded="true">
+                WidgetElement Integration
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">WidgetElement Integration</h1>
+    <p class="dui dui-leading-6">This document shows how to add a minimal bridge between Domino UI elements and GWT widgets so you can reuse existing widget-based code inside a Domino-based application without rewriting everything at once.</p>
+    <p class="dui dui-leading-6">The bridge is made of two classes:</p>
+
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><code>com.google.gwt.user.client.ui.WidgetWrapper</code></span></li>
+        <li class="dui"><span><code>com.dominokit.samples.WidgetElement</code> in this sample repository, or the package of your choice in your application</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">What the bridge does</h2>
+    <p class="dui dui-leading-6"><code>WidgetWrapper</code> exists in the GWT widget package so it can call the protected <code>Widget.onAttach()</code> and <code>Widget.onDetach()</code> methods. <code>WidgetElement</code> then uses that wrapper to keep widget attachment and detachment aligned with the Domino element lifecycle.</p>
+    <p class="dui dui-leading-6">That gives you both directions:</p>
+
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>wrap a <code>Widget</code> or <code>IsWidget</code> as a Domino element</span></li>
+        <li class="dui"><span>wrap a Domino <code>IsElement</code> back into a GWT <code>Widget</code></span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Add the classes</h2>
+    <p class="dui dui-leading-6">Create these files in your application:</p>
+
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><code>src/main/java/com/google/gwt/user/client/ui/WidgetWrapper.java</code></span></li>
+        <li class="dui"><span><code>src/main/java/com/dominokit/samples/WidgetElement.java</code> or another application package</span></li>
+    </ul>
+
+    <p class="dui dui-leading-6">The <code>WidgetElement</code> snippet below intentionally omits the <code>package</code> declaration so you can place it in your own namespace.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Source: WidgetWrapper</h2>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Source: WidgetElement</h2>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Usage examples</h2>
+
+    <h3 class="dui dui-site-docs-sub-title">Wrap a GWT widget as a Domino element</h3>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h3 class="dui dui-site-docs-sub-title">Use the IsWidget overload</h3>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-004']})"></div>
+
+    <h3 class="dui dui-site-docs-sub-title">Wrap a Domino element as a GWT widget</h3>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-005']})"></div>
+
+    <h3 class="dui dui-site-docs-sub-title">Minimal entry point example</h3>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-006']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Notes</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Keep <code>WidgetWrapper</code> in <code>com.google.gwt.user.client.ui</code>. That package placement is what makes the protected widget lifecycle methods accessible.</span></li>
+        <li class="dui"><span><code>WidgetElement.toWidgetElement(Widget)</code> does not copy the widget. It reuses the same root element and synchronizes attach and detach.</span></li>
+        <li class="dui"><span><code>WidgetElement.toElementWidget(IsElement)</code> returns the original widget unchanged when the input is already a <code>Widget</code>.</span></li>
+    </ul>
+</div>

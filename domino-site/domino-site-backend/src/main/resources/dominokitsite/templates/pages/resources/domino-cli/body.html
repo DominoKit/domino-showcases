@@ -1,0 +1,93 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/resources"
+               aria-expanded="true">
+                Resources
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/resources/domino-cli"
+               aria-expanded="true">
+                Domino CLI
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Domino CLI command usage</h1>
+    <p class="dui dui-leading-6">The CLI entrypoint is the <code>dominokit</code> command. It ships with standard Picocli
+        flags (<code>-h/--help</code>, <code>-V/--version</code>) and commands for scaffolding applications/modules or
+        managing cached dependency versions.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Top-level</h2>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><code>help</code> prints help for any command path.</span></li>
+        <li class="dui"><span><code>generate</code> (<code>gen</code>) routes to project and module generators.</span></li>
+        <li class="dui"><span><code>list-versions</code> prints the cached release profile versions (may prompt if newer releases are detected).</span></li>
+        <li class="dui"><span><code>update-versions</code> checks for newer releases and updates the cache on confirmation.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Generate / gen</h2>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+    <p class="dui dui-leading-6">Subcommands:</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><code>app</code> — create a DominoKit project scaffold.</span></li>
+        <li class="dui"><span><code>brix-app</code> — create a DominoKit Brix app scaffold (shortcut for <code>-t brix</code>).</span></li>
+        <li class="dui"><span><code>basic-app</code> — create a DominoKit basic app scaffold (shortcut for <code>-t basic</code>).</span></li>
+        <li class="dui"><span><code>module</code> — add a DominoKit module to an existing project.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">List versions</h2>
+    <p class="dui dui-leading-6">Prints the cached release profile versions (from <code>~/.domino-cli/versions.json</code>).
+        If Maven Central reports newer releases for auto-update groupIds, it prompts to update the cache.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Update versions</h2>
+    <p class="dui dui-leading-6">Checks Maven Central for newer release versions in the auto-update groupIds and updates
+        the cache if approved. If stdin is unavailable, it defaults to "no" and keeps cached values.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-004']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Generate app</h2>
+    <p class="dui dui-leading-6">Creates a new DominoKit project (basic or Brix). If you run it from inside an existing
+        Maven project, the tool tries to read the parent <code>pom.xml</code> so the new module inherits
+        <code>groupId</code>/<code>version</code> and is added to <code>&lt;modules&gt;</code>. For Brix apps, the CLI
+        prompts to optionally create a default <code>shell</code> module after generation.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-005']})"></div>
+    <p class="dui dui-leading-6">Options:</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><code>-n</code>, <code>--name</code> (required): project name used as <code>artifactId</code> and to derive a module short name.</span></li>
+        <li class="dui"><span><code>-g</code>, <code>--groupId</code>: group ID and root package. If omitted and a parent POM is found, the parent groupId is reused.</span></li>
+        <li class="dui"><span><code>-d</code>, <code>--dir</code>: absolute output directory (defaults to CWD).</span></li>
+        <li class="dui"><span><code>-t</code>, <code>--type</code> (default <code>brix</code>): template type. <code>basic</code> creates client/shared/server; <code>brix</code> creates a domino-brix frontend/backend/shared layout with assets and run configs.</span></li>
+        <li class="dui"><span><code>-dev</code>, <code>--dev</code> (default <code>false</code>): use HEAD-SNAPSHOT DominoKit dependencies.</span></li>
+        <li class="dui"><span><code>--generate-api</code>/<code>-api</code> (default <code>true</code>): generate a Quarkus REST API module (not for Brix apps).</span></li>
+    </ul>
+    <p class="dui dui-leading-6">Example:</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-006']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Generate brix-app</h2>
+    <p class="dui dui-leading-6">Shortcut for <code>generate app -t brix</code> with the same options (without the
+        <code>-t</code> flag).</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-007']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Generate basic-app</h2>
+    <p class="dui dui-leading-6">Shortcut for <code>generate app -t basic</code> with the same options (without the
+        <code>-t</code> flag).</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-008']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Generate module</h2>
+    <p class="dui dui-leading-6">Creates a module inside an existing DominoKit project. Use <code>--dir</code> to target
+        a directory other than the current one. Module POMs reference versions from the parent project properties and
+        expect the standard <code>*-frontend</code>/<code>*-backend</code> layout to exist.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-009']})"></div>
+    <p class="dui dui-leading-6">Options:</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><code>-n</code>, <code>--name</code> (required): module name and <code>artifactId</code>.</span></li>
+        <li class="dui"><span><code>-sp</code>, <code>--subpackage</code>: subpackage appended to the application root package. Defaults to a lowercase, dot-separated form of the module name.</span></li>
+        <li class="dui"><span><code>-p</code>, <code>--prefix</code>: prefix for generated class names; falls back to the module name when omitted.</span></li>
+        <li class="dui"><span><code>-d</code>, <code>--dir</code>: absolute output directory (defaults to CWD).</span></li>
+    </ul>
+    <p class="dui dui-leading-6">Example:</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-010']})"></div>
+</div>

@@ -1,0 +1,4 @@
+@Override
+protected void registerSlots() {
+  registerSlot(AppendElementSlot.of("alerts", alertsElement));
+}

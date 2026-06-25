@@ -1,0 +1,9 @@
+DominoRestConfig.getInstance()
+    .addDynamicServiceRoot(DynamicServiceRoot
+            .pathMatcher(path -> path.startsWith("movies"))
+            .serviceRoot(() -> "http://localhost:7070/library/")
+    )
+    .addDynamicServiceRoot(DynamicServiceRoot
+            .pathMatcher(path -> path.startsWith("books"))
+            .serviceRoot(() -> "http://localhost:9090")
+    );

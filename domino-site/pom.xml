@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.dominokit.showcases</groupId>
+        <artifactId>domino-showcases</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.dominokit</groupId>
+    <artifactId>domino-site</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <moduleName>org.dominokit.demo.App</moduleName>
+                    <moduleShortName>app</moduleShortName>
+                    <launcherDir>${project.build.directory}/gwt/launcherDir</launcherDir>
+                    <sourceLevel>${maven.compiler.source}</sourceLevel>
+                    <codeserverArgs>
+                        <codeserverArg>-port</codeserverArg>
+                        <codeserverArg>9876</codeserverArg>
+                        <codeserverArg>-src</codeserverArg>
+                        <codeserverArg>/mnt/drive2/Development/Dominokit/domino-showcases/demo-samples/demo-samples-ui/src/main/java</codeserverArg>
+                    </codeserverArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>net.ltgt.gwt.maven</groupId>
+                    <artifactId>gwt-maven-plugin</artifactId>
+                    <version>1.2.0</version>
+                    <extensions>true</extensions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <modules>
+        <module>domino-site-backend</module>
+        <module>domino-site-frontend</module>
+        <module>domino-site-shared</module>
+        <module>pages</module>
+    </modules>
+</project>

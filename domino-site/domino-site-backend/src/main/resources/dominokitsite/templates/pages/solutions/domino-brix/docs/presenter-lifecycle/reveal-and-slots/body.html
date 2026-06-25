@@ -1,0 +1,38 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/presenter-lifecycle"
+               aria-expanded="true">
+                Presenter lifecycle
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/presenter-lifecycle/reveal-and-slots" aria-expanded="true">
+                Reveal &amp; slots
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Reveal &amp; attach</h1>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Resolve the slot via <code>getSlotKey()</code>; if missing, wait for <code>onSlotRegistered</code>.</span></li>
+        <li class="dui"><span>Run <code>onBeforeRevealed()</code> → slot <code>reveal(view)</code> → <code>onRevealed()</code>.</span></li>
+        <li class="dui"><span>Attachable views (<code>BrixView</code>) notify <code>onAttached()</code>/<code>onDetached()</code>, triggering <code>registerSlots()</code>, <code>onReady()</code>, and <code>onRemoved()</code>.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Registering slots dynamically</h2>
+    <p class="dui dui-leading-6">Override <code>registerSlots()</code> to add presenter-scoped slots; Brix cleans them up
+        during deactivation.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Multiple reveals?</h2>
+    <p class="dui dui-leading-6">The presenter guards against duplicate activation. Reveal retries only when the slot
+        becomes available; call <code>reveal()</code> manually if you need to reattach after state changes.</p>
+</div>

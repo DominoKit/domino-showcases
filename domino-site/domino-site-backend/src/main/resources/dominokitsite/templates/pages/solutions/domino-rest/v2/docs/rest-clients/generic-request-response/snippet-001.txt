@@ -1,0 +1,11 @@
+RestRequestBuilder.of(Void.class, SampleObject.class, "list-books-request")
+        .get()
+        .withPath("/library/books")
+        .accepts(MediaType.APPLICATION_JSON)
+        .produces(MediaType.APPLICATION_JSON)
+        .withResponseReader(response -> SampleObject_MapperImpl.INSTANCE.read(response.getBodyAsString()))
+        .build()
+        .onSuccess(response -> LOGGER.info(response.toString()))
+        .onFailed(failedResponse -> LOGGER.error("Failed to execute request", failedResponse.getThrowable()))
+        .onComplete(() -> LOGGER.info("Request completed"))
+        .send();

@@ -1,0 +1,39 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/views"
+               aria-expanded="true">
+                Views &amp; handlers
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Define the view contract</h1>
+    <p class="dui dui-leading-6">Presenters depend on a view interface. Extend <code>View</code> for simple
+        attachable elements or <code>Viewable</code> when you expose a <code>DominoElement</code>.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Implement with @UiView</h2>
+    <p class="dui dui-leading-6">Annotate the implementation with <code>@UiView</code>. The processor generates the
+        binding and Dagger module to inject the view into presenters.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">UI handlers: view → presenter</h2>
+    <p class="dui dui-leading-6">Define UI handler interfaces and mark presenter methods with <code>@UiHandler</code>.
+        The generated handler bridges view events to the presenter.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Slot-aware views</h2>
+    <p class="dui dui-leading-6">When a presenter uses <code>@RegisterSlots</code>, the processor generates a
+        <code>*Slots</code> interface. Make your view implement it to supply slot instances so the presenter can register
+        them during activation.</p>
+    <p class="dui dui-leading-6">Use <code>BrixView</code> or your own <code>View</code>/<code>Viewable</code>
+        implementations. Attach/detach callbacks from <code>IsAttachable</code> allow presenters to react to DOM
+        lifecycle, and implementing <code>CanConfirmNavigation</code> lets the view block navigation while dirty.</p>
+</div>

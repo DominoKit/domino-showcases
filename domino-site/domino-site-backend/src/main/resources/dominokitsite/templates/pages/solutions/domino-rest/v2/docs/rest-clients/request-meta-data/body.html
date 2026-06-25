@@ -1,0 +1,42 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-rest/v2"
+               aria-expanded="true">
+                Domino REST
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-rest/v2/docs/rest-clients"
+               aria-expanded="true">
+                Rest clients
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-rest/v2/docs/rest-clients/request-meta-data" aria-expanded="true">
+                Request meta-data
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Request meta-data</h1>
+
+    <p class="dui dui-leading-6">Every generated request carries a <code class="dui dui-inlined">RequestMeta</code>
+        object. You can inspect it before sending, or inside interceptors and callbacks, to understand how a call was
+        built and how Domino REST will dispatch it.</p>
+
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <p class="dui dui-leading-6">All annotations on the resource method are captured as meta parameters, so you can
+        introspect <code class="dui dui-inlined">@Path</code>, <code class="dui dui-inlined">@GET</code>,
+        <code class="dui dui-inlined">@Consumes</code>, <code class="dui dui-inlined">@Produces</code>, and any others,
+        alongside the values supplied by request arguments.</p>
+
+    <p class="dui dui-leading-6">Meta-data includes the request and response types, HTTP method, full path (with path
+        and matrix parameters applied), headers, query parameters, consumes/produces, and the full set of meta
+        parameters derived from annotations and argument values. This makes it easy to log or adjust behavior based on
+        the exact call shape.</p>
+
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+</div>

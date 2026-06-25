@@ -1,0 +1,8 @@
+import org.dominokit.domino.logger.CompositeLoggingAdapter;
+import org.dominokit.domino.logger.ConsoleLoggingAdapter;
+import org.dominokit.domino.logger.LoggingRouter;
+
+LoggingRouter.setDefaultAdapter(
+    new CompositeLoggingAdapter(new ConsoleLoggingAdapter(), new RemoteAdapter()));
+
+LoggingRouter.register("AUDIT", new RemoteAdapter());

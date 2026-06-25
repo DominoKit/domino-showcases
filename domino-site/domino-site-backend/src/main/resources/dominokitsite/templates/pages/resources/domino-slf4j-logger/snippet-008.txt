@@ -1,0 +1,3 @@
+<define-property name="domino.slf4j.logging.level" values="INFO,WARN,DEBUG,TRACE,ERROR,OFF"/>
+<define-property name="domino.slf4j.logging.showCaller" values="true,false"/>
+<define-property name="domino.slf4j.logging.showMdc" values="true,false"/>

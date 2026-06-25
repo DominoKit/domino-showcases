@@ -1,0 +1,17 @@
+import java.util.Map;
+import org.dominokit.domino.logger.LoggingAdapter;
+import org.slf4j.Marker;
+import org.slf4j.event.Level;
+
+public class RemoteAdapter implements LoggingAdapter {
+  @Override
+  public void log(
+      Level level,
+      String loggerName,
+      Marker marker,
+      String message,
+      Throwable throwable,
+      Map<String, String> mdc) {
+    // Serialize the event and send it to your backend here.
+  }
+}

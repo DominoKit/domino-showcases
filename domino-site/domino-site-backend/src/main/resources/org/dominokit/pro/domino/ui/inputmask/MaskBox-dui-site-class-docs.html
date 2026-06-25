@@ -1,0 +1,16 @@
+ A specialized text box component that enforces a specified input mask on user-entered text.
+
+ <p> This class extends <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/forms/BaseTextBox.html">BaseTextBox</a>  and internally manages an <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/InputMask.html">InputMask</a>  object.
+ Users can configure the mask via <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/StringMask.html">StringMask</a>  and its associated <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/MaskOptions.html">MaskOptions</a>  to
+ allow or restrict certain characters, implement special formatting, etc.
+
+ <p> Example usage:
+
+ <pre><code>
+ MaskBox maskBox = MaskBox.create("(999) 999-9999");
+ maskBox.appendChildTo(document.body);
+ </code></pre> 
+
+ <p> By default, <code>MaskBox</code>  calls <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/InputMask.html">startMasking</a>  upon construction to
+ activate event listeners for enforcing the mask.
+

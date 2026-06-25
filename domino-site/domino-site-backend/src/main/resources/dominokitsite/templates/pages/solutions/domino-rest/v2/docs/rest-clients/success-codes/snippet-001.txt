@@ -1,0 +1,16 @@
+@RequestFactory
+public interface MoviesService {
+
+    @Path("library/movies/:movieName")
+    @GET
+    Movie getMovieByName(@PathParam("movieName") String movieName);
+
+    @Path("library/movies")
+    @GET
+    List<Movie> listMovies();
+
+    @Path("library/movies/:name")
+    @PUT
+    @SuccessCodes({200})
+    void updateMovie(@beanParam @RequestBody Movie movie);
+}

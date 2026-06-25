@@ -1,0 +1,25 @@
+@BrixPresenter
+@BrixSlot("content")
+@RegisterSlots({"content", "menu-bar"})
+@BrixRoute("dashboard")
+@BrixComponent(presenter = DashboardPresenter.class)
+public class DashboardComponent {}
+
+public interface DashboardView extends View, DashboardSlots {
+  void showCustomer(String name);
+}
+
+public class DashboardViewImpl implements DashboardView {
+  private final HTMLElement main = DomGlobal.document.getElementById("main");
+  private final HTMLElement menu = DomGlobal.document.getElementById("menu");
+
+  @Override
+  public Slot getContentSlot(String key) {
+    return AcceptOneElementSlot.of(key, main);
+  }
+
+  @Override
+  public Slot getMenuBarSlot(String key) {
+    return AppendElementSlot.of(key, menu);
+  }
+}

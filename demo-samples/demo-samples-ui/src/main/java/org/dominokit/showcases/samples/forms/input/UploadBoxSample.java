@@ -1,0 +1,34 @@
+package org.dominokit.showcases.samples.forms.input;
+
+import elemental2.dom.HTMLDivElement;
+import org.dominokit.domino.ui.elements.DivElement;
+import org.dominokit.domino.ui.forms.UploadBox;
+import org.dominokit.domino.ui.grid.Row;
+import org.dominokit.domino.ui.utils.BaseDominoElement;
+
+import static org.dominokit.domino.ui.utils.Domino.div;
+import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
+
+public class UploadBoxSample extends BaseDominoElement<HTMLDivElement, UploadBoxSample> {
+
+    private DivElement element;
+
+    public static UploadBoxSample create() {
+        return new UploadBoxSample();
+    }
+
+    public UploadBoxSample() {
+        this.element = div().addCss(dui_p_2)
+                .appendChild(Row.create()
+                        .span6(UploadBox.create("Single upload"))
+                        .span6(UploadBox.create("Multi upload").setMultiple(true))
+                )
+        ;
+        init(this);
+    }
+
+    @Override
+    public HTMLDivElement element() {
+        return this.element.element();
+    }
+}

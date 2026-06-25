@@ -1,0 +1,258 @@
+<div class="dui dui-members-summary"><h4>Constructors</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void StringMask(String mask)</code></div>
+<div class="dui dui-summary-docs"> Constructs a new <code>StringMask</code>  with a given mask string and default <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/MaskOptions.html">MaskOptions</a> .
+<div class="dui dui-site-member-param"><p><b>mask</b><p> the mask pattern (e.g., <code> "(999) 999-9999"</code> ). Cannot be null.</p></div>
+@throws IllegalArgumentException if {@code mask} is null
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void StringMask(String mask, MaskOptions options)</code></div>
+<div class="dui dui-summary-docs"> Constructs a new <code>StringMask</code>  with a given mask string and <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/MaskOptions.html">MaskOptions</a> .
+<div class="dui dui-site-member-param"><p><b>mask</b><p> the mask pattern (e.g., <code> "(999) 999-9999"</code> ). Cannot be null.</p></div>
+<div class="dui dui-site-member-param"><p><b>options</b><p> configuration options for how masking behaves</p></div>
+@throws IllegalArgumentException if {@code mask} is null
+</div>
+</div>
+</div>
+<h4>Public methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public String getPlaceHolder()</code></div>
+<div class="dui dui-summary-docs"> Gets the entire placeholder string for this mask. For instance, if the mask is <code> 
+ "(999) 999-9999"</code> , the placeholder might be <code> "(___) ___-____"</code> .
+</br></br><b>Returns: </b> <p> the placeholder string</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public int getPosition()</code></div>
+<div class="dui dui-summary-docs"> Gets the current cursor position within the mask. This is where new characters would be
+ inserted or where deletions would occur.
+</br></br><b>Returns: </b> <p> the current position in the masked string</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public String getMaskedValue()</code></div>
+<div class="dui dui-summary-docs"> Gets the fully masked value in its current state. Some positions may still contain placeholder
+ characters, while others may have user-entered data.
+</br></br><b>Returns: </b> <p> the masked string</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask clearMasking()</code></div>
+<div class="dui dui-summary-docs"> Resets the mask to its initial placeholder state and sets the cursor position to 0.
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask setMask(String mask)</code></div>
+<div class="dui dui-summary-docs"> Sets a new mask pattern, optionally preserving and re-masking the existing input if available.
+
+ <p> If the new mask is not null or empty, the unmasked value is extracted from the current
+ masked value, the mask is cleared, and then the input is remasked according to the new pattern.
+<div class="dui dui-site-member-param"><p><b>mask</b><p> the new mask string</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask clearMasking(int startPosition, int endPosition)</code></div>
+<div class="dui dui-summary-docs"> Clears the masking (resets positions to placeholder) in a specified range from <code>
+ startPosition</code>  to <code>endPosition</code> .
+<div class="dui dui-site-member-param"><p><b>startPosition</b><p> the starting index</p></div>
+<div class="dui dui-site-member-param"><p><b>endPosition</b><p> the ending index</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask maskInput(String input)</code></div>
+<div class="dui dui-summary-docs"> Adds/masks the entire provided string input into the current mask, starting from the current
+ cursor position.
+<div class="dui dui-site-member-param"><p><b>input</b><p> the string to insert</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask maskInput(int startPosition, String input)</code></div>
+<div class="dui dui-summary-docs"> Adds/masks the entire provided string input into the current mask at a specific position.
+<div class="dui dui-site-member-param"><p><b>startPosition</b><p> the position at which to begin masking</p></div>
+<div class="dui dui-site-member-param"><p><b>input</b><p> the string to insert</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask setPosition(int position)</code></div>
+<div class="dui dui-summary-docs"> Sets the current cursor position within the mask. If the specified position is out of bounds,
+ it is clamped to [0, mask length].
+<div class="dui dui-site-member-param"><p><b>position</b><p> the new cursor position</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask moveLeft()</code></div>
+<div class="dui dui-summary-docs"> Moves the cursor one position to the left (if possible).
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask moveLeft(int repeat)</code></div>
+<div class="dui dui-summary-docs"> Moves the cursor multiple positions to the left (if possible).
+<div class="dui dui-site-member-param"><p><b>repeat</b><p> how many positions to move</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask moveRight()</code></div>
+<div class="dui dui-summary-docs"> Moves the cursor one position to the right (if possible).
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask moveRight(int repeat)</code></div>
+<div class="dui dui-summary-docs"> Moves the cursor multiple positions to the right (if possible).
+<div class="dui dui-site-member-param"><p><b>repeat</b><p> how many positions to move</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask deleteLeft()</code></div>
+<div class="dui dui-summary-docs"> Deletes a single character to the left of the current cursor position, if it is a placeholder
+ position that currently holds user input.
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask deleteLeft(int repeat)</code></div>
+<div class="dui dui-summary-docs"> Deletes multiple characters to the left of the current cursor position, if they are placeholder
+ positions that currently hold user input.
+<div class="dui dui-site-member-param"><p><b>repeat</b><p> how many characters to delete</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask deleteLeft(int startPosition, int repeat)</code></div>
+<div class="dui dui-summary-docs"> Deletes characters to the left of a specified position in the mask.
+<div class="dui dui-site-member-param"><p><b>startPosition</b><p> the position from which to start deleting</p></div>
+<div class="dui dui-site-member-param"><p><b>repeat</b><p> the number of characters to delete</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask deleteRight()</code></div>
+<div class="dui dui-summary-docs"> Deletes a single character to the right of the current cursor position, if it is a placeholder
+ position that currently holds user input.
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask deleteRight(int repeat)</code></div>
+<div class="dui dui-summary-docs"> Deletes multiple characters to the right of the current cursor position, if they are
+ placeholder positions that currently hold user input.
+<div class="dui dui-site-member-param"><p><b>repeat</b><p> how many characters to delete</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask deleteRight(int startPosition, int repeat)</code></div>
+<div class="dui dui-summary-docs"> Deletes characters to the right of a specified position in the mask.
+<div class="dui dui-site-member-param"><p><b>startPosition</b><p> the position from which to start deleting</p></div>
+<div class="dui dui-site-member-param"><p><b>repeat</b><p> the number of characters to delete</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public String getUnmaskedValue()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the unmasked value from the entire current masked string (0..mask length). Any
+ placeholder characters are removed or replaced based on <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/MaskOptions.html">MaskOptions</a> .
+</br></br><b>Returns: </b> <p> the unmasked string (user-entered data)</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public String getUnmaskedValue(int startIndex)</code></div>
+<div class="dui dui-summary-docs"> Retrieves the unmasked value from a given start index to the end of the mask.
+<div class="dui dui-site-member-param"><p><b>startIndex</b><p> the start index for extraction</p></div>
+</br></br><b>Returns: </b> <p> the unmasked substring</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public String getUnmaskedValue(int startIndex, int endIndex)</code></div>
+<div class="dui dui-summary-docs"> Retrieves the unmasked value in a specified range. This strips out placeholder characters
+ (unless the user has typed over them), potentially replacing them with a missing character
+ token (from <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/MaskOptions.html">MaskOptions</a> ) if desired.
+<div class="dui dui-site-member-param"><p><b>startIndex</b><p> the start index (inclusive)</p></div>
+<div class="dui dui-site-member-param"><p><b>endIndex</b><p> the end index (exclusive)</p></div>
+</br></br><b>Returns: </b> <p> the unmasked substring</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public MaskOptions getOptions()</code></div>
+<div class="dui dui-summary-docs">
+</br></br><b>Returns: </b> <p> the 
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/MaskOptions.html">MaskOptions</a>
+  being used by this mask</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public StringMask withOptions(ChildHandler&lt;StringMask, MaskOptions&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Allows customization of the current <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/MaskOptions.html">MaskOptions</a>  instance using a functional handler.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  that takes this mask and its options for further
+     configuration</p></div>
+</br></br><b>Returns: </b> <p> this 
+<code>StringMask</code>
+  instance, for chaining</p>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,246 @@
+<div class="dui dui-members-summary"><h4>Constructors</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void CountCircle(int start, int end)</code></div>
+<div class="dui dui-summary-docs"> Constructs a <code>CountCircle</code>  with the specified start and end limits for the counter.
+ Initializes the UI elements and sets up the default configuration.
+<div class="dui dui-site-member-param"><p><b>start</b><p> the initial value of the counter</p></div>
+<div class="dui dui-site-member-param"><p><b>end</b><p> the maximum value of the counter</p></div>
+</div>
+</div>
+</div>
+<h4>Static methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static CountCircle create(int start, int end)</code></div>
+<div class="dui dui-summary-docs"> Factory method to create a new <code>CountCircle</code>  with specified start and end values.
+<div class="dui dui-site-member-param"><p><b>start</b><p> the initial value of the counter</p></div>
+<div class="dui dui-site-member-param"><p><b>end</b><p> the maximum value of the counter</p></div>
+</br></br><b>Returns: </b> <p> a new instance of 
+<code>CountCircle</code></p>
+</div>
+</div>
+</div>
+<h4>Public methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle setSize(double radius, double thickness)</code></div>
+<div class="dui dui-summary-docs"> Sets the size of the counter circle with the specified radius and thickness.
+<div class="dui dui-site-member-param"><p><b>radius</b><p> the radius of the circle</p></div>
+<div class="dui dui-site-member-param"><p><b>thickness</b><p> the thickness of the counter ring</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle setCounterColors(String startColor, String stopColor)</code></div>
+<div class="dui dui-summary-docs"> Sets the start and stop colors for the count circle's gradient.
+<div class="dui dui-site-member-param"><p><b>startColor</b><p> the start color for the count circle gradient</p></div>
+<div class="dui dui-site-member-param"><p><b>stopColor</b><p> the stop color for the count circle gradient</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle setLimits(int start, int end)</code></div>
+<div class="dui dui-summary-docs"> Sets the start and end limits of the counter. If the start value is greater than the end, an
+ <code>IllegalArgumentException</code>  is thrown.
+<div class="dui dui-site-member-param"><p><b>start</b><p> the starting value of the counter</p></div>
+<div class="dui dui-site-member-param"><p><b>end</b><p> the end value of the counter</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+@throws IllegalArgumentException if start is greater than end
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle countUp(int increment)</code></div>
+<div class="dui dui-summary-docs"> Increments the current counter value by the specified increment.
+<div class="dui dui-site-member-param"><p><b>increment</b><p> the value to increment the counter by</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle countDown(int decrement)</code></div>
+<div class="dui dui-summary-docs"> Decrements the current counter value by the specified decrement.
+<div class="dui dui-site-member-param"><p><b>decrement</b><p> the value to decrement the counter by</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void setValue(Integer value)</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Sets the value of the counter. If the new value is <code>null</code> , the counter is set to the
+ start value. If the new value is outside the bounds of <code>start</code>  and <code>end</code> , it is
+ capped at those limits. Triggers change listeners if they are not paused.
+<div class="dui dui-site-member-param"><p><b>value</b><p> the new value to set the counter to</p></div>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public Integer getValue()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Retrieves the current value of the counter.
+
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public String getTextExpression()</code></div>
+<div class="dui dui-summary-docs"> Gets the current text expression that is displayed on the counter. Defaults to <code> "${value}"
+ </code> .
+</br></br><b>Returns: </b> <p> the current text expression</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle setTextExpression(String textExpression)</code></div>
+<div class="dui dui-summary-docs"> Sets the text expression for the counter. The expression can include placeholders, e.g., <code> 
+ "${value}"</code> .
+<div class="dui dui-site-member-param"><p><b>textExpression</b><p> the text expression to set</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle pauseChangeListeners()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Pauses the change listeners so that they do not fire when the counter's value changes.
+
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle resumeChangeListeners()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Resumes the change listeners so that they will fire when the counter's value changes.
+
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle togglePauseChangeListeners(boolean toggle)</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Toggles the pause state of the change listeners.
+<div class="dui dui-site-member-param"><p><b>toggle</b><p> if true, pauses the change listeners; if false, resumes them</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public Set&lt;ChangeListener&lt;? super Integer&gt;&gt; getChangeListeners()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Retrieves the set of change listeners that are registered on the counter.
+
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public boolean isChangeListenersPaused()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Checks if the change listeners are currently paused.
+
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle triggerChangeListeners(Integer oldValue, Integer newValue)</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Triggers the change listeners with the old and new values.
+<div class="dui dui-site-member-param"><p><b>oldValue</b><p> the old value of the counter</p></div>
+<div class="dui dui-site-member-param"><p><b>newValue</b><p> the new value of the counter</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle withMainContainer(ChildHandler&lt;CountCircle, DivElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the main container of the counter. This allows for additional
+ customization and control over the main container element.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the main container</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle withOuterContainer(ChildHandler&lt;CountCircle, DivElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the outer container of the counter. This allows for additional
+ customization and control over the outer container element.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the outer container</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle withInnerContainer(ChildHandler&lt;CountCircle, DivElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the inner container of the counter. This allows for additional
+ customization and control over the inner container element.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the inner container</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle withSvgElement(ChildHandler&lt;CountCircle, SvgElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the SVG element of the counter. This allows for additional
+ customization and control over the SVG element.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the SVG element</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle withSvgCircleElement(ChildHandler&lt;CountCircle, CircleElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the SVG circle element of the counter. This allows for additional
+ customization and control over the SVG circle element.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the SVG circle element</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle withTextElement(ChildHandler&lt;CountCircle, SpanElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the text element of the counter. This allows for additional
+ customization and control over the text element.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the text element</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle withValue(Integer value)</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Sets the value of the counter, respecting whether change listeners are currently paused.
+<div class="dui dui-site-member-param"><p><b>value</b><p> the new value</p></div>
+</br></br><b>Returns: </b> <p> this instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle withValue(Integer value, boolean silent)</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Sets the value of the counter with an option to notify change listeners. If <code>silent</code> 
+ is true, change listeners will not be notified.
+<div class="dui dui-site-member-param"><p><b>value</b><p> the new value to set the counter to</p></div>
+<div class="dui dui-site-member-param"><p><b>silent</b><p> if true, change listeners are not notified; if false, they are notified</p></div>
+</br></br><b>Returns: </b> <p> the current instance for method chaining</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public HTMLDivElement element()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Retrieves the root HTMLDivElement for the counter. This is the main container element of the
+ counter UI.
+</br></br><b>Returns: </b> <p> the root 
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/elemental2/dom/HTMLDivElement.html">HTMLDivElement</a></p>
+</div>
+</div>
+</div>
+</div>

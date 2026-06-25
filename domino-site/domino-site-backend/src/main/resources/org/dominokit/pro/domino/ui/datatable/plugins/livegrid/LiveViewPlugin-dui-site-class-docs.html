@@ -1,0 +1,10 @@
+ A plugin that provides a "live view" or virtualized scrolling for <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/DataTable.html">DataTable</a>  components
+ backed by a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/LocalListLiveViewDataStore.html">LocalListLiveViewDataStore</a> . It limits the DOM to only the rows currently
+ visible and a small buffer (cache) above and below the viewport, dramatically improving
+ performance for large datasets.
+
+ <p> When scrolling, this plugin calculates which subset of rows should be rendered based on the
+ current scroll position, row height, and total record count.
+
+ <p><b> Note:</b>  This plugin only works with <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/datatable/store/LocalListLiveViewDataStore.html">LocalListLiveViewDataStore</a> .
+<div class="dui dui-site-member-param"><p><b>T</b><p> the type of the record in the data table</p></div>

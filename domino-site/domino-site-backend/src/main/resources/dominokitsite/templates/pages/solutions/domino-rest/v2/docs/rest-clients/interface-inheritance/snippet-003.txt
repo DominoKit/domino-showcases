@@ -1,0 +1,5 @@
+@Path("second-root-path")
+public interface SecondService {
+    @Path("second-path")
+    SomeResponse secondRequest();
+}

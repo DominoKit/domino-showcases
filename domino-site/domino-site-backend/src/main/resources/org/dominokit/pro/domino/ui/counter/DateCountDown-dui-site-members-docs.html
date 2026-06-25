@@ -1,0 +1,274 @@
+<div class="dui dui-members-summary"><h4>Constructors</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void DateCountDown()</code></div>
+<div class="dui dui-summary-docs"> Default constructor which initializes the countdown component with default settings.
+
+ <p> Sets up counters for seconds, minutes, hours, days, months, and years, attaching
+ corresponding change listeners to handle transitions (e.g., when seconds roll over to decrement
+ minutes).
+
+ <p> A <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/gwtproject/timer/client/Timer.html">Timer</a>  is also created to update the seconds counter every second.
+
+</div>
+</div>
+</div>
+<h4>Static methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static DateCountDown create()</code></div>
+<div class="dui dui-summary-docs"> Factory method to create a new instance of <code>DateCountDown</code> . This method initializes the
+ countdown with default settings (six counters for seconds, minutes, hours, days, months, and
+ years).
+</br></br><b>Returns: </b> <p> a new instance of 
+<code>DateCountDown</code></p>
+</div>
+</div>
+</div>
+<h4>Public methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown start(int minutes, int seconds)</code></div>
+<div class="dui dui-summary-docs"> Starts the countdown timer for a duration specified in minutes and seconds from the current
+ time. The <code>start</code>  method calculates the target end time based on the current date and
+ time plus the given duration.
+<div class="dui dui-site-member-param"><p><b>minutes</b><p> the number of minutes to count down from the current time</p></div>
+<div class="dui dui-site-member-param"><p><b>seconds</b><p> the number of seconds to count down in addition to the minutes</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown start(int hours, int minutes, int seconds)</code></div>
+<div class="dui dui-summary-docs"> Starts the countdown timer for a duration specified in hours, minutes, and seconds from the
+ current time. The <code>start</code>  method calculates the target end time based on the current date
+ and time plus the given duration.
+<div class="dui dui-site-member-param"><p><b>hours</b><p> the number of hours to count down from the current time</p></div>
+<div class="dui dui-site-member-param"><p><b>minutes</b><p> the number of minutes to count down in addition to the hours</p></div>
+<div class="dui dui-site-member-param"><p><b>seconds</b><p> the number of seconds to count down in addition to the hours and minutes</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown start(int days, int hours, int minutes, int seconds)</code></div>
+<div class="dui dui-summary-docs"> Starts the countdown timer for a duration specified in days, hours, minutes, and seconds from
+ the current time. The <code>start</code>  method calculates the target end time based on the current
+ date and time plus the given duration.
+<div class="dui dui-site-member-param"><p><b>days</b><p> the number of days to count down from the current time</p></div>
+<div class="dui dui-site-member-param"><p><b>hours</b><p> the number of hours to count down in addition to the days</p></div>
+<div class="dui dui-site-member-param"><p><b>minutes</b><p> the number of minutes to count down in addition to the days and hours</p></div>
+<div class="dui dui-site-member-param"><p><b>seconds</b><p> the number of seconds to count down in addition to the days, hours, and minutes</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown start(Date targetDate)</code></div>
+<div class="dui dui-summary-docs"> Starts the countdown to a specified date. The counters are initialized and the timer begins
+ counting down every second.
+<div class="dui dui-site-member-param"><p><b>targetDate</b><p> the date to count down to</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown stop()</code></div>
+<div class="dui dui-summary-docs"> Stops the countdown timer.
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown withYearCounter(ChildHandler&lt;DateCountDown, CountCircle&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the year counter component. Allows additional styling or behavior
+ to be applied.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the year counter</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown withMonthsCounter(ChildHandler&lt;DateCountDown, CountCircle&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the months counter component. Allows additional styling or behavior
+ to be applied.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the months counter</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown withDaysCounter(ChildHandler&lt;DateCountDown, CountCircle&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the days counter component. Allows additional styling or behavior
+ to be applied.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the days counter</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown withHoursCounter(ChildHandler&lt;DateCountDown, CountCircle&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the hours counter component. Allows additional styling or behavior
+ to be applied.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the hours counter</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown withMinutesCounter(ChildHandler&lt;DateCountDown, CountCircle&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the minutes counter component. Allows additional styling or
+ behavior to be applied.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the minutes counter</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown withSecondsCounter(ChildHandler&lt;DateCountDown, CountCircle&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Applies a custom handler to the seconds counter component. Allows additional styling or
+ behavior to be applied.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/utils/ChildHandler.html">ChildHandler</a>  functional interface to apply to the seconds counter</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle getSecondsCounter()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the seconds counter component.
+</br></br><b>Returns: </b> <p> the 
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/counter/CountCircle.html">CountCircle</a>
+  for seconds</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle getMinutesCounter()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the minutes counter component.
+</br></br><b>Returns: </b> <p> the 
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/counter/CountCircle.html">CountCircle</a>
+  for minutes</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle getHoursCounter()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the hours counter component.
+</br></br><b>Returns: </b> <p> the 
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/counter/CountCircle.html">CountCircle</a>
+  for hours</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle getDaysCounter()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the days counter component.
+</br></br><b>Returns: </b> <p> the 
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/counter/CountCircle.html">CountCircle</a>
+  for days</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle getMonthsCounter()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the months counter component.
+</br></br><b>Returns: </b> <p> the 
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/counter/CountCircle.html">CountCircle</a>
+  for months</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public CountCircle getYearsCounter()</code></div>
+<div class="dui dui-summary-docs"> Retrieves the years counter component.
+</br></br><b>Returns: </b> <p> the 
+<a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/counter/CountCircle.html">CountCircle</a>
+  for years</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown showCounters()</code></div>
+<div class="dui dui-summary-docs"> Shows all the counters (years, months, days, hours, minutes, seconds).
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown hideCounters()</code></div>
+<div class="dui dui-summary-docs"> Hides all the counters (years, months, days, hours, minutes, seconds).
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown showCounters(DateCountDown.CounterUnits[] units)</code></div>
+<div class="dui dui-summary-docs"> Shows only the specified counters.
+<div class="dui dui-site-member-param"><p><b>units</b><p> the time units whose counters should be shown</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown hideCounters(DateCountDown.CounterUnits[] units)</code></div>
+<div class="dui dui-summary-docs"> Hides the specified counters.
+<div class="dui dui-site-member-param"><p><b>units</b><p> the time units whose counters should be hidden</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown showCounter(CounterUnits unit)</code></div>
+<div class="dui dui-summary-docs"> Shows the counter for a specific time unit.
+<div class="dui dui-site-member-param"><p><b>unit</b><p> the time unit whose counter should be shown</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DateCountDown hideCounter(CounterUnits unit)</code></div>
+<div class="dui dui-summary-docs"> Hides the counter for a specific time unit.
+<div class="dui dui-site-member-param"><p><b>unit</b><p> the time unit whose counter should be hidden</p></div>
+</br></br><b>Returns: </b> <p> The current 
+<code>DateCountDown</code>
+  instance for chaining method calls</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public HTMLDivElement element()</code></div>
+<div class="dui dui-summary-docs">Check super implementation documentation. 
+
+ <p> Retrieves the root element of the countdown timer as an <code>HTMLDivElement</code> . This is the
+ primary element that contains all the visual components of the countdown timer.
+
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,8 @@
+@BrixPresenter
+public class NavPresenter extends Presenter<NavView> {
+  @ListenFor(UserLoggedIn.class)
+  void handleLogin(UserLoggedIn event) {
+    if (event.getSource().orElse(null) == this) return;
+    view.showUser(event.getUserId());
+  }
+}

@@ -1,0 +1,45 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/events-and-context"
+               aria-expanded="true">
+                Events &amp; context
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Events</h1>
+    <p class="dui dui-leading-6">Brix includes a lightweight event bus. Extend <code>BrixEvent</code> for custom
+        payloads, fire events globally, and handle them with <code>@ListenFor</code> on presenters.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Listening</h2>
+    <p class="dui dui-leading-6">Presenters are registered as listeners on activation and removed on deactivation.
+        Any component can register manually via <code>Brix.get().events().register(...)</code> and keep the returned
+        <code>RegistrationRecord</code> to remove it.</p>
+
+    <h1 class="dui dui-site-docs-title">Context</h1>
+    <p class="dui dui-leading-6">Use <code>HasContext&lt;T&gt;</code> to broadcast store-like state changes with an
+        operation flag. <code>IsContext</code> carries data, operation (<code>CREATED</code>, <code>UPDATED</code>,
+        <code>DELETED</code>), and source.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Listening to context updates</h2>
+    <p class="dui dui-leading-6">Register context listeners to react to create/update/delete signals. Registration
+        immediately replays the current context when present.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-004']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Lifecycle tips</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Use <code>events().fireEvent(source, event)</code> to set the source for filtering.</span></li>
+        <li class="dui"><span>Remove manual listeners on teardown to avoid leaks.</span></li>
+        <li class="dui"><span>Combine context with events for cross-module communication without tight coupling.</span></li>
+    </ul>
+</div>

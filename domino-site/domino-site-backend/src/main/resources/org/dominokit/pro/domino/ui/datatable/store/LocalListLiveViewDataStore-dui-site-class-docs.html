@@ -1,0 +1,17 @@
+ A local, in-memory <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/data/DataStore.html">DataStore</a>  implementation that supports live (virtual) viewing of data
+ rows. It holds all data in lists and allows incremental loading of a portion of data (by index
+ range) for efficient display with large datasets.
+
+ <p> Supports:
+
+ <ul> 
+   <li> Filtering via <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/store/SearchFilter.html">SearchFilter</a> 
+   <li> Sorting via <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/datatable/store/RecordsSorter.html">RecordsSorter</a> 
+   <li> Range-based loading (e.g., partial results) for virtual scrolling
+   <li> Drag-and-drop handling for reordering
+ </ul> 
+
+ <p><b> Note:</b>  This data store is particularly designed to work with the "live view" or
+ virtualized scrolling approach, as implemented by the <i> LiveViewPlugin</i> . It can still be used
+ in standard scenarios but is optimized for incremental loading.
+<div class="dui dui-site-member-param"><p><b>T</b><p> the type of data record</p></div>

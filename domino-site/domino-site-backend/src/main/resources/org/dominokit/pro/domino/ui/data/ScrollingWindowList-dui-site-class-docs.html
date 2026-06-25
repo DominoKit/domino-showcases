@@ -1,0 +1,13 @@
+Moving-window data structure that powers virtualization for huge backing lists.
+
+<p><code>ScrollingWindowList</code> decides which records should currently be realized as rendered
+window items, fires enter and exit callbacks, and supports incremental add and remove operations.
+
+<p>It is the core list engine behind <a class="dui" tabindex="0" aria-expanded="true"
+target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/VirtualScrollPanel.html">VirtualScrollPanel</a>
+and, by extension, <a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataList.html">DataList</a>.
+
+<div class="dui dui-site-member-param"><p><b>T</b><p>the record type in the backing list</p></div>
+<div class="dui dui-site-member-param"><p><b>I</b><p>the rendered window item type</p></div>

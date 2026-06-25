@@ -1,0 +1,12 @@
+public class ProfileStore implements HasContext<ProfileStore> {
+  private IsContext<ProfileStore> context;
+  private final Set<ContextListener<ProfileStore>> listeners = new HashSet<>();
+
+  public void createProfile(Profile profile) { update(IsContext.created(this, profile)); }
+  public void updateProfile(Profile profile) { update(IsContext.updated(this, profile)); }
+  public void deleteProfile(Profile profile) { update(IsContext.deleted(this, profile)); }
+
+  @Override public void setContext(IsContext<ProfileStore> context) { this.context = context; }
+  @Override public IsContext<ProfileStore> getContext() { return context; }
+  @Override public Set<ContextListener<ProfileStore>> getContextListeners() { return listeners; }
+}

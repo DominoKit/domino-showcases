@@ -1,0 +1,41 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/routing"
+               aria-expanded="true">
+                Routing
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Registering routes</h1>
+    <p class="dui dui-leading-6">Annotate presenters with <code>@BrixRoute</code> and wrap them in
+        <code>@BrixComponent</code>. Generated routing providers register the presenter with Domino History so pushing a
+        token activates the presenter.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Parameterized routes</h2>
+    <p class="dui dui-leading-6">Use <code>:param</code> placeholders in the route path. Brix and Domino History parse
+        path, query, and fragment parts and map them to annotated fields.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Access routing state</h2>
+    <p class="dui dui-leading-6">Annotated fields are refreshed before activation and on token changes. You can also
+        read directly from the routing state for richer access or override <code>setState</code> to map into custom
+        fields.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Child routes &amp; navigation</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Child presenters merge parent and child token filters so parents activate first.</span></li>
+        <li class="dui"><span><b>Hash vs path routing</b>: routes containing <code>#</code> use fragment-based filters; others use path filters.</span></li>
+        <li class="dui"><span>Use <code>Brix.get().router().pushToken(...)</code> to navigate programmatically.</span></li>
+        <li class="dui"><span>Views implementing <code>CanConfirmNavigation</code>/<code>ProvidesConfirmNavigation</code> register a history interceptor during activation.</span></li>
+    </ul>
+</div>

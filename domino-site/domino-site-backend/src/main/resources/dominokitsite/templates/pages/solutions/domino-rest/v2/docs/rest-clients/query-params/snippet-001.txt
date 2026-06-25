@@ -1,0 +1,7 @@
+@RequestFactory
+public interface MoviesService {
+
+    @Path("library/movies")
+    @GET
+    Movie getMovieByName(@QueryParam("name") String movieName);
+}

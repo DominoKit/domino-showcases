@@ -1,0 +1,50 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/startup-and-tasks"
+               aria-expanded="true">
+                Startup &amp; tasks
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Define startup tasks</h1>
+    <p class="dui dui-leading-6">Startup tasks run after <code>Brix.get().init(config)</code> and before presenters
+        activate. Extend <code>BrixStartupTask</code>, implement <code>run()</code>, and call <code>complete()</code>
+        when finished.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Ordering</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><b>order()</b> groups tasks; same order runs in parallel.</span></li>
+        <li class="dui"><span><b>complete()</b> is mandatory—tasks block the next group until they finish.</span></li>
+        <li class="dui"><span>After the final group completes, the <code>onComplete</code> callback passed to
+            <code>start(...)</code> fires.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Provide tasks via DI</h2>
+    <p class="dui dui-leading-6">Bind tasks with the <code>@BrixTask</code> qualifier so you can inject the set into
+        your entry point.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Bootstrap with tasks</h2>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Classpath discovery (domino-auto)</h2>
+    <p class="dui dui-leading-6">Annotate tasks with <code>@AutoService(BrixStartupTask.class)</code> to generate a
+        <code>BrixStartupTask_ServiceLoader</code> helper. This lets you start Brix without wiring DI modules.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-004']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Tips</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Call <code>complete()</code> even for synchronous work.</span></li>
+        <li class="dui"><span>Use higher <code>order()</code> values for tasks that depend on earlier ones.</span></li>
+        <li class="dui"><span>Use <code>getContextWait()</code> if you need to coordinate multiple async operations inside one task.</span></li>
+    </ul>
+</div>

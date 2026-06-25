@@ -1,0 +1,11 @@
+@JSONMapper
+public class Movie {
+
+    @PathParam("name")
+    private String name;
+    private int rating;
+    private String bio;
+    private String releaseDate;
+
+    // setters and getters
+}

@@ -1,0 +1,13 @@
+public interface DashboardUiHandlers extends UiHandlers {
+  void onRefresh();
+  void onRefreshUser(String userId);
+  interface HasUiHandlers { void setUiHandlers(DashboardUiHandlers handlers); }
+}
+
+@BrixPresenter
+public class DashboardPresenter extends Presenter<DashboardView>
+    implements DashboardUiHandlers {
+
+  @UiHandler public void onRefresh() { /* presenter logic */ }
+  @UiHandler public void onRefreshUser(String userId) { /* presenter logic */ }
+}

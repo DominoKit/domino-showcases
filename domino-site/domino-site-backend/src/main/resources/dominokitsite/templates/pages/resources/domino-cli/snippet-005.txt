@@ -1,0 +1,7 @@
+dominokit generate app \
+  -n <name> \
+  [-g <groupId>] \
+  [-d <absoluteOutputDir>] \
+  [-t basic|brix] \
+  [-dev] \
+  [--generate-api[=<true|false>]]

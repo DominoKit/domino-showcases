@@ -1,0 +1,4 @@
+MoviesServiceFactory.INSTANCE
+    .getMovieByName("hulk", "some token")
+    .onSuccess(movie ->{})
+    .send();

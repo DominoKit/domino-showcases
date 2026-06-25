@@ -1,0 +1,16 @@
+@BrixPresenter
+@BrixRoute("details/:id")
+@BrixSlot("content-slot")
+public class DetailsPresenter extends ChildPresenter<DashboardPresenter, DetailsView> {
+  @PathParameter("id") String id;
+
+  @Override
+  protected void onActivated() {
+    view.loadDetails(id);
+  }
+
+  @Override
+  public void onBindParent(DashboardPresenter parent) {
+    view.setHeader(parent.getHeaderTitle());
+  }
+}

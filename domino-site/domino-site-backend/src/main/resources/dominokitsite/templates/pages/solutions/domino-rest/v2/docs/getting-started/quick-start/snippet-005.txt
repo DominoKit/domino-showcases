@@ -1,0 +1,29 @@
+MoviesServiceFactory.INSTANCE
+    .getMovieByName("hulk")
+    .onSuccess(movie -> {
+        //do something on success
+    })
+    .onFailed(failedResponse -> {
+        //do something on error
+    })
+    .send();
+
+MoviesServiceFactory.INSTANCE
+    .listMovies()
+    .onSuccess(movies -> {
+        //do something on success
+    })
+    .onFailed(failedResponse -> {
+        //do something on error
+    })
+    .send();
+
+MoviesServiceFactory.INSTANCE
+    .updateMovie(movie)
+    .onSuccess(aVoid -> {
+        //do something on success
+    })
+    .onFailed(failedResponse -> {
+        //do something on error
+    })
+    .send();

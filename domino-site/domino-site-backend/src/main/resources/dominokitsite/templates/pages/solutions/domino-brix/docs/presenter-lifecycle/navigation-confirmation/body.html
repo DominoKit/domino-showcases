@@ -1,0 +1,36 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/presenter-lifecycle"
+               aria-expanded="true">
+                Presenter lifecycle
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/presenter-lifecycle/navigation-confirmation" aria-expanded="true">
+                Navigation confirmation
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Confirm navigation</h1>
+    <p class="dui dui-leading-6">If the view implements <code>CanConfirmNavigation</code> or
+        <code>ProvidesConfirmNavigation</code>, Brix installs a history interceptor on activation to prompt before
+        leaving when <code>isConfirmNavigation()</code> is true.</p>
+
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Behavior</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Interceptor added on activation; removed on deactivation.</span></li>
+        <li class="dui"><span>On token change, <code>confirmNavigation</code> decides whether to continue.</span></li>
+        <li class="dui"><span>Use <code>onConfirmed()</code> / <code>onCanceled()</code> handlers to control navigation.</span></li>
+    </ul>
+</div>

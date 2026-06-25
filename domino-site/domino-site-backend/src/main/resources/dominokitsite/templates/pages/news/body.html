@@ -1,0 +1,26 @@
+<div th:fragment="content" class="dk-p-news">
+    <div class="dk-p-news-title">
+        What's new?
+    </div>
+    <div class="news-main">
+
+        <div th:if="${#lists.isEmpty(githubReleaseGroups)}" class="dk-c-card">
+            <div class="dk-c-card__desc-container">
+                <div class="ck-c-card__desc-title">
+                    <div class="ck-c-card__headline">No releases to show right now.</div>
+                </div>
+            </div>
+        </div>
+        <th:block th:each="group : ${githubReleaseGroups}">
+            <h3 th:text="${group.label}" class="dui-site-release-date"></h3>
+            <th:block th:each="release : ${group.releases}">
+                <div th:replace="fragments/commons/components/release-card :: content(${release.link}, ${release.image}, ${release.banner}, ${release.category}, ${release.description}, ${release.date})"></div>
+            </th:block>
+        </th:block>
+
+        <div th:replace="fragments/commons/components/card :: content('/assets/domino-logo-2048.png', 'HOT TOPIC!', 'New site! New beginning!', 'October 25, 2023')"></div>
+        <div th:replace="fragments/commons/components/social-media-card :: content('/assets/social-media.jpg', 'SOCIAL MEDIA', 'We\'re on social media!', 'October 25, 2023')"></div>
+        <div th:replace="fragments/commons/components/link-card :: content('https://github.com/DominoKit', '/assets/github.png', 'SUPPORT', 'Make contributions on our projects and join our family!', 'October 25, 2023')"></div>
+
+    </div>
+</div>

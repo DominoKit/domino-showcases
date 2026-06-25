@@ -1,0 +1,26 @@
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.Widget;
+import elemental2.dom.HTMLElement;
+import org.dominokit.domino.ui.grid.Row;
+import org.dominokit.domino.ui.utils.DominoElement;
+
+public class BridgeExample implements EntryPoint {
+    @Override
+    public void onModuleLoad() {
+        TextBox legacyTextBox = new TextBox();
+        legacyTextBox.setValue("GWT widget inside Domino");
+
+        DominoElement<HTMLElement> bridgedWidget = WidgetElement.toWidgetElement(legacyTextBox);
+
+        Row row = Row.create();
+        row.appendChild(bridgedWidget);
+
+        org.dominokit.domino.ui.forms.TextBox dominoTextBox =
+                org.dominokit.domino.ui.forms.TextBox.create().withValue("Domino element inside GWT");
+        Widget widgetAdapter = WidgetElement.toElementWidget(dominoTextBox);
+
+        RootPanel.get().add(widgetAdapter);
+    }
+}

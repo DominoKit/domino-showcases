@@ -1,0 +1,49 @@
+<div class="dui dui-members-summary">
+<h4>Static methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static DataSelect&lt;V&gt; create(VirtualScrollItemMapper&lt;V, DataListItem&lt;V&gt;&gt; mapper, KeyProvider&lt;V&gt; keyProvider)</code></div>
+<div class="dui dui-summary-docs">Creates a single-selection data select without a label.
+<div class="dui dui-site-member-param"><p><b>mapper</b><p>maps option records into rendered data list rows</p></div>
+<div class="dui dui-site-member-param"><p><b>keyProvider</b><p>resolves stable keys for the option records</p></div>
+<div class="dui dui-site-member-param"><p><b>V</b><p>the option value type</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static DataSelect&lt;V&gt; create(String label, VirtualScrollItemMapper&lt;V, DataListItem&lt;V&gt;&gt; mapper, KeyProvider&lt;V&gt; keyProvider)</code></div>
+<div class="dui dui-summary-docs">Creates a labeled single-selection data select.
+<div class="dui dui-site-member-param"><p><b>label</b><p>the form label to apply to the select</p></div>
+<div class="dui dui-site-member-param"><p><b>mapper</b><p>maps option records into rendered data list rows</p></div>
+<div class="dui dui-site-member-param"><p><b>keyProvider</b><p>resolves stable keys for the option records</p></div>
+<div class="dui dui-site-member-param"><p><b>V</b><p>the option value type</p></div>
+</div></div>
+</div>
+<h4>Public methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DataSelect&lt;V&gt; withOption(VirtualItem&lt;V, DataListItem&lt;V&gt;&gt; option, boolean silent)</code></div>
+<div class="dui dui-summary-docs">Applies a selected option, updates the field display, and optionally suppresses change listeners.
+<div class="dui dui-site-member-param"><p><b>option</b><p>the virtual option to mark as selected</p></div>
+<div class="dui dui-site-member-param"><p><b>silent</b><p><code>true</code> to avoid notifying change listeners</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public V getValue()</code></div>
+<div class="dui dui-summary-docs">Returns the record for the currently selected option.
+</br></br><b>Returns: </b><p>the selected value, or <code>null</code> when nothing is selected</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public VirtualItem&lt;V, DataListItem&lt;V&gt;&gt; getSelectedOption()</code></div>
+<div class="dui dui-summary-docs">Returns the currently selected virtual option.
+</br></br><b>Returns: </b><p>the selected option wrapper, or <code>null</code> if no option is selected</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DataSelect&lt;V&gt; setAutoFocus(boolean autoFocus)</code></div>
+<div class="dui dui-summary-docs">Controls whether the select should focus itself after option selection.
+<div class="dui dui-site-member-param"><p><b>autoFocus</b><p><code>true</code> to keep focus on the select after updates</p></div>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public boolean isAutoFocus()</code></div>
+<div class="dui dui-summary-docs">Indicates whether the select is configured to autofocus after updates.
+</br></br><b>Returns: </b><p><code>true</code> when autofocus is enabled</p>
+</div></div>
+</div>
+</div>

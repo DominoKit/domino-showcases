@@ -1,0 +1,6 @@
+<module>
+  <inherits name="org.dominokit.domino.logger.Logging"/>
+  <set-property name="domino.slf4j.logging.level" value="DEBUG"/>
+  <set-property name="domino.slf4j.logging.showCaller" value="true"/>
+  <set-property name="domino.slf4j.logging.showMdc" value="true"/>
+</module>

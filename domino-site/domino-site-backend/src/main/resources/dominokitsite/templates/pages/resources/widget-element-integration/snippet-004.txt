@@ -1,0 +1,6 @@
+import com.google.gwt.user.client.ui.IsWidget;
+import elemental2.dom.HTMLElement;
+import org.dominokit.domino.ui.utils.DominoElement;
+
+IsWidget widgetView = someWidget;
+DominoElement<HTMLElement> bridgedWidget = WidgetElement.toWidgetElement(widgetView);

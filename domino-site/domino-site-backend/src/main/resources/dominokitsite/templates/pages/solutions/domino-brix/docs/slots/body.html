@@ -1,0 +1,38 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/slots"
+               aria-expanded="true">
+                Slots
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Assigning slots</h1>
+    <p class="dui dui-leading-6">Slots are named attachment points where presenters reveal their views. Declare a
+        slot key on the presenter with <code>@BrixSlot</code>. Built-in slots like <code>BrixSlots.BRIX_BODY_SLOT</code>
+        are registered automatically.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Registering slots</h2>
+    <p class="dui dui-leading-6">Register custom slots before navigation or during presenter activation. Slots added
+        inside a presenter should use <code>registerSlot(...)</code> so they clean up on deactivation.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Slots supplied by the view</h2>
+    <p class="dui dui-leading-6">Annotate the presenter with <code>@RegisterSlots</code> to force the view to supply
+        slot instances. The processor emits a <code>*Slots</code> interface; implement it in the view and return slot
+        instances for each key.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Custom slot implementations</h2>
+    <p class="dui dui-leading-6">Implement <code>Slot</code> (or extend helpers like <code>AcceptOneElementSlot</code>)
+        to control how content attaches. Slots registered globally live until removed; slots registered through
+        <code>registerSlot</code> are automatically unregistered on deactivation.</p>
+</div>

@@ -1,0 +1,8 @@
+public class UserLoggedIn extends BrixEvent {
+  private final String userId;
+  public UserLoggedIn(String userId) { this.userId = userId; }
+  public String getUserId() { return userId; }
+}
+
+events().fireEvent(new UserLoggedIn("42"));
+events().fireEvent(this, new UserLoggedIn("42")); // sets source

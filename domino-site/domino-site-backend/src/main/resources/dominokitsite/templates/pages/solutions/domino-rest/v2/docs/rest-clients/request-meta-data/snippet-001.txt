@@ -1,0 +1,20 @@
+@RequestFactory
+public interface MoviesService {
+
+    @Path("library/movies/:id")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    Movie getMovie(@PathParam("id") String id);
+}
+
+MoviesService service = new MoviesService_RequestFactory().make();
+
+service.getMovie("123")
+        .onBeforeSend(request -> {
+            RequestMeta meta = request.getRequestMeta();
+            LOGGER.info("Calling {}", meta.getFullUrl());          // /library/movies/123
+            LOGGER.info("Method: {}", meta.getMethod());           // GET
+            LOGGER.info("Consumes: {}", meta.getConsumes());       // application/json
+            LOGGER.info("Produces: {}", meta.getProduces());       // application/json
+        })
+        .send();

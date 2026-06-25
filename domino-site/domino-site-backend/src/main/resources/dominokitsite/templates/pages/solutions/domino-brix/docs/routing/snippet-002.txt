@@ -1,0 +1,5 @@
+@BrixPresenter
+@BrixRoute("customers/:customerId/orders/:orderId")
+@BrixComponent(presenter = OrderDetailsPresenter.class)
+public class OrderDetailsComponent {}
+// customers/42/orders/7 => customerId=42, orderId=7

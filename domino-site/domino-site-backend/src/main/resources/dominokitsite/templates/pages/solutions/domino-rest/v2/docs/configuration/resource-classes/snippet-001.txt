@@ -1,0 +1,4 @@
+@ResourceList({UserResource.class, MoviesResource.IntX.class})
+package com.foo.bar;
+
+import org.dominokit.domino.rest.shared.request.service.annotations.ResourceList;

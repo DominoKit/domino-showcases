@@ -1,0 +1,124 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/app-and-module-structure" aria-expanded="true">
+                App &amp; module structure
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">App &amp; module structure</h1>
+    <p class="dui dui-leading-6">A typical Domino Brix app uses a multi-module Maven layout. The structure below mirrors
+        the sample app while keeping everything generic so you can map it to your own project.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Top-level repository layout</h2>
+    <p class="dui dui-leading-6">The root aggregates backend, frontend, shared, and feature modules under one build.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Root aggregator</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>The root <code>pom.xml</code> aggregates all top-level modules.</span></li>
+        <li class="dui"><span>It centralizes dependency versions and shared build plugins.</span></li>
+        <li class="dui"><span>It does not contain production sources.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Main app modules</h2>
+
+    <h3 class="dui dui-site-docs-sub-title">&lt;app-name&gt;-backend</h3>
+    <p class="dui dui-leading-6">The backend module is the deployed server artifact (Quarkus or similar).</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Serves the compiled frontend bundle as static resources.</span></li>
+        <li class="dui"><span>Hosts backend logic, persistence, and REST endpoints.</span></li>
+        <li class="dui"><span>Usually depends on <code>&lt;app-name&gt;-shared</code> for DTOs and events.</span></li>
+    </ul>
+
+    <h3 class="dui dui-site-docs-sub-title">&lt;app-name&gt;-frontend</h3>
+    <p class="dui dui-leading-6">The frontend module boots the GWT/J2CL application.</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Owns the entry point class (for example, <code>App implements EntryPoint</code>).</span></li>
+        <li class="dui"><span>Configures Domino Rest, themes, and global UI settings.</span></li>
+        <li class="dui"><span>Loads all generated <code>BrixComponentInitializer</code> services.</span></li>
+        <li class="dui"><span>Starts the app via <code>Brix.get().start(...)</code> with startup tasks.</span></li>
+        <li class="dui"><span>Aggregates all feature frontend and UI modules on the GWT/J2CL classpath.</span></li>
+    </ul>
+
+    <h3 class="dui dui-site-docs-sub-title">&lt;app-name&gt;-shared</h3>
+    <p class="dui dui-leading-6">Shared code used by both backend and frontend.</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>DTOs, events, user models, and enums.</span></li>
+        <li class="dui"><span>No UI code or GWT-only types.</span></li>
+        <li class="dui"><span>Consumed by the backend, app frontend, and features.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Feature modules</h2>
+    <p class="dui dui-leading-6">Each feature lives under its own folder with a three-module structure.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <h3 class="dui dui-site-docs-sub-title">&lt;feature-x&gt;-frontend</h3>
+    <p class="dui dui-leading-6">Presenter logic and routing live here.</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><code>@BrixPresenter</code> classes, routing, and presenter state handling.</span></li>
+        <li class="dui"><span>View interfaces and UI handler contracts.</span></li>
+        <li class="dui"><span>Feature startup tasks and event listeners.</span></li>
+        <li class="dui"><span>Generated <code>*Impl</code> presenters and routing classes.</span></li>
+    </ul>
+
+    <h3 class="dui dui-site-docs-sub-title">&lt;feature-x&gt;-ui</h3>
+    <p class="dui dui-leading-6">Concrete views and wiring are implemented here.</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><code>@UiView</code> classes with Domino UI widgets and layouts.</span></li>
+        <li class="dui"><span>Dagger component/module wiring between presenters and views.</span></li>
+        <li class="dui"><span><code>@BrixComponent</code> classes that register the feature.</span></li>
+        <li class="dui"><span>Generated <code>*_UiView</code> classes and initializer services.</span></li>
+    </ul>
+
+    <h3 class="dui dui-site-docs-sub-title">&lt;feature-x&gt;-shared</h3>
+    <p class="dui dui-leading-6">Shared types between feature frontend and UI.</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>DTOs, request/response models, and event payloads.</span></li>
+        <li class="dui"><span>Contracts, constants, and utilities without UI dependencies.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">How the pieces fit together</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>The app frontend bootstraps the UI and loads all <code>BrixComponentInitializer</code> services.</span></li>
+        <li class="dui"><span>Feature UI modules contribute component initializers and view implementations.</span></li>
+        <li class="dui"><span>Feature frontend modules contribute presenters, routes, and startup tasks.</span></li>
+        <li class="dui"><span>The app frontend aggregates all features on the GWT/J2CL classpath into one bundle.</span></li>
+        <li class="dui"><span>The backend serves the compiled bundle and exposes REST endpoints.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Dependency overview</h2>
+    <p class="dui dui-leading-6">A simplified dependency view keeps shared code flowing into backend and frontend while
+        features stay modular.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Entry point responsibilities</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Load all component initializers via <code>BrixComponentInitializer_ServiceLoader.load()</code>.</span></li>
+        <li class="dui"><span>Initialize themes and UI frameworks.</span></li>
+        <li class="dui"><span>Configure Domino Rest default service root.</span></li>
+        <li class="dui"><span>Fetch config, then call <code>Brix.get().init(...)</code> and <code>Brix.get().start(...)</code>.</span></li>
+        <li class="dui"><span>Optionally set the router root path and fire the current history state.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Build outputs</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>The frontend build produces a compiled GWT/J2CL bundle for the backend.</span></li>
+        <li class="dui"><span>The backend packages the final server artifact with static assets.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Naming guidance</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Keep module names consistent: <code>&lt;app-name&gt;-backend</code>, <code>&lt;app-name&gt;-frontend</code>, <code>&lt;app-name&gt;-shared</code>.</span></li>
+        <li class="dui"><span>For features, use <code>&lt;feature&gt;-frontend</code>, <code>&lt;feature&gt;-ui</code>, <code>&lt;feature&gt;-shared</code> under a feature aggregator.</span></li>
+        <li class="dui"><span>Align Java package structure with module responsibilities.</span></li>
+    </ul>
+</div>

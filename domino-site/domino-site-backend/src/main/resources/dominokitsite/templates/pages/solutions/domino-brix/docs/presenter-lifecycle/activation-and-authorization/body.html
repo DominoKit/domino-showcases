@@ -1,0 +1,42 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/presenter-lifecycle"
+               aria-expanded="true">
+                Presenter lifecycle
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/presenter-lifecycle/activation-and-authorization" aria-expanded="true">
+                Activation &amp; authorization
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">activate()</h1>
+    <p class="dui dui-leading-6">Activation starts when the route matches. Brix checks authorization, registers
+        listeners, marks the presenter active, and attempts to reveal the view.</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span><b>Authorization</b>: <code>getAuthorizer().isAuthorized(...)</code>; unauthorized calls <code>reportUnAuthorizedAccess()</code>.</span></li>
+        <li class="dui"><span><b>Listeners</b>: slot listener (for reveal), event listener (for <code>@ListenFor</code>), navigation interceptor if the view confirms navigation.</span></li>
+        <li class="dui"><span><b>Active flag</b>: <code>onActivated()</code> fires, then auto-reveal runs if enabled.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Authorizers</h2>
+    <p class="dui dui-leading-6">Use built-ins or custom authorizers to control access.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Branches</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>Slot not registered yet: activation completes, reveal waits until <code>onSlotRegistered</code>.</span></li>
+        <li class="dui"><span>Child presenter: may defer until parent is active.</span></li>
+        <li class="dui"><span>Disable activation entirely by overriding <code>isEnabled()</code> and returning <code>false</code>.</span></li>
+    </ul>
+</div>

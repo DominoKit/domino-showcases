@@ -1,0 +1,38 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/presenter-lifecycle"
+               aria-expanded="true">
+                Presenter lifecycle
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/presenter-lifecycle/child-presenters" aria-expanded="true">
+                Child presenters
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Child presenters</h1>
+    <p class="dui dui-leading-6">Extend <code>ChildPresenter&lt;Parent, View&gt;</code> to defer activation until the
+        parent is active. Routing combines parent and child filters automatically.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Flow</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>If the parent is active, the child activates immediately.</span></li>
+        <li class="dui"><span>If the parent is inactive, the child waits; activation runs when the parent signals ready.</span></li>
+        <li class="dui"><span><code>setParent</code> and <code>onBindParent</code> run before activation so you can sync state.</span></li>
+    </ul>
+
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <p class="dui dui-leading-6">Keep parent-child contracts narrow and prefer notifying children from the parent's
+        <code>onReady()</code> once the view is revealed.</p>
+</div>

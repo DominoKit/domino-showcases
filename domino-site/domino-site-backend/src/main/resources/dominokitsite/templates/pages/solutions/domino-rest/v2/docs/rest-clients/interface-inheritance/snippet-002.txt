@@ -1,0 +1,5 @@
+@Path("first-root-path")
+public interface FirstService {
+    @Path("first-path")
+    SomeResponse firstRequest();
+}

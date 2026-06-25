@@ -1,0 +1,113 @@
+<div class="dui dui-members-summary"><h4>Constructors</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void BaseBoard(GroupFactory&lt;C, S&gt; groupFactory, ItemFactory&lt;I, D&gt; itemFactory)</code></div>
+<div class="dui dui-summary-docs"> Creates a new board instance.
+<div class="dui dui-site-member-param"><p><b>groupFactory</b><p> Factory to create board groups.</p></div>
+<div class="dui dui-site-member-param"><p><b>itemFactory</b><p> Factory to create board items.</p></div>
+</div>
+</div>
+</div>
+<h4>Public methods</h4><div class="dui dui-site-component-members"><div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B appendChild(C boardColumn)</code></div>
+<div class="dui dui-summary-docs"> Appends a board group to the board.
+<div class="dui dui-site-member-param"><p><b>boardColumn</b><p> The board group to add.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B withHeader()</code></div>
+<div class="dui dui-summary-docs"> Ensures the board has a header.
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B withHeader(ChildHandler&lt;B, NavBar&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Adds a header with a custom handler.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> The handler to configure the header.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B withBody(ChildHandler&lt;B, DivElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs"> Configures the board body with a custom handler.
+<div class="dui dui-site-member-param"><p><b>handler</b><p> The handler to configure the body.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B addDndListener(BoardDndListener&lt;C, I&gt; listener)</code></div>
+<div class="dui dui-summary-docs"> Adds a drag-and-drop event listener.
+<div class="dui dui-site-member-param"><p><b>listener</b><p> The listener to add.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B removeDndListener(BoardDndListener&lt;C, I&gt; listener)</code></div>
+<div class="dui dui-summary-docs"> Removes a drag-and-drop event listener.
+<div class="dui dui-site-member-param"><p><b>listener</b><p> The listener to remove.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public Set&lt;C&gt; getGroups()</code></div>
+<div class="dui dui-summary-docs"> Gets the board groups.
+</br></br><b>Returns: </b> <p> A set of board groups.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B addGroup(S category)</code></div>
+<div class="dui dui-summary-docs"> Adds a group to the board.
+<div class="dui dui-site-member-param"><p><b>category</b><p> The category representing the group.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B addGroup(S[] categories)</code></div>
+<div class="dui dui-summary-docs"> Adds multiple groups to the board using the specified categories.
+<div class="dui dui-site-member-param"><p><b>categories</b><p> The categories representing the groups to add.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B addGroup(Collection&lt;S&gt; categories)</code></div>
+<div class="dui dui-summary-docs"> Adds multiple groups to the board using the specified collection of categories.
+<div class="dui dui-site-member-param"><p><b>categories</b><p> The collection of categories representing the groups to add.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B addItem(HasBoardCategory&lt;D, S&gt; item)</code></div>
+<div class="dui dui-summary-docs"> Adds an item to the board.
+<div class="dui dui-site-member-param"><p><b>item</b><p> The item to add.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B addItem(HasBoardCategory<D,S>[] items)</code></div>
+<div class="dui dui-summary-docs"> Adds multiple items to the board.
+<div class="dui dui-site-member-param"><p><b>items</b><p> The items to add.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public B addItem(Collection&lt;HasBoardCategory&lt;D, S&gt;&gt; items)</code></div>
+<div class="dui dui-summary-docs"> Adds multiple items to the board using the specified collection.
+<div class="dui dui-site-member-param"><p><b>items</b><p> The collection of items to add.</p></div>
+</br></br><b>Returns: </b> <p> This board instance.</p>
+</div>
+</div>
+
+</div>
+</div>

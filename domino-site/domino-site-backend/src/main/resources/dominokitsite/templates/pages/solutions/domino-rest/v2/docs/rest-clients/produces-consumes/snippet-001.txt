@@ -1,0 +1,7 @@
+public class XmlMovieWriter implements RequestWriter<Movie>{
+        @Override
+        public String write(Movie request) {
+            String movieXml = //convert the movie to xml
+            return movieXml;
+        }
+    }

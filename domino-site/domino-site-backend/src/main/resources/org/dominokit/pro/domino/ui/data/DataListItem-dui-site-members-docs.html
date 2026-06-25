@@ -1,0 +1,36 @@
+<div class="dui dui-members-summary">
+<h4>Constructors</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public void DataListItem(String text, V value)</code></div>
+<div class="dui dui-summary-docs">Creates a rendered row with the supplied text content and backing record value.
+<div class="dui dui-site-member-param"><p><b>text</b><p>the text displayed inside the row body</p></div>
+<div class="dui dui-site-member-param"><p><b>value</b><p>the record represented by the row</p></div>
+</div></div>
+</div>
+<h4>Static methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public static DataListItem&lt;V&gt; create(String text, V value)</code></div>
+<div class="dui dui-summary-docs">Convenience factory for creating a text-based data list row.
+<div class="dui dui-site-member-param"><p><b>text</b><p>the text displayed inside the row body</p></div>
+<div class="dui dui-site-member-param"><p><b>value</b><p>the record represented by the row</p></div>
+<div class="dui dui-site-member-param"><p><b>V</b><p>the value type represented by the row</p></div>
+</br></br><b>Returns: </b><p>a new <code>DataListItem</code> instance</p>
+</div></div>
+</div>
+<h4>Public methods</h4>
+<div class="dui dui-site-component-members">
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public DataListItem&lt;V&gt; withClickableElement(ChildHandler&lt;DataListItem&lt;V&gt;, AnchorElement&gt; handler)</code></div>
+<div class="dui dui-summary-docs">Allows direct customization of the anchor element that acts as the row's primary interactive surface.
+<div class="dui dui-site-member-param"><p><b>handler</b><p>receives the row and its clickable anchor element</p></div>
+</br></br><b>Returns: </b><p>the current <code>DataListItem</code> instance</p>
+</div></div>
+<div class="dui dui-component-member"><div class="dui dui-component-member-signature">
+<code>public SpanElement getTextElement()</code></div>
+<div class="dui dui-summary-docs">Returns the span that displays the row text content.
+</br></br><b>Returns: </b><p>the text element for this row, or <code>null</code> when no text was supplied</p>
+</div></div>
+</div>
+</div>

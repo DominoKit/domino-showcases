@@ -1,0 +1,197 @@
+<div th:fragment="content" class="dui dui-solution-menu" id="dui-site-left-menu">
+    <div class="dui dui-flex ">
+        <div class="dui dui-site-menu-body" id="dui-site-left-menu-body">
+            <div th:replace="fragments/commons/components/menu-search :: content"></div>
+            <div class="dui dui-menu-content">
+                <ul class="dui dui-site-docs-menu">
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-getting-started">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-brix-getting-started"
+                           href="/solutions/domino-brix/docs/getting-started" aria-expanded="true">
+                            <i class="dui mdi mdi-rocket"></i>
+                            <span class="dui">Getting started</span>
+                        </a>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-structure">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-brix-structure"
+                           href="/solutions/domino-brix/docs/app-and-module-structure" aria-expanded="true">
+                            <i class="dui mdi mdi-sitemap"></i>
+                            <span class="dui">App &amp; module structure</span>
+                        </a>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-fundamentals">
+                        <a class="dui dui-site-menu-link" aria-expanded="true"
+                           dui-sub-menu-id="dui-site-menu-brix-fundamentals">
+                            <i class="dui mdi mdi-account-voice"></i>
+                            <span class="dui">Presenters &amp; views</span>
+                        </a>
+                        <ul class="dui dui-site-docs-sub-menu">
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-fundamentals"
+                                   href="/solutions/domino-brix/docs/presenters-and-views" aria-expanded="true">
+                                    <span class="dui">Presenter basics</span>
+                                </a>
+                            </li>
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-fundamentals"
+                                   href="/solutions/domino-brix/docs/views" aria-expanded="true">
+                                    <span class="dui">Views &amp; handlers</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-lifecycle">
+                        <a class="dui dui-site-menu-link" aria-expanded="true"
+                           dui-sub-menu-id="dui-site-menu-brix-lifecycle">
+                            <i class="dui mdi mdi-graph-outline"></i>
+                            <span class="dui">Presenter lifecycle</span>
+                        </a>
+                        <ul class="dui dui-site-docs-sub-menu">
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-lifecycle"
+                                   href="/solutions/domino-brix/docs/presenter-lifecycle" aria-expanded="true">
+                                    <span class="dui">Overview</span>
+                                </a>
+                            </li>
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-lifecycle"
+                                   href="/solutions/domino-brix/docs/presenter-lifecycle/construction-and-di"
+                                   aria-expanded="true">
+                                    <span class="dui">Construction &amp; DI</span>
+                                </a>
+                            </li>
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-lifecycle"
+                                   href="/solutions/domino-brix/docs/presenter-lifecycle/post-construct"
+                                   aria-expanded="true">
+                                    <span class="dui">Post construct</span>
+                                </a>
+                            </li>
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-lifecycle"
+                                   href="/solutions/domino-brix/docs/presenter-lifecycle/activation-and-authorization"
+                                   aria-expanded="true">
+                                    <span class="dui">Activation &amp; auth</span>
+                                </a>
+                            </li>
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-lifecycle"
+                                   href="/solutions/domino-brix/docs/presenter-lifecycle/reveal-and-slots"
+                                   aria-expanded="true">
+                                    <span class="dui">Reveal &amp; slots</span>
+                                </a>
+                            </li>
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-lifecycle"
+                                   href="/solutions/domino-brix/docs/presenter-lifecycle/routing-updates"
+                                   aria-expanded="true">
+                                    <span class="dui">Routing updates</span>
+                                </a>
+                            </li>
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-lifecycle"
+                                   href="/solutions/domino-brix/docs/presenter-lifecycle/child-presenters"
+                                   aria-expanded="true">
+                                    <span class="dui">Child presenters</span>
+                                </a>
+                            </li>
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-lifecycle"
+                                   href="/solutions/domino-brix/docs/presenter-lifecycle/navigation-confirmation"
+                                   aria-expanded="true">
+                                    <span class="dui">Navigation confirmation</span>
+                                </a>
+                            </li>
+                            <li class="dui dui-site-docs-sub-menu-item">
+                                <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                                   dui-site-data="nav-anchor"
+                                   dui-sub-menu-id="dui-site-menu-brix-lifecycle"
+                                   href="/solutions/domino-brix/docs/presenter-lifecycle/deactivation-and-teardown"
+                                   aria-expanded="true">
+                                    <span class="dui">Deactivation &amp; teardown</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-routing">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-brix-routing"
+                           href="/solutions/domino-brix/docs/routing" aria-expanded="true">
+                            <i class="dui mdi mdi-map-marker-path"></i>
+                            <span class="dui">Routing</span>
+                        </a>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-slots">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-brix-slots"
+                           href="/solutions/domino-brix/docs/slots" aria-expanded="true">
+                            <i class="dui mdi mdi-view-grid-plus"></i>
+                            <span class="dui">Slots</span>
+                        </a>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-events">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-brix-events"
+                           href="/solutions/domino-brix/docs/events-and-context" aria-expanded="true">
+                            <i class="dui mdi mdi-radar"></i>
+                            <span class="dui">Events &amp; context</span>
+                        </a>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-startup">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-brix-startup"
+                           href="/solutions/domino-brix/docs/startup-and-tasks" aria-expanded="true">
+                            <i class="dui mdi mdi-flag-checkered"></i>
+                            <span class="dui">Startup &amp; tasks</span>
+                        </a>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-security">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-brix-security"
+                           href="/solutions/domino-brix/docs/security" aria-expanded="true">
+                            <i class="dui mdi mdi-shield-check"></i>
+                            <span class="dui">Security</span>
+                        </a>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-brix-codegen">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-brix-codegen"
+                           href="/solutions/domino-brix/docs/codegen-and-annotations" aria-expanded="true">
+                            <i class="dui mdi mdi-code-tags"></i>
+                            <span class="dui">Codegen &amp; annotations</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+ A utility class for applying mask rules to strings (e.g., phone numbers, IDs).
+
+ <p> This class uses a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/Mask.html">Mask</a>  internally to define a pattern of placeholder characters (e.g.,
+ underscores) and fixed characters (like hyphens or parentheses). Users can input text, and <code>
+ StringMask</code>  will enforce the mask constraints. For example, if the mask is <code> "(999) 999-9999"
+ </code> , users can only type digits where the <code> '9'</code>  placeholders appear.
+
+ <p> Once an input is masked, it can be retrieved as a partially-complete or fully-complete masked
+ string. It also supports removing characters, shifting text, and retrieving the unmasked value.
+

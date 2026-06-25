@@ -1,0 +1,38 @@
+<div th:fragment="content" class="dui dui-solution-menu" id="dui-site-left-menu">
+    <div class="dui dui-flex">
+        <div class="dui dui-site-menu-body" id="dui-site-left-menu-body">
+            <div th:replace="fragments/commons/components/menu-search :: content"></div>
+            <div class="dui dui-menu-content">
+                <ul class="dui dui-site-docs-menu">
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-resources-domino-cli">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-resources-domino-cli"
+                           href="/resources/domino-cli" aria-expanded="true">
+                            <i class="dui mdi mdi-console"></i>
+                            <span class="dui">Domino CLI</span>
+                        </a>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-resources-domino-slf4j-logger">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-resources-domino-slf4j-logger"
+                           href="/resources/domino-slf4j-logger" aria-expanded="true">
+                            <i class="dui mdi mdi-file-document-outline"></i>
+                            <span class="dui">Domino SLF4J Logger</span>
+                        </a>
+                    </li>
+                    <li class="dui dui-site-docs-menu-item" id="dui-site-menu-resources-widget-element-integration">
+                        <a class="dui dui-site-menu-link" tabindex="0" dui-side-menu-link="true"
+                           dui-site-data="nav-anchor"
+                           dui-sub-menu-id="dui-site-menu-resources-widget-element-integration"
+                           href="/resources/widget-element-integration" aria-expanded="true">
+                            <i class="dui mdi mdi-widgets"></i>
+                            <span class="dui">WidgetElement Integration</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

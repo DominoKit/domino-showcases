@@ -1,0 +1,58 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-rest/v2"
+               aria-expanded="true">
+                Domino REST
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-rest/v2/docs/rest-clients"
+               aria-expanded="true">
+                Rest clients
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-rest/v2/docs/rest-clients/global-interceptors" aria-expanded="true">
+                Global interceptors
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Global interceptors</h1>
+
+    <p class="dui dui-leading-6">Global interceptors allows us to intercept the requests/responses of domino-rest and
+        modify the requests before they are sent to the server, or the response after it is received from the
+        server.</p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui">
+            <h4>Intercepting requests</h4>
+            <p class="dui dui-leading-6">In many cases we might need to intercept all rest requests to add some extra
+                headers, like security headers or authentication tokens, and it would be painful to do this for each
+                request one at a time.
+                and for this domino-rest allow defining global interceptors that can intercept all requests using <b>DominoRestConfig</b>.
+                Example :</p>
+            <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+            <p class="dui dui-leading-6">The request interceptors are blocking which allows us to do some other rest
+                calls or async operation before resuming the request, requests will resume only after all interceptors
+                calls the <b>complete</b> method of the <b>contextWait</b> received in the argument.</p>
+
+        </li>
+        <li class="dui">
+            <h4>Intercepting responses</h4>
+            <p class="dui dui-leading-6">We can use response interceptors to intercepts generic responses, like
+                authentication or errors,
+                and we can add as many response interceptors as we want. These hooks fire before the actual success/fail
+                callbacks, and the fail handler can be skipped from an interceptor. Example:</p>
+            <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+            <p class="dui dui-leading-6">Use <code class="dui dui-inlined">onBeforeSuccessCallback</code> and
+                <code class="dui dui-inlined">onBeforeFailedCallback</code> (instead of the deprecated
+                <code class="dui dui-inlined">interceptOnSuccess</code>/<code class="dui dui-inlined">interceptOnFailed</code>)
+                for per-outcome hooks. Completion hooks run for both paths:
+                <code class="dui dui-inlined">onBeforeCompleteCallback</code> and
+                <code class="dui dui-inlined">onAfterCompleteCallback</code>.</p>
+        </li>
+    </ul>
+
+</div>

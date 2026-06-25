@@ -1,0 +1,21 @@
+@RequestFactory
+@Path("library")
+public interface LibraryResource {
+
+    @Path("movies")
+    MoviesResource movies();
+}
+
+@RequestFactory
+public interface MoviesResource {
+
+    @GET
+    @Path(":id")
+    Movie getMovie(@PathParam("id") String id);
+
+    @POST
+    @Path(":id/reviews")
+    void addReview(@PathParam("id") String id, @RequestBody Review review);
+}
+
+// Calling libraryResource.movies().getMovie("123") targets /library/movies/:id

@@ -1,0 +1,1 @@
+<inherits name="org.dominokit.domino.logger.Logging"/>

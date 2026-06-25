@@ -1,0 +1,9 @@
+public class AppEntryPoint {
+  @Inject @BrixTask Set<BrixStartupTask> startupTasks;
+
+  public void onModuleLoad() {
+    DaggerAppComponent.create().inject(this);
+    Brix.get().init(Map.of("env", "prod"));
+    Brix.get().start(startupTasks, () -> DomGlobal.console.info("App started"));
+  }
+}

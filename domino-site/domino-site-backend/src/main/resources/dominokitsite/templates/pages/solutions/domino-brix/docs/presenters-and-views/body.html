@@ -1,0 +1,49 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/presenters-and-views"
+               aria-expanded="true">
+                Presenters &amp; views
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Presenter basics</h1>
+    <p class="dui dui-leading-6">Presenters orchestrate lifecycle, routing, slots, events, security, and navigation
+        confirmation around a view. The processor generates the implementation and binds the injected view.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Lifecycle hooks</h2>
+    <p class="dui dui-leading-6">Hook into the full lifecycle to prepare UI, react to routing, or clean up resources.</p>
+    <ol class="dui dui-site-docs-list">
+        <li class="dui"><span><b>postConstruct()</b>: after DI; register listeners or prime state.</span></li>
+        <li class="dui"><span><b>onActivated()</b>: presenter becomes active after auth/guards.</span></li>
+        <li class="dui"><span><b>onBeforeRevealed()</b>: right before revealing the view.</span></li>
+        <li class="dui"><span><b>onRevealed()</b>: after the view is attached to its slot.</span></li>
+        <li class="dui"><span><b>onStateChanged()</b>: routing token changed while active.</span></li>
+        <li class="dui"><span><b>onDeactivated()</b>: tear down listeners and timers.</span></li>
+        <li class="dui"><span><b>onRemoved()</b>: DOM detach when the slot removes the view.</span></li>
+    </ol>
+
+    <h2 class="dui dui-site-docs-sub-title">Navigation confirmation</h2>
+    <p class="dui dui-leading-6">Views can block navigation when they have unsaved state. Implement
+        <code>CanConfirmNavigation</code> or <code>ProvidesConfirmNavigation</code> to install a router interceptor
+        during activation.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Routing state parameters</h2>
+    <p class="dui dui-leading-6">Annotate presenter fields with <code>@PathParameter</code>, <code>@QueryParameter</code>,
+        or <code>@FragmentParameter</code>. Generated setters populate fields before activation and keep them updated on
+        token changes. Override <code>onStateChanged()</code> to react.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Child presenters</h2>
+    <p class="dui dui-leading-6">Use <code>ChildPresenter</code> to activate only when the parent is active and to share
+        routing state. This keeps child views in sync with parent lifecycle.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+</div>

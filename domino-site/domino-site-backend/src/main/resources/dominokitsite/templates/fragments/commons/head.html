@@ -1,0 +1,101 @@
+<head th:fragment="head">
+    <meta charset=UTF-8>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+    <meta name="description" content="Dominokit website demonstrating various Dominokit tools like domino-ui, domino-history, domino-jackson, domino-rest">
+    <title>DominoKit</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="/webjars/domino-ui/css/domino-ui/domino-ui.css" rel="stylesheet" type="text/css">
+    <link href="/webjars/domino-ui-pro/css/domino-ui-pro/domino-ui-pro.css" rel="stylesheet" type="text/css">
+
+    <link type="text/css" rel="stylesheet" href="/css/main.css">
+
+    <script src="/js/prettify.js"></script>
+    <script src="/app/app.nocache.js"></script>
+    <script>
+        const removalStacks = new WeakMap();
+
+        (function () {
+            const orig = Node.prototype.removeChild;
+            Node.prototype.removeChild = function (child) {
+                removalStacks.set(child, new Error().stack);
+                return orig.call(this, child);
+            };
+        })();
+
+        const observer = new MutationObserver((records) => {
+            for (const record of records) {
+                for (const node of record.removedNodes) {
+                    console.log("Removed:", node);
+                    console.log("Captured stack:", removalStacks.get(node) || "No stack captured");
+                }
+            }
+        });
+
+        function startObserver() {
+            const target = document.body || document.documentElement;
+            if (!target) {
+                console.warn("No DOM root available yet");
+                return;
+            }
+            observer.observe(target, { childList: true, subtree: true });
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", startObserver);
+        } else {
+            startObserver();
+        }
+
+        function copyCode(code) {
+            navigator.clipboard.writeText(code);
+        }
+
+        function scrollToSection(elementId) {
+            let elementById = document.getElementById(elementId);
+            elementById.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+        }
+
+        function openLeftMenu() {
+            let leftMenu = document.getElementById("dui-site-left-menu");
+            if (leftMenu && !leftMenu.classList.contains("dui-active")) {
+                leftMenu.setAttribute("opened", "true")
+
+                leftMenu.classList.add("dui-active");
+            }
+        }
+
+        document.addEventListener('touchmove', function (event) {
+            if (event.scale !== 1) {
+                event.preventDefault();
+            }
+        }, false);
+
+        document.addEventListener("gesturestart", function (e) {
+            e.preventDefault();
+            document.body.style.zoom = 0.99;
+        });
+
+        document.addEventListener("gesturechange", function (e) {
+            e.preventDefault();
+
+            document.body.style.zoom = 0.99;
+        });
+        document.addEventListener("gestureend", function (e) {
+            e.preventDefault();
+            document.body.style.zoom = 1;
+        });
+
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4LD8RJ9L1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-F4LD8RJ9L1');
+    </script>
+</head>

@@ -1,0 +1,20 @@
+ A higher-level utility class that binds a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/StringMask.html">StringMask</a>  to an input element (either an
+ HTMLInputElement or HTMLTextAreaElement).
+
+ <p> Upon calling <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/InputMask.html">startMasking</a> , this class intercepts keyboard and clipboard events to
+ enforce the configured mask, updating the displayed text accordingly while keeping track of a
+ separate masked and unmasked value.
+
+ <p> Features:
+
+ <ul> 
+   <li> Listening to keyboard events to validate and place typed characters within the mask
+   <li> Handling copy, cut, and paste operations, such that only the unmasked/filtered content is
+       passed to/from the clipboard
+   <li> Automated deletion (backspace and delete) logic that respects the mask boundaries
+   <li> Synchronizing cursor position (selection start/end) with the internal <code>StringMask</code> 
+ </ul> 
+
+ <p> This class can be created via various static <code>of(...)</code>  methods that accept different
+ types of input elements and optional <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/inputmask/MaskOptions.html">MaskOptions</a> .
+

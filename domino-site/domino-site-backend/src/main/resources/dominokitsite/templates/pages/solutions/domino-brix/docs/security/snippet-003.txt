@@ -1,0 +1,9 @@
+public class DepartmentAuthorizer implements Authorizer {
+  @Override
+  public boolean isAuthorized(IsSecurityContext context, HasRoles hasRoles) {
+    return context.isAuthenticated()
+        && context.getUser().getAttributes().get("department").ifTypeIs(String.class, dept -> {
+             return dept.equals("engineering");
+           });
+  }
+}

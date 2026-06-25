@@ -1,0 +1,38 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix/docs/security"
+               aria-expanded="true">
+                Security
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Authorization</h1>
+    <p class="dui dui-leading-6">Presenters implement <code>HasRoles</code> and <code>HasAuthorizer</code> so Brix can
+        check access before activation. Built-in authorizers include <code>DefaultAuthorizer</code>,
+        <code>PermitAllAuthorizer</code>, <code>DenyAllAuthorizer</code>, and <code>RolesAllowedAuthorizer</code>.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Annotation-based security</h2>
+    <p class="dui dui-leading-6">Use <code>@PermitAll</code>, <code>@DenyAll</code>, or <code>@RolesAllowed</code> on a
+        presenter to have the processor generate <code>getAuthorizer()</code> (and <code>getRoles()</code> for
+        <code>@RolesAllowed</code>). Only one of these annotations is allowed per presenter.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-004']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Security context</h2>
+    <p class="dui dui-leading-6">Use <code>SecurityContext</code> to set the active user, check authentication, and
+        handle unauthorized access.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Custom authorizers</h2>
+    <p class="dui dui-leading-6">Implement <code>Authorizer</code> for domain-specific checks and return it from your
+        presenter.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+</div>

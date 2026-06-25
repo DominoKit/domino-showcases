@@ -1,0 +1,31 @@
+ A specialized <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/domino/ui/tree/TreeRoot.html">TreeRoot</a>  for handling <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/tree/CheckTreeItem.html">CheckTreeItem</a>  nodes, allowing multiple
+ selected items (checkbox-style) within the tree structure.
+
+ <p> Provides methods for:
+
+ <ul> 
+   <li> Gathering the current selection of items via <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/tree/CheckTree.html">getSelection</a>  or <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/tree/CheckTree.html">getFlatSelection</a> 
+   <li> Selecting or deselecting all items in the tree
+   <li> Tracking an active (focused) node distinct from selections
+   <li> Registering handlers to be invoked upon item activation
+ </ul> 
+
+ <p> Each node added to the tree is a <a class="dui" tabindex="0" aria-expanded="true" target="_blank" href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/tree/CheckTreeItem.html">CheckTreeItem</a> , which can be checked or unchecked.
+ Selecting an item doesn't automatically uncheck the previously selected items, which provides a
+ multi-checkable behavior.
+
+ <p><b> Example Usage:</b> 
+
+ <pre><code>
+ CheckTree<String> tree = CheckTree.create("Root node", "root_value");
+ CheckTreeItem<String> child1 = CheckTreeItem.create("Child 1", "child1_value");
+ CheckTreeItem<String> child2 = CheckTreeItem.create("Child 2", "child2_value");
+
+ tree.appendChild(child1).appendChild(child2);
+
+ tree.selectAll(); // Checks all items
+
+ List<CheckTreeItem<String>> selection = tree.getFlatSelection();
+ // returns all checked items throughout the tree
+ </code></pre>
+<div class="dui dui-site-member-param"><p><b>V</b><p> the type of data/value associated with each tree item</p></div>

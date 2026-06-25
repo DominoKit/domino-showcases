@@ -1,0 +1,14 @@
+Base scroll viewport for rendering huge collections through virtualization.
+
+<p><code>VirtualScrollPanel</code> measures row height, maintains synchronized scroll containers,
+computes the active record window, and reuses DOM nodes so only the needed slice of a large list is
+rendered.
+
+<p><a class="dui" tabindex="0" aria-expanded="true" target="_blank"
+href="https://www.javadoc.io/doc/org.dominokit/domino-ui-pro/latest/org/dominokit/pro/domino/ui/data/DataList.html">DataList</a>
+uses this panel to keep list interactions responsive even with very large data sets.
+
+<div class="dui dui-site-member-param"><p><b>T</b><p>the record type represented by the panel</p></div>
+<div class="dui dui-site-member-param"><p><b>E</b><p>the DOM element type used by rendered items</p></div>
+<div class="dui dui-site-member-param"><p><b>I</b><p>the rendered window item type</p></div>
+<div class="dui dui-site-member-param"><p><b>C</b><p>the concrete panel subtype</p></div>

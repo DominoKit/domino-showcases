@@ -1,0 +1,5 @@
+profileStore.registerContextListener(ctx -> {
+  ctx.getOperation().when(Operation.CREATED, () -> view.showNew(ctx.getData()));
+  ctx.getOperation().when(Operation.UPDATED, () -> view.refresh(ctx.getData()));
+  ctx.getOperation().when(Operation.DELETED, () -> view.clear());
+});

@@ -1,0 +1,4 @@
+DominoRestConfig.getInstance()
+    .setDefaultFailHandler(failedResponse -> {
+        //do something for a failed request that did not specify a fail handler.
+    });

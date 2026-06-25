@@ -1,0 +1,15 @@
+@RequestFactory(serviceRoot = "http://localhost:7070/library/")
+public interface MoviesService {
+
+   @Path("movies/:movieName")
+   @GET
+   Movie getMovieByName(@PathParam("movieName") String movieName);
+
+   @Path("movies")
+   @GET
+   List<Movie> listMovies();
+
+   @Path("movies/:name")
+   @PUT
+   void updateMovie(@BeanParam @RequestBody Movie movie);
+}

@@ -1,0 +1,36 @@
+# Environment and local secrets
+/.env
+/.env.*
+!/.env.example
+/scripts/deploy.env
+
+# Local AI / scratch files
+/AI_CONTEXT.md
+/temp/
+/tmp/
+
+# Build outputs
+target/
+/.dist/
+/dist/
+/out/
+/build/
+
+# IDE and editor metadata
+/.idea/
+/.vscode/
+*.iml
+*.ipr
+*.iws
+*.swp
+*.swo
+*~
+
+# Logs and JVM crash dumps
+*.log
+hs_err_pid*
+replay_pid*
+
+# OS metadata
+.DS_Store
+Thumbs.db

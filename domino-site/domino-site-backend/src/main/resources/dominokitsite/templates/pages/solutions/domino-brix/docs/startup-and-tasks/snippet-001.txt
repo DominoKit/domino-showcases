@@ -1,0 +1,12 @@
+public class FetchConfigTask extends BrixStartupTask {
+  @Override
+  public int order() { return 0; }
+
+  @Override
+  public void run() {
+    fetchRemoteConfig(config -> {
+      Brix.get().config().put("apiBase", config.apiBase());
+      complete();
+    });
+  }
+}

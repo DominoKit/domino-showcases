@@ -1,0 +1,65 @@
+package com.google.gwt.user.client.ui;
+
+import static java.util.Objects.nonNull;
+
+/**
+ * Thin adapter that exposes a widget's protected attach and detach lifecycle methods.
+ *
+ * <p>Domino elements can manage attachment from the outside, but {@link Widget#onAttach()} and
+ * {@link Widget#onDetach()} remain protected in GWT. This class lives in the same package as
+ * {@link Widget} so the bridge code can forward lifecycle changes without subclassing the widget
+ * itself.
+ */
+public class WidgetWrapper {
+    private Widget widget;
+
+    /**
+     * Creates a wrapper around the supplied widget.
+     *
+     * @param widget the non-null widget whose lifecycle should be driven externally
+     */
+    public WidgetWrapper(Widget widget) {
+        this.widget = widget;
+    }
+
+    /**
+     * Attaches the wrapped widget when it is not already attached.
+     */
+    public void attach() {
+        onAttach();
+    }
+
+    /**
+     * Detaches the wrapped widget when it is currently attached.
+     */
+    public void detach() {
+        onDetach();
+    }
+
+    /**
+     * Invokes {@link Widget#onAttach()} only when the widget is not yet attached.
+     */
+    private void onAttach() {
+        if(!isAttached()) {
+            widget.onAttach();
+        }
+    }
+
+    /**
+     * Invokes {@link Widget#onDetach()} only when the widget is currently attached.
+     */
+    private void onDetach() {
+        if(isAttached()) {
+            widget.onDetach();
+        }
+    }
+
+    /**
+     * Returns whether the wrapped widget exists and is already attached.
+     *
+     * @return {@code true} when the widget is non-null and attached; otherwise {@code false}
+     */
+    private boolean isAttached() {
+        return nonNull(widget) && widget.isAttached();
+    }
+}
