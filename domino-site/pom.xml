@@ -31,6 +31,9 @@
                         <codeserverArg>-src</codeserverArg>
                         <codeserverArg>/mnt/drive2/Development/Dominokit/domino-showcases/demo-samples/demo-samples-ui/src/main/java</codeserverArg>
                     </codeserverArgs>
+                    <jvmArgs>
+                        <jvmArg>-XX:StartFlightRecording=dumponexit=true</jvmArg>
+                    </jvmArgs>
                 </configuration>
             </plugin>
         </plugins>

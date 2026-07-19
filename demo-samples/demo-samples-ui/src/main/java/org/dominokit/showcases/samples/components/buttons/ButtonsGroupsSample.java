@@ -33,38 +33,35 @@ public class ButtonsGroupsSample extends BaseDominoElement<HTMLDivElement, Butto
   public ButtonsGroupsSample() {
     this.element = div().addCss(dui_p_2, dui_flex, dui_flex_col, dui_gap_4, dui_justify_center, dui_items_center)
         .appendChild(BlockHeader.create("BUTTON GROUPS").addCss(dui_text_center))
-        .appendChild(ButtonsGroup.create()
-            .addCss(dui_m_1)
-            .appendChild(Button.create(Icons.format_align_left()))
-            .appendChild(Button.create(Icons.format_align_center()))
-            .appendChild(Button.create(Icons.format_align_right()))
-            .appendChild(Button.create(Icons.format_align_justify())))
-        .appendChild(ButtonsGroup.create()
-            .addCss(dui_primary, dui_m_1)
-            .appendChild(Button.create("LEFT"))
-            .appendChild(Button.create("MIDDLE"))
-            .appendChild(Button.create("RIGHT")))
+        .appendChild(ButtonsGroup.create(
+            Button.create(Icons.format_align_left()),
+            Button.create(Icons.format_align_center()),
+            Button.create(Icons.format_align_right()),
+            Button.create(Icons.format_align_justify()))
+            .addCss(dui_m_1))
+        .appendChild(ButtonsGroup.create(
+            Button.create("LEFT"),
+            Button.create("MIDDLE"),
+            Button.create("RIGHT"))
+            .addCss(dui_primary, dui_m_1))
         .appendChild(BlockHeader.create("VERTICAL GROUP").addCss(dui_text_center))
-        .appendChild(ButtonsGroup.create()
-            .addCss(dui_vertical, dui_m_1)
-            .appendChild(Button.create("Top"))
-            .appendChild(Button.create("Middle"))
-            .appendChild(Button.create("Bottom")))
+        .appendChild(ButtonsGroup.create(
+            Button.create("Top"),
+            Button.create("Middle"),
+            Button.create("Bottom"))
+            .addCss(dui_vertical, dui_m_1))
         .appendChild(BlockHeader.create("TOOLBAR").addCss(dui_text_center))
         .appendChild(ButtonsToolbar.create()
-            .appendChild(ButtonsGroup.create()
-                .addCss(dui_m_1)
-                .appendChild(Button.create("1"))
-                .appendChild(Button.create("2"))
-                .appendChild(Button.create("3")))
-            .appendChild(ButtonsGroup.create()
-                .addCss(dui_primary, dui_m_1)
-                .appendChild(Button.create("4"))
-                .appendChild(Button.create("5"))
-                .appendChild(Button.create("6")))
-            .appendChild(ButtonsGroup.create()
-                .addCss(dui_m_1)
-                .appendChild(Button.create(Icons.dots_vertical()))));
+            .appendChild(
+                ButtonsGroup.create(
+                    Button.create("1"),
+                    Button.create("2"),
+                    Button.create("3")).addCss(dui_m_1),
+                ButtonsGroup.create(
+                    Button.create("4"),
+                    Button.create("5"),
+                    Button.create("6")).addCss(dui_primary, dui_m_1),
+                ButtonsGroup.create(Button.create(Icons.dots_vertical())).addCss(dui_m_1)));
     init(this);
   }
 
