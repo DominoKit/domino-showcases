@@ -140,6 +140,7 @@ public class BasicFormsSelectSample extends BaseDominoElement<HTMLDivElement, Ba
                         .appendChild(Column.span6()
                                 .appendChild(Select.<String>create("Country")
                                         .setSearchable(true)
+                                        .setAutoFocus(true)
                                         .appendChild(SelectOption.create("nothing", "nothing", "-- please select --")
                                                 .setSearchable(false)
                                         )

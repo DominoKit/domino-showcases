@@ -1,0 +1,367 @@
+<div class="dui dui-site-solution-doc-body" th:fragment="content">
+<ol class="dui dui-breadcrumb dui-p-0">
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources" tabindex="0">
+                Resources
+            </a>
+</li>
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown" tabindex="0">
+                Markdown
+            </a>
+</li>
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/advanced-user-docs" tabindex="0">
+                Advanced User Docs
+            </a>
+</li>
+<li class="dui dui-active">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/advanced-user-docs/cookbook" tabindex="0">
+                Cookbook
+            </a>
+</li>
+</ol>
+<h1 class="dui dui-site-docs-title" id="cookbook">Cookbook</h1>
+<p class="dui dui-leading-6">This page shows real-world recipes, ordered from simple to more advanced.</p>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-1-render-markdown-preview-in-an-editor">Recipe 1: Render Markdown Preview In An Editor</h2>
+<p class="dui dui-leading-6">Goal: parse user input and update a live HTML preview.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .extensions(ExtensionDiscovery.load())
+    .build();
+
+HtmlRenderer renderer = HtmlRenderer.builder()
+    .extensions(ExtensionDiscovery.load())
+    .softbreak("&lt;br&gt;")
+    .build();
+
+String markdown = editor.getValue();
+String previewHtml = renderer.render(parser.parse(markdown));
+previewPane.setInnerHtml(previewHtml);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Why this works:</p>
+<ul class="dui dui-site-docs-list">
+<li>The parser and renderer share the same extension set</li>
+<li>The HTML renderer preserves line breaks in a preview-friendly way</li>
+<li>The preview is derived from the AST, not from ad hoc string manipulation</li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="variant-preserve-the-raw-html-nodes">Variant: Preserve The Raw HTML Nodes</h3>
+<p class="dui dui-leading-6">If you want raw HTML to stay as HTML:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .escapeHtml(false)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">If you want raw HTML to be shown literally:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .escapeHtml(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-2-browser-side-dom-preview">Recipe 2: Browser-Side DOM Preview</h2>
+<p class="dui dui-leading-6">Goal: render to a detached DOM fragment and mount it in the page.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .extensions(ExtensionDiscovery.load())
+    .build();
+
+String markdown = """
+Hello **world**
+""";
+
+Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .extensions(ExtensionDiscovery.load())
+    .softBreakRendering(SoftBreakRendering.BR_ELEMENT)
+    .build();
+
+DocumentFragment fragment = renderer.render(parser.parse(markdown));
+previewContainer.appendChild(fragment);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Why this is useful:</p>
+<ul class="dui dui-site-docs-list">
+<li>No HTML string parsing step</li>
+<li>Easier integration with browser DOM workflows</li>
+<li>Raw HTML handling can be customized if needed</li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="variant-custom-raw-html-handling">Variant: Custom Raw HTML Handling</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .rawHtmlHandler(new RawHtmlHandler() {
+      @Override
+      public elemental2.dom.Node renderInline(String literal) {
+        return null;
+      }
+
+      @Override
+      public elemental2.dom.Node renderBlock(String literal) {
+        return null;
+      }
+    })
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Return <code>null</code> to fall back to safe default behavior, or return a custom DOM node if you want to materialize the raw HTML yourself.</p>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-3-build-a-readable-text-summary">Recipe 3: Build A Readable Text Summary</h2>
+<p class="dui dui-leading-6">Goal: extract text for previews, feeds, indexing, or notifications.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .extensions(ExtensionDiscovery.load())
+    .build();
+
+String markdown = """
+First line
+Second line
+""";
+
+TextContentRenderer renderer = TextContentRenderer.builder()
+    .lineBreakRendering(LineBreakRendering.COMPACT)
+    .build();
+
+String summary = renderer.render(parser.parse(markdown));</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="variant-flatten-text-completely">Variant: Flatten Text Completely</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">TextContentRenderer renderer = TextContentRenderer.builder()
+    .stripNewlines(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This is useful when you want a single-line summary.</p>
+<h3 class="dui dui-site-docs-sub-title" id="variant-keep-paragraph-separation">Variant: Keep Paragraph Separation</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">TextContentRenderer renderer = TextContentRenderer.builder()
+    .lineBreakRendering(LineBreakRendering.SEPARATE_BLOCKS)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This keeps block boundaries more readable in exported text.</p>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-4-canonicalize-markdown-before-saving">Recipe 4: Canonicalize Markdown Before Saving</h2>
+<p class="dui dui-leading-6">Goal: normalize user-authored Markdown into a stable format before persisting it.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .extensions(ExtensionDiscovery.load())
+    .build();
+
+String userMarkdown = """
+# Document
+
+Body text.
+""";
+
+MarkdownRenderer renderer = MarkdownRenderer.builder()
+    .extensions(ExtensionDiscovery.load())
+    .build();
+
+String canonicalMarkdown = renderer.render(parser.parse(userMarkdown));
+database.save(canonicalMarkdown);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Use this when you want:</p>
+<ul class="dui dui-site-docs-list">
+<li>Consistent formatting</li>
+<li>Easier diffs</li>
+<li>Standardized syntax before storage</li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="important-note">Important Note</h3>
+<p class="dui dui-leading-6">Canonical Markdown is not source-preserving.</p>
+<p class="dui dui-leading-6">That means the output may:</p>
+<ul class="dui dui-site-docs-list">
+<li>Change heading style</li>
+<li>Normalize whitespace</li>
+<li>Emit equivalent syntax in a different form</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-5-parse-only-a-restricted-markdown-subset">Recipe 5: Parse Only A Restricted Markdown Subset</h2>
+<p class="dui dui-leading-6">Goal: accept a narrow feature set for a controlled input surface.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .enabledBlockTypes(Set.of(Heading.class, Paragraph.class, ListBlock.class))
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This is useful for:</p>
+<ul class="dui dui-site-docs-list">
+<li>Limited editor widgets</li>
+<li>Controlled CMS fields</li>
+<li>Preview systems that should reject some Markdown constructs</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-6-highlight-source-locations-in-an-editor">Recipe 6: Highlight Source Locations In An Editor</h2>
+<p class="dui dui-leading-6">Goal: use source spans to map parsed nodes back to the original text.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .includeSourceSpans(IncludeSourceSpans.BLOCKS_AND_INLINES)
+    .build();
+
+String markdown = """
+Hello **world**
+""";
+
+Node document = parser.parse(markdown);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">You can then inspect <code>getSourceSpans()</code> on nodes to associate parsed structure with editor ranges.</p>
+<h3 class="dui dui-site-docs-sub-title" id="practical-workflow">Practical Workflow</h3>
+<ol class="dui dui-site-docs-list" type="1">
+<li>Parse with source spans enabled</li>
+<li>Locate the node you want to highlight</li>
+<li>Read the node's span list</li>
+<li>Map those offsets back into your editor model</li>
+</ol>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-7-enable-common-github-flavored-markdown-features">Recipe 7: Enable Common GitHub-Flavored Markdown Features</h2>
+<p class="dui dui-leading-6">Goal: turn on the built-in extension set for a typical GitHub-flavored Markdown experience.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">List&lt;Extension&gt; extensions = ExtensionDiscovery.load();
+
+Parser parser = Parser.builder().extensions(extensions).build();
+HtmlRenderer renderer = HtmlRenderer.builder().extensions(extensions).build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This gives you:</p>
+<ul class="dui dui-site-docs-list">
+<li>Autolinks</li>
+<li>Strikethrough</li>
+<li>Tables</li>
+<li>Task list items</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-8-configure-autolink-for-urls-only">Recipe 8: Configure Autolink For URLs Only</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Extension autolink = AutolinkExtension.builder()
+    .linkTypes(AutolinkType.URL)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Use this when you want to recognize bare URLs but not email addresses or <code>www.</code> prefixes.</p>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-9-require-double-tilde-strikethrough">Recipe 9: Require Double-Tilde Strikethrough</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Extension strikethrough = StrikethroughExtension.builder()
+    .requireTwoTildes(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This is a good fit when you want stricter Markdown parsing rules.</p>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-10-combine-custom-extensions-with-built-ins">Recipe 10: Combine Custom Extensions With Built-Ins</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">List&lt;Extension&gt; extensions = new ArrayList&lt;&gt;(ExtensionDiscovery.load());
+extensions.add(new MyCustomExtension());
+
+Parser parser = Parser.builder().extensions(extensions).build();
+HtmlRenderer renderer = HtmlRenderer.builder().extensions(extensions).build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">The important point is that extensions are just values. You can assemble them however you want before passing them into the builders.</p>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-11-render-the-same-content-in-multiple-formats">Recipe 11: Render The Same Content In Multiple Formats</h2>
+<p class="dui dui-leading-6">Goal: build HTML, text, and Markdown from one parsed document.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().extensions(ExtensionDiscovery.load()).build();
+String markdown = """
+# Title
+
+Hello **world**
+""";
+
+Node document = parser.parse(markdown);
+
+String html = HtmlRenderer.builder().extensions(ExtensionDiscovery.load()).build().render(document);
+String text = TextContentRenderer.builder().extensions(ExtensionDiscovery.load()).build().render(document);
+String canonical = MarkdownRenderer.builder().extensions(ExtensionDiscovery.load()).build().render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This is useful for:</p>
+<ul class="dui dui-site-docs-list">
+<li>Preview panes</li>
+<li>Notifications</li>
+<li>Export pipelines</li>
+<li>Regression tests</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-12-add-a-custom-html-attribute">Recipe 12: Add A Custom HTML Attribute</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .attributeProviderFactory(context -&gt; new AttributeProvider() {
+      @Override
+      public void setAttributes(Node node, String tagName, Map&lt;String, String&gt; attributes) {
+        if ("a".equals(tagName)) {
+          attributes.put("rel", "noopener");
+        }
+      }
+    })
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Use this for:</p>
+<ul class="dui dui-site-docs-list">
+<li>Analytics attributes</li>
+<li>Accessibility attributes</li>
+<li>Link rel policies</li>
+<li>Application-specific classes</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-13-add-a-custom-dom-attribute">Recipe 13: Add A Custom DOM Attribute</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .attributeProviderFactory(context -&gt; new ElementAttributeProvider() {
+      @Override
+      public void setAttributes(Node node, String tagName, Map&lt;String, String&gt; attributes) {
+        if ("img".equals(tagName)) {
+          attributes.put("loading", "lazy");
+        }
+      }
+    })
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-14-write-a-custom-parser-extension">Recipe 14: Write A Custom Parser Extension</h2>
+<p class="dui dui-leading-6">Typical parser extension workflow:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">public final class MyExtension implements Parser.ParserExtension {
+  @Override
+  public void extend(Parser.Builder parserBuilder) {
+    parserBuilder.customDelimiterProcessor(new MyDelimiterProcessor());
+    parserBuilder.postProcessor(new MyPostProcessor());
+  }
+}</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Then register it:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .extensions(List.of(new MyExtension()))
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-15-write-a-custom-renderer-extension">Recipe 15: Write A Custom Renderer Extension</h2>
+<p class="dui dui-leading-6">If your syntax needs custom rendering, register a renderer hook too:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">public final class MyHtmlExtension implements HtmlRenderer.HtmlRendererExtension {
+  @Override
+  public void extend(HtmlRenderer.Builder rendererBuilder) {
+    rendererBuilder.nodeRendererFactory(context -&gt; new MyHtmlNodeRenderer(context));
+  }
+}</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-16-static-site-markdown-pipeline">Recipe 16: Static-Site Markdown Pipeline</h2>
+<p class="dui dui-leading-6">Goal: render Markdown files into static HTML.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().extensions(ExtensionDiscovery.load()).build();
+HtmlRenderer renderer = HtmlRenderer.builder().extensions(ExtensionDiscovery.load()).build();
+
+for (Path path : markdownFiles) {
+  String markdown = Files.readString(path);
+  String html = renderer.render(parser.parse(markdown));
+  Path output = outputDir.resolve(replaceExtension(path.getFileName().toString(), ".html"));
+  Files.writeString(output, html);
+}</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="why-this-pattern-works">Why This Pattern Works</h3>
+<ul class="dui dui-site-docs-list">
+<li>Parsing is done once per file</li>
+<li>Renderers are reusable</li>
+<li>Extensions stay consistent across files</li>
+<li>The code stays easy to test</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-17-compare-html-and-canonical-markdown-in-tests">Recipe 17: Compare HTML And Canonical Markdown In Tests</h2>
+<p class="dui dui-leading-6">Goal: verify that a Markdown fragment round-trips predictably.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().extensions(ExtensionDiscovery.load()).build();
+MarkdownRenderer markdownRenderer = MarkdownRenderer.builder().extensions(ExtensionDiscovery.load()).build();
+HtmlRenderer htmlRenderer = HtmlRenderer.builder().extensions(ExtensionDiscovery.load()).build();
+
+Node document = parser.parse(input);
+String normalized = markdownRenderer.render(document);
+String html = htmlRenderer.render(parser.parse(normalized));</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This pattern is useful when you want to test semantic stability rather than exact source output.</p>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-18-choose-the-right-tool">Recipe 18: Choose The Right Tool</h2>
+<p class="dui dui-leading-6">Use these quick rules:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>Parser</code> when you need an AST</li>
+<li><code>HtmlRenderer</code> when you need HTML</li>
+<li><code>Elemental2Renderer</code> when you need browser DOM</li>
+<li><code>TextContentRenderer</code> when you need readable text</li>
+<li><code>MarkdownRenderer</code> when you need canonical Markdown</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="recipe-19-style-rendered-markdown-with-css-classes">Recipe 19: Style Rendered Markdown With CSS Classes</h2>
+<p class="dui dui-leading-6">Goal: attach predictable CSS hooks to the HTML or DOM that comes out of Markdown rendering.</p>
+<p class="dui dui-leading-6">Start with the built-in preset if you want the repository's default class naming scheme:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">List&lt;Extension&gt; extensions = List.of(new DuiClassExtension());
+
+Parser parser = Parser.builder()
+    .extensions(extensions)
+    .build();
+
+HtmlRenderer htmlRenderer = HtmlRenderer.builder()
+    .extensions(extensions)
+    .build();
+
+String html = htmlRenderer.render(parser.parse("# Title"));</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">The rendered heading will carry the generic <code>dui</code> class plus <code>dui-md-heading</code> and <code>dui-md-h1</code>. That makes it easy to theme all Markdown output consistently without replacing the renderer.</p>
+<h3 class="dui dui-site-docs-sub-title" id="variant-add-your-own-classes">Variant: Add Your Own Classes</h3>
+<p class="dui dui-leading-6">If you want your own naming scheme, use the generic extension directly:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">MarkdownClassExtension markdownClasses =
+    MarkdownClassExtension.builder()
+        .classes("article-content", "prose")
+        .nodeClasses(Paragraph.class, "article-paragraph")
+        .nodeClasses(Heading.class, "article-heading")
+        .tagClasses("h1", "heading-xl")
+        .tagClasses("p", "paragraph-body")
+        .build();
+
+List&lt;Extension&gt; extensions = List.of(markdownClasses);
+
+Parser parser = Parser.builder()
+    .extensions(extensions)
+    .build();
+
+Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .extensions(extensions)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This is useful when you want:</p>
+<ul class="dui dui-site-docs-list">
+<li>One shared base class for all rendered content</li>
+<li>Node-specific selectors for layout or spacing</li>
+<li>Tag-specific selectors for headings, paragraphs, links, or code blocks</li>
+<li>A single extension that works for both HTML strings and detached DOM fragments</li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="important-note-1">Important Note</h3>
+<p class="dui dui-leading-6">The class extension merges with any classes already present on the element.</p>
+<p class="dui dui-leading-6">That means built-in renderer classes such as <code>language-java</code> on fenced code blocks stay intact while your custom class names are appended.</p>
+<h2 class="dui dui-site-docs-sub-title" id="final-advice">Final Advice</h2>
+<p class="dui dui-leading-6">Start with the default builders and the built-in extension set.</p>
+<p class="dui dui-leading-6">Only customize when you can clearly explain the user-visible change you need.</p>
+</div>

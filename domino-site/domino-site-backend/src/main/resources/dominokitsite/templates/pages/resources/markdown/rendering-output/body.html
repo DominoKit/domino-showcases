@@ -1,0 +1,148 @@
+<div class="dui dui-site-solution-doc-body" th:fragment="content">
+<ol class="dui dui-breadcrumb dui-p-0">
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources" tabindex="0">
+                Resources
+            </a>
+</li>
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown" tabindex="0">
+                Markdown
+            </a>
+</li>
+<li class="dui dui-active">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/rendering-output" tabindex="0">
+                Rendering Output
+            </a>
+</li>
+</ol>
+<h1 class="dui dui-site-docs-title" id="rendering-output">Rendering Output</h1>
+<p class="dui dui-leading-6">This page explains how to render the AST into each supported output format.</p>
+<h2 class="dui dui-site-docs-sub-title" id="html-rendering">HTML Rendering</h2>
+<p class="dui dui-leading-6"><code>HtmlRenderer</code> is the most common renderer.</p>
+<h3 class="dui dui-site-docs-sub-title" id="basic-example">Basic Example</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");
+
+HtmlRenderer renderer = HtmlRenderer.builder().build();
+String html = renderer.render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="writing-into-an-appendable">Writing Into An Appendable</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">StringBuilder out = new StringBuilder();
+HtmlRenderer renderer = HtmlRenderer.builder().build();
+renderer.render(document, out);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="configuring-soft-breaks">Configuring Soft Breaks</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .softbreak("&lt;br&gt;")
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Soft line breaks are emitted as the fragment you choose.</p>
+<h3 class="dui dui-site-docs-sub-title" id="escaping-raw-html">Escaping Raw HTML</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .escapeHtml(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">When enabled, literal HTML nodes are escaped instead of interpreted as markup.</p>
+<h3 class="dui dui-site-docs-sub-title" id="sanitizing-urls">Sanitizing URLs</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .sanitizeUrls(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">When enabled, links and images are passed through the configured <code>UrlSanitizer</code> before emission.</p>
+<h3 class="dui dui-site-docs-sub-title" id="omitting-the-outer-paragraph">Omitting The Outer Paragraph</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .omitSingleParagraphP(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This is useful when the document contains one top-level paragraph and you want the rendered HTML without the wrapper <code>&lt;p&gt;</code>.</p>
+<h2 class="dui dui-site-docs-sub-title" id="elemental2-dom-rendering">Elemental2 DOM Rendering</h2>
+<p class="dui dui-leading-6"><code>Elemental2Renderer</code> renders directly into a detached <code>DocumentFragment</code>.</p>
+<h3 class="dui dui-site-docs-sub-title" id="basic-example-1">Basic Example</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");
+
+Elemental2Renderer renderer = Elemental2Renderer.builder().build();
+DocumentFragment fragment = renderer.render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">The result is safe to insert into the DOM after rendering.</p>
+<h3 class="dui dui-site-docs-sub-title" id="configuring-soft-breaks-1">Configuring Soft Breaks</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .softBreakRendering(SoftBreakRendering.BR_ELEMENT)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="configuring-raw-html-handling">Configuring Raw HTML Handling</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .rawHtmlHandler(new RawHtmlHandler() {
+      @Override
+      public elemental2.dom.Node renderInline(String literal) {
+        return null;
+      }
+
+      @Override
+      public elemental2.dom.Node renderBlock(String literal) {
+        return null;
+      }
+    })
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Provide a handler when you want custom DOM behavior for raw HTML content.</p>
+<h3 class="dui dui-site-docs-sub-title" id="sanitizing-urls-1">Sanitizing URLs</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .sanitizeUrls(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="plain-text-rendering">Plain Text Rendering</h2>
+<p class="dui dui-leading-6"><code>TextContentRenderer</code> extracts readable text.</p>
+<h3 class="dui dui-site-docs-sub-title" id="basic-example-2">Basic Example</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");
+
+TextContentRenderer renderer = TextContentRenderer.builder().build();
+String text = renderer.render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="line-break-behavior">Line Break Behavior</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">TextContentRenderer renderer = TextContentRenderer.builder()
+    .lineBreakRendering(LineBreakRendering.COMPACT)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">The older <code>stripNewlines(boolean)</code> method still exists for compatibility, but <code>lineBreakRendering</code> is the preferred API.</p>
+<h2 class="dui dui-site-docs-sub-title" id="markdown-rendering">Markdown Rendering</h2>
+<p class="dui dui-leading-6"><code>MarkdownRenderer</code> rebuilds canonical Markdown from the AST.</p>
+<h3 class="dui dui-site-docs-sub-title" id="basic-example-3">Basic Example</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");
+
+MarkdownRenderer renderer = MarkdownRenderer.builder().build();
+String markdown = renderer.render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="why-the-output-may-change">Why The Output May Change</h3>
+<p class="dui dui-leading-6">Markdown rendering is semantic, not source-preserving.</p>
+<p class="dui dui-leading-6">That means:</p>
+<ul class="dui dui-site-docs-list">
+<li>Spacing may change</li>
+<li>Heading style may change</li>
+<li>References may be normalized</li>
+<li>The output may choose a canonical form that differs from the input</li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="custom-markdown-node-renderers">Custom Markdown Node Renderers</h3>
+<p class="dui dui-leading-6">You can register your own Markdown node renderer factory when you need to alter the emitted syntax.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">MarkdownRenderer renderer = MarkdownRenderer.builder()
+    .nodeRendererFactory(context -&gt; new MyMarkdownNodeRenderer(context))
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="common-rendering-patterns">Common Rendering Patterns</h2>
+<h3 class="dui dui-site-docs-sub-title" id="parse-once-render-many">Parse Once, Render Many</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("""
+# Title
+
+Content here.
+""");
+
+String html = HtmlRenderer.builder().build().render(document);
+String text = TextContentRenderer.builder().build().render(document);
+String md = MarkdownRenderer.builder().build().render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="render-to-different-targets">Render To Different Targets</h3>
+<p class="dui dui-leading-6">The same AST can feed:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>String</code> HTML output</li>
+<li>A detached DOM fragment</li>
+<li>Plain text</li>
+<li>Markdown text</li>
+</ul>
+<p class="dui dui-leading-6">That is useful when you need previews, exports, and accessibility text from the same source.</p>
+<h2 class="dui dui-site-docs-sub-title" id="rendering-behavior-summary">Rendering Behavior Summary</h2>
+<ul class="dui dui-site-docs-list">
+<li>HTML rendering is the default general-purpose output path.</li>
+<li>Elemental2 rendering is for browser-side DOM materialization.</li>
+<li>Text rendering is for summaries, previews, and search indexing.</li>
+<li>Markdown rendering is for normalization and round-tripping.</li>
+</ul>
+</div>

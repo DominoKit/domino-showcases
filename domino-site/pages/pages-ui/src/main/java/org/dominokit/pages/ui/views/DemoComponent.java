@@ -116,7 +116,7 @@ public class DemoComponent<T extends IsElement<?>> extends BaseDominoElement<HTM
                                         .appendChild(sampleContent = div()
                                                 .addCss("dui-theme-default")
                                                 .addCss(dui_border, dui_border_solid, dui_border_teal_l_5, dui_bg_dominant, dui_ignore_fg)
-                                                .appendChild(demoSample.getComponent().get()))
+                                                )
                                 )
                         )
                         .appendChild(codeTab = Tab.create(Icons.code_braces(), "Source code")
@@ -144,7 +144,22 @@ public class DemoComponent<T extends IsElement<?>> extends BaseDominoElement<HTM
                 )
         ;
         init(this);
+        nowAndWhenAttached(this::mountSample);
         demoSample.onRender(this);
+    }
+
+    private void mountSample() {
+        sampleContent.clearElement();
+        try {
+            T sample = demoSample.getComponent().get();
+            if (sample != null) {
+                sampleContent.appendChild(sample);
+            } else {
+                sampleContent.appendChild(div().textContent("Sample is not available."));
+            }
+        } catch (Throwable error) {
+            sampleContent.appendChild(div().textContent("Failed to render sample."));
+        }
         ElementThemeManager.INSTANCE.apply(DominoThemeAccent.TEAL, sampleContent);
     }
 

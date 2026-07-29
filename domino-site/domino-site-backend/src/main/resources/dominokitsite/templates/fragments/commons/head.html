@@ -15,39 +15,6 @@
     <script src="/js/prettify.js"></script>
     <script src="/app/app.nocache.js"></script>
     <script>
-        const removalStacks = new WeakMap();
-
-        (function () {
-            const orig = Node.prototype.removeChild;
-            Node.prototype.removeChild = function (child) {
-                removalStacks.set(child, new Error().stack);
-                return orig.call(this, child);
-            };
-        })();
-
-        const observer = new MutationObserver((records) => {
-            for (const record of records) {
-                for (const node of record.removedNodes) {
-                    console.log("Removed:", node);
-                    console.log("Captured stack:", removalStacks.get(node) || "No stack captured");
-                }
-            }
-        });
-
-        function startObserver() {
-            const target = document.body || document.documentElement;
-            if (!target) {
-                console.warn("No DOM root available yet");
-                return;
-            }
-            observer.observe(target, { childList: true, subtree: true });
-        }
-
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", startObserver);
-        } else {
-            startObserver();
-        }
 
         function copyCode(code) {
             navigator.clipboard.writeText(code);

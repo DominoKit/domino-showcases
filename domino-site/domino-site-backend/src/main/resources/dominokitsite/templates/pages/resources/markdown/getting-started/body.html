@@ -1,0 +1,104 @@
+<div class="dui dui-site-solution-doc-body" th:fragment="content">
+<ol class="dui dui-breadcrumb dui-p-0">
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources" tabindex="0">
+                Resources
+            </a>
+</li>
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown" tabindex="0">
+                Markdown
+            </a>
+</li>
+<li class="dui dui-active">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/getting-started" tabindex="0">
+                Getting Started
+            </a>
+</li>
+</ol>
+<h1 class="dui dui-site-docs-title" id="getting-started">Getting Started</h1>
+<p class="dui dui-leading-6">This page shows the smallest useful examples first, then adds more structure step by step.</p>
+<h2 class="dui dui-site-docs-sub-title" id="1-parse-markdown-into-an-ast">1. Parse Markdown Into an AST</h2>
+<p class="dui dui-leading-6">The simplest way to use the library is to parse a Markdown string.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">import org.dominokit.markdown.node.Node;
+import org.dominokit.markdown.parser.Parser;
+
+Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">At this point you have an AST, not rendered output. That AST can be rendered in multiple ways.</p>
+<h2 class="dui dui-site-docs-sub-title" id="2-render-to-html">2. Render To HTML</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">import org.dominokit.markdown.renderer.html.HtmlRenderer;
+
+Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");
+
+HtmlRenderer renderer = HtmlRenderer.builder().build();
+String html = renderer.render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Expected output:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">&lt;p&gt;Hello &lt;strong&gt;world&lt;/strong&gt;&lt;/p&gt;</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="3-render-to-plain-text">3. Render To Plain Text</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">import org.dominokit.markdown.renderer.text.TextContentRenderer;
+
+Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");
+
+TextContentRenderer renderer = TextContentRenderer.builder().build();
+String text = renderer.render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Expected output:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Hello world</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="4-render-back-to-markdown">4. Render Back To Markdown</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">import org.dominokit.markdown.renderer.markdown.MarkdownRenderer;
+
+Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");
+
+MarkdownRenderer renderer = MarkdownRenderer.builder().build();
+String markdown = renderer.render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">The renderer returns canonical Markdown, which means it may not preserve the exact source formatting, but it should preserve the meaning of the AST.</p>
+<h2 class="dui dui-site-docs-sub-title" id="5-parse-and-render-in-one-place">5. Parse And Render In One Place</h2>
+<p class="dui dui-leading-6">This is the common pattern in an application:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+HtmlRenderer renderer = HtmlRenderer.builder().build();
+
+String markdown = """
+# Welcome
+
+This is **Markdown**.
+""";
+
+Node document = parser.parse(markdown);
+String html = renderer.render(document);</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="6-a-slightly-more-realistic-example">6. A Slightly More Realistic Example</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+HtmlRenderer renderer = HtmlRenderer.builder()
+    .softbreak("&lt;br&gt;")
+    .build();
+
+String markdown = """
+Hello
+world
+""";
+
+String html = renderer.render(parser.parse(markdown));</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This version shows a configuration change. Soft line breaks are rendered as <code>&lt;br&gt;</code> instead of the default newline behavior.</p>
+<h2 class="dui dui-site-docs-sub-title" id="7-working-with-output-targets">7. Working With Output Targets</h2>
+<p class="dui dui-leading-6">All renderers follow the same basic idea:</p>
+<ul class="dui dui-site-docs-list">
+<li>Create a parser</li>
+<li>Parse the Markdown string</li>
+<li>Pass the AST to a renderer</li>
+</ul>
+<p class="dui dui-leading-6">The output target depends on the renderer:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>HtmlRenderer</code> returns a <code>String</code> or writes into an <code>Appendable</code></li>
+<li><code>Elemental2Renderer</code> returns a detached <code>DocumentFragment</code></li>
+<li><code>TextContentRenderer</code> returns a <code>String</code> or writes into an <code>Appendable</code></li>
+<li><code>MarkdownRenderer</code> returns a <code>String</code> or writes into an <code>Appendable</code></li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="8-what-to-read-next">8. What To Read Next</h2>
+<ul class="dui dui-site-docs-list">
+<li><a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/parsing-and-asts" tabindex="0">Parsing and ASTs</a></li>
+<li><a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/rendering-output" tabindex="0">Rendering Output</a></li>
+<li><a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/extensions" tabindex="0">Extensions</a></li>
+</ul>
+</div>

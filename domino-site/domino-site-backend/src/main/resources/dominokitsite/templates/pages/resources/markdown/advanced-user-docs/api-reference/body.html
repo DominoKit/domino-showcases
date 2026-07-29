@@ -1,0 +1,494 @@
+<div class="dui dui-site-solution-doc-body" th:fragment="content">
+<ol class="dui dui-breadcrumb dui-p-0">
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources" tabindex="0">
+                Resources
+            </a>
+</li>
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown" tabindex="0">
+                Markdown
+            </a>
+</li>
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/advanced-user-docs" tabindex="0">
+                Advanced User Docs
+            </a>
+</li>
+<li class="dui dui-active">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/advanced-user-docs/api-reference" tabindex="0">
+                API Reference
+            </a>
+</li>
+</ol>
+<h1 class="dui dui-site-docs-title" id="api-reference">API Reference</h1>
+<p class="dui dui-leading-6">This page is a practical reference for the public classes, builders, enums, and extension points that most application code uses.</p>
+<p class="dui dui-leading-6">It is organized by area:</p>
+<ul class="dui dui-site-docs-list">
+<li>Parser and AST</li>
+<li>Renderers</li>
+<li>Built-in extensions</li>
+<li>Configuration enums and helper strategies</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="parser-api">Parser API</h2>
+<h3 class="dui dui-site-docs-sub-title" id="parser"><code>Parser</code></h3>
+<p class="dui dui-leading-6"><code>Parser</code> is the main entry point for turning Markdown text into an AST.</p>
+<p class="dui dui-leading-6">Core usage:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Key ideas:</p>
+<ul class="dui dui-site-docs-list">
+<li>The parser consumes a <code>String</code></li>
+<li>The parser returns a <code>Node</code> tree</li>
+<li>Each <code>parse</code> call uses fresh internal parser state</li>
+<li>Parser configuration is captured by the builder</li>
+</ul>
+<p class="dui dui-leading-6">Use <code>Parser</code> when you need:</p>
+<ul class="dui dui-site-docs-list">
+<li>HTML rendering</li>
+<li>Text extraction</li>
+<li>AST inspection</li>
+<li>Custom post-processing</li>
+<li>Round-tripping into Markdown</li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="parserbuilder"><code>Parser.Builder</code></h3>
+<p class="dui dui-leading-6">The builder is where you configure parsing behavior.</p>
+<p class="dui dui-leading-6">Important methods:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>extensions(Iterable&lt;? extends Extension&gt;)</code></li>
+<li><code>withExtension(Extension)</code></li>
+<li><code>withExtensions(Extension...)</code></li>
+<li><code>enabledBlockTypes(Set&lt;Class&lt;? extends Block&gt;&gt;)</code></li>
+<li><code>includeSourceSpans(IncludeSourceSpans)</code></li>
+<li><code>maxOpenBlockParsers(int)</code></li>
+<li><code>customBlockParserFactory(BlockParserFactory)</code></li>
+<li><code>customInlineContentParserFactory(InlineContentParserFactory)</code></li>
+<li><code>customDelimiterProcessor(DelimiterProcessor)</code></li>
+<li><code>linkProcessor(LinkProcessor)</code></li>
+<li><code>linkMarker(Character)</code></li>
+<li><code>postProcessor(PostProcessor)</code></li>
+<li><code>inlineParserFactory(InlineParserFactory)</code></li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="parser-configuration-examples">Parser configuration examples</h3>
+<p class="dui dui-leading-6">Parse only selected core block types:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .enabledBlockTypes(Set.of(Heading.class, ListBlock.class))
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Collect source spans:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .includeSourceSpans(IncludeSourceSpans.BLOCKS_AND_INLINES)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Register custom syntax:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .customBlockParserFactory(new MyBlockParserFactory())
+    .customInlineContentParserFactory(new MyInlineParserFactory())
+    .customDelimiterProcessor(new MyDelimiterProcessor())
+    .linkProcessor(new MyLinkProcessor())
+    .postProcessor(new MyPostProcessor())
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="parserparserextension"><code>Parser.ParserExtension</code></h3>
+<p class="dui dui-leading-6">This is the parser-side extension contract.</p>
+<p class="dui dui-leading-6">An implementation can register:</p>
+<ul class="dui dui-site-docs-list">
+<li>Block parser factories</li>
+<li>Inline content parser factories</li>
+<li>Delimiter processors</li>
+<li>Link processors</li>
+<li>Link markers</li>
+<li>Post-processors</li>
+</ul>
+<p class="dui dui-leading-6">This is the hook used by bundled extensions such as autolink, strikethrough, tables, and task lists.</p>
+<h2 class="dui dui-site-docs-sub-title" id="ast-api">AST API</h2>
+<h3 class="dui dui-site-docs-sub-title" id="node"><code>Node</code></h3>
+<p class="dui dui-leading-6"><code>Node</code> is the base type for all AST nodes.</p>
+<p class="dui dui-leading-6">Common responsibilities:</p>
+<ul class="dui dui-site-docs-list">
+<li>Tree links</li>
+<li>Child traversal</li>
+<li>Source span storage</li>
+<li>Visitor dispatch</li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="block-and-inline-nodes"><code>Block</code> and inline nodes</h3>
+<p class="dui dui-leading-6">Block nodes include:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>Document</code></li>
+<li><code>Paragraph</code></li>
+<li><code>Heading</code></li>
+<li><code>ListBlock</code></li>
+<li><code>ListItem</code></li>
+<li><code>BlockQuote</code></li>
+<li><code>FencedCodeBlock</code></li>
+<li><code>IndentedCodeBlock</code></li>
+<li><code>HtmlBlock</code></li>
+<li><code>ThematicBreak</code></li>
+</ul>
+<p class="dui dui-leading-6">Inline nodes include:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>Text</code></li>
+<li><code>Code</code></li>
+<li><code>Link</code></li>
+<li><code>Image</code></li>
+<li><code>Emphasis</code></li>
+<li><code>StrongEmphasis</code></li>
+<li><code>HtmlInline</code></li>
+<li><code>SoftLineBreak</code></li>
+<li><code>HardLineBreak</code></li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="sourcespan-and-sourcespans"><code>SourceSpan</code> and <code>SourceSpans</code></h3>
+<p class="dui dui-leading-6">These types track origin information from the source text.</p>
+<p class="dui dui-leading-6">Use them when you need:</p>
+<ul class="dui dui-site-docs-list">
+<li>Editor diagnostics</li>
+<li>Source mapping</li>
+<li>Debugging</li>
+<li>Highlighting exact Markdown ranges</li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="visitor-and-abstractvisitor"><code>Visitor</code> and <code>AbstractVisitor</code></h3>
+<p class="dui dui-leading-6">The visitor API is the standard way to walk a tree without writing long <code>instanceof</code> chains.</p>
+<p class="dui dui-leading-6">Typical pattern:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">class TitlesOnlyVisitor extends AbstractVisitor {
+    @Override
+    public void visit(Heading heading) {
+        System.out.println(heading.getLevel());
+    }
+}</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="nodes"><code>Nodes</code></h3>
+<p class="dui dui-leading-6"><code>Nodes</code> provides utility iteration helpers for working with sibling ranges.</p>
+<h3 class="dui dui-site-docs-sub-title" id="definitionmap"><code>DefinitionMap</code></h3>
+<p class="dui dui-leading-6"><code>DefinitionMap</code> stores reference definitions keyed by normalized labels.</p>
+<p class="dui dui-leading-6">It is used internally by the parser, but it is still useful to understand because it explains how reference definitions are collected and reused.</p>
+<h2 class="dui dui-site-docs-sub-title" id="common-hook-contracts">Common Hook Contracts</h2>
+<p class="dui dui-leading-6">These are the public interfaces and support types that extensions and advanced integrations use when they need to plug into the engine more deeply.</p>
+<h3 class="dui dui-site-docs-sub-title" id="base-contracts">Base contracts</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>Extension</code></li>
+<li><code>Renderer</code></li>
+<li><code>NodeRenderer</code></li>
+</ul>
+<p class="dui dui-leading-6">Use these as the root types for extension and rendering participation.</p>
+<h3 class="dui dui-site-docs-sub-title" id="parser-side-contracts">Parser-side contracts</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>InlineParserFactory</code></li>
+<li><code>InlineParser</code></li>
+<li><code>InlineParserContext</code></li>
+<li><code>PostProcessor</code></li>
+<li><code>BlockParserFactory</code></li>
+<li><code>BlockParser</code></li>
+<li><code>ParserState</code></li>
+<li><code>InlineContentParserFactory</code></li>
+<li><code>InlineContentParser</code></li>
+<li><code>InlineParserState</code></li>
+<li><code>DelimiterProcessor</code></li>
+<li><code>DelimiterRun</code></li>
+<li><code>LinkProcessor</code></li>
+<li><code>LinkInfo</code></li>
+<li><code>LinkResult</code></li>
+<li><code>ParsedInline</code></li>
+<li><code>Position</code></li>
+<li><code>Scanner</code></li>
+</ul>
+<p class="dui dui-leading-6">These types matter when you are building custom syntax support.</p>
+<h3 class="dui dui-site-docs-sub-title" id="renderer-side-contracts">Renderer-side contracts</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>HtmlNodeRendererContext</code></li>
+<li><code>HtmlNodeRendererFactory</code></li>
+<li><code>AttributeProvider</code></li>
+<li><code>AttributeProviderFactory</code></li>
+<li><code>AttributeProviderContext</code></li>
+<li><code>ElementNodeRendererContext</code></li>
+<li><code>ElementNodeRendererFactory</code></li>
+<li><code>ElementAttributeProvider</code></li>
+<li><code>ElementAttributeProviderFactory</code></li>
+<li><code>ElementAttributeProviderContext</code></li>
+<li><code>TextContentNodeRendererContext</code></li>
+<li><code>TextContentNodeRendererFactory</code></li>
+<li><code>MarkdownNodeRendererContext</code></li>
+<li><code>MarkdownNodeRendererFactory</code></li>
+<li><code>RawHtmlHandler</code></li>
+<li><code>UrlSanitizer</code></li>
+</ul>
+<p class="dui dui-leading-6">These types matter when you are customizing output behavior.</p>
+<h3 class="dui dui-site-docs-sub-title" id="utility-and-helper-types">Utility and helper types</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>DefaultUrlSanitizer</code></li>
+<li><code>IncludeSourceSpans</code></li>
+<li><code>LineBreakRendering</code></li>
+<li><code>SoftBreakRendering</code></li>
+<li><code>AutolinkType</code></li>
+<li><code>TextContentWriter</code></li>
+<li><code>HtmlWriter</code></li>
+<li><code>MarkdownWriter</code></li>
+</ul>
+<p class="dui dui-leading-6">These classes are part of the public surface and are useful when wiring advanced application behavior.</p>
+<h2 class="dui dui-site-docs-sub-title" id="html-renderer-api">HTML Renderer API</h2>
+<h3 class="dui dui-site-docs-sub-title" id="htmlrenderer"><code>HtmlRenderer</code></h3>
+<p class="dui dui-leading-6"><code>HtmlRenderer</code> renders AST nodes to HTML strings or appendables.</p>
+<p class="dui dui-leading-6">Main methods:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>builder()</code></li>
+<li><code>render(Node, Appendable)</code></li>
+<li><code>render(Node)</code></li>
+</ul>
+<p class="dui dui-leading-6">Builder options:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>softbreak(String)</code></li>
+<li><code>escapeHtml(boolean)</code></li>
+<li><code>sanitizeUrls(boolean)</code></li>
+<li><code>urlSanitizer(UrlSanitizer)</code></li>
+<li><code>percentEncodeUrls(boolean)</code></li>
+<li><code>omitSingleParagraphP(boolean)</code></li>
+<li><code>attributeProviderFactory(AttributeProviderFactory)</code></li>
+<li><code>nodeRendererFactory(HtmlNodeRendererFactory)</code></li>
+<li><code>extensions(Iterable&lt;? extends Extension&gt;)</code></li>
+<li><code>withExtension(Extension)</code></li>
+<li><code>withExtensions(Extension...)</code></li>
+</ul>
+<p class="dui dui-leading-6">Example:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .softbreak("&lt;br&gt;")
+    .sanitizeUrls(true)
+    .percentEncodeUrls(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="htmlrendererhtmlrendererextension"><code>HtmlRenderer.HtmlRendererExtension</code></h3>
+<p class="dui dui-leading-6">Use this when an extension needs to register HTML renderer behavior.</p>
+<h3 class="dui dui-site-docs-sub-title" id="attribute-providers">Attribute providers</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>AttributeProvider</code></li>
+<li><code>AttributeProviderFactory</code></li>
+<li><code>AttributeProviderContext</code></li>
+</ul>
+<p class="dui dui-leading-6">Use these when you want to add or override HTML attributes.</p>
+<h3 class="dui dui-site-docs-sub-title" id="url-handling">URL handling</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>UrlSanitizer</code></li>
+<li><code>DefaultUrlSanitizer</code></li>
+</ul>
+<p class="dui dui-leading-6">Use these when you want to control what destination URLs are allowed in HTML output.</p>
+<h3 class="dui dui-site-docs-sub-title" id="node-renderer-hooks">Node renderer hooks</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>HtmlNodeRendererContext</code></li>
+<li><code>HtmlNodeRendererFactory</code></li>
+<li><code>NodeRenderer</code></li>
+<li><code>CoreHtmlNodeRenderer</code></li>
+</ul>
+<p class="dui dui-leading-6">These are the extension points for changing how specific node types render.</p>
+<h3 class="dui dui-site-docs-sub-title" id="html-class-styling-hooks">HTML class styling hooks</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>MarkdownClassExtension</code></li>
+<li><code>DuiClassExtension</code></li>
+</ul>
+<p class="dui dui-leading-6">Use these when you want to attach deterministic CSS classes to rendered HTML elements based on both the Markdown node type and the emitted tag name.</p>
+<h2 class="dui dui-site-docs-sub-title" id="elemental2-renderer-api">Elemental2 Renderer API</h2>
+<h3 class="dui dui-site-docs-sub-title" id="elemental2renderer"><code>Elemental2Renderer</code></h3>
+<p class="dui dui-leading-6"><code>Elemental2Renderer</code> renders to a detached <code>DocumentFragment</code>.</p>
+<p class="dui dui-leading-6">Main methods:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>builder()</code></li>
+<li><code>render(Node)</code></li>
+</ul>
+<p class="dui dui-leading-6">Builder options:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>softBreakRendering(SoftBreakRendering)</code></li>
+<li><code>sanitizeUrls(boolean)</code></li>
+<li><code>urlSanitizer(UrlSanitizer)</code></li>
+<li><code>percentEncodeUrls(boolean)</code></li>
+<li><code>omitSingleParagraphP(boolean)</code></li>
+<li><code>rawHtmlHandler(RawHtmlHandler)</code></li>
+<li><code>attributeProviderFactory(ElementAttributeProviderFactory)</code></li>
+<li><code>nodeRendererFactory(ElementNodeRendererFactory)</code></li>
+<li><code>extensions(Iterable&lt;? extends Extension&gt;)</code></li>
+<li><code>withExtension(Extension)</code></li>
+<li><code>withExtensions(Extension...)</code></li>
+</ul>
+<p class="dui dui-leading-6">Example:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .softBreakRendering(SoftBreakRendering.BR_ELEMENT)
+    .sanitizeUrls(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="elemental2rendererelemental2rendererextension"><code>Elemental2Renderer.Elemental2RendererExtension</code></h3>
+<p class="dui dui-leading-6">This is the extension contract for DOM rendering.</p>
+<h3 class="dui dui-site-docs-sub-title" id="dom-attribute-hooks">DOM attribute hooks</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>ElementAttributeProvider</code></li>
+<li><code>ElementAttributeProviderFactory</code></li>
+<li><code>ElementAttributeProviderContext</code></li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="raw-html-hooks">Raw HTML hooks</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>RawHtmlHandler</code></li>
+</ul>
+<p class="dui dui-leading-6">Use this when you want to turn raw HTML literals into custom DOM nodes.</p>
+<h3 class="dui dui-site-docs-sub-title" id="dom-node-renderer-hooks">DOM node renderer hooks</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>ElementNodeRendererContext</code></li>
+<li><code>ElementNodeRendererFactory</code></li>
+<li><code>ElementNodeRenderer</code></li>
+<li><code>CoreElementNodeRenderer</code></li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="elemental2-class-styling-hooks">Elemental2 class styling hooks</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>MarkdownClassExtension</code></li>
+<li><code>DuiClassExtension</code></li>
+</ul>
+<p class="dui dui-leading-6">Use these when you want the same class strategy to apply to detached Elemental2 DOM output.</p>
+<h2 class="dui dui-site-docs-sub-title" id="plain-text-renderer-api">Plain Text Renderer API</h2>
+<h3 class="dui dui-site-docs-sub-title" id="textcontentrenderer"><code>TextContentRenderer</code></h3>
+<p class="dui dui-leading-6"><code>TextContentRenderer</code> renders readable plain text.</p>
+<p class="dui dui-leading-6">Main methods:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>builder()</code></li>
+<li><code>render(Node, Appendable)</code></li>
+<li><code>render(Node)</code></li>
+</ul>
+<p class="dui dui-leading-6">Builder options:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>lineBreakRendering(LineBreakRendering)</code></li>
+<li><code>stripNewlines(boolean)</code> for compatibility</li>
+<li><code>nodeRendererFactory(TextContentNodeRendererFactory)</code></li>
+<li><code>extensions(Iterable&lt;? extends Extension&gt;)</code></li>
+<li><code>withExtension(Extension)</code></li>
+<li><code>withExtensions(Extension...)</code></li>
+</ul>
+<p class="dui dui-leading-6">Example:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">TextContentRenderer renderer = TextContentRenderer.builder()
+    .lineBreakRendering(LineBreakRendering.SEPARATE_BLOCKS)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="textcontentrenderertextcontentrendererextension"><code>TextContentRenderer.TextContentRendererExtension</code></h3>
+<p class="dui dui-leading-6">This is the extension contract for plain-text rendering.</p>
+<h3 class="dui dui-site-docs-sub-title" id="text-renderer-hooks">Text renderer hooks</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>TextContentWriter</code></li>
+<li><code>TextContentNodeRendererContext</code></li>
+<li><code>TextContentNodeRendererFactory</code></li>
+<li><code>CoreTextContentNodeRenderer</code></li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="markdown-renderer-api">Markdown Renderer API</h2>
+<h3 class="dui dui-site-docs-sub-title" id="markdownrenderer"><code>MarkdownRenderer</code></h3>
+<p class="dui dui-leading-6"><code>MarkdownRenderer</code> turns an AST back into canonical Markdown.</p>
+<p class="dui dui-leading-6">Main methods:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>builder()</code></li>
+<li><code>render(Node, Appendable)</code></li>
+<li><code>render(Node)</code></li>
+</ul>
+<p class="dui dui-leading-6">Builder options:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>nodeRendererFactory(MarkdownNodeRendererFactory)</code></li>
+<li><code>extensions(Iterable&lt;? extends Extension&gt;)</code></li>
+<li><code>withExtension(Extension)</code></li>
+<li><code>withExtensions(Extension...)</code></li>
+</ul>
+<p class="dui dui-leading-6">Example:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">MarkdownRenderer renderer = MarkdownRenderer.builder().build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="markdownrenderermarkdownrendererextension"><code>MarkdownRenderer.MarkdownRendererExtension</code></h3>
+<p class="dui dui-leading-6">This is the extension contract for Markdown output.</p>
+<h3 class="dui dui-site-docs-sub-title" id="markdown-renderer-hooks">Markdown renderer hooks</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>MarkdownWriter</code></li>
+<li><code>MarkdownNodeRendererContext</code></li>
+<li><code>MarkdownNodeRendererFactory</code></li>
+<li><code>CoreMarkdownNodeRenderer</code></li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="built-in-extensions">Built-In Extensions</h2>
+<h3 class="dui dui-site-docs-sub-title" id="autolinkextension"><code>AutolinkExtension</code></h3>
+<p class="dui dui-leading-6">Turns bare URLs, emails, and <code>www.</code> links into link nodes.</p>
+<p class="dui dui-leading-6">Builder methods:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>builder()</code></li>
+<li><code>linkTypes(AutolinkType...)</code></li>
+<li><code>linkTypes(Set&lt;AutolinkType&gt;)</code></li>
+<li><code>build()</code></li>
+</ul>
+<p class="dui dui-leading-6">Supported link kinds:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>AutolinkType.URL</code></li>
+<li><code>AutolinkType.EMAIL</code></li>
+<li><code>AutolinkType.WWW</code></li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="strikethroughextension"><code>StrikethroughExtension</code></h3>
+<p class="dui dui-leading-6">Adds <code>~</code> and <code>~~</code> strikethrough support.</p>
+<p class="dui dui-leading-6">Builder methods:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>builder()</code></li>
+<li><code>requireTwoTildes(boolean)</code></li>
+<li><code>build()</code></li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="tablesextension"><code>TablesExtension</code></h3>
+<p class="dui dui-leading-6">Adds GitHub-style pipe table support.</p>
+<p class="dui dui-leading-6">This extension has no tunable builder options.</p>
+<h3 class="dui dui-site-docs-sub-title" id="tasklistitemsextension"><code>TaskListItemsExtension</code></h3>
+<p class="dui dui-leading-6">Adds checkbox-style task list item support.</p>
+<p class="dui dui-leading-6">This extension has no tunable builder options.</p>
+<h3 class="dui dui-site-docs-sub-title" id="markdownclassextension"><code>MarkdownClassExtension</code></h3>
+<p class="dui dui-leading-6">Adds configurable CSS classes to rendered HTML and Elemental2 output.</p>
+<p class="dui dui-leading-6">Builder methods:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>builder()</code></li>
+<li><code>classes(String...)</code></li>
+<li><code>nodeClasses(Class&lt;? extends Node&gt;, String...)</code></li>
+<li><code>tagClasses(String, String...)</code></li>
+<li><code>build()</code></li>
+</ul>
+<p class="dui dui-leading-6">Use this extension when you want to attach your own class names to every generated element, to a specific Markdown node type, or to a specific rendered tag name.</p>
+<h3 class="dui dui-site-docs-sub-title" id="duiclassextension"><code>DuiClassExtension</code></h3>
+<p class="dui dui-leading-6">Preset extension that applies the repository's built-in <code>dui</code> and <code>dui-md-*</code> class naming scheme.</p>
+<p class="dui dui-leading-6">This extension has no tunable builder options.</p>
+<h3 class="dui dui-site-docs-sub-title" id="extension-discovery">Extension discovery</h3>
+<ul class="dui dui-site-docs-list">
+<li><code>ExtensionDiscovery</code></li>
+<li><code>StandardExtensionSets</code></li>
+</ul>
+<p class="dui dui-leading-6">Use <code>ExtensionDiscovery.load()</code> to get the bundled extension set in deterministic order.</p>
+<h2 class="dui dui-site-docs-sub-title" id="configuration-enums">Configuration Enums</h2>
+<h3 class="dui dui-site-docs-sub-title" id="includesourcespans"><code>IncludeSourceSpans</code></h3>
+<p class="dui dui-leading-6">Controls how much source-position information the parser collects.</p>
+<ul class="dui dui-site-docs-list">
+<li><code>NONE</code></li>
+<li><code>BLOCKS</code></li>
+<li><code>BLOCKS_AND_INLINES</code></li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="linebreakrendering"><code>LineBreakRendering</code></h3>
+<p class="dui dui-leading-6">Controls plain-text line-break behavior.</p>
+<ul class="dui dui-site-docs-list">
+<li><code>STRIP</code></li>
+<li><code>COMPACT</code></li>
+<li><code>SEPARATE_BLOCKS</code></li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="softbreakrendering"><code>SoftBreakRendering</code></h3>
+<p class="dui dui-leading-6">Controls Elemental2 soft-break behavior.</p>
+<ul class="dui dui-site-docs-list">
+<li><code>NEWLINE_TEXT</code></li>
+<li><code>SPACE_TEXT</code></li>
+<li><code>BR_ELEMENT</code></li>
+</ul>
+<h3 class="dui dui-site-docs-sub-title" id="autolinktype"><code>AutolinkType</code></h3>
+<p class="dui dui-leading-6">Controls which kinds of autolinks the autolink extension recognizes.</p>
+<ul class="dui dui-site-docs-list">
+<li><code>URL</code></li>
+<li><code>EMAIL</code></li>
+<li><code>WWW</code></li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="supporting-utilities">Supporting Utilities</h2>
+<p class="dui dui-leading-6">These are public and often useful when you are customizing behavior:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>CharMatcher</code></li>
+<li><code>AsciiMatcher</code></li>
+<li><code>Characters</code></li>
+<li><code>UrlSanitizer</code></li>
+<li><code>DefaultUrlSanitizer</code></li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="extension-and-renderer-flow">Extension and Renderer Flow</h2>
+<p class="dui dui-leading-6">The same extension set can often be registered on multiple builders:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Set&lt;Extension&gt; extensions = Set.of(
+    AutolinkExtension.create(),
+    StrikethroughExtension.create(),
+    TablesExtension.create(),
+    TaskListItemsExtension.create());
+
+Parser parser = Parser.builder().extensions(extensions).build();
+HtmlRenderer htmlRenderer = HtmlRenderer.builder().extensions(extensions).build();
+Elemental2Renderer domRenderer = Elemental2Renderer.builder().extensions(extensions).build();
+TextContentRenderer textRenderer = TextContentRenderer.builder().extensions(extensions).build();
+MarkdownRenderer markdownRenderer = MarkdownRenderer.builder().extensions(extensions).build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">That is the cleanest way to keep parsing and rendering behavior aligned.</p>
+</div>

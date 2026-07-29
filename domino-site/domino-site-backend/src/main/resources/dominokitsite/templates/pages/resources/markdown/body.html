@@ -1,0 +1,61 @@
+<div class="dui dui-site-solution-doc-body" th:fragment="content">
+<ol class="dui dui-breadcrumb dui-p-0">
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources" tabindex="0">
+                Resources
+            </a>
+</li>
+<li class="dui dui-active">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown" tabindex="0">
+                Markdown
+            </a>
+</li>
+</ol>
+<h1 class="dui dui-site-docs-title" id="user-documentation">User Documentation</h1>
+<p class="dui dui-leading-6">This folder is the usage guide for people who want to consume <code>domino-md</code> from application code. It is written for the typical path a new user will take:</p>
+<ol class="dui dui-site-docs-list" type="1">
+<li>Parse Markdown</li>
+<li>Inspect the AST</li>
+<li>Render to HTML, DOM, text, or Markdown</li>
+<li>Enable extensions</li>
+<li>Tune configuration</li>
+</ol>
+<h2 class="dui dui-site-docs-sub-title" id="recommended-reading-order">Recommended Reading Order</h2>
+<ol class="dui dui-site-docs-list" type="1">
+<li><a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/getting-started" tabindex="0">Getting Started</a></li>
+<li><a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/parsing-and-asts" tabindex="0">Parsing and ASTs</a></li>
+<li><a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/rendering-output" tabindex="0">Rendering Output</a></li>
+<li><a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/extensions" tabindex="0">Extensions</a></li>
+<li><a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/configuration" tabindex="0">Configuration</a></li>
+<li><a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/examples" tabindex="0">Examples</a></li>
+</ol>
+<h2 class="dui dui-site-docs-sub-title" id="what-you-can-do-with-domino-md">What You Can Do With <code>domino-md</code></h2>
+<ul class="dui dui-site-docs-list">
+<li>Turn Markdown strings into an AST</li>
+<li>Render the AST into HTML</li>
+<li>Render the AST into Elemental2 DOM nodes</li>
+<li>Render the AST into plain text</li>
+<li>Render the AST back to canonical Markdown</li>
+<li>Enable GitHub-flavored extensions such as tables, task lists, strikethrough, and autolinks</li>
+<li>Build custom parsing or rendering behavior when the built-in behavior is not enough</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="entry-points">Entry Points</h2>
+<ul class="dui dui-site-docs-list">
+<li><code>org.dominokit.markdown.parser.Parser</code></li>
+<li><code>org.dominokit.markdown.renderer.html.HtmlRenderer</code></li>
+<li><code>org.dominokit.markdown.renderer.elemental2.Elemental2Renderer</code></li>
+<li><code>org.dominokit.markdown.renderer.text.TextContentRenderer</code></li>
+<li><code>org.dominokit.markdown.renderer.markdown.MarkdownRenderer</code></li>
+<li><code>org.dominokit.markdown.extensions.discovery.ExtensionDiscovery</code></li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="example-progression">Example Progression</h2>
+<p class="dui dui-leading-6">The docs intentionally move from simple to advanced:</p>
+<ul class="dui dui-site-docs-list">
+<li>First parse and render a paragraph</li>
+<li>Then inspect headings, links, lists, and children</li>
+<li>Then enable built-in extensions</li>
+<li>Then customize rendering behavior</li>
+<li>Then add your own parser or renderer hooks</li>
+</ul>
+<p class="dui dui-leading-6">That progression matters because the API is designed to stay simple for basic use while still allowing advanced customization when you need it.</p>
+</div>

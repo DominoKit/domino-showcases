@@ -30,6 +30,8 @@
                         <codeserverArg>9876</codeserverArg>
                         <codeserverArg>-src</codeserverArg>
                         <codeserverArg>/mnt/drive2/Development/Dominokit/domino-showcases/demo-samples/demo-samples-ui/src/main/java</codeserverArg>
+                        <codeserverArg>-src</codeserverArg>
+                        <codeserverArg>/mnt/drive2/Development/Dominokit/domino-showcases/demo-samples/demo-samples-ui-pro/src/main/java</codeserverArg>
                     </codeserverArgs>
                     <jvmArgs>
                         <jvmArg>-XX:StartFlightRecording=dumponexit=true</jvmArg>

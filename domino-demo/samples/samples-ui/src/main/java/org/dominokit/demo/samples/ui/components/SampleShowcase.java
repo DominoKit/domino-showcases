@@ -15,6 +15,7 @@ import org.dominokit.domino.ui.utils.BaseDominoElement;
 public class SampleShowcase<T extends IsElement<?>> extends BaseDominoElement<HTMLDivElement, SampleShowcase<T>> {
 
   private final DivElement root;
+  private final DivElement sampleContainer;
 
   public static <T extends IsElement<?>> SampleShowcase<T> create(
       String title, String description, Class<?> sampleClass, Supplier<T> supplier) {
@@ -23,15 +24,29 @@ public class SampleShowcase<T extends IsElement<?>> extends BaseDominoElement<HT
 
   public SampleShowcase(
       String title, String description, Class<?> sampleClass, Supplier<T> supplier) {
+    this.sampleContainer = div();
     this.root =
         div()
             .addCss(dui_flex, dui_flex_col, dui_gap_4)
-            .appendChild(
-                Card.create(title, description)
-                    .appendChild(supplier.get()))
+            .appendChild(Card.create(title, description).appendChild(sampleContainer))
             .appendChild(SampleCodeCard.create(sampleClass));
 
     init(this);
+    nowAndWhenAttached(() -> mountSample(supplier));
+  }
+
+  private void mountSample(Supplier<T> supplier) {
+    sampleContainer.clearElement();
+    try {
+      T sample = supplier.get();
+      if (sample != null) {
+        sampleContainer.appendChild(sample);
+      } else {
+        sampleContainer.appendChild(div().textContent("Sample is not available."));
+      }
+    } catch (Throwable error) {
+      sampleContainer.appendChild(div().textContent("Failed to render sample."));
+    }
   }
 
   @Override

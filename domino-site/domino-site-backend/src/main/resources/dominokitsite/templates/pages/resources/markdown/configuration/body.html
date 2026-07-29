@@ -1,0 +1,142 @@
+<div class="dui dui-site-solution-doc-body" th:fragment="content">
+<ol class="dui dui-breadcrumb dui-p-0">
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources" tabindex="0">
+                Resources
+            </a>
+</li>
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown" tabindex="0">
+                Markdown
+            </a>
+</li>
+<li class="dui dui-active">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/configuration" tabindex="0">
+                Configuration
+            </a>
+</li>
+</ol>
+<h1 class="dui dui-site-docs-title" id="configuration">Configuration</h1>
+<p class="dui dui-leading-6">This page collects the most important configuration options in one place.</p>
+<h2 class="dui dui-site-docs-sub-title" id="parser-configuration">Parser Configuration</h2>
+<h3 class="dui dui-site-docs-sub-title" id="start-with-the-builder">Start With The Builder</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">The default parser is enough for standard Markdown.</p>
+<h3 class="dui dui-site-docs-sub-title" id="enable-only-specific-block-types">Enable Only Specific Block Types</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .enabledBlockTypes(Set.of(Heading.class, ListBlock.class))
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This is useful when you want to restrict what the parser recognizes.</p>
+<h3 class="dui dui-site-docs-sub-title" id="include-source-spans">Include Source Spans</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .includeSourceSpans(IncludeSourceSpans.ALL)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This adds origin information to nodes for debugging or editor features.</p>
+<h3 class="dui dui-site-docs-sub-title" id="limit-open-blocks">Limit Open Blocks</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .maxOpenBlockParsers(8)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This limits how many non-document block parsers may remain open at once.</p>
+<h3 class="dui dui-site-docs-sub-title" id="register-custom-syntax">Register Custom Syntax</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder()
+    .customBlockParserFactory(new MyBlockParserFactory())
+    .customInlineContentParserFactory(new MyInlineParserFactory())
+    .customDelimiterProcessor(new MyDelimiterProcessor())
+    .linkProcessor(new MyLinkProcessor())
+    .linkMarker('?')
+    .postProcessor(new MyPostProcessor())
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">This is the advanced hook path when the built-in Markdown rules are not enough.</p>
+<h2 class="dui dui-site-docs-sub-title" id="html-renderer-configuration">HTML Renderer Configuration</h2>
+<h3 class="dui dui-site-docs-sub-title" id="basic-setup">Basic Setup</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder().build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="common-options">Common Options</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .softbreak("&lt;br&gt;")
+    .escapeHtml(true)
+    .sanitizeUrls(true)
+    .urlSanitizer(new DefaultUrlSanitizer())
+    .percentEncodeUrls(true)
+    .omitSingleParagraphP(true)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="attribute-providers">Attribute Providers</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .attributeProviderFactory(context -&gt; new MyAttributeProvider())
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Use attribute providers when you need to add or adjust HTML attributes during rendering.</p>
+<h3 class="dui dui-site-docs-sub-title" id="custom-html-node-renderers">Custom HTML Node Renderers</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">HtmlRenderer renderer = HtmlRenderer.builder()
+    .nodeRendererFactory(context -&gt; new MyHtmlNodeRenderer(context))
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="elemental2-renderer-configuration">Elemental2 Renderer Configuration</h2>
+<h3 class="dui dui-site-docs-sub-title" id="basic-setup-1">Basic Setup</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder().build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="common-options-1">Common Options</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .softBreakRendering(SoftBreakRendering.BR_ELEMENT)
+    .sanitizeUrls(true)
+    .urlSanitizer(new DefaultUrlSanitizer())
+    .percentEncodeUrls(true)
+    .omitSingleParagraphP(true)
+    .rawHtmlHandler(new RawHtmlHandler() {
+        @Override
+        public elemental2.dom.Node renderInline(String literal) {
+            return null;
+        }
+
+        @Override
+        public elemental2.dom.Node renderBlock(String literal) {
+            return null;
+        }
+    })
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="element-attribute-providers">Element Attribute Providers</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .attributeProviderFactory(context -&gt; new MyElementAttributeProvider())
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="custom-dom-node-renderers">Custom DOM Node Renderers</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Elemental2Renderer renderer = Elemental2Renderer.builder()
+    .nodeRendererFactory(context -&gt; new MyElementNodeRenderer(context))
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="text-renderer-configuration">Text Renderer Configuration</h2>
+<h3 class="dui dui-site-docs-sub-title" id="basic-setup-2">Basic Setup</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">TextContentRenderer renderer = TextContentRenderer.builder().build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="line-break-rendering">Line Break Rendering</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">TextContentRenderer renderer = TextContentRenderer.builder()
+    .lineBreakRendering(LineBreakRendering.COMPACT)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">The older compatibility method is still available:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">TextContentRenderer renderer = TextContentRenderer.builder()
+    .stripNewlines(false)
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="custom-text-node-renderers">Custom Text Node Renderers</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">TextContentRenderer renderer = TextContentRenderer.builder()
+    .nodeRendererFactory(context -&gt; new MyTextNodeRenderer(context))
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="markdown-renderer-configuration">Markdown Renderer Configuration</h2>
+<h3 class="dui dui-site-docs-sub-title" id="basic-setup-3">Basic Setup</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">MarkdownRenderer renderer = MarkdownRenderer.builder().build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="custom-markdown-node-renderers">Custom Markdown Node Renderers</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">MarkdownRenderer renderer = MarkdownRenderer.builder()
+    .nodeRendererFactory(context -&gt; new MyMarkdownNodeRenderer(context))
+    .build();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="choosing-the-right-renderer">Choosing The Right Renderer</h2>
+<p class="dui dui-leading-6">Use HTML when you need browser or server HTML output.</p>
+<p class="dui dui-leading-6">Use Elemental2 when you need browser-side DOM nodes.</p>
+<p class="dui dui-leading-6">Use plain text when you need readable extraction.</p>
+<p class="dui dui-leading-6">Use Markdown rendering when you need canonical Markdown output or round-trip tests.</p>
+<h2 class="dui dui-site-docs-sub-title" id="configuration-strategy">Configuration Strategy</h2>
+<h3 class="dui dui-site-docs-sub-title" id="start-simple">Start Simple</h3>
+<p class="dui dui-leading-6">Use the default builders first.</p>
+<h3 class="dui dui-site-docs-sub-title" id="add-extensions-second">Add Extensions Second</h3>
+<p class="dui dui-leading-6">Register only the extensions you actually need.</p>
+<h3 class="dui dui-site-docs-sub-title" id="tune-behavior-last">Tune Behavior Last</h3>
+<p class="dui dui-leading-6">Only after the default setup is working should you customize:</p>
+<ul class="dui dui-site-docs-list">
+<li>Source spans</li>
+<li>Soft breaks</li>
+<li>Sanitization</li>
+<li>Custom renderers</li>
+<li>Custom syntax hooks</li>
+</ul>
+</div>

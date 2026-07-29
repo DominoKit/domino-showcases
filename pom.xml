@@ -17,7 +17,7 @@
 
         <resteasy.version>4.7.7.Final</resteasy.version>
 
-        <gwt.version>2.13.0</gwt.version>
+        <gwt.version>2.13.1</gwt.version>
         <domino.rest.version>2.0.0</domino.rest.version>
         <domino.ui.version>HEAD-SNAPSHOT</domino.ui.version>
         <domino.ui.pro.version>HEAD-SNAPSHOT</domino.ui.pro.version>

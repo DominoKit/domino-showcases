@@ -1,0 +1,154 @@
+<div class="dui dui-site-solution-doc-body" th:fragment="content">
+<ol class="dui dui-breadcrumb dui-p-0">
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources" tabindex="0">
+                Resources
+            </a>
+</li>
+<li class="dui">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown" tabindex="0">
+                Markdown
+            </a>
+</li>
+<li class="dui dui-active">
+<a aria-expanded="true" class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/resources/markdown/parsing-and-asts" tabindex="0">
+                Parsing and ASTs
+            </a>
+</li>
+</ol>
+<h1 class="dui dui-site-docs-title" id="parsing-and-asts">Parsing and ASTs</h1>
+<p class="dui dui-leading-6">This page explains how parsing works and how to work with the AST that comes back from the parser.</p>
+<h2 class="dui dui-site-docs-sub-title" id="what-the-parser-produces">What The Parser Produces</h2>
+<p class="dui dui-leading-6"><code>Parser.parse(String)</code> returns an AST rooted at <code>org.dominokit.markdown.node.Node</code>.</p>
+<p class="dui dui-leading-6">The root is usually a <code>Document</code>, and its children represent the block structure of the input. Those block nodes may themselves contain inline children.</p>
+<h2 class="dui dui-site-docs-sub-title" id="simple-parse-example">Simple Parse Example</h2>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello **world**");</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">If you are only rendering, you may not need to inspect the tree yourself. If you want to understand or transform the content, the AST is the right place to work.</p>
+<h2 class="dui dui-site-docs-sub-title" id="inspecting-the-tree">Inspecting The Tree</h2>
+<p class="dui dui-leading-6">The node tree behaves like a linked structure:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>getFirstChild()</code></li>
+<li><code>getNext()</code></li>
+<li><code>getParent()</code></li>
+<li><code>getLastChild()</code></li>
+</ul>
+<p class="dui dui-leading-6">Example:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("""
+# Title
+
+First paragraph.
+""");
+
+Node firstChild = document.getFirstChild();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">In this example, the first child is a heading node.</p>
+<h2 class="dui dui-site-docs-sub-title" id="visiting-nodes">Visiting Nodes</h2>
+<p class="dui dui-leading-6">The public node model supports the visitor pattern.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">import org.dominokit.markdown.node.AbstractVisitor;
+import org.dominokit.markdown.node.Heading;
+import org.dominokit.markdown.node.Node;
+import org.dominokit.markdown.node.Paragraph;
+import org.dominokit.markdown.node.Text;
+
+class MyVisitor extends AbstractVisitor {
+    @Override
+    public void visit(Heading heading) {
+        System.out.println("heading level: " + heading.getLevel());
+    }
+
+    @Override
+    public void visit(Paragraph paragraph) {
+        System.out.println("paragraph");
+    }
+
+    @Override
+    public void visit(Text text) {
+        System.out.println(text.getLiteral());
+    }
+}
+
+Node document = Parser.builder().build().parse("Hello");
+document.accept(new MyVisitor());</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="accessing-inline-content">Accessing Inline Content</h2>
+<p class="dui dui-leading-6">Block nodes such as paragraphs and headings can contain inline nodes.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("This is **bold** text.");
+
+Node paragraph = document.getFirstChild();
+Node inline = paragraph.getFirstChild();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">Inline children may be:</p>
+<ul class="dui dui-site-docs-list">
+<li><code>Text</code></li>
+<li><code>Code</code></li>
+<li><code>Emphasis</code></li>
+<li><code>StrongEmphasis</code></li>
+<li><code>Link</code></li>
+<li><code>Image</code></li>
+<li><code>HtmlInline</code></li>
+<li>Line break nodes</li>
+</ul>
+<h2 class="dui dui-site-docs-sub-title" id="source-spans">Source Spans</h2>
+<p class="dui dui-leading-6">Source spans are optional. Enable them when you need line and column information for diagnostics, editor integrations, or source mapping.</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">import org.dominokit.markdown.parser.IncludeSourceSpans;
+
+Parser parser = Parser.builder()
+    .includeSourceSpans(IncludeSourceSpans.ALL)
+    .build();
+
+Node document = parser.parse("Hello");</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<p class="dui dui-leading-6">When source spans are enabled, nodes can expose origin information through <code>getSourceSpans()</code>.</p>
+<h2 class="dui dui-site-docs-sub-title" id="working-with-specific-node-types">Working With Specific Node Types</h2>
+<h3 class="dui dui-site-docs-sub-title" id="headings">Headings</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("# Title");
+Heading heading = (Heading) document.getFirstChild();
+int level = heading.getLevel();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="links">Links</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("[OpenAI](https://openai.com)");
+Link link = (Link) document.getFirstChild().getFirstChild();
+
+String destination = link.getDestination();
+String title = link.getTitle();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="images">Images</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("![alt text](image.png)");
+Image image = (Image) document.getFirstChild().getFirstChild();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h3 class="dui dui-site-docs-sub-title" id="lists">Lists</h3>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("""
+- One
+- Two
+""");
+
+ListBlock list = (ListBlock) document.getFirstChild();</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="tree-mutations">Tree Mutations</h2>
+<p class="dui dui-leading-6">The AST is mutable. That means you can:</p>
+<ul class="dui dui-site-docs-list">
+<li>Append children</li>
+<li>Insert siblings</li>
+<li>Remove nodes</li>
+<li>Replace nodes</li>
+</ul>
+<p class="dui dui-leading-6">This is useful for post-processing, custom transforms, or application-specific rewriting before rendering.</p>
+<p class="dui dui-leading-6">Example:</p>
+<div class="dui dui-relative dui-bg-black-l-3 dui-rounded dui-overflow-hidden dui-m-y-4"><div class="dui dui-flex dui-site-code dui-overflow-auto"><pre class="dui dui-site-pre"><code class="dui dui-site-code">Parser parser = Parser.builder().build();
+Node document = parser.parse("Hello");
+Paragraph paragraph = (Paragraph) document.getFirstChild();
+paragraph.appendChild(new Text(" world"));</code></pre></div><div class="dui dui-site-copy-icon"><i class="dui mdi mdi-content-copy dui-fg-white dui-clickable" onclick="copyCode(this.parentElement.parentElement.querySelector('code').innerText)"></i></div></div>
+<h2 class="dui dui-site-docs-sub-title" id="common-parse-time-concepts">Common Parse-Time Concepts</h2>
+<h3 class="dui dui-site-docs-sub-title" id="block-structure-first">Block structure first</h3>
+<p class="dui dui-leading-6">Block parsing decides where paragraphs, headings, lists, quotes, and code blocks begin and end.</p>
+<h3 class="dui dui-site-docs-sub-title" id="inline-structure-second">Inline structure second</h3>
+<p class="dui dui-leading-6">Inline parsing then resolves emphasis, links, code spans, and related syntax inside block containers.</p>
+<h3 class="dui dui-site-docs-sub-title" id="post-processing-last">Post-processing last</h3>
+<p class="dui dui-leading-6">Some extensions, such as autolink and task lists, modify the tree after the inline parser has finished.</p>
+<h2 class="dui dui-site-docs-sub-title" id="practical-advice">Practical Advice</h2>
+<ul class="dui dui-site-docs-list">
+<li>Use the AST when you need transformation or inspection.</li>
+<li>Render directly when you only need output.</li>
+<li>Enable source spans only when you need them, because they add extra bookkeeping.</li>
+<li>Prefer visitors over ad hoc <code>instanceof</code> chains when walking larger trees.</li>
+</ul>
+</div>

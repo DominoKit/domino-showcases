@@ -1,0 +1,87 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-markdown-editor"
+         dui-site-data="org.dominokit.pro.domino.ui.markdown.editor.MarkdownEditor"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-markdown-preview"
+         dui-site-data="org.dominokit.pro.domino.ui.markdown.preview.MarkdownPreview"></div>
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-markdown-split"
+         dui-site-data="org.dominokit.pro.domino.ui.markdown.split.SplitMarkdownEditor"></div>
+
+    <div id="dui-side-nav-top"></div>
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2"
+               aria-expanded="true">
+                Domino UI
+            </a>
+        </li>
+        <li class="dui">
+            <a class="dui" tabindex="0" aria-expanded="true">
+                Components
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-ui/v2/docs/components/markdown" aria-expanded="true">
+                Markdown
+            </a>
+        </li>
+    </ol>
+
+    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav"
+         dui-site-data="Editor,Preview,Split,Binding,Playground,Class Styling,Docs">
+    </div>
+
+    <h1 class="dui dui-site-docs-title">Markdown</h1>
+    <p class="dui dui-leading-6">The markdown widgets in <code>domino-ui-pro</code> are built on top of
+        <code>domino-md</code>. The editor, preview, and split editor are exposed as standalone components, and the
+        shared sample page below shows the typical ways they are used together.</p>
+
+    <div class="dui dui-site-component-docs" id="dui-markdown-editor-class-docs"></div>
+    <div class="dui dui-site-component-docs" id="dui-markdown-preview-class-docs"></div>
+    <div class="dui dui-site-component-docs" id="dui-markdown-split-class-docs"></div>
+
+    <h2 class="dui dui-site-docs-subtitle">Examples</h2>
+    <div id="dui-demo-sample-slot"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title" id="dui-side-nav-editor">
+        <span class="dui dui-fg-teal">Standalone editor</span>
+        <small class="dui">MarkdownEditor with the toolbar and textarea.</small>
+    </h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="markdown-editor"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title" id="dui-side-nav-preview">
+        <span class="dui dui-fg-teal">Standalone preview</span>
+        <small class="dui">MarkdownPreview rendering markdown without an editor.</small>
+    </h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="markdown-preview"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title" id="dui-side-nav-split">
+        <span class="dui dui-fg-teal">Split editor</span>
+        <small class="dui">SplitMarkdownEditor with mode switching and scroll sync.</small>
+    </h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="markdown-split"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title" id="dui-side-nav-binding">
+        <span class="dui dui-fg-teal">Binding demo</span>
+        <small class="dui">Editor and preview bound together at runtime.</small>
+    </h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="markdown-binding"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title" id="dui-side-nav-playground">
+        <span class="dui dui-fg-teal">Playground</span>
+        <small class="dui">Renderer, sanitizer, debounce, and live preview controls.</small>
+    </h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="markdown-playground"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title" id="dui-side-nav-class-styling">
+        <span class="dui dui-fg-teal">Class styling</span>
+        <small class="dui">Renderer-side class injection for markdown output.</small>
+    </h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="markdown-class-styling"></div>
+
+    <div class="dui dui-flex dui-justify-center">
+        <div th:replace="fragments/commons/components/open-menu :: content"></div>
+    </div>
+
+    <div id="dui-side-nav-docs"></div>
+</div>

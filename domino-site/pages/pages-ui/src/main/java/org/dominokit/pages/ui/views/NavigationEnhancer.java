@@ -48,7 +48,7 @@ public class NavigationEnhancer implements DominoCss, ElementsFactory {
 
     private static SingleElementCssClass activeCss = SingleElementCssClass.of(dui_active);
     private static SingleElementCssClass menuActiveELementCss = SingleElementCssClass.of(dui_active);
-    private static SingleElementCssClass activeSubMenuCss = SingleElementCssClass.of(dui_active);
+    private static final CssClass activeSubMenuCss = dui_active;
     private static ToggleCssClass rightSideMenuOpenCss = ToggleCssClass.of(dui_active);
     private static ToggleCssClass leftSideMenuOpenCss = ToggleCssClass.of(dui_active);
     private static ToggleCssClass rightSideDocsMenuOpenCss = ToggleCssClass.of(dui_active);
@@ -81,6 +81,7 @@ public class NavigationEnhancer implements DominoCss, ElementsFactory {
                             evt.stopPropagation();
                             evt.preventDefault();
                             activeCss.apply(element);
+                            openSubMenu(element.element());
                             if (!"solutions".equalsIgnoreCase(data)) {
                                 String href = anchorElement.getAttribute("href");
                                 if (nonNull(href) && !href.isEmpty()) {
@@ -223,7 +224,7 @@ public class NavigationEnhancer implements DominoCss, ElementsFactory {
                     elements.elementOf(element).setInnerHtml(PR.prettyPrintOne(element.textContent.replace("<", "&lt;").replace(">", "&gt;"), null, false));
                 });
 
-        NodeList<Element> mainMenuElements = document.querySelectorAll(".dui-site-docs-menu-item");
+        NodeList<Element> mainMenuElements = document.querySelectorAll(".dui-site-docs-menu-item, .dui-site-docs-sub-menu-item");
         mainMenuElements.asList()
                 .stream()
                 .filter(element -> !element.hasAttribute("dui-processed"))
@@ -497,6 +498,30 @@ public class NavigationEnhancer implements DominoCss, ElementsFactory {
                         activeSubMenuCss.apply(siteDocsSubMenu);
                     }
                 }
+            }
+            expandAncestorSubMenus(activeAnchor);
+        }
+    }
+
+    private static void expandAncestorSubMenus(Element element) {
+        Element current = element.parentElement;
+        while (nonNull(current)) {
+            if ("LI".equalsIgnoreCase(current.tagName)) {
+                Element subMenu = current.querySelector(".dui-site-docs-sub-menu");
+                if (nonNull(subMenu)) {
+                    activeSubMenuCss.apply(subMenu);
+                }
+            }
+            current = current.parentElement;
+        }
+    }
+
+    private static void openSubMenu(Element element) {
+        Element parent = element.parentElement;
+        if (nonNull(parent)) {
+            Element subMenu = parent.querySelector(".dui-site-docs-sub-menu");
+            if (nonNull(subMenu)) {
+                activeSubMenuCss.apply(subMenu);
             }
         }
     }

@@ -280,6 +280,12 @@ public class ShellViewImpl extends BrixView<HTMLDivElement, ShellView.ShellUiHan
             .appendChild(makeSubMenu("Tree", "components/tree"))
             .appendChild(makeSubMenu("Check Tree", "components/check-tree", true))
             .appendChild(makeSubMenu("Waves", "components/waves")))
+        .appendChild(TreeItem.create(Icons.file_document(), "Markdown")
+            .apply(self -> self.getClickableElement().setAttribute("href", "components/markdown"))
+            .addClickListener(evt -> {
+              evt.preventDefault();
+              handlers().onMenuItemSelected("components/markdown");
+            }))
         .appendChild(TreeItem.create(Icons.form_textbox(), "Forms")
             .apply(addToggleIcon())
             .appendChild(makeSubMenu("Basic forms", "forms/basic-form-elements"))
