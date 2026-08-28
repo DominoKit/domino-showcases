@@ -23,7 +23,7 @@
         <domino.ui.pro.version>HEAD-SNAPSHOT</domino.ui.pro.version>
         <include.domino.ui.pro>true</include.domino.ui.pro>
         <domino.jackson.version>1.0.5</domino.jackson.version>
-        <domino.auto.version>HEAD-SNAPSHOT</domino.auto.version>
+        <domino.auto.version>1.0.3</domino.auto.version>
         <domino.brix.version>HEAD-SNAPSHOT</domino.brix.version>
         <dagger.version>2.51.1</dagger.version>
     </properties>

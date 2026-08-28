@@ -19,6 +19,15 @@
         presenters, slots, events, startup tasks, and security into a cohesive runtime with generated presenters,
         views, and initializers.</p>
 
+    <h2 class="dui dui-site-docs-sub-title">Scaffold a sample app with Domino CLI</h2>
+    <p class="dui dui-leading-6">Use <a class="dui dui-fg-teal" href="/resources/domino-cli">Domino CLI docs</a> for the
+        complete command reference. To get started quickly, create a Brix sample app first and then add modules as your
+        project grows.</p>
+    <p class="dui dui-leading-6">Create the sample app:</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+    <p class="dui dui-leading-6">Create a module inside that project:</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-004']})"></div>
+
     <h2 class="dui dui-site-docs-sub-title">Dependencies</h2>
     <p class="dui dui-leading-6">Add the runtime and processor to your project (processor as <code>provided</code> for
         client builds):</p>

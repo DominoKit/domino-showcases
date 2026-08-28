@@ -6,6 +6,7 @@
     <inherits name="dagger.Dagger"/>
     <inherits name="org.dominokit.jackson.Jackson"/>
     <inherits name="org.dominokit.rest.Rest"/>
+    <inherits name="org.dominokit.domino.logger.Logging"/>
 
     <source path=""/>
 

@@ -34,8 +34,10 @@
     </ul>
 
     <h2 class="dui dui-site-docs-sub-title">Install</h2>
-    <p class="dui dui-leading-6">Add the dependency, then inherit the GWT module in your app module.</p>
+    <p class="dui dui-leading-6">Add the logger dependency and also add <code>slf4j-api</code> to your project so the
+        logger can compile against the SLF4J API. Then inherit the GWT module in your app module.</p>
     <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-010']})"></div>
     <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
     <p class="dui dui-leading-6">That is usually enough to start using SLF4J in the client.</p>
 

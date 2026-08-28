@@ -10,6 +10,7 @@ import org.dominokit.showcases.samples.typography.TypographyStylesSample;
 import org.dominokit.showcases.samples.typography.TypographyBlockquotesSample;
 import org.dominokit.showcases.samples.typography.TypographyListsSample;
 import org.dominokit.showcases.samples.typography.TypographyFontSizeSample;
+import org.dominokit.showcases.samples.typography.FontThemingSample;
 
         @UiView
         public class TypographyViewImpl extends SamplePageView<TypographyView.TypographyUiHandlers>
@@ -24,6 +25,7 @@ import org.dominokit.showcases.samples.typography.TypographyFontSizeSample;
     addSample(TypographyBlockquotesSample.class, TypographyBlockquotesSample::create);
     addSample(TypographyListsSample.class, TypographyListsSample::create);
     addSample(TypographyFontSizeSample.class, TypographyFontSizeSample::create);
+    addSample(FontThemingSample.class, FontThemingSample::create);
             initPage();
           }
         }

@@ -1,0 +1,1 @@
+dominokit gen app -n sample -g org.dominokit.samples -t brix

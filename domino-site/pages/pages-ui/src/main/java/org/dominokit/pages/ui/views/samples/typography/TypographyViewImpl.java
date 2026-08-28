@@ -17,5 +17,6 @@ public class TypographyViewImpl extends SampleViewImpl {
         register(DemoSample.of("typography-blockquotes", TypographyBlockquotesSample.class, LazyProvider.of(TypographyBlockquotesSample::create)));
         register(DemoSample.of("typography-lists", TypographyListsSample.class, LazyProvider.of(TypographyListsSample::create)));
         register(DemoSample.of("typography-font-size", TypographyFontSizeSample.class, LazyProvider.of(TypographyFontSizeSample::create)));
+        register(DemoSample.of("typography-font-theming", FontThemingSample.class, LazyProvider.of(FontThemingSample::create)));
     }
 }

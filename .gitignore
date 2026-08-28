@@ -9,6 +9,16 @@
 /temp/
 /tmp/
 
+# Local AI/Codex and Superpowers artifacts
+/.ai/
+/.codex/
+/**/.ai/
+/**/.codex/
+/docs/superpowers/
+/**/docs/superpowers/
+/superpowers/
+/**/superpowers/
+
 # Build outputs
 target/
 /.dist/

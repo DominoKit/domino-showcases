@@ -16,7 +16,7 @@
     </ol>
 
     <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav"
-         dui-site-data="Top,Lead,Headings,Styles,Blockquotes,Lists,Font size">
+         dui-site-data="Top,Font theming,Lead,Headings,Styles,Blockquotes,Lists,Font size,Font scope,Using fonts,Custom fonts">
     </div>
 
     <h1 class="dui dui-site-docs-title">Typography</h1>
@@ -25,6 +25,12 @@
     <h2 class="dui dui-site-docs-subtitle">Examples</h2>
 
     <div id="dui-demo-sample-slot"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title" id="dui-side-nav-font-theming">
+        <span class="dui dui-fg-teal">Font theming</span>
+        <small class="dui">Switch the font used by a scoped Domino UI sample.</small>
+    </h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="typography-font-theming"></div>
 
     <h3 class="dui dui-docs-demo-sample-title" id="dui-side-nav-lead">
         <span class="dui dui-fg-teal">Lead</span>
@@ -61,5 +67,55 @@
         <small class="dui">A set of predefined font sizes providing consistence sizing for your text.</small>
     </h3>
     <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="typography-font-size"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-font-scope">Font scope</h2>
+    <p class="dui">
+        Domino UI uses CSS custom properties for typography. The default body font is Source Sans 3, and the
+        component typography tokens derive from <code class="dui">--dui-font-family-body</code> and
+        <code class="dui">--dui-font-family-heading</code>.
+    </p>
+    <p class="dui">
+        Use <code class="dui">dui-font-scope</code> when a font should apply only to one application area, preview,
+        or embedded component tree. The scope recalculates the body and heading font variables for that element and
+        applies the selected family across its component descendants, leaving the surrounding page unchanged.
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('div()
+    .addCss(dui_font_scope, dui_font_source_sans_3)')"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-using-fonts">Using fonts</h2>
+    <p class="dui">
+        Domino UI provides named font classes for the bundled families: Inter, Open Sans, Roboto, Source Sans 3,
+        and IBM Plex Sans. Apply one to the application root for an app-wide choice, or combine it with
+        <code class="dui">dui-font-scope</code> for a local choice.
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('elements.body().addCss(dui_font_source_sans_3)
+div().addCss(dui_font_scope, dui_font_ibm_plex_sans)')"></div>
+    <p class="dui">
+        The low-level CSS variables are also available when an application needs a custom stack. The scope preserves
+        component sizing and weight tokens while applying the selected family, so components and form controls remain consistent.
+    </p>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-custom-fonts">Custom fonts</h2>
+    <p class="dui">
+        Load your webfont before applying it, preferably with WOFF2 files and <code class="dui">font-display: swap</code>.
+        You can use any licensed webfont; Domino UI does not require the font to be bundled by the library.
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('@font-face {
+  font-family: &quot;Acme Sans&quot;;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(&quot;/fonts/acme-sans.woff2&quot;) format(&quot;woff2&quot;);
+}')"></div>
+    <p class="dui">
+        Set the public family variable through the typed Java API, or define the equivalent CSS on your own class:
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('root.addCss(dui_font_scope)
+    .setCssProperty(FontFamily.body(&quot;\&quot;Acme Sans\&quot;, sans-serif&quot;));')"></div>
+    <p class="dui">
+        Radio and checkbox labels use <code class="dui">--dui-form-field-choice-label-font</code>, which defaults to
+        the regular 400-weight typography token. The default theme also enables platform-specific grayscale font
+        smoothing; the final rendering still depends on the browser and operating system.
+    </p>
 
 </div>
