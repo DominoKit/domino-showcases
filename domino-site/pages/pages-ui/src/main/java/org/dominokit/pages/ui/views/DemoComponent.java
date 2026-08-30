@@ -63,8 +63,12 @@ public class DemoComponent<T extends IsElement<?>> extends BaseDominoElement<HTM
     private final Tab codeTab;
     private final Card demoCard;
     private final Card codeCard;
+    private final DivElement codeContainer;
     private final DivElement sampleContent;
     private final DemoSample<T> demoSample;
+
+    private boolean sourceLoading;
+    private boolean sourceLoaded;
 
     public static <T extends IsElement<Element>> DemoComponent<T> create(DemoSample<T> demoSample) {
         return new DemoComponent<>(demoSample);
@@ -73,6 +77,7 @@ public class DemoComponent<T extends IsElement<?>> extends BaseDominoElement<HTM
     public DemoComponent(DemoSample<T> demoSample) {
         this.demoSample = demoSample;
         codeCard = Card.create().addCss(dui_elevation_0);
+        codeContainer = div();
         this.root = div().addCss(()->"dui-site-demo-component")
                 .appendChild(demoTabs = TabsPanel.create()
                         .withTabsContent((parent, content) -> content.addCss(dui_p_0))
@@ -125,16 +130,24 @@ public class DemoComponent<T extends IsElement<?>> extends BaseDominoElement<HTM
                                     self.appendChild(codeCard
                                             .withBody((card, body) -> body
                                                     .addCss(dui_p_0)
+                                                    .appendChild(codeContainer)
                                             )
                                     );
                                     self.addActivationHandler((tab, active) -> {
+                                        if (!active || sourceLoading || sourceLoaded) {
+                                            return;
+                                        }
+                                        sourceLoading = true;
                                         LoadContentServiceFactory.INSTANCE
                                                 .getSourceCode(demoSample.getSampleClass().getCanonicalName())
                                                 .onSuccess(code -> {
-                                                    codeCard.appendChild(DemoCode.create(code));
+                                                    sourceLoading = false;
+                                                    sourceLoaded = true;
+                                                    codeContainer.clearElement().appendChild(DemoCode.create(code));
                                                 })
                                                 .onFailed(failedResponseBean -> {
-                                                    codeCard.appendChild(DemoCode.create("Failed to load code."));
+                                                    sourceLoading = false;
+                                                    codeContainer.clearElement().appendChild(DemoCode.create("Failed to load code."));
                                                 })
                                                 .send();
                                     });
