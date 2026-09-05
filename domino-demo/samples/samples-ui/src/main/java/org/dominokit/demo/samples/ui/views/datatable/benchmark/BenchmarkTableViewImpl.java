@@ -392,9 +392,10 @@ public class BenchmarkTableViewImpl extends SamplePageView<BenchmarkTableView.Be
 
   private HTMLTableElement createPlainHtmlTable(List<BenchmarkContact> contacts) {
     HTMLTableElement table = Js.uncheckedCast(DomGlobal.document.createElement("table"));
+    table.className = "dui demo-benchmark-html-table";
     table.setAttribute(
         "style",
-        "border-collapse:collapse; min-width:1800px; width:max-content; border:1px solid #d0d7de;");
+        "border-collapse:collapse; min-width:1800px; width:max-content;");
 
     HTMLTableRowElement headerRow = Js.uncheckedCast(DomGlobal.document.createElement("tr"));
     TEXT_COLUMNS.forEach(column -> headerRow.appendChild(createHeaderCell(column.header())));
@@ -412,19 +413,21 @@ public class BenchmarkTableViewImpl extends SamplePageView<BenchmarkTableView.Be
 
   private HTMLTableCellElement createHeaderCell(String text) {
     HTMLTableCellElement cell = Js.uncheckedCast(DomGlobal.document.createElement("th"));
+    cell.className = "dui demo-benchmark-html-table-header";
     cell.textContent = text;
     cell.setAttribute(
         "style",
-        "border:1px solid #d0d7de; padding:6px 8px; text-align:left; background:#f6f8fa; white-space:nowrap;");
+        "padding:6px 8px; text-align:left; white-space:nowrap;");
     return cell;
   }
 
   private HTMLTableCellElement createBodyCell(String text) {
     HTMLTableCellElement cell = Js.uncheckedCast(DomGlobal.document.createElement("td"));
+    cell.className = "dui demo-benchmark-html-table-cell";
     cell.textContent = text;
     cell.setAttribute(
         "style",
-        "border:1px solid #d0d7de; padding:4px 8px; white-space:nowrap; font-size:12px;");
+        "padding:4px 8px; white-space:nowrap; font-size:12px;");
     return cell;
   }
 

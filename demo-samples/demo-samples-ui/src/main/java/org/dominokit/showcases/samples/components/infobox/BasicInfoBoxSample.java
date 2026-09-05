@@ -10,6 +10,9 @@ import org.dominokit.domino.ui.infoboxes.InfoBox;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_filled;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_minimal;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_subtle;
 import static org.dominokit.domino.ui.utils.Domino.dui_deep_purple;
 import static org.dominokit.domino.ui.utils.Domino.dui_indigo;
 import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
@@ -29,16 +32,19 @@ public class BasicInfoBoxSample extends BaseDominoElement<HTMLDivElement, BasicI
         element.appendChild(Row.create()
                 .appendChild(Column.span3()
                         .appendChild(InfoBox.create(Icons.cart(), "NEW ORDERS", "125")
+                                .addCss(dui_emphasis_subtle)
                                 .withIcon((infoBox, icon) -> icon.addCss(dui_red))
                         )
                 )
                 .appendChild(Column.span3()
                         .appendChild(InfoBox.create(Icons.face_man(), "NEW MEMBERS", "257")
+                                .addCss(dui_emphasis_minimal)
                                 .withIcon((infoBox, icon) -> icon.addCss(dui_indigo))
                         )
                 )
                 .appendChild(Column.span3()
                         .appendChild(InfoBox.create(Icons.cart(), "BOOKMARKS", "117")
+                                .addCss(dui_emphasis_filled)
                                 .withIcon((infoBox, icon) -> icon.addCss(dui_purple))
                         )
                 )

@@ -55,15 +55,19 @@ public class ThemeCompositionSample
   private static final List<NamedTheme> ACCENTS =
       Arrays.asList(
           NamedTheme.of("Red", DominoThemeAccent.RED),
+          NamedTheme.of("Coral", DominoThemeAccent.CORAL),
           NamedTheme.of("Pink", DominoThemeAccent.PINK),
           NamedTheme.of("Purple", DominoThemeAccent.PURPLE),
+          NamedTheme.of("Plum", DominoThemeAccent.PLUM),
           NamedTheme.of("Deep purple", DominoThemeAccent.DEEP_PURPLE),
           NamedTheme.of("Indigo", DominoThemeAccent.INDIGO),
           NamedTheme.of("Blue", DominoThemeAccent.BLUE),
+          NamedTheme.of("Cobalt", DominoThemeAccent.COBALT),
           NamedTheme.of("Light blue", DominoThemeAccent.LIGHT_BLUE),
           NamedTheme.of("Cyan", DominoThemeAccent.CYAN),
           NamedTheme.of("Teal", DominoThemeAccent.TEAL),
           NamedTheme.of("Green", DominoThemeAccent.GREEN),
+          NamedTheme.of("Emerald", DominoThemeAccent.EMERALD),
           NamedTheme.of("Light green", DominoThemeAccent.LIGHT_GREEN),
           NamedTheme.of("Lime", DominoThemeAccent.LIME),
           NamedTheme.of("Yellow", DominoThemeAccent.YELLOW),
@@ -107,7 +111,7 @@ public class ThemeCompositionSample
                         ".dui.dui-theme-default.acme-theme {\n"
                             + "  --dui-clr-primary: #355cde;\n"
                             + "  --dui-accent-clr: #355cde;\n"
-                            + "  --dui-text-color: #1b2430;\n"
+                            + "  --dui-text-color: var(--dui-color);\n"
                             + "}"))
             .appendChild(
                 p("WaitMe is a separate ready-to-use loader stylesheet; it is not part of this theme token set."));
@@ -180,7 +184,7 @@ public class ThemeCompositionSample
       Style.of(previewRoot)
           .setCssProperty("--dui-clr-primary", "#355cde")
           .setCssProperty("--dui-accent-clr", "#355cde")
-          .setCssProperty("--dui-text-color", "#1b2430");
+          .setCssProperty("--dui-text-color", "var(--dui-color)");
       customThemeButton.setText("Remove custom theme");
     }
   }

@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link href="${appRootPath}/app/css/domino-ui/domino-ui.css" rel="stylesheet" type="text/css">
+    <link href="${appRootPath}/app/css/domino-ui/themes/domino-ui-themes.css" rel="stylesheet" type="text/css">
     <link href="${appRootPath}/app/css/domino-ui/domino-ui-fonts-modern.css" rel="stylesheet" type="text/css">
     <#if hasDominoUiProStyles>
     <link href="${appRootPath}/app/css/domino-ui-pro/domino-ui-pro.css" rel="stylesheet" type="text/css">

@@ -2,6 +2,9 @@ package org.dominokit.showcases.samples.components.buttons;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.dui_accent;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_filled;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_minimal;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_subtle;
 import static org.dominokit.domino.ui.utils.Domino.dui_error;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex_col;
@@ -113,6 +116,17 @@ public class ButtonsBasicSample extends BaseDominoElement<HTMLDivElement, Button
                 .addCss(dui_primary, dui_m_1))
             .span3(Button.create(Icons.lock(), "LOCK")
                 .addCss(dui_accent, dui_m_1)));
+        element.appendChild(BlockHeader.create("EMPHASIS").addCss(dui_text_center));
+        element.appendChild(Row.create()
+            .span4(Button.create("FILLED")
+                .addCss(dui_primary, dui_w_28, dui_m_1)
+                .addCss(dui_emphasis_filled))
+            .span4(Button.create("SUBTLE")
+                .addCss(dui_success, dui_w_28, dui_m_1)
+                .addCss(dui_emphasis_subtle))
+            .span4(Button.create("MINIMAL")
+                .addCss(dui_info, dui_w_28, dui_m_1)
+                .addCss(dui_emphasis_minimal)));
     init(this);
   }
 

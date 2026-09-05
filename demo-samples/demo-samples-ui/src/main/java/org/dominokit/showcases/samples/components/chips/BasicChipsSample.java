@@ -7,11 +7,15 @@ import org.dominokit.domino.ui.utils.BaseDominoElement;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.dui_accent;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_filled;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_minimal;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_subtle;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex_wrap;
 import static org.dominokit.domino.ui.utils.Domino.dui_gap_4;
 import static org.dominokit.domino.ui.utils.Domino.dui_orange;
 import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
+import static org.dominokit.domino.ui.utils.Domino.dui_primary;
 import static org.dominokit.domino.ui.utils.Domino.dui_purple;
 import static org.dominokit.domino.ui.utils.Domino.dui_success;
 
@@ -27,9 +31,12 @@ public class BasicChipsSample extends BaseDominoElement<HTMLDivElement, BasicChi
         this.element = div().addCss(dui_p_2, dui_flex, dui_gap_4, dui_flex_wrap)
                 .appendChild(Chip.create("Sounds good, let's do that!"))
                 .appendChild(Chip.create("Yay! I'll be there").addCss(dui_accent))
-                .appendChild(Chip.create("Hey, how are you?").addCss(dui_orange))
-                .appendChild(Chip.create("You look handsome today <3").addCss(dui_purple))
-                .appendChild(Chip.create("I like the weather today!").addCss(dui_success))
+        .appendChild(Chip.create("Hey, how are you?").addCss(dui_orange))
+        .appendChild(Chip.create("You look handsome today <3").addCss(dui_purple))
+        .appendChild(Chip.create("I like the weather today!").addCss(dui_success))
+        .appendChild(Chip.create("Filled").addCss(dui_primary).addCss(dui_emphasis_filled))
+        .appendChild(Chip.create("Subtle").addCss(dui_success).addCss(dui_emphasis_subtle))
+        .appendChild(Chip.create("Minimal").addCss(dui_accent).addCss(dui_emphasis_minimal))
         ;
         init(this);
     }

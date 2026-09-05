@@ -1,6 +1,9 @@
 package org.dominokit.demo.shell.ui.views.shell;
 
 import static org.dominokit.domino.ui.grid.Column.span4;
+import static org.dominokit.domino.ui.style.DisplayCss.dui_border_none;
+import static org.dominokit.domino.ui.style.FlexCss.dui_grow_1;
+import static org.dominokit.domino.ui.style.SizingCss.dui_min_h_full;
 import static org.dominokit.domino.ui.utils.Domino.body;
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex;
@@ -98,9 +101,9 @@ public class ShellViewImpl extends BrixView<HTMLDivElement, ShellView.ShellUiHan
     layout.setLeftDrawerSpanDown(true);
 
     layout.withLeftDrawerContent((parent, drawer) -> {
-      drawer.addCss(dui_flex, dui_flex_col);
+      drawer.addCss(dui_flex, dui_flex_col, dui_min_h_full);
       drawer.appendChild(ProfileCard.create());
-      drawer.appendChild(createMenu());
+      drawer.appendChild(createMenu().addCss(dui_grow_1));
     });
 
     layout.withRightDrawerContent((parent, drawer) -> {
@@ -108,7 +111,7 @@ public class ShellViewImpl extends BrixView<HTMLDivElement, ShellView.ShellUiHan
       drawer.appendChild(ThemeDrawer.create());
     });
 
-    layout.setRightDrawerToggleIcon(Icons.arrow_left().setTooltip("Theme settings"));
+    layout.setRightDrawerToggleIcon(Icons.palette().setTooltip("Theme settings"));
     layout.withNavBar((parent, navBar) -> navBar
         .appendChild(PostfixAddOn.of(Icons.theme_light_dark()
             .setTooltip("Dark mode on/off", DropDirection.BEST_MIDDLE_SIDE)
@@ -189,7 +192,7 @@ public class ShellViewImpl extends BrixView<HTMLDivElement, ShellView.ShellUiHan
         Icons.lock().addCss(SpacingCss.dui_font_size_4).clickable());
 
     menu = Tree.<String>create("Demo menu")
-        .addCss(dui_order_20)
+        .addCss(dui_order_20, dui_border_none)
         .withHeader((self, header) -> header
             .addCss(dui_h_12)
             .appendChild(PostfixAddOn.of(lockIcon.apply(icon -> icon.addClickListener(evt -> {
@@ -362,6 +365,12 @@ public class ShellViewImpl extends BrixView<HTMLDivElement, ShellView.ShellUiHan
             .addClickListener(evt -> {
               evt.preventDefault();
               handlers().onMenuItemSelected("colors");
+            }))
+        .appendChild(TreeItem.create(Icons.select_color(), "Emphasis modifiers")
+            .apply(self -> self.getClickableElement().setAttribute("href", "themes/emphasis"))
+            .addClickListener(evt -> {
+              evt.preventDefault();
+              handlers().onMenuItemSelected("themes/emphasis");
             }))
         .appendChild(TreeItem.create(Icons.animation(), "Animations")
             .apply(self -> self.getClickableElement().setAttribute("href", "animations"))

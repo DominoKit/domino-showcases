@@ -13,12 +13,11 @@ import org.dominokit.domino.ui.style.CompositeCssClass;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
-import static org.dominokit.domino.ui.utils.Domino.dui_bg_accent_l_2;
+import static org.dominokit.domino.ui.utils.Domino.dui_accent;
 import static org.dominokit.domino.ui.utils.Domino.dui_border;
 import static org.dominokit.domino.ui.utils.Domino.dui_border_accent_d_2;
 import static org.dominokit.domino.ui.utils.Domino.dui_border_solid;
 import static org.dominokit.domino.ui.utils.Domino.dui_elevation_0;
-import static org.dominokit.domino.ui.utils.Domino.dui_fg_white;
 import static org.dominokit.domino.ui.utils.Domino.dui_text_center;
 import static org.dominokit.domino.ui.utils.Domino.h;
 import static org.dominokit.domino.ui.utils.Domino.span;
@@ -27,7 +26,7 @@ public class GridLayoutSample extends BaseDominoElement<HTMLDivElement, GridLayo
 
     private final DivElement element;
     private GridLayout gridLayout;
-    private CompositeCssClass dui_grid_section =CompositeCssClass.of(dui_bg_accent_l_2, dui_border, dui_border_solid, dui_border_accent_d_2, dui_text_center, dui_fg_white);
+    private CompositeCssClass dui_grid_section =CompositeCssClass.of(dui_accent, dui_border, dui_border_solid, dui_border_accent_d_2, dui_text_center);
 
     public static GridLayoutSample create(){
         return new GridLayoutSample();

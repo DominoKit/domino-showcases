@@ -3,6 +3,9 @@ package org.dominokit.showcases.samples.components.alerts;
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.dui_m_b_4;
 import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_filled;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_minimal;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_subtle;
 import static org.dominokit.domino.ui.utils.Domino.strong;
 
 import elemental2.dom.HTMLDivElement;
@@ -22,14 +25,17 @@ public class ContextAlertsSample extends BaseDominoElement<HTMLDivElement, Conte
     this.element = div().addCss(dui_p_2)
         .appendChild(Alert.success()
             .addCss(dui_m_b_4)
+            .addCss(dui_emphasis_filled)
             .appendChild(strong().textContent("Well done! "))
             .appendChild("You successfully read this important alert message."))
         .appendChild(Alert.info()
             .addCss(dui_m_b_4)
+            .addCss(dui_emphasis_subtle)
             .appendChild(strong().textContent("Heads up! "))
             .appendChild("This alert needs your attention, but it's not super important."))
         .appendChild(Alert.warning()
             .addCss(dui_m_b_4)
+            .addCss(dui_emphasis_minimal)
             .appendChild(strong().textContent("Warning! "))
             .appendChild("Better check yourself, you're not looking too good."))
         .appendChild(Alert.error()

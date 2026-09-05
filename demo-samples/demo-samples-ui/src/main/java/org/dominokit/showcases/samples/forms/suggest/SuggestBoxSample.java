@@ -66,7 +66,7 @@ public class SuggestBoxSample extends BaseDominoElement<HTMLDivElement, SuggestB
                 })
                 .apply(textBox -> {
                     textBox.appendChild(PostfixAddOn.of(Button.create("ADD FRIEND")
-                            .addCss(dui_primary, dui_h_8, dui_leading_5)
+                            .addCss(dui_primary)
                             .addClickListener(evt -> {
                                 localStore.addSuggestion(SuggestOption.create(textBox.getValue()));
                                 textBox.clear();

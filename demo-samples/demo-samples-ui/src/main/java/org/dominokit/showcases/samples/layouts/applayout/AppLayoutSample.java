@@ -13,14 +13,14 @@ import org.dominokit.domino.ui.utils.BaseDominoElement;
 import org.dominokit.domino.ui.utils.PostfixAddOn;
 import org.dominokit.domino.ui.utils.PrefixAddOn;
 
+import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_accent_d_4;
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.dui_bg_dominant_d_4;
-import static org.dominokit.domino.ui.utils.Domino.dui_bg_white;
+import static org.dominokit.domino.ui.utils.Domino.dui_bg_dominant;
 import static org.dominokit.domino.ui.utils.Domino.dui_border;
 import static org.dominokit.domino.ui.utils.Domino.dui_border_accent;
 import static org.dominokit.domino.ui.utils.Domino.dui_border_b;
 import static org.dominokit.domino.ui.utils.Domino.dui_border_solid;
-import static org.dominokit.domino.ui.utils.Domino.dui_fg_grey;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex_wrap;
 import static org.dominokit.domino.ui.utils.Domino.dui_gap_2;
@@ -64,7 +64,7 @@ public class AppLayoutSample extends BaseDominoElement<HTMLDivElement, AppLayout
                             .appendChild(PostfixAddOn.of(TextBox.create()
                                     .apply(self -> self.labelElement().remove())
                                     .addCss(dui_w_56)
-                                    .withWrapper((parent, self) -> self.addCss(dui_bg_white, dui_fg_grey))
+                                    .withWrapper((parent, self) -> self.addCss(dui_bg_dominant))
                                     .appendChild(PostfixAddOn.of(Icons.magnify()))
                             ))
                             .appendChild(PostfixAddOn.of(Icons.dots_vertical()
@@ -143,7 +143,7 @@ public class AppLayoutSample extends BaseDominoElement<HTMLDivElement, AppLayout
                             .appendChild(div().addCss(dui_flex, dui_flex_wrap, dui_justify_between)
                                     .apply(self -> {
                                         for (int i = 0; i < 100; i++) {
-                                            self.appendChild(div().addCss(dui_w_24, dui_h_24, dui_bg_dominant_d_4, dui_m_2));
+                                            self.appendChild(div().addCss(dui_w_24, dui_h_24, dui_bg_accent_d_4, dui_m_2));
                                         }
                                     })
                             );

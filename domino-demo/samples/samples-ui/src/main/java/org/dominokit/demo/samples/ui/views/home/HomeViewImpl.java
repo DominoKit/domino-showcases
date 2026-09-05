@@ -47,44 +47,45 @@ public class HomeViewImpl extends BrixView<HTMLDivElement, HomeView.HomeUiHandle
 
   private DivElement createHeroSection() {
     return div()
+        .addCss("demo-home-hero")
         .style(
-            "background:linear-gradient(135deg,#0f766e 0%,#134e4a 55%,#0f172a 100%);"
-                + "border-radius:24px;"
-                + "padding:32px;"
+            "padding:32px;"
                 + "display:grid;"
                 + "grid-template-columns:repeat(auto-fit,minmax(280px,1fr));"
                 + "gap:24px;"
-                + "box-shadow:0 18px 48px rgba(15,23,42,0.24);")
+                )
         .appendChild(
             div()
                 .addCss(dui_flex, dui_flex_col, dui_gap_2)
                 .appendChild(
                     span()
                         .textContent("DOMINO DEMO")
+                        .addCss("demo-home-hero-badge")
                         .style(
                             "display:inline-flex;"
                                 + "width:max-content;"
                                 + "padding:6px 12px;"
                                 + "border-radius:999px;"
-                                + "background:rgba(255,255,255,0.16);"
-                                + "color:#ecfeff;"
                                 + "letter-spacing:0.12em;"
                                 + "font-size:12px;"
                                 + "font-weight:700;"))
                 .appendChild(
                     h(2)
                         .textContent("Build polished enterprise interfaces with Domino UI.")
-                        .style("margin:0;color:#f8fafc;font-size:2.2rem;line-height:1.15;"))
+                        .addCss("demo-home-hero-title")
+                        .style("margin:0;font-size:2.2rem;line-height:1.15;"))
                 .appendChild(
                     p()
                         .textContent(
                             "Domino UI gives Java teams a rich set of components, layouts, forms, data views, and styling primitives for building consistent web applications with a strong product feel.")
-                        .style("margin:0;color:rgba(248,250,252,0.9);font-size:1rem;line-height:1.7;"))
+                        .addCss("demo-home-hero-description")
+                        .style("margin:0;font-size:1rem;line-height:1.7;"))
                 .appendChild(
                     p()
                         .textContent(
                             "This demo highlights how those pieces come together across common application screens, from navigation and forms to data-heavy workflows, while the DominoKit website provides the broader docs and ecosystem context.")
-                        .style("margin:0;color:rgba(226,232,240,0.78);font-size:0.98rem;line-height:1.7;"))
+                        .addCss("demo-home-hero-secondary")
+                        .style("margin:0;font-size:0.98rem;line-height:1.7;"))
                 .appendChild(
                     actionRow(
                         routeShortcut("Open Buttons", () -> handlers().openButtons()),
@@ -180,7 +181,8 @@ public class HomeViewImpl extends BrixView<HTMLDivElement, HomeView.HomeUiHandle
                 .appendChild(
                     h(5)
                         .textContent("Compose a shell and layout")
-                        .style("margin:0 0 8px 0;color:#0f172a;"))
+                        .addCss("demo-home-guidance-title")
+                        .style("margin:0 0 8px 0;"))
                 .appendChild(
                     p()
                         .textContent(
@@ -192,7 +194,8 @@ public class HomeViewImpl extends BrixView<HTMLDivElement, HomeView.HomeUiHandle
                 .appendChild(
                     h(5)
                         .textContent("Move into data-heavy pages")
-                        .style("margin:16px 0 8px 0;color:#0f172a;"))
+                        .addCss("demo-home-guidance-title")
+                        .style("margin:16px 0 8px 0;"))
                 .appendChild(
                     p()
                         .textContent(
@@ -224,17 +227,17 @@ public class HomeViewImpl extends BrixView<HTMLDivElement, HomeView.HomeUiHandle
 
   private DivElement heroTile(String title, String description) {
     return div()
+        .addCss("demo-home-hero-tile")
         .style(
             "padding:18px;"
-                + "border-radius:18px;"
-                + "background:rgba(255,255,255,0.12);"
-                + "border:1px solid rgba(255,255,255,0.16);"
                 + "backdrop-filter:blur(8px);")
-        .appendChild(h(5).textContent(title).style("margin:0 0 8px 0;color:#f8fafc;"))
+        .appendChild(
+            h(5).textContent(title).addCss("demo-home-hero-tile-title").style("margin:0 0 8px 0;"))
         .appendChild(
             p()
                 .textContent(description)
-                .style("margin:0;color:rgba(226,232,240,0.82);line-height:1.6;"));
+                .addCss("demo-home-hero-tile-description")
+                .style("margin:0;line-height:1.6;"));
   }
 
   private DivElement grid() {

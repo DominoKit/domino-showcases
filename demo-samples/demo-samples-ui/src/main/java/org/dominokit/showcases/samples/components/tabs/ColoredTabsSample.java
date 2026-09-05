@@ -9,6 +9,9 @@ import org.dominokit.domino.ui.tabs.TabsPanel;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_filled;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_minimal;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_subtle;
 import static org.dominokit.domino.ui.utils.Domino.dui_accent_blue_grey;
 import static org.dominokit.domino.ui.utils.Domino.dui_accent_orange;
 import static org.dominokit.domino.ui.utils.Domino.dui_accent_pink;
@@ -34,6 +37,7 @@ public class ColoredTabsSample extends BaseDominoElement<HTMLDivElement, Colored
                                         .appendChild(Tab.create("PROFILE"))
                                         .appendChild(Tab.create("MESSAGES").activate())
                                         .appendChild(Tab.create("SETTINGS"))
+                                        .addCss(dui_emphasis_subtle)
                                         .addCss(dui_accent_pink)
                                 )
                                 .appendChild(TabsPanel.create()
@@ -41,6 +45,7 @@ public class ColoredTabsSample extends BaseDominoElement<HTMLDivElement, Colored
                                         .appendChild(Tab.create("PROFILE"))
                                         .appendChild(Tab.create("MESSAGES").activate())
                                         .appendChild(Tab.create("SETTINGS"))
+                                        .addCss(dui_emphasis_minimal)
                                         .addCss(dui_accent_teal)
                                 )
                                 .appendChild(TabsPanel.create()
@@ -48,6 +53,7 @@ public class ColoredTabsSample extends BaseDominoElement<HTMLDivElement, Colored
                                         .appendChild(Tab.create("PROFILE"))
                                         .appendChild(Tab.create("MESSAGES").activate())
                                         .appendChild(Tab.create("SETTINGS"))
+                                        .addCss(dui_emphasis_filled)
                                         .addCss(dui_accent_purple)
                                 )
                         )

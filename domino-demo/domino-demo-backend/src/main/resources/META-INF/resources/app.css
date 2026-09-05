@@ -4,7 +4,7 @@
 /*------------- Application specific styles ------------------*/
 .demo-flex-layout-result-container {
     height: 500px;
-    background: #777777;
+    background: var(--dui-clr-accent-d-4);
 }
 
 .demo-flex-layout-counter {
@@ -29,4 +29,115 @@
 .demo-flex-layout-block h4::before {
     counter-increment: section;
     content: counter(section);
+}
+
+/* Demo shell theme controls use Domino UI semantic tokens instead of fixed colors. */
+.demo-theme-option,
+.demo-mode-option {
+    padding: 8px 10px;
+    border-radius: var(--dui-radius-md);
+    border: 1px solid var(--dui-border-default);
+    background: var(--dui-clr-dominant-l-4);
+    color: var(--dui-color);
+    cursor: pointer;
+    transition: background 160ms ease, border-color 160ms ease;
+}
+
+.demo-theme-option:hover,
+.demo-mode-option:hover {
+    border-color: var(--dui-accent);
+    background: var(--dui-clr-dominant-l-3);
+}
+
+.demo-theme-option.demo-option-active,
+.demo-mode-option.demo-option-active {
+    border-color: var(--dui-accent);
+    background: var(--dui-accent);
+    color: var(--dui-color-invert);
+    font-weight: 600;
+}
+
+.demo-accent-swatch {
+    box-sizing: border-box;
+    width: 28px;
+    height: 28px;
+    border: 2px solid transparent;
+    border-radius: var(--dui-radius-md);
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.demo-accent-swatch.demo-option-active {
+    border-color: var(--dui-color-invert);
+    box-shadow: 0 0 0 2px var(--dui-color);
+    transform: scale(1.08);
+}
+
+/* Home page surfaces and text adapt to both the selected visual theme and color mode. */
+.demo-home-hero {
+    --demo-home-hero-foreground: var(--dui-color-invert);
+    background: linear-gradient(
+        135deg,
+        var(--dui-accent-d-1) 0%,
+        var(--dui-color-alternate) 55%,
+        var(--dui-clr-dominant-d-3) 100%);
+    border-radius: var(--dui-radius-xl);
+    box-shadow: var(--dui-box-shadow-lg);
+    color: var(--demo-home-hero-foreground);
+}
+
+body.dui.dui-colors-dark .demo-home-hero {
+    --demo-home-hero-foreground: var(--dui-color);
+}
+
+.demo-home-hero-badge {
+    background: color-mix(in srgb, var(--demo-home-hero-foreground) 16%, transparent);
+    color: var(--demo-home-hero-foreground);
+}
+
+.demo-home-hero-title,
+.demo-home-hero-description,
+.demo-home-hero-secondary,
+.demo-home-hero-tile-title,
+.demo-home-hero-tile-description {
+    color: var(--demo-home-hero-foreground);
+}
+
+.demo-home-hero-description {
+    opacity: 0.9;
+}
+
+.demo-home-hero-secondary {
+    opacity: 0.78;
+}
+
+.demo-home-hero-tile {
+    border-radius: var(--dui-radius-xl);
+    background: color-mix(in srgb, var(--demo-home-hero-foreground) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--demo-home-hero-foreground) 16%, transparent);
+}
+
+.demo-home-hero-tile-description {
+    opacity: 0.82;
+}
+
+.demo-home-guidance-title {
+    color: var(--dui-color);
+}
+.demo-benchmark-html-table {
+    border: 1px solid var(--dui-datatable-border-color);
+    background: var(--dui-datatable-row-background);
+    color: var(--dui-color);
+}
+
+.demo-benchmark-html-table-header {
+    border: 1px solid var(--dui-datatable-border-color);
+    background: var(--dui-datatable-header-hover-bg-color);
+    color: var(--dui-color);
+}
+
+.demo-benchmark-html-table-cell {
+    border: 1px solid var(--dui-datatable-border-color);
+    background: var(--dui-datatable-row-background);
+    color: var(--dui-color);
 }

@@ -12,7 +12,6 @@ import org.dominokit.domino.ui.utils.PrefixAddOn;
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.dui_accent;
 import static org.dominokit.domino.ui.utils.Domino.dui_bg_l_1;
-import static org.dominokit.domino.ui.utils.Domino.dui_fg_white;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex_col;
 import static org.dominokit.domino.ui.utils.Domino.dui_gap_4;
@@ -47,8 +46,7 @@ public class NavBarBodySample extends BaseDominoElement<HTMLDivElement, NavBarBo
                                     body
                                             .addCss(dui_flex, dui_justify_center, dui_items_center)
                                             .appendChild(SearchBox.create()
-                                                    .addCss(dui_w_72, dui_bg_l_1, dui_rounded_md, dui_fg_white, dui_h_12)
-                                                    .setCssProperty("--dui-form-field-placeholder-color", "var(--dui-color-5")
+                                                    .addCss(dui_w_72, dui_bg_l_1, dui_rounded_md)
                                             );
                                 })
                         )

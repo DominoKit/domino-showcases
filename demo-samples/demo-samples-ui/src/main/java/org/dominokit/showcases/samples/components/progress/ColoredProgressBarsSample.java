@@ -8,6 +8,9 @@ import org.dominokit.domino.ui.utils.BaseDominoElement;
 
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.dui_brown;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_filled;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_minimal;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_subtle;
 import static org.dominokit.domino.ui.utils.Domino.dui_error;
 import static org.dominokit.domino.ui.utils.Domino.dui_info;
 import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
@@ -31,18 +34,21 @@ public class ColoredProgressBarsSample extends BaseDominoElement<HTMLDivElement,
                         .appendChild(ProgressBar.create(100)
                                 .showText()
                                 .addCss(dui_success)
+                                .addCss(dui_emphasis_filled)
                                 .setValue(80))
                 )
                 .appendChild(Progress.create()
                         .appendChild(ProgressBar.create(100)
                                 .showText()
                                 .addCss(dui_warning)
+                                .addCss(dui_emphasis_subtle)
                                 .setValue(60))
                 )
                 .appendChild(Progress.create()
                         .appendChild(ProgressBar.create(100)
                                 .showText()
                                 .addCss(dui_info)
+                                .addCss(dui_emphasis_minimal)
                                 .setValue(70))
                 )
                 .appendChild(Progress.create()

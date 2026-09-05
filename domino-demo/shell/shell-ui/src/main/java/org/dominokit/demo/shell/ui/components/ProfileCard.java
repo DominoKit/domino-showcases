@@ -1,13 +1,14 @@
 package org.dominokit.demo.shell.ui.components;
 
+import static org.dominokit.domino.ui.style.ColorsCss.dui_bg_dominant_d_2;
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.dui_absolute;
-import static org.dominokit.domino.ui.utils.Domino.dui_accent;
-import static org.dominokit.domino.ui.utils.Domino.dui_bg_accent_d_1;
+import static org.dominokit.domino.ui.utils.Domino.dui_bg_dominant_d_1;
 import static org.dominokit.domino.ui.utils.Domino.dui_bg_yellow_d_1;
 import static org.dominokit.domino.ui.utils.Domino.dui_border_4;
-import static org.dominokit.domino.ui.utils.Domino.dui_border_accent_l_4;
+import static org.dominokit.domino.ui.utils.Domino.dui_border_dominant_l_4;
 import static org.dominokit.domino.ui.utils.Domino.dui_border_solid;
+import static org.dominokit.domino.ui.utils.Domino.dui_dominant;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex;
 import static org.dominokit.domino.ui.utils.Domino.dui_flex_col;
 import static org.dominokit.domino.ui.utils.Domino.dui_font_size_3_5;
@@ -61,11 +62,11 @@ public class ProfileCard implements IsElement<HTMLDivElement> {
     this.root = div()
         .addCss(dui_flex, dui_flex_col, dui_order_10, dui_overflow_visible)
         .appendChild(div()
-            .addCss(dui_bg_accent_d_1, dui_h_16, dui_relative)
+            .addCss(dui_bg_dominant_d_2, dui_h_16, dui_relative)
             .appendChild(img(Resources.INSTANCE.logo().getSafeUri().asString())
                 .addCss(
                     dui_bg_yellow_d_1,
-                    CompositeCssClass.of(dui_border_4, dui_border_accent_l_4, dui_border_solid),
+                    CompositeCssClass.of(dui_border_4, dui_border_dominant_l_4, dui_border_solid),
                     dui_rounded_full,
                     dui_absolute,
                     dui_w_24,
@@ -73,7 +74,7 @@ public class ProfileCard implements IsElement<HTMLDivElement> {
                     dui_top_4)
                 .setLeft(Calc.sub(Unit.percent.of(50), Unit.em.of(3)))))
         .appendChild(div()
-            .addCss(dui_accent, dui_h_48, dui_flex, dui_flex_col, dui_font_size_3_5, dui_p_14)
+            .addCss(dui_dominant, dui_h_48, dui_flex, dui_flex_col, dui_font_size_3_5, dui_p_14)
             .apply(container -> {
               try {
                 Resources.INSTANCE.build().getText(new ResourceCallback<TextResource>() {

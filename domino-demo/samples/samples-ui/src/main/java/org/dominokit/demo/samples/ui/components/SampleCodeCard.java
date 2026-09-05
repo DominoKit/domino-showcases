@@ -34,7 +34,7 @@ public class SampleCodeCard
   public SampleCodeCard(Class<?> sampleClass) {
     this.codeContainer = div().addCss(dui_p_4).textContent("Loading source code...");
     this.card =
-        Card.create("Source code", "Loaded from the sample implementation class.PPP")
+        Card.create("Source code", "Loaded from the sample implementation class")
             .setCollapsible(true)
             .withBody((self, body) -> body.addCss(dui_p_0))
             .withHeader(

@@ -14,7 +14,6 @@ import org.dominokit.domino.ui.utils.Separator;
 import org.dominokit.pro.domino.ui.menu.MenuBar;
 import org.dominokit.pro.domino.ui.menu.MenuEntry;
 
-import static org.dominokit.domino.ui.style.ColorsCss.dui_fg_white;
 import static org.dominokit.domino.ui.style.GenericCss.dui_accent;
 import static org.dominokit.domino.ui.style.GenericCss.dui_bg_l_1;
 import static org.dominokit.domino.ui.style.SpacingCss.dui_font_size_5;
@@ -42,8 +41,7 @@ public class MenuBarAddonsSample extends BaseDominoElement<HTMLDivElement, MenuB
                                 .withPostfixElement((parent, self) -> {
                                     self
                                             .appendChild(SearchBox.create()
-                                                    .addCss(dui_bg_l_1, dui_rounded_md, dui_fg_white, dui_h_11)
-                                                    .setCssProperty("--dui-form-field-placeholder-color", "var(--dui-color-5")
+                                                    .addCss(dui_bg_l_1, dui_rounded_md)
                                             )
                                             .appendChild(Icons.cog().clickable())
                                     ;
