@@ -1,9 +1,0 @@
-package org.dominokit.demo.samples.views.blueprints.schedulingCalendarsAndResourcePlanning;
-
-import org.dominokit.brix.api.Viewable;
-import org.dominokit.demo.samples.presenters.blueprints.SchedulingCalendarsAndResourcePlanningPresenterUiHandlers;
-
-public interface SchedulingCalendarsAndResourcePlanningView extends Viewable {
-
-  interface SchedulingCalendarsAndResourcePlanningUiHandlers extends SchedulingCalendarsAndResourcePlanningPresenterUiHandlers {}
-}
