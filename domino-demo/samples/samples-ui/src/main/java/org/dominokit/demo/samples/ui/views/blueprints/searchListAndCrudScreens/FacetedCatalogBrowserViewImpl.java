@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.searchListAndCrudScreens;
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.searchListAndCrudScreens.FacetedCatalogBrowserView;
 import org.dominokit.showcases.samples.blueprints.search_list_and_crud_screens.FacetedCatalogBrowserSample;
 
 @UiView
-public class FacetedCatalogBrowserViewImpl extends SamplePageView<FacetedCatalogBrowserView.FacetedCatalogBrowserUiHandlers>
+public class FacetedCatalogBrowserViewImpl extends BlueprintSamplePageView<FacetedCatalogBrowserView.FacetedCatalogBrowserUiHandlers>
     implements FacetedCatalogBrowserView {
 
   @Inject

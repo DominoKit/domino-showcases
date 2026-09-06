@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.masterDetailAndRecordWork
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.masterDetailAndRecordWorkspaces.MasterDetailWithPersistentRecordListView;
 import org.dominokit.showcases.samples.blueprints.master_detail_and_record_workspaces.MasterDetailWithPersistentRecordListSample;
 
 @UiView
-public class MasterDetailWithPersistentRecordListViewImpl extends SamplePageView<MasterDetailWithPersistentRecordListView.MasterDetailWithPersistentRecordListUiHandlers>
+public class MasterDetailWithPersistentRecordListViewImpl extends BlueprintSamplePageView<MasterDetailWithPersistentRecordListView.MasterDetailWithPersistentRecordListUiHandlers>
     implements MasterDetailWithPersistentRecordListView {
 
   @Inject

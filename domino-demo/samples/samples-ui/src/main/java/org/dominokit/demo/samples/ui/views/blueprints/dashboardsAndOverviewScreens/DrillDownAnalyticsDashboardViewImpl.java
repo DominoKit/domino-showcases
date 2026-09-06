@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.dashboardsAndOverviewScre
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.dashboardsAndOverviewScreens.DrillDownAnalyticsDashboardView;
 import org.dominokit.showcases.samples.blueprints.dashboards_and_overview_screens.DrillDownAnalyticsDashboardSample;
 
 @UiView
-public class DrillDownAnalyticsDashboardViewImpl extends SamplePageView<DrillDownAnalyticsDashboardView.DrillDownAnalyticsDashboardUiHandlers>
+public class DrillDownAnalyticsDashboardViewImpl extends BlueprintSamplePageView<DrillDownAnalyticsDashboardView.DrillDownAnalyticsDashboardUiHandlers>
     implements DrillDownAnalyticsDashboardView {
 
   @Inject

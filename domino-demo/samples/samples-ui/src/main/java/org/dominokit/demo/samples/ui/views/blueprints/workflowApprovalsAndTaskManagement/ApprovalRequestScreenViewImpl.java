@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.workflowApprovalsAndTaskM
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.workflowApprovalsAndTaskManagement.ApprovalRequestScreenView;
 import org.dominokit.showcases.samples.blueprints.workflow_approvals_and_task_management.ApprovalRequestScreenSample;
 
 @UiView
-public class ApprovalRequestScreenViewImpl extends SamplePageView<ApprovalRequestScreenView.ApprovalRequestScreenUiHandlers>
+public class ApprovalRequestScreenViewImpl extends BlueprintSamplePageView<ApprovalRequestScreenView.ApprovalRequestScreenUiHandlers>
     implements ApprovalRequestScreenView {
 
   @Inject

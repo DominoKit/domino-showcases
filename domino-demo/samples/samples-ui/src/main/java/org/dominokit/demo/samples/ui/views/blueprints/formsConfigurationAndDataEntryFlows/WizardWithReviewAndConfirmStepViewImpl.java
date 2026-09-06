@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.formsConfigurationAndData
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.formsConfigurationAndDataEntryFlows.WizardWithReviewAndConfirmStepView;
 import org.dominokit.showcases.samples.blueprints.forms_configuration_and_data_entry_flows.WizardWithReviewAndConfirmStepSample;
 
 @UiView
-public class WizardWithReviewAndConfirmStepViewImpl extends SamplePageView<WizardWithReviewAndConfirmStepView.WizardWithReviewAndConfirmStepUiHandlers>
+public class WizardWithReviewAndConfirmStepViewImpl extends BlueprintSamplePageView<WizardWithReviewAndConfirmStepView.WizardWithReviewAndConfirmStepUiHandlers>
     implements WizardWithReviewAndConfirmStepView {
 
   @Inject

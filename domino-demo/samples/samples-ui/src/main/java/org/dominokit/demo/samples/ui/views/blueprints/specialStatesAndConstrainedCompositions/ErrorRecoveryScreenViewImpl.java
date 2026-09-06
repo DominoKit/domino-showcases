@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.specialStatesAndConstrain
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.specialStatesAndConstrainedCompositions.ErrorRecoveryScreenView;
 import org.dominokit.showcases.samples.blueprints.special_states_and_constrained_compositions.ErrorRecoveryScreenSample;
 
 @UiView
-public class ErrorRecoveryScreenViewImpl extends SamplePageView<ErrorRecoveryScreenView.ErrorRecoveryScreenUiHandlers>
+public class ErrorRecoveryScreenViewImpl extends BlueprintSamplePageView<ErrorRecoveryScreenView.ErrorRecoveryScreenUiHandlers>
     implements ErrorRecoveryScreenView {
 
   @Inject

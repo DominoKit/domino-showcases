@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.masterDetailAndRecordWork
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.masterDetailAndRecordWorkspaces.HierarchicalEntityExplorerView;
 import org.dominokit.showcases.samples.blueprints.master_detail_and_record_workspaces.HierarchicalEntityExplorerSample;
 
 @UiView
-public class HierarchicalEntityExplorerViewImpl extends SamplePageView<HierarchicalEntityExplorerView.HierarchicalEntityExplorerUiHandlers>
+public class HierarchicalEntityExplorerViewImpl extends BlueprintSamplePageView<HierarchicalEntityExplorerView.HierarchicalEntityExplorerUiHandlers>
     implements HierarchicalEntityExplorerView {
 
   @Inject

@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.workflowApprovalsAndTaskM
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.workflowApprovalsAndTaskManagement.ExceptionReviewQueueView;
 import org.dominokit.showcases.samples.blueprints.workflow_approvals_and_task_management.ExceptionReviewQueueSample;
 
 @UiView
-public class ExceptionReviewQueueViewImpl extends SamplePageView<ExceptionReviewQueueView.ExceptionReviewQueueUiHandlers>
+public class ExceptionReviewQueueViewImpl extends BlueprintSamplePageView<ExceptionReviewQueueView.ExceptionReviewQueueUiHandlers>
     implements ExceptionReviewQueueView {
 
   @Inject

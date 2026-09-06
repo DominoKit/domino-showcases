@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.operationsMonitoringAndEx
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.operationsMonitoringAndExceptionHandling.ServiceHealthDashboardView;
 import org.dominokit.showcases.samples.blueprints.operations_monitoring_and_exception_handling.ServiceHealthDashboardSample;
 
 @UiView
-public class ServiceHealthDashboardViewImpl extends SamplePageView<ServiceHealthDashboardView.ServiceHealthDashboardUiHandlers>
+public class ServiceHealthDashboardViewImpl extends BlueprintSamplePageView<ServiceHealthDashboardView.ServiceHealthDashboardUiHandlers>
     implements ServiceHealthDashboardView {
 
   @Inject

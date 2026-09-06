@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAnd
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.applicationFoundationsAndNavigation.SplitViewNavigationShellView;
 import org.dominokit.showcases.samples.blueprints.application_foundations_and_navigation.SplitViewNavigationShellSample;
 
 @UiView
-public class SplitViewNavigationShellViewImpl extends SamplePageView<SplitViewNavigationShellView.SplitViewNavigationShellUiHandlers>
+public class SplitViewNavigationShellViewImpl extends BlueprintSamplePageView<SplitViewNavigationShellView.SplitViewNavigationShellUiHandlers>
     implements SplitViewNavigationShellView {
 
   @Inject

@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.workflowApprovalsAndTaskM
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.workflowApprovalsAndTaskManagement.KanbanWorkflowBoardView;
 import org.dominokit.showcases.samples.blueprints.workflow_approvals_and_task_management.KanbanWorkflowBoardSample;
 
 @UiView
-public class KanbanWorkflowBoardViewImpl extends SamplePageView<KanbanWorkflowBoardView.KanbanWorkflowBoardUiHandlers>
+public class KanbanWorkflowBoardViewImpl extends BlueprintSamplePageView<KanbanWorkflowBoardView.KanbanWorkflowBoardUiHandlers>
     implements KanbanWorkflowBoardView {
 
   @Inject

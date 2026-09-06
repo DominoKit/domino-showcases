@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.contentFilesCommunication
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.contentFilesCommunicationAndCollaboration.KnowledgeBaseBrowserView;
 import org.dominokit.showcases.samples.blueprints.content_files_communication_and_collaboration.KnowledgeBaseBrowserSample;
 
 @UiView
-public class KnowledgeBaseBrowserViewImpl extends SamplePageView<KnowledgeBaseBrowserView.KnowledgeBaseBrowserUiHandlers>
+public class KnowledgeBaseBrowserViewImpl extends BlueprintSamplePageView<KnowledgeBaseBrowserView.KnowledgeBaseBrowserUiHandlers>
     implements KnowledgeBaseBrowserView {
 
   @Inject

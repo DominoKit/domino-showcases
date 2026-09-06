@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAnd
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.applicationFoundationsAndNavigation.ShellWithPersistentNavigationView;
 import org.dominokit.showcases.samples.blueprints.application_foundations_and_navigation.ShellWithPersistentNavigationSample;
 
 @UiView
-public class ShellWithPersistentNavigationViewImpl extends SamplePageView<ShellWithPersistentNavigationView.ShellWithPersistentNavigationUiHandlers>
+public class ShellWithPersistentNavigationViewImpl extends BlueprintSamplePageView<ShellWithPersistentNavigationView.ShellWithPersistentNavigationUiHandlers>
     implements ShellWithPersistentNavigationView {
 
   @Inject

@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.dashboardsAndOverviewScre
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.dashboardsAndOverviewScreens.PortfolioOverviewDashboardView;
 import org.dominokit.showcases.samples.blueprints.dashboards_and_overview_screens.PortfolioOverviewDashboardSample;
 
 @UiView
-public class PortfolioOverviewDashboardViewImpl extends SamplePageView<PortfolioOverviewDashboardView.PortfolioOverviewDashboardUiHandlers>
+public class PortfolioOverviewDashboardViewImpl extends BlueprintSamplePageView<PortfolioOverviewDashboardView.PortfolioOverviewDashboardUiHandlers>
     implements PortfolioOverviewDashboardView {
 
   @Inject

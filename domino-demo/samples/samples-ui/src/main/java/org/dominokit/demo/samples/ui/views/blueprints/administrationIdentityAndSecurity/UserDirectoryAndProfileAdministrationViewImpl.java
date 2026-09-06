@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.administrationIdentityAnd
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.administrationIdentityAndSecurity.UserDirectoryAndProfileAdministrationView;
 import org.dominokit.showcases.samples.blueprints.administration_identity_and_security.UserDirectoryAndProfileAdministrationSample;
 
 @UiView
-public class UserDirectoryAndProfileAdministrationViewImpl extends SamplePageView<UserDirectoryAndProfileAdministrationView.UserDirectoryAndProfileAdministrationUiHandlers>
+public class UserDirectoryAndProfileAdministrationViewImpl extends BlueprintSamplePageView<UserDirectoryAndProfileAdministrationView.UserDirectoryAndProfileAdministrationUiHandlers>
     implements UserDirectoryAndProfileAdministrationView {
 
   @Inject

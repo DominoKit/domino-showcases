@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.schedulingCalendarsAndRes
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.schedulingCalendarsAndResourcePlanning.RecurringScheduleEditorView;
 import org.dominokit.showcases.samples.blueprints.scheduling_calendars_and_resource_planning.RecurringScheduleEditorSample;
 
 @UiView
-public class RecurringScheduleEditorViewImpl extends SamplePageView<RecurringScheduleEditorView.RecurringScheduleEditorUiHandlers>
+public class RecurringScheduleEditorViewImpl extends BlueprintSamplePageView<RecurringScheduleEditorView.RecurringScheduleEditorUiHandlers>
     implements RecurringScheduleEditorView {
 
   @Inject

@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.workflowApprovalsAndTaskM
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.workflowApprovalsAndTaskManagement.SlaAndEscalationMonitorView;
 import org.dominokit.showcases.samples.blueprints.workflow_approvals_and_task_management.SlaAndEscalationMonitorSample;
 
 @UiView
-public class SlaAndEscalationMonitorViewImpl extends SamplePageView<SlaAndEscalationMonitorView.SlaAndEscalationMonitorUiHandlers>
+public class SlaAndEscalationMonitorViewImpl extends BlueprintSamplePageView<SlaAndEscalationMonitorView.SlaAndEscalationMonitorUiHandlers>
     implements SlaAndEscalationMonitorView {
 
   @Inject

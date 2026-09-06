@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.dashboardsAndOverviewScre
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.dashboardsAndOverviewScreens.OperationalCommandCenterView;
 import org.dominokit.showcases.samples.blueprints.dashboards_and_overview_screens.OperationalCommandCenterSample;
 
 @UiView
-public class OperationalCommandCenterViewImpl extends SamplePageView<OperationalCommandCenterView.OperationalCommandCenterUiHandlers>
+public class OperationalCommandCenterViewImpl extends BlueprintSamplePageView<OperationalCommandCenterView.OperationalCommandCenterUiHandlers>
     implements OperationalCommandCenterView {
 
   @Inject

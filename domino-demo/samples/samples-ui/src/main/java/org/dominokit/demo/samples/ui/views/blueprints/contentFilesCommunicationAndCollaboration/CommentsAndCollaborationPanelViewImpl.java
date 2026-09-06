@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.contentFilesCommunication
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.contentFilesCommunicationAndCollaboration.CommentsAndCollaborationPanelView;
 import org.dominokit.showcases.samples.blueprints.content_files_communication_and_collaboration.CommentsAndCollaborationPanelSample;
 
 @UiView
-public class CommentsAndCollaborationPanelViewImpl extends SamplePageView<CommentsAndCollaborationPanelView.CommentsAndCollaborationPanelUiHandlers>
+public class CommentsAndCollaborationPanelViewImpl extends BlueprintSamplePageView<CommentsAndCollaborationPanelView.CommentsAndCollaborationPanelUiHandlers>
     implements CommentsAndCollaborationPanelView {
 
   @Inject

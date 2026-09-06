@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAnd
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.applicationFoundationsAndNavigation.FullScreenFocusedTaskShellView;
 import org.dominokit.showcases.samples.blueprints.application_foundations_and_navigation.FullScreenFocusedTaskShellSample;
 
 @UiView
-public class FullScreenFocusedTaskShellViewImpl extends SamplePageView<FullScreenFocusedTaskShellView.FullScreenFocusedTaskShellUiHandlers>
+public class FullScreenFocusedTaskShellViewImpl extends BlueprintSamplePageView<FullScreenFocusedTaskShellView.FullScreenFocusedTaskShellUiHandlers>
     implements FullScreenFocusedTaskShellView {
 
   @Inject

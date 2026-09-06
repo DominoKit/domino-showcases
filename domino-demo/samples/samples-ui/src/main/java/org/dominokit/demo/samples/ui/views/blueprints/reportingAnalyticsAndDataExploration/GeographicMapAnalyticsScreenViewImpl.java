@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.reportingAnalyticsAndData
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.reportingAnalyticsAndDataExploration.GeographicMapAnalyticsScreenView;
 import org.dominokit.showcases.samples.blueprints.reporting_analytics_and_data_exploration.GeographicMapAnalyticsScreenSample;
 
 @UiView
-public class GeographicMapAnalyticsScreenViewImpl extends SamplePageView<GeographicMapAnalyticsScreenView.GeographicMapAnalyticsScreenUiHandlers>
+public class GeographicMapAnalyticsScreenViewImpl extends BlueprintSamplePageView<GeographicMapAnalyticsScreenView.GeographicMapAnalyticsScreenUiHandlers>
     implements GeographicMapAnalyticsScreenView {
 
   @Inject
