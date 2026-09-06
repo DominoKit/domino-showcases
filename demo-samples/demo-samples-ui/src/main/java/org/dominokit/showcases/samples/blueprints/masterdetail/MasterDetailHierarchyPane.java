@@ -17,7 +17,7 @@ public final class MasterDetailHierarchyPane extends BaseDominoElement<HTMLDivEl
 
   private MasterDetailHierarchyPane(MasterDetailWorkspaceState state) {
     this.state = state;
-    root = div().css("display: grid; grid-template-columns: minmax(220px, 1fr) minmax(280px, 2fr); gap: 16px;");
+    root = div().cssText("display: grid; grid-template-columns: minmax(220px, 1fr) minmax(280px, 2fr); gap: 16px;");
     render();
     init(this);
   }
@@ -28,7 +28,7 @@ public final class MasterDetailHierarchyPane extends BaseDominoElement<HTMLDivEl
 
   private void render() {
     root.clearElement();
-    DivElement tree = div().css("display: flex; flex-direction: column; gap: 6px;")
+    DivElement tree = div().cssText("display: flex; flex-direction: column; gap: 6px;")
         .appendChild(h(5).textContent("Entity hierarchy"));
     for (MasterDetailFixtures.HierarchyNode node : MasterDetailFixtures.hierarchy()) {
       renderNode(tree, node, 0);
@@ -38,7 +38,7 @@ public final class MasterDetailHierarchyPane extends BaseDominoElement<HTMLDivEl
 
   private void renderNode(DivElement tree, MasterDetailFixtures.HierarchyNode node, int depth) {
     String marker = node.hasChildren() ? (state.isExpanded(node.id()) ? "▾ " : "▸ ") : "• ";
-    tree.appendChild(div().css("display: flex; gap: 6px; align-items: center; margin-left: " + (depth * 16) + "px;")
+    tree.appendChild(div().cssText("display: flex; gap: 6px; align-items: center; margin-left: " + (depth * 16) + "px;")
         .appendChild(Button.create(marker + node.label()).addClickListener(event -> {
           selectedNodeId = node.id();
           if (node.hasChildren()) {
@@ -54,7 +54,7 @@ public final class MasterDetailHierarchyPane extends BaseDominoElement<HTMLDivEl
   }
 
   private DivElement renderDetail() {
-    DivElement detail = div().css("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 12px;");
+    DivElement detail = div().cssText("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 12px;");
     if (selectedNodeId == null) {
       return detail.appendChild(p().textContent("Select a node to inspect its hierarchy context."));
     }

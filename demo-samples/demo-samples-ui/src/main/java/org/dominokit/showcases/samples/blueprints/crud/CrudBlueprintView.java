@@ -50,7 +50,7 @@ public final class CrudBlueprintView extends BaseDominoElement<HTMLDivElement, C
     this.store = CrudRecordStore.create(
         mode.longList ? CrudRecordFixtures.longList() : CrudRecordFixtures.shortList());
     this.page = 0;
-    this.root = div().css("display: flex; flex-direction: column; gap: 12px; padding: 16px;")
+    this.root = div().cssText("display: flex; flex-direction: column; gap: 12px; padding: 16px;")
         .appendChild(h(4).textContent(mode.title))
         .appendChild(p().textContent("Local data is intentionally editable so the layout and interaction pattern can be explored."));
     this.feedback = CrudFeedback.create();
@@ -65,7 +65,7 @@ public final class CrudBlueprintView extends BaseDominoElement<HTMLDivElement, C
         });
     root.appendChild(toolbar).appendChild(feedback);
     if (mode.persistentEditor) {
-      root.appendChild(div().css("display: grid; grid-template-columns: minmax(260px, 2fr) minmax(280px, 1fr); gap: 16px;")
+      root.appendChild(div().cssText("display: grid; grid-template-columns: minmax(260px, 2fr) minmax(280px, 1fr); gap: 16px;")
           .appendChild(listHost)
           .appendChild(editorHost));
     } else {
@@ -120,7 +120,7 @@ public final class CrudBlueprintView extends BaseDominoElement<HTMLDivElement, C
 
   private void renderPagination(CrudRecordStore.Page result) {
     paginationHost.clearElement();
-    paginationHost.css("display: flex; gap: 8px; align-items: center;");
+    paginationHost.cssText("display: flex; gap: 8px; align-items: center;");
     paginationHost.appendChild(Button.create("Previous")
         .apply(button -> {
           if (result.pageIndex() == 0) {

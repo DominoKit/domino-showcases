@@ -18,7 +18,7 @@ public final class CrudListToolbar extends BaseDominoElement<HTMLDivElement, Cru
   private CrudListToolbar(CrudRecordStore store, Runnable refresh, Runnable openEditor) {
     searchBox = TextBox.create("Search records")
         .withInputElement((parent, input) -> input.onKeyUp(event -> searchListener.accept(parent.getValue())));
-    root = div().css("display: flex; gap: 8px; align-items: center; flex-wrap: wrap;")
+    root = div().cssText("display: flex; gap: 8px; align-items: center; flex-wrap: wrap;")
         .appendChild(searchBox)
         .appendChild(Button.create("Add record").addClickListener(event -> openEditor.run()))
         .appendChild(Button.create("Refresh").addClickListener(event -> refresh.run()));
