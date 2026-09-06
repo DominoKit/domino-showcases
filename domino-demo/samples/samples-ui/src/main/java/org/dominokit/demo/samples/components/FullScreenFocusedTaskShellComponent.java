@@ -12,7 +12,7 @@ import org.dominokit.brix.api.IsBrixComponent;
 import org.dominokit.demo.samples.presenters.blueprints.BrixFullScreenFocusedTaskShellPresenterModule_;
 import org.dominokit.demo.samples.presenters.blueprints.FullScreenFocusedTaskShellPresenter;
 import org.dominokit.demo.samples.presenters.blueprints.FullScreenFocusedTaskShellPresenterProvider;
-import org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAndNavigation.BrixFullScreenFocusedTaskShellViewModule_;
+import org.dominokit.demo.samples.ui.views.blueprints.pageLayoutAndNavigation.BrixFullScreenFocusedTaskShellViewModule_;
 import org.dominokit.demo.shell.components.ShellComponent;
 
 @BrixComponent(presenter = FullScreenFocusedTaskShellPresenter.class, parent = ShellComponent.class)

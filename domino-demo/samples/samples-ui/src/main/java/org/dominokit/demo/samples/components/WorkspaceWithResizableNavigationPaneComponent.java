@@ -12,7 +12,7 @@ import org.dominokit.brix.api.IsBrixComponent;
 import org.dominokit.demo.samples.presenters.blueprints.BrixWorkspaceWithResizableNavigationPanePresenterModule_;
 import org.dominokit.demo.samples.presenters.blueprints.WorkspaceWithResizableNavigationPanePresenter;
 import org.dominokit.demo.samples.presenters.blueprints.WorkspaceWithResizableNavigationPanePresenterProvider;
-import org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAndNavigation.BrixWorkspaceWithResizableNavigationPaneViewModule_;
+import org.dominokit.demo.samples.ui.views.blueprints.pageLayoutAndNavigation.BrixWorkspaceWithResizableNavigationPaneViewModule_;
 import org.dominokit.demo.shell.components.ShellComponent;
 
 @BrixComponent(presenter = WorkspaceWithResizableNavigationPanePresenter.class, parent = ShellComponent.class)

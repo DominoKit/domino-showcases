@@ -4,7 +4,7 @@ import org.dominokit.brix.annotations.BrixPresenter;
 import org.dominokit.brix.annotations.BrixRoute;
 import org.dominokit.brix.annotations.BrixSlot;
 import org.dominokit.brix.api.ChildPresenter;
-import org.dominokit.demo.samples.views.blueprints.applicationFoundationsAndNavigation.SplitViewNavigationShellView;
+import org.dominokit.demo.samples.views.blueprints.pageLayoutAndNavigation.SplitViewNavigationShellView;
 import org.dominokit.demo.shell.presenters.shell.ShellPresenter;
 
 @BrixPresenter
@@ -13,5 +13,5 @@ import org.dominokit.demo.shell.presenters.shell.ShellPresenter;
 public abstract class SplitViewNavigationShellPresenter extends ChildPresenter<ShellPresenter, SplitViewNavigationShellView>
     implements SplitViewNavigationShellView.SplitViewNavigationShellUiHandlers {
 
-  public static final String ROUTE = "blueprints/application-foundations-and-navigation/split-view-navigation-shell";
+  public static final String ROUTE = "blueprints/page-layout-and-navigation/split-view-navigation-shell";
 }

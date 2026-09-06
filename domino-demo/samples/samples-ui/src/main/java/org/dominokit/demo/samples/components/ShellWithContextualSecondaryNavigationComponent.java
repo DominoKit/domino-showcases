@@ -12,7 +12,7 @@ import org.dominokit.brix.api.IsBrixComponent;
 import org.dominokit.demo.samples.presenters.blueprints.BrixShellWithContextualSecondaryNavigationPresenterModule_;
 import org.dominokit.demo.samples.presenters.blueprints.ShellWithContextualSecondaryNavigationPresenter;
 import org.dominokit.demo.samples.presenters.blueprints.ShellWithContextualSecondaryNavigationPresenterProvider;
-import org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAndNavigation.BrixShellWithContextualSecondaryNavigationViewModule_;
+import org.dominokit.demo.samples.ui.views.blueprints.pageLayoutAndNavigation.BrixShellWithContextualSecondaryNavigationViewModule_;
 import org.dominokit.demo.shell.components.ShellComponent;
 
 @BrixComponent(presenter = ShellWithContextualSecondaryNavigationPresenter.class, parent = ShellComponent.class)

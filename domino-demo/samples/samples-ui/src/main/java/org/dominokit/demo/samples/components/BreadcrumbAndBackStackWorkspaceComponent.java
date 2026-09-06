@@ -12,7 +12,7 @@ import org.dominokit.brix.api.IsBrixComponent;
 import org.dominokit.demo.samples.presenters.blueprints.BrixBreadcrumbAndBackStackWorkspacePresenterModule_;
 import org.dominokit.demo.samples.presenters.blueprints.BreadcrumbAndBackStackWorkspacePresenter;
 import org.dominokit.demo.samples.presenters.blueprints.BreadcrumbAndBackStackWorkspacePresenterProvider;
-import org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAndNavigation.BrixBreadcrumbAndBackStackWorkspaceViewModule_;
+import org.dominokit.demo.samples.ui.views.blueprints.pageLayoutAndNavigation.BrixBreadcrumbAndBackStackWorkspaceViewModule_;
 import org.dominokit.demo.shell.components.ShellComponent;
 
 @BrixComponent(presenter = BreadcrumbAndBackStackWorkspacePresenter.class, parent = ShellComponent.class)

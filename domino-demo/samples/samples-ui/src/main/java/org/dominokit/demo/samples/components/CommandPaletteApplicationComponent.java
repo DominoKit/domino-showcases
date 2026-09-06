@@ -12,7 +12,7 @@ import org.dominokit.brix.api.IsBrixComponent;
 import org.dominokit.demo.samples.presenters.blueprints.BrixCommandPaletteApplicationPresenterModule_;
 import org.dominokit.demo.samples.presenters.blueprints.CommandPaletteApplicationPresenter;
 import org.dominokit.demo.samples.presenters.blueprints.CommandPaletteApplicationPresenterProvider;
-import org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAndNavigation.BrixCommandPaletteApplicationViewModule_;
+import org.dominokit.demo.samples.ui.views.blueprints.pageLayoutAndNavigation.BrixCommandPaletteApplicationViewModule_;
 import org.dominokit.demo.shell.components.ShellComponent;
 
 @BrixComponent(presenter = CommandPaletteApplicationPresenter.class, parent = ShellComponent.class)

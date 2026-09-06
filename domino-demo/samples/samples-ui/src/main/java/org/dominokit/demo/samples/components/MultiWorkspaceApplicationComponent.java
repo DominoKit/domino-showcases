@@ -12,7 +12,7 @@ import org.dominokit.brix.api.IsBrixComponent;
 import org.dominokit.demo.samples.presenters.blueprints.BrixMultiWorkspaceApplicationPresenterModule_;
 import org.dominokit.demo.samples.presenters.blueprints.MultiWorkspaceApplicationPresenter;
 import org.dominokit.demo.samples.presenters.blueprints.MultiWorkspaceApplicationPresenterProvider;
-import org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAndNavigation.BrixMultiWorkspaceApplicationViewModule_;
+import org.dominokit.demo.samples.ui.views.blueprints.pageLayoutAndNavigation.BrixMultiWorkspaceApplicationViewModule_;
 import org.dominokit.demo.shell.components.ShellComponent;
 
 @BrixComponent(presenter = MultiWorkspaceApplicationPresenter.class, parent = ShellComponent.class)
