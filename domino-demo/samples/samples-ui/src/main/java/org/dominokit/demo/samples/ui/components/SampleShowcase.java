@@ -30,6 +30,7 @@ public class SampleShowcase<T extends IsElement<?>> extends BaseDominoElement<HT
             .addCss(dui_flex, dui_flex_col, dui_gap_4)
             .appendChild(Card.create(title, description).appendChild(sampleContainer))
             .appendChild(SampleCodeCard.create(sampleClass));
+    this.root.setId(anchorId(title));
 
     init(this);
     nowAndWhenAttached(() -> mountSample(supplier));
@@ -47,6 +48,10 @@ public class SampleShowcase<T extends IsElement<?>> extends BaseDominoElement<HT
     } catch (Throwable error) {
       sampleContainer.appendChild(div().textContent("Failed to render sample."));
     }
+  }
+
+  private String anchorId(String title) {
+    return title.toLowerCase().replaceAll("[^a-z0-9]+", "-");
   }
 
   @Override
