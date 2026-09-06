@@ -44,7 +44,7 @@ public final class MasterDetailDetailPane extends BaseDominoElement<HTMLDivEleme
     this.showInspector = showInspector;
     this.showComparison = showComparison;
     this.showPreviewToggle = showPreviewToggle;
-    root = div().css("display: flex; flex-direction: column; gap: 12px; min-width: 0;");
+    root = div().cssText("display: flex; flex-direction: column; gap: 12px; min-width: 0;");
     render(record);
     init(this);
   }
@@ -88,7 +88,7 @@ public final class MasterDetailDetailPane extends BaseDominoElement<HTMLDivEleme
   }
 
   private DivElement renderHeader(CrudRecord record) {
-    DivElement actions = div().css("display: flex; gap: 6px; flex-wrap: wrap; align-items: center;");
+    DivElement actions = div().cssText("display: flex; gap: 6px; flex-wrap: wrap; align-items: center;");
     actions.appendChild(Button.create("Previous").addClickListener(event -> {
       state.selectPrevious();
       refresh.run();
@@ -110,17 +110,17 @@ public final class MasterDetailDetailPane extends BaseDominoElement<HTMLDivEleme
             refresh.run();
           }));
     }
-    return div().css("display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;")
+    return div().cssText("display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;")
         .appendChild(div().appendChild(h(4).textContent(record.name()))
             .appendChild(p().textContent(record.owner() + " · " + record.description())))
-        .appendChild(div().css("display: flex; gap: 6px; align-items: center;")
+        .appendChild(div().cssText("display: flex; gap: 6px; align-items: center;")
             .appendChild(Badge.create(record.status()))
             .appendChild(actions));
   }
 
   private DivElement renderTabs(CrudRecord record) {
-    DivElement host = div().css("display: flex; flex-direction: column; gap: 10px;");
-    DivElement tabs = div().css("display: flex; gap: 6px; flex-wrap: wrap;");
+    DivElement host = div().cssText("display: flex; flex-direction: column; gap: 10px;");
+    DivElement tabs = div().cssText("display: flex; gap: 6px; flex-wrap: wrap;");
     tabs.appendChild(tab("Summary"));
     if (showRelated) {
       tabs.appendChild(tab("Related"));
@@ -152,7 +152,7 @@ public final class MasterDetailDetailPane extends BaseDominoElement<HTMLDivEleme
   }
 
   private DivElement renderSummary(CrudRecord record) {
-    return div().css("display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;")
+    return div().cssText("display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;")
         .appendChild(valueCard("Record ID", record.id()))
         .appendChild(valueCard("Owner", record.owner()))
         .appendChild(valueCard("Status", record.status()))
@@ -160,16 +160,16 @@ public final class MasterDetailDetailPane extends BaseDominoElement<HTMLDivEleme
   }
 
   private DivElement valueCard(String label, String value) {
-    return div().css("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 10px;")
+    return div().cssText("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 10px;")
         .appendChild(p().textContent(label))
         .appendChild(h(5).textContent(value));
   }
 
   private DivElement renderRelated(CrudRecord record) {
-    DivElement host = div().css("display: flex; flex-direction: column; gap: 8px;");
+    DivElement host = div().cssText("display: flex; flex-direction: column; gap: 8px;");
     host.appendChild(p().textContent("Related entities are grouped here so the record remains the primary context."));
     for (MasterDetailFixtures.RelatedEntity entity : MasterDetailFixtures.relatedEntities(record.id())) {
-      host.appendChild(div().css("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 10px;")
+      host.appendChild(div().cssText("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 10px;")
           .appendChild(h(5).textContent(entity.label()))
           .appendChild(p().textContent(entity.kind() + " · " + entity.detail()))
           .appendChild(Button.create("Open related").addClickListener(event ->
@@ -179,7 +179,7 @@ public final class MasterDetailDetailPane extends BaseDominoElement<HTMLDivEleme
   }
 
   private DivElement renderActivity() {
-    DivElement host = div().css("display: flex; flex-direction: column; gap: 8px;");
+    DivElement host = div().cssText("display: flex; flex-direction: column; gap: 8px;");
     TextBox filter = TextBox.create("Filter activity");
     DivElement eventsHost = div();
     filter.withInputElement((parent, input) -> input.onKeyUp(event ->
@@ -195,14 +195,14 @@ public final class MasterDetailDetailPane extends BaseDominoElement<HTMLDivEleme
   private void renderActivityEvents(DivElement host, String query) {
     host.clearElement();
     for (MasterDetailFixtures.ActivityEvent event : state.activityMatches(query)) {
-      host.appendChild(div().css("border-left: 3px solid var(--dui-primary-color, #4c6fff); padding: 6px 10px;")
+      host.appendChild(div().cssText("border-left: 3px solid var(--dui-primary-color, #4c6fff); padding: 6px 10px;")
           .appendChild(h(5).textContent(event.summary()))
           .appendChild(p().textContent(event.type() + " · " + event.actor() + " · " + event.timestamp())));
     }
   }
 
   private DivElement renderInspector(CrudRecord record) {
-    DivElement host = div().css("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 10px;");
+    DivElement host = div().cssText("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 10px;");
     return host
         .appendChild(h(5).textContent("Pinned inspector"))
         .appendChild(p().textContent("Contextual actions stay visible while the record content changes."))
@@ -212,9 +212,9 @@ public final class MasterDetailDetailPane extends BaseDominoElement<HTMLDivEleme
   }
 
   private DivElement renderComparison() {
-    DivElement host = div().css("display: flex; flex-direction: column; gap: 8px;");
+    DivElement host = div().cssText("display: flex; flex-direction: column; gap: 8px;");
     host.appendChild(p().textContent("Choose up to three records to compare side by side."));
-    DivElement controls = div().css("display: flex; gap: 6px; flex-wrap: wrap;");
+    DivElement controls = div().cssText("display: flex; gap: 6px; flex-wrap: wrap;");
     for (CrudRecord candidate : state.recordStore().records()) {
       String label = state.comparedIds().contains(candidate.id()) ? "Remove " : "Compare ";
       controls.appendChild(Button.create(label + candidate.name()).addClickListener(event -> {
@@ -223,7 +223,7 @@ public final class MasterDetailDetailPane extends BaseDominoElement<HTMLDivEleme
       }));
     }
     host.appendChild(controls);
-    DivElement columns = div().css("display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;");
+    DivElement columns = div().cssText("display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;");
     for (String id : state.comparedIds()) {
       state.recordStore().find(id).ifPresent(record -> columns.appendChild(valueCard(record.name(),
           record.owner() + " · " + record.status())));

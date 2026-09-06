@@ -75,7 +75,7 @@ public final class MasterDetailBlueprintView extends BaseDominoElement<HTMLDivEl
     state = MasterDetailWorkspaceState.create(store);
     store.records().stream().findFirst().ifPresent(record -> store.select(record.id()));
     page = 0;
-    root = div().css("display: flex; flex-direction: column; gap: 12px; padding: 16px;")
+    root = div().cssText("display: flex; flex-direction: column; gap: 12px; padding: 16px;")
         .appendChild(h(4).textContent(mode.title))
         .appendChild(p().textContent(description(mode)));
     listHost = div();
@@ -88,7 +88,7 @@ public final class MasterDetailBlueprintView extends BaseDominoElement<HTMLDivEl
           refresh();
         });
     root.appendChild(toolbar).appendChild(feedback)
-        .appendChild(div().css("display: grid; grid-template-columns: minmax(260px, 1fr) minmax(320px, 2fr); gap: 16px; align-items: start;")
+        .appendChild(div().cssText("display: grid; grid-template-columns: minmax(260px, 1fr) minmax(320px, 2fr); gap: 16px; align-items: start;")
             .appendChild(listHost)
             .appendChild(detailHost));
     refresh();
@@ -180,7 +180,7 @@ public final class MasterDetailBlueprintView extends BaseDominoElement<HTMLDivEl
   }
 
   private DivElement renderPagination(CrudRecordStore.Page result) {
-    DivElement pagination = div().css("display: flex; gap: 8px; align-items: center; margin-top: 8px;")
+    DivElement pagination = div().cssText("display: flex; gap: 8px; align-items: center; margin-top: 8px;")
         .appendChild(Button.create("Previous")
             .apply(button -> {
               if (result.pageIndex() == 0) {

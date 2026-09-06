@@ -30,13 +30,13 @@ public final class CrudRecordEditor extends BaseDominoElement<HTMLDivElement, Cr
     status = TextBox.create("Status").withValue(value.status());
     description = TextBox.create("Description").withValue(value.description());
     error = div().textContent("");
-    root = div().css("display: flex; flex-direction: column; gap: 8px; min-width: 280px;")
+    root = div().cssText("display: flex; flex-direction: column; gap: 8px; min-width: 280px;")
         .appendChild(name)
         .appendChild(owner)
         .appendChild(status)
         .appendChild(description)
         .appendChild(error)
-        .appendChild(div().css("display: flex; gap: 8px; justify-content: flex-end;")
+        .appendChild(div().cssText("display: flex; gap: 8px; justify-content: flex-end;")
             .appendChild(Button.create("Cancel").addClickListener(event -> cancel.run()))
             .appendChild(Button.create("Save").addClickListener(event -> {
               if (name.getValue() == null || name.getValue().trim().isEmpty()) {

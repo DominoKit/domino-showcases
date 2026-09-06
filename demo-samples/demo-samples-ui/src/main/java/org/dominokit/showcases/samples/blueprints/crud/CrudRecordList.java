@@ -21,7 +21,7 @@ public final class CrudRecordList extends BaseDominoElement<HTMLDivElement, Crud
       Runnable refresh,
       Consumer<CrudRecord> edit,
       Consumer<CrudRecord> delete) {
-    root = div().css("display: flex; flex-direction: column; gap: 8px;");
+    root = div().cssText("display: flex; flex-direction: column; gap: 8px;");
     if (records.isEmpty()) {
       root.appendChild(p().textContent("No records match the current search."));
     }
@@ -52,11 +52,11 @@ public final class CrudRecordList extends BaseDominoElement<HTMLDivElement, Crud
       Runnable refresh,
       Consumer<CrudRecord> edit,
       Consumer<CrudRecord> delete) {
-    return div().css("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 10px;")
-        .appendChild(div().css("display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap;")
+    return div().cssText("border: 1px solid var(--dui-border-color, #d9e1ea); border-radius: 6px; padding: 10px;")
+        .appendChild(div().cssText("display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap;")
             .appendChild(div().appendChild(p().textContent(record.name()))
                 .appendChild(p().textContent(record.owner() + " · " + record.description())))
-            .appendChild(div().css("display: flex; gap: 6px; align-items: center;")
+            .appendChild(div().cssText("display: flex; gap: 6px; align-items: center;")
                 .appendChild(Badge.create(record.status()))
                 .appendChild(Button.create("Select").addClickListener(event -> {
                   store.select(record.id());
