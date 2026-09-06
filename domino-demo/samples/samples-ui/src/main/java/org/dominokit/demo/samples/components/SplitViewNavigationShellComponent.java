@@ -12,7 +12,7 @@ import org.dominokit.brix.api.IsBrixComponent;
 import org.dominokit.demo.samples.presenters.blueprints.BrixSplitViewNavigationShellPresenterModule_;
 import org.dominokit.demo.samples.presenters.blueprints.SplitViewNavigationShellPresenter;
 import org.dominokit.demo.samples.presenters.blueprints.SplitViewNavigationShellPresenterProvider;
-import org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAndNavigation.BrixSplitViewNavigationShellViewModule_;
+import org.dominokit.demo.samples.ui.views.blueprints.pageLayoutAndNavigation.BrixSplitViewNavigationShellViewModule_;
 import org.dominokit.demo.shell.components.ShellComponent;
 
 @BrixComponent(presenter = SplitViewNavigationShellPresenter.class, parent = ShellComponent.class)
