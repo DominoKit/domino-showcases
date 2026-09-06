@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.importExportMigrationAndB
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.importExportMigrationAndBulkOperations.BulkEditReviewScreenView;
 import org.dominokit.showcases.samples.blueprints.import_export_migration_and_bulk_operations.BulkEditReviewScreenSample;
 
 @UiView
-public class BulkEditReviewScreenViewImpl extends SamplePageView<BulkEditReviewScreenView.BulkEditReviewScreenUiHandlers>
+public class BulkEditReviewScreenViewImpl extends BlueprintSamplePageView<BulkEditReviewScreenView.BulkEditReviewScreenUiHandlers>
     implements BulkEditReviewScreenView {
 
   @Inject

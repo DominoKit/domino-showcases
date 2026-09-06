@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.specialStatesAndConstrain
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.specialStatesAndConstrainedCompositions.ConflictResolutionScreenView;
 import org.dominokit.showcases.samples.blueprints.special_states_and_constrained_compositions.ConflictResolutionScreenSample;
 
 @UiView
-public class ConflictResolutionScreenViewImpl extends SamplePageView<ConflictResolutionScreenView.ConflictResolutionScreenUiHandlers>
+public class ConflictResolutionScreenViewImpl extends BlueprintSamplePageView<ConflictResolutionScreenView.ConflictResolutionScreenUiHandlers>
     implements ConflictResolutionScreenView {
 
   @Inject

@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.workflowApprovalsAndTaskM
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.workflowApprovalsAndTaskManagement.PersonalTaskInboxView;
 import org.dominokit.showcases.samples.blueprints.workflow_approvals_and_task_management.PersonalTaskInboxSample;
 
 @UiView
-public class PersonalTaskInboxViewImpl extends SamplePageView<PersonalTaskInboxView.PersonalTaskInboxUiHandlers>
+public class PersonalTaskInboxViewImpl extends BlueprintSamplePageView<PersonalTaskInboxView.PersonalTaskInboxUiHandlers>
     implements PersonalTaskInboxView {
 
   @Inject

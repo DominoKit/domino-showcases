@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.reportingAnalyticsAndData
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.reportingAnalyticsAndDataExploration.TimeSeriesAnalysisScreenView;
 import org.dominokit.showcases.samples.blueprints.reporting_analytics_and_data_exploration.TimeSeriesAnalysisScreenSample;
 
 @UiView
-public class TimeSeriesAnalysisScreenViewImpl extends SamplePageView<TimeSeriesAnalysisScreenView.TimeSeriesAnalysisScreenUiHandlers>
+public class TimeSeriesAnalysisScreenViewImpl extends BlueprintSamplePageView<TimeSeriesAnalysisScreenView.TimeSeriesAnalysisScreenUiHandlers>
     implements TimeSeriesAnalysisScreenView {
 
   @Inject

@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.operationsMonitoringAndEx
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.operationsMonitoringAndExceptionHandling.JobAndBatchMonitorView;
 import org.dominokit.showcases.samples.blueprints.operations_monitoring_and_exception_handling.JobAndBatchMonitorSample;
 
 @UiView
-public class JobAndBatchMonitorViewImpl extends SamplePageView<JobAndBatchMonitorView.JobAndBatchMonitorUiHandlers>
+public class JobAndBatchMonitorViewImpl extends BlueprintSamplePageView<JobAndBatchMonitorView.JobAndBatchMonitorUiHandlers>
     implements JobAndBatchMonitorView {
 
   @Inject

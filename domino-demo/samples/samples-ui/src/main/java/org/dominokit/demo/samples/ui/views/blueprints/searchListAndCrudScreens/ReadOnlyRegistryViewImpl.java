@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.searchListAndCrudScreens;
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.searchListAndCrudScreens.ReadOnlyRegistryView;
 import org.dominokit.showcases.samples.blueprints.search_list_and_crud_screens.ReadOnlyRegistrySample;
 
 @UiView
-public class ReadOnlyRegistryViewImpl extends SamplePageView<ReadOnlyRegistryView.ReadOnlyRegistryUiHandlers>
+public class ReadOnlyRegistryViewImpl extends BlueprintSamplePageView<ReadOnlyRegistryView.ReadOnlyRegistryUiHandlers>
     implements ReadOnlyRegistryView {
 
   @Inject

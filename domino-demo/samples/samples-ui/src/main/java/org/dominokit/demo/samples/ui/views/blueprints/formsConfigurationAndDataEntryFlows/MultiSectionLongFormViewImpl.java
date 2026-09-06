@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.formsConfigurationAndData
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.formsConfigurationAndDataEntryFlows.MultiSectionLongFormView;
 import org.dominokit.showcases.samples.blueprints.forms_configuration_and_data_entry_flows.MultiSectionLongFormSample;
 
 @UiView
-public class MultiSectionLongFormViewImpl extends SamplePageView<MultiSectionLongFormView.MultiSectionLongFormUiHandlers>
+public class MultiSectionLongFormViewImpl extends BlueprintSamplePageView<MultiSectionLongFormView.MultiSectionLongFormUiHandlers>
     implements MultiSectionLongFormView {
 
   @Inject

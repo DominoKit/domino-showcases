@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.formsConfigurationAndData
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.formsConfigurationAndDataEntryFlows.RepeatableCollectionFormView;
 import org.dominokit.showcases.samples.blueprints.forms_configuration_and_data_entry_flows.RepeatableCollectionFormSample;
 
 @UiView
-public class RepeatableCollectionFormViewImpl extends SamplePageView<RepeatableCollectionFormView.RepeatableCollectionFormUiHandlers>
+public class RepeatableCollectionFormViewImpl extends BlueprintSamplePageView<RepeatableCollectionFormView.RepeatableCollectionFormUiHandlers>
     implements RepeatableCollectionFormView {
 
   @Inject

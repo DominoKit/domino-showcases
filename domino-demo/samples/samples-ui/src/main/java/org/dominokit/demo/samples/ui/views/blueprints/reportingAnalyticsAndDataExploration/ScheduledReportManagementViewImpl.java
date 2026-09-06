@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.reportingAnalyticsAndData
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.reportingAnalyticsAndDataExploration.ScheduledReportManagementView;
 import org.dominokit.showcases.samples.blueprints.reporting_analytics_and_data_exploration.ScheduledReportManagementSample;
 
 @UiView
-public class ScheduledReportManagementViewImpl extends SamplePageView<ScheduledReportManagementView.ScheduledReportManagementUiHandlers>
+public class ScheduledReportManagementViewImpl extends BlueprintSamplePageView<ScheduledReportManagementView.ScheduledReportManagementUiHandlers>
     implements ScheduledReportManagementView {
 
   @Inject

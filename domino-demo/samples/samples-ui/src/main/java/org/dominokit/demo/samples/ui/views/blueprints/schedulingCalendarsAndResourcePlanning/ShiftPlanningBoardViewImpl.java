@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.schedulingCalendarsAndRes
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.schedulingCalendarsAndResourcePlanning.ShiftPlanningBoardView;
 import org.dominokit.showcases.samples.blueprints.scheduling_calendars_and_resource_planning.ShiftPlanningBoardSample;
 
 @UiView
-public class ShiftPlanningBoardViewImpl extends SamplePageView<ShiftPlanningBoardView.ShiftPlanningBoardUiHandlers>
+public class ShiftPlanningBoardViewImpl extends BlueprintSamplePageView<ShiftPlanningBoardView.ShiftPlanningBoardUiHandlers>
     implements ShiftPlanningBoardView {
 
   @Inject

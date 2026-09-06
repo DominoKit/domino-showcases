@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.applicationFoundationsAnd
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.applicationFoundationsAndNavigation.WorkspaceWithResizableNavigationPaneView;
 import org.dominokit.showcases.samples.blueprints.application_foundations_and_navigation.WorkspaceWithResizableNavigationPaneSample;
 
 @UiView
-public class WorkspaceWithResizableNavigationPaneViewImpl extends SamplePageView<WorkspaceWithResizableNavigationPaneView.WorkspaceWithResizableNavigationPaneUiHandlers>
+public class WorkspaceWithResizableNavigationPaneViewImpl extends BlueprintSamplePageView<WorkspaceWithResizableNavigationPaneView.WorkspaceWithResizableNavigationPaneUiHandlers>
     implements WorkspaceWithResizableNavigationPaneView {
 
   @Inject

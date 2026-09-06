@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.searchListAndCrudScreens;
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.searchListAndCrudScreens.ListWithBulkActionToolbarView;
 import org.dominokit.showcases.samples.blueprints.search_list_and_crud_screens.ListWithBulkActionToolbarSample;
 
 @UiView
-public class ListWithBulkActionToolbarViewImpl extends SamplePageView<ListWithBulkActionToolbarView.ListWithBulkActionToolbarUiHandlers>
+public class ListWithBulkActionToolbarViewImpl extends BlueprintSamplePageView<ListWithBulkActionToolbarView.ListWithBulkActionToolbarUiHandlers>
     implements ListWithBulkActionToolbarView {
 
   @Inject

@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.specialStatesAndConstrain
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.specialStatesAndConstrainedCompositions.GuidedFirstRunExperienceView;
 import org.dominokit.showcases.samples.blueprints.special_states_and_constrained_compositions.GuidedFirstRunExperienceSample;
 
 @UiView
-public class GuidedFirstRunExperienceViewImpl extends SamplePageView<GuidedFirstRunExperienceView.GuidedFirstRunExperienceUiHandlers>
+public class GuidedFirstRunExperienceViewImpl extends BlueprintSamplePageView<GuidedFirstRunExperienceView.GuidedFirstRunExperienceUiHandlers>
     implements GuidedFirstRunExperienceView {
 
   @Inject

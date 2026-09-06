@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.dashboardsAndOverviewScre
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.dashboardsAndOverviewScreens.KpiDashboardWithResponsiveCardGridView;
 import org.dominokit.showcases.samples.blueprints.dashboards_and_overview_screens.KpiDashboardWithResponsiveCardGridSample;
 
 @UiView
-public class KpiDashboardWithResponsiveCardGridViewImpl extends SamplePageView<KpiDashboardWithResponsiveCardGridView.KpiDashboardWithResponsiveCardGridUiHandlers>
+public class KpiDashboardWithResponsiveCardGridViewImpl extends BlueprintSamplePageView<KpiDashboardWithResponsiveCardGridView.KpiDashboardWithResponsiveCardGridUiHandlers>
     implements KpiDashboardWithResponsiveCardGridView {
 
   @Inject

@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.schedulingCalendarsAndRes
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.schedulingCalendarsAndResourcePlanning.ResourceSchedulerView;
 import org.dominokit.showcases.samples.blueprints.scheduling_calendars_and_resource_planning.ResourceSchedulerSample;
 
 @UiView
-public class ResourceSchedulerViewImpl extends SamplePageView<ResourceSchedulerView.ResourceSchedulerUiHandlers>
+public class ResourceSchedulerViewImpl extends BlueprintSamplePageView<ResourceSchedulerView.ResourceSchedulerUiHandlers>
     implements ResourceSchedulerView {
 
   @Inject

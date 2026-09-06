@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.reportingAnalyticsAndData
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.reportingAnalyticsAndDataExploration.AdHocPivotAnalysisView;
 import org.dominokit.showcases.samples.blueprints.reporting_analytics_and_data_exploration.AdHocPivotAnalysisSample;
 
 @UiView
-public class AdHocPivotAnalysisViewImpl extends SamplePageView<AdHocPivotAnalysisView.AdHocPivotAnalysisUiHandlers>
+public class AdHocPivotAnalysisViewImpl extends BlueprintSamplePageView<AdHocPivotAnalysisView.AdHocPivotAnalysisUiHandlers>
     implements AdHocPivotAnalysisView {
 
   @Inject

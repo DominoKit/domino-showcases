@@ -25,10 +25,14 @@ public abstract class SamplePageView<H extends UiHandlers> extends BrixView<HTML
   protected final DivElement root;
 
   protected SamplePageView(String title, String description) {
+    this(title, description, BlockHeader.create(title, description));
+  }
+
+  protected SamplePageView(String title, String description, IsElement<?> header) {
     this.root =
         div()
             .addCss(dui_p_4, dui_flex, dui_flex_col, dui_gap_4)
-            .appendChild(BlockHeader.create(title, description));
+            .appendChild(header);
   }
 
   protected <T extends IsElement<?>> void addSample(Class<?> sampleClass, Supplier<T> supplier) {

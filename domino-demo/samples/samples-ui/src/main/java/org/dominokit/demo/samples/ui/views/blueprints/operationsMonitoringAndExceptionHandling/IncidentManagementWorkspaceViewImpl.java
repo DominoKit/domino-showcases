@@ -2,12 +2,12 @@ package org.dominokit.demo.samples.ui.views.blueprints.operationsMonitoringAndEx
 
 import javax.inject.Inject;
 import org.dominokit.brix.annotations.UiView;
-import org.dominokit.demo.samples.ui.views.SamplePageView;
+import org.dominokit.demo.samples.ui.views.BlueprintSamplePageView;
 import org.dominokit.demo.samples.views.blueprints.operationsMonitoringAndExceptionHandling.IncidentManagementWorkspaceView;
 import org.dominokit.showcases.samples.blueprints.operations_monitoring_and_exception_handling.IncidentManagementWorkspaceSample;
 
 @UiView
-public class IncidentManagementWorkspaceViewImpl extends SamplePageView<IncidentManagementWorkspaceView.IncidentManagementWorkspaceUiHandlers>
+public class IncidentManagementWorkspaceViewImpl extends BlueprintSamplePageView<IncidentManagementWorkspaceView.IncidentManagementWorkspaceUiHandlers>
     implements IncidentManagementWorkspaceView {
 
   @Inject
