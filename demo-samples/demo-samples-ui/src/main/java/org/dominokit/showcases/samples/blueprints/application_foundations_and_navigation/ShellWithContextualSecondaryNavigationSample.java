@@ -1,18 +1,36 @@
 package org.dominokit.showcases.samples.blueprints.application_foundations_and_navigation;
 
-import org.dominokit.showcases.samples.blueprints.BlueprintSampleCanvas;
-import org.dominokit.showcases.samples.blueprints.BlueprintSampleKind;
-import org.dominokit.showcases.samples.blueprints.BlueprintSampleSupport;
+import static org.dominokit.domino.ui.utils.Domino.p;
+
+import org.dominokit.domino.ui.elements.DivElement;
 
 public final class ShellWithContextualSecondaryNavigationSample {
 
   private ShellWithContextualSecondaryNavigationSample() {}
 
-  public static BlueprintSampleCanvas create() {
-    return BlueprintSampleSupport.create(
-        "Shell with contextual secondary navigation",
-        "Layout: Global shell plus a page-level tab or sub-navigation bar below the primary header. Interaction: Users move between related views without losing the selected parent record or module. Variants: Horizontal tabs, vertical section navigation, or a local navigation drawer.",
-        BlueprintSampleKind.NAVIGATION,
-        "Global shell plus a page-level tab or sub-navigation bar below the primary header.", "Users move between related views without losing the selected parent record or module.");
+  public static ApplicationFoundationSampleElement create() {
+    ApplicationFoundationState state = ApplicationFoundationState.create("Overview", "Operations", 3);
+    DivElement root = ApplicationFoundationSupport.root();
+    DivElement content = ApplicationFoundationSupport.bordered("");
+    DivElement tabs = ApplicationFoundationSupport.row();
+    for (String section : new String[] {"Overview", "Activity", "Permissions"}) {
+      tabs.appendChild(ApplicationFoundationSupport.action(section, () -> {
+        state.selectArea(section);
+        renderContent(content, state);
+      }));
+    }
+    root.appendChild(ApplicationFoundationSupport.header(
+        "Contextual navigation", "Customer account", "The primary shell stays stable while a page-level navigation bar changes the current record section."))
+        .appendChild(ApplicationFoundationSupport.surface("Account shell", "Global navigation and the selected account remain in context.")
+            .appendChild(tabs)
+            .appendChild(content));
+    renderContent(content, state);
+    return ApplicationFoundationSampleElement.create(root);
+  }
+
+  private static void renderContent(DivElement content, ApplicationFoundationState state) {
+    content.clearElement();
+    content.appendChild(p().textContent(
+        state.activeArea() + " content is rendered below the contextual navigation without leaving the account."));
   }
 }
