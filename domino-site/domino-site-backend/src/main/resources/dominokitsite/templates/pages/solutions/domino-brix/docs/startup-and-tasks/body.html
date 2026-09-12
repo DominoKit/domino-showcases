@@ -34,11 +34,15 @@
     <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
 
     <h2 class="dui dui-site-docs-sub-title">Bootstrap with tasks</h2>
+    <p class="dui dui-leading-6">Call <code>initModules(...)</code> after configuration is available and before
+        startup tasks can fire history. It registers deferred split groups and initializes components that are not
+        annotated with <code>@Split</code>.</p>
     <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
 
     <h2 class="dui dui-site-docs-sub-title">Classpath discovery (domino-auto)</h2>
     <p class="dui dui-leading-6">Annotate tasks with <code>@AutoService(BrixStartupTask.class)</code> to generate a
-        <code>BrixStartupTask_ServiceLoader</code> helper. This lets you start Brix without wiring DI modules.</p>
+        <code>BrixStartupTask_ServiceLoader</code> helper. This lets you start Brix without wiring DI modules; use the
+        generated module service loaders in the same way.</p>
     <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-004']})"></div>
 
     <h2 class="dui dui-site-docs-sub-title">Tips</h2>

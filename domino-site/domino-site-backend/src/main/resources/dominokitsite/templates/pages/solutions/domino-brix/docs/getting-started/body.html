@@ -17,7 +17,7 @@
     <h1 class="dui dui-site-docs-title">Quick start</h1>
     <p class="dui dui-leading-6">Domino Brix is a lightweight MVP framework for DominoKit apps. It combines routing,
         presenters, slots, events, startup tasks, and security into a cohesive runtime with generated presenters,
-        views, and initializers.</p>
+        views, module descriptors, and initializers.</p>
 
     <h2 class="dui dui-site-docs-sub-title">Scaffold a sample app with Domino CLI</h2>
     <p class="dui dui-leading-6">Use <a class="dui dui-fg-teal" href="/resources/domino-cli">Domino CLI docs</a> for the
@@ -34,11 +34,14 @@
     <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
 
     <h2 class="dui dui-site-docs-sub-title">Bootstrap Brix</h2>
-    <p class="dui dui-leading-6">Initialize configuration, then start the router and startup tasks. The generated
-        presenters and views are discovered automatically.</p>
+    <p class="dui dui-leading-6">Initialize configuration, register generated modules, then start the router and
+        startup tasks. The single <code>initModules(...)</code> call registers split modules and initializes eager
+        components.</p>
     <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
     <ul class="dui dui-site-docs-list">
         <li class="dui"><span><b>BrixSlots</b> registers body/popup/no-content slots for you.</span></li>
+        <li class="dui"><span><b>initModules(...)</b> registers generated split descriptors and initializes the eager
+            component services before navigation starts.</span></li>
         <li class="dui"><span><b>RouterManager</b> comes from generated routing providers; push tokens to navigate.</span></li>
         <li class="dui"><span><b>Startup tasks</b> run in order before the ready callback fires.</span></li>
     </ul>
@@ -46,7 +49,7 @@
     <h2 class="dui dui-site-docs-sub-title">Modules</h2>
     <ul class="dui dui-site-docs-list">
         <li class="dui"><span><b>domino-brix-client</b>: runtime router, slots, events, security, startup tasks, presenter base classes.</span></li>
-        <li class="dui"><span><b>domino-brix-processor</b>: generates presenters, views, handlers, slots, routing providers, and component initializers.</span></li>
+        <li class="dui"><span><b>domino-brix-processor</b>: generates presenters, views, handlers, slots, routing providers, module descriptors, and component initializers.</span></li>
         <li class="dui"><span><b>domino-brix-shared</b>: shared DTOs/events for your app or modules.</span></li>
     </ul>
 

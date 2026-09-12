@@ -1,0 +1,9 @@
+@BrixPresenter
+@BrixRoute(value = "inventory/catalog", router = CatalogRouter.class)
+@Split(
+    module = "inventory",
+    trigger = @RouteTrigger(value = "inventory"))
+public class CatalogPresenter extends Presenter<CatalogView> {}
+
+@BrixComponent(presenter = CatalogPresenter.class)
+public class CatalogComponent {}

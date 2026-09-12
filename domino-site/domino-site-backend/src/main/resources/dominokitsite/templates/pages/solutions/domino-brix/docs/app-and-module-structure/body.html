@@ -44,7 +44,8 @@
     <ul class="dui dui-site-docs-list">
         <li class="dui"><span>Owns the entry point class (for example, <code>App implements EntryPoint</code>).</span></li>
         <li class="dui"><span>Configures Domino Rest, themes, and global UI settings.</span></li>
-        <li class="dui"><span>Loads all generated <code>BrixComponentInitializer</code> services.</span></li>
+        <li class="dui"><span>Calls <code>initModules(...)</code> with generated module descriptors and component
+            initializer services.</span></li>
         <li class="dui"><span>Starts the app via <code>Brix.get().start(...)</code> with startup tasks.</span></li>
         <li class="dui"><span>Aggregates all feature frontend and UI modules on the GWT/J2CL classpath.</span></li>
     </ul>
@@ -76,7 +77,7 @@
         <li class="dui"><span><code>@UiView</code> classes with Domino UI widgets and layouts.</span></li>
         <li class="dui"><span>Dagger component/module wiring between presenters and views.</span></li>
         <li class="dui"><span><code>@BrixComponent</code> classes that register the feature.</span></li>
-        <li class="dui"><span>Generated <code>*_UiView</code> classes and initializer services.</span></li>
+        <li class="dui"><span>Generated <code>*_UiView</code> classes, module descriptors, and initializer services.</span></li>
     </ul>
 
     <h3 class="dui dui-site-docs-sub-title">&lt;feature-x&gt;-shared</h3>
@@ -88,10 +89,12 @@
 
     <h2 class="dui dui-site-docs-sub-title">How the pieces fit together</h2>
     <ul class="dui dui-site-docs-list">
-        <li class="dui"><span>The app frontend bootstraps the UI and loads all <code>BrixComponentInitializer</code> services.</span></li>
-        <li class="dui"><span>Feature UI modules contribute component initializers and view implementations.</span></li>
+        <li class="dui"><span>The app frontend bootstraps the UI through <code>initModules(...)</code>, registering
+            split descriptors and initializing eager component services.</span></li>
+        <li class="dui"><span>Feature UI modules contribute component initializers, split descriptors, and view implementations.</span></li>
         <li class="dui"><span>Feature frontend modules contribute presenters, routes, and startup tasks.</span></li>
-        <li class="dui"><span>The app frontend aggregates all features on the GWT/J2CL classpath into one bundle.</span></li>
+        <li class="dui"><span>The app frontend aggregates all features on the GWT/J2CL classpath into one bundle;
+            classic GWT can defer <code>@Split</code> presenters into fragments.</span></li>
         <li class="dui"><span>The backend serves the compiled bundle and exposes REST endpoints.</span></li>
     </ul>
 
@@ -102,10 +105,12 @@
 
     <h2 class="dui dui-site-docs-sub-title">Entry point responsibilities</h2>
     <ul class="dui dui-site-docs-list">
-        <li class="dui"><span>Load all component initializers via <code>BrixComponentInitializer_ServiceLoader.load()</code>.</span></li>
+        <li class="dui"><span>Call <code>initModules(BrixModuleDescriptor_ServiceLoader.load(),
+            BrixComponentInitializer_ServiceLoader.load())</code> before navigation or history is fired.</span></li>
         <li class="dui"><span>Initialize themes and UI frameworks.</span></li>
         <li class="dui"><span>Configure Domino Rest default service root.</span></li>
-        <li class="dui"><span>Fetch config, then call <code>Brix.get().init(...)</code> and <code>Brix.get().start(...)</code>.</span></li>
+        <li class="dui"><span>Fetch config, then call <code>Brix.get().init(...)</code>,
+            <code>Brix.get().initModules(...)</code>, and <code>Brix.get().start(...)</code>.</span></li>
         <li class="dui"><span>Optionally set the router root path and fire the current history state.</span></li>
     </ul>
 

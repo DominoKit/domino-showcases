@@ -3,4 +3,7 @@ public class FetchConfigTask extends BrixStartupTask { /* ... */ }
 
 List<BrixStartupTask> tasks = BrixStartupTask_ServiceLoader.load();
 Brix.get().init(Map.of());
+Brix.get().initModules(
+    BrixModuleDescriptor_ServiceLoader.load(),
+    BrixComponentInitializer_ServiceLoader.load());
 Brix.get().start(new LinkedHashSet<>(tasks), () -> DomGlobal.console.info("App started"));

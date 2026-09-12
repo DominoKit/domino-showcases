@@ -1,0 +1,7 @@
+@BrixPresenter
+@BrixRoute("inventory")
+@Split
+public class InventoryPresenter extends Presenter<InventoryView> {}
+
+@BrixComponent(presenter = InventoryPresenter.class)
+public class InventoryComponent {}

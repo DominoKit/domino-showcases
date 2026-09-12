@@ -1,0 +1,70 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui">
+            <a class="dui dui-fg-teal" tabindex="0" dui-site-data="nav-anchor" href="/solutions/domino-brix"
+               aria-expanded="true">
+                Domino Brix
+            </a>
+        </li>
+        <li class="dui dui-active">
+            <a class="dui" tabindex="0" dui-site-data="nav-anchor"
+               href="/solutions/domino-brix/docs/code-splitting" aria-expanded="true">
+                Code splitting
+            </a>
+        </li>
+    </ol>
+
+    <h1 class="dui dui-site-docs-title">Code splitting</h1>
+    <p class="dui dui-leading-6">Domino Brix can load an independently routed presenter only when its route is first
+        visited. Code splitting is opt-in: presenters without <code>@Split</code> retain the existing eager startup
+        behavior.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Split one presenter</h2>
+    <p class="dui dui-leading-6">Add <code>@Split</code> to a routed presenter. The default trigger is derived from
+        its <code>@BrixRoute</code> value and uses <code>STARTS_WITH_PATH</code>, so the <code>inventory</code> split
+        below also matches <code>inventory/items</code>. Each split presenter must be referenced by exactly one
+        <code>@BrixComponent</code>.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-001']})"></div>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>The annotation processor generates a <code>BrixModuleDescriptor</code> that defers the
+            presenter, view, and component initialization behind a GWT split point.</span></li>
+        <li class="dui"><span>When the current token matches the trigger, Brix loads the fragment, registers the
+            route, and replays the current route.</span></li>
+        <li class="dui"><span>Parent and child presenters cannot cross the eager/deferred boundary. If both are split,
+            they must use the same named group.</span></li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-sub-title">Group presenters into one split</h2>
+    <p class="dui dui-leading-6">Set <code>module</code> when several presenters should share one deferred fragment.
+        Every presenter in the group contributes a trigger, and loading any matching route initializes the whole
+        group.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-002']})"></div>
+    <p class="dui dui-leading-6">Compile all participants in a named group in the same annotation-processor run
+        (normally the same Maven module). Reusing a group name from separately compiled modules creates conflicting
+        generated descriptors. An ungrouped split presenter can still be discovered from a dependent module that owns
+        its <code>@BrixComponent</code>.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Use an explicit route trigger</h2>
+    <p class="dui dui-leading-6">Use <code>@RouteTrigger</code> when the split should load for a different token, or
+        when <code>@BrixRoute</code> uses a custom routing provider. With a custom provider, a non-blank explicit
+        trigger is required because Brix cannot infer its matching rule. The default match is
+        <code>STARTS_WITH_PATH</code>; use <code>EXACT_PATH</code>, <code>ENDS_WITH_PATH</code>, or the corresponding
+        fragment modes when needed.</p>
+
+    <h2 class="dui dui-site-docs-sub-title">Bootstrap generated modules</h2>
+    <p class="dui dui-leading-6">Register split descriptors and initialize eager components before firing history or
+        navigating. <code>initModules(...)</code> is the single bootstrap call for both generated service lists.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content(${code['snippet-003']})"></div>
+
+    <h2 class="dui dui-site-docs-sub-title">Build and verify</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><span>This feature targets classic GWT production compilation. J2CL is currently out of
+            scope.</span></li>
+        <li class="dui"><span>GWT CodeServer/Super Dev Mode does not produce deferred fragments, so use a production
+            compile to verify a split.</span></li>
+        <li class="dui"><span>Add <code>-compileReport</code> to the GWT compiler arguments to generate an SOYC report
+            and inspect the generated split points.</span></li>
+        <li class="dui"><span>Use <code>Brix.get().modules().setFailureHandler(...)</code> to report deferred-load
+            failures and <code>Brix.get().modules().retry(moduleId)</code> to retry a failed module.</span></li>
+    </ul>
+</div>

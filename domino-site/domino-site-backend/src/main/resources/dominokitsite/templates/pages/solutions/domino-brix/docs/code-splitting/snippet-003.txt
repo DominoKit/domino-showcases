@@ -1,12 +1,11 @@
 import org.dominokit.brix.api.BrixComponentInitializer_ServiceLoader;
 import org.dominokit.brix.api.BrixModuleDescriptor_ServiceLoader;
 
-Map<String, String> config = Map.of("apiBase", "/api");
-Brix.get().init(config);
+Brix.get().init(Map.of("apiBase", "/api"));
 Brix.get().initModules(
     BrixModuleDescriptor_ServiceLoader.load(),
     BrixComponentInitializer_ServiceLoader.load());
-Brix.get().start(Set.of(/* startup tasks */), () -> DomGlobal.console.info("Ready"));
 
-// navigate
-Brix.get().router().pushToken("dashboard");
+Brix.get().start(Set.of(/* startup tasks */), () -> {
+  Brix.get().router().pushToken("dashboard");
+});
