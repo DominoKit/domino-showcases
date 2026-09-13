@@ -156,8 +156,9 @@
                     <moduleName>org.dominokit.demo.App</moduleName>
                     <moduleShortName>app</moduleShortName>
                     <compilerArgs>
-                        <compilerArg>-style</compilerArg>
-                        <compilerArg>PRETTY</compilerArg>
+<!--                        <compilerArg>-style</compilerArg>-->
+<!--                        <compilerArg>PRETTY</compilerArg>-->
+                        <compilerArg>-compileReport</compilerArg>
                     </compilerArgs>
                 </configuration>
             </plugin>

@@ -13,7 +13,7 @@ import org.dominokit.domino.ui.datatable.plugins.filter.header.DoubleHeaderFilte
 import org.dominokit.domino.ui.datatable.plugins.filter.header.EnumHeaderFilter;
 import org.dominokit.domino.ui.datatable.plugins.filter.header.SelectHeaderFilter;
 import org.dominokit.domino.ui.datatable.plugins.filter.header.TextHeaderFilter;
-import org.dominokit.domino.ui.datatable.plugins.header.BordersTableAction;
+import org.dominokit.showcases.samples.datatable.TableBorderModeActions;
 import org.dominokit.domino.ui.datatable.plugins.header.ClearSearch;
 import org.dominokit.domino.ui.datatable.plugins.header.CondenseTableAction;
 import org.dominokit.domino.ui.datatable.plugins.header.HoverTableAction;
@@ -124,7 +124,7 @@ public class TableSortAndSearchSample extends BaseDominoElement<HTMLDivElement, 
                             .appendChild(PostfixAddOn.of(HoverTableAction.create(datatable)))
                             .appendChild(PostfixAddOn.of(CondenseTableAction.create(datatable)))
                             .appendChild(PostfixAddOn.of(StripesTableAction.create(datatable)))
-                            .appendChild(PostfixAddOn.of(BordersTableAction.create(datatable)))
+                            .appendChild(PostfixAddOn.of(TableBorderModeActions.create(datatable)))
                             .appendChild(PostfixAddOn.of(Icons.filter_menu_outline()
                                     .clickable()
                                     .addClickListener(evt -> contactColumnHeaderFilterPlugin.getFiltersRowElement()

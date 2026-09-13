@@ -6,7 +6,7 @@ import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
-import org.dominokit.domino.ui.datatable.plugins.header.BordersTableAction;
+import org.dominokit.showcases.samples.datatable.TableBorderModeActions;
 import org.dominokit.domino.ui.datatable.plugins.header.CondenseTableAction;
 import org.dominokit.domino.ui.datatable.plugins.header.HoverTableAction;
 import org.dominokit.domino.ui.datatable.plugins.header.NavigationBarPlugin;
@@ -111,7 +111,7 @@ public class EagerTreeTableColumnsSample extends BaseDominoElement<HTMLDivElemen
                             .appendChild(PostfixAddOn.of(HoverTableAction.create(datatable)))
                             .appendChild(PostfixAddOn.of(CondenseTableAction.create(datatable)))
                             .appendChild(PostfixAddOn.of(StripesTableAction.create(datatable)))
-                            .appendChild(PostfixAddOn.of(BordersTableAction.create(datatable)));
+                            .appendChild(PostfixAddOn.of(TableBorderModeActions.create(datatable)));
                 }));
 
         LocalTreeDataStore<Contact> localListDataStore = new LocalTreeDataStore<>((parent, itemsConsumer) -> {

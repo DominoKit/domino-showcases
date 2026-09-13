@@ -6,7 +6,7 @@ import org.dominokit.domino.ui.datatable.CellTextAlign;
 import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
-import org.dominokit.domino.ui.datatable.plugins.header.BordersTableAction;
+import org.dominokit.showcases.samples.datatable.TableBorderModeActions;
 import org.dominokit.domino.ui.datatable.plugins.header.CondenseTableAction;
 import org.dominokit.domino.ui.datatable.plugins.header.HoverTableAction;
 import org.dominokit.domino.ui.datatable.plugins.header.NavigationBarPlugin;
@@ -124,7 +124,7 @@ public class TableHeaderBarSample extends BaseDominoElement<HTMLDivElement, Tabl
                             .appendChild(PostfixAddOn.of(HoverTableAction.create(dataTable)))
                             .appendChild(PostfixAddOn.of(CondenseTableAction.create(dataTable)))
                             .appendChild(PostfixAddOn.of(StripesTableAction.create(dataTable)))
-                            .appendChild(PostfixAddOn.of(BordersTableAction.create(dataTable)))
+                            .appendChild(PostfixAddOn.of(TableBorderModeActions.create(dataTable)))
                             .appendChild(PostfixAddOn.of(ShowHideColumnsAction.create(dataTable)))
                             .appendChild(PostfixAddOn.of(SearchTableAction.create(dataTable)
                                     .withSearchBox((parent, searchBox) -> {

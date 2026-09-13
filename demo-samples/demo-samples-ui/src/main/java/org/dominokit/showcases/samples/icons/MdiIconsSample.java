@@ -3,11 +3,15 @@ package org.dominokit.showcases.samples.icons;
 import static java.util.Objects.isNull;
 import static org.dominokit.domino.ui.utils.Domino.div;
 import static org.dominokit.domino.ui.utils.Domino.dui_black;
+import static org.dominokit.domino.ui.utils.Domino.dui_blue;
 import static org.dominokit.domino.ui.utils.Domino.dui_border;
 import static org.dominokit.domino.ui.utils.Domino.dui_border_solid;
 import static org.dominokit.domino.ui.utils.Domino.dui_border_teal;
 import static org.dominokit.domino.ui.utils.Domino.dui_clickable;
 import static org.dominokit.domino.ui.utils.Domino.dui_elevation_0;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_filled;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_minimal;
+import static org.dominokit.domino.ui.utils.Domino.dui_emphasis_subtle;
 import static org.dominokit.domino.ui.utils.Domino.dui_font_size_10;
 import static org.dominokit.domino.ui.utils.Domino.dui_font_size_14;
 import static org.dominokit.domino.ui.utils.Domino.dui_font_size_4;
@@ -422,6 +426,55 @@ public class MdiIconsSample extends BaseDominoElement<HTMLDivElement, MdiIconsSa
                         Column.span3()
                             .appendChild(h(6).textContent("Dark inactive"))
                             .appendChild(Icons.account().dark().inactive())))
+            .appendChild(BlockHeader.create("Shape and surface"))
+            .appendChild(
+                Row.create()
+                    .appendChild(
+                        Column.span3()
+                            .appendChild(h(6).textContent("Rounded"))
+                            .appendChild(Icons.account()))
+                    .appendChild(
+                        Column.span3()
+                            .appendChild(h(6).textContent("Square"))
+                            .appendChild(Icons.account().setSquare(true)))
+                    .appendChild(
+                        Column.span3()
+                            .appendChild(h(6).textContent("Bordered"))
+                            .appendChild(Icons.account().setBordered(true)))
+                    .appendChild(
+                        Column.span3()
+                            .appendChild(h(6).textContent("Surface"))
+                            .appendChild(Icons.account().setSurface(true))))
+            .appendChild(BlockHeader.create("Emphasis"))
+            .appendChild(
+                Row.create()
+                    .appendChild(
+                        Column.span3()
+                            .appendChild(h(6).textContent("Filled"))
+                            .appendChild(
+                                Icons.account()
+                                    .addCss(dui_blue, dui_emphasis_filled)))
+                    .appendChild(
+                        Column.span3()
+                            .appendChild(h(6).textContent("Subtle"))
+                            .appendChild(
+                                Icons.account()
+                                    .addCss(dui_blue, dui_emphasis_subtle)))
+                    .appendChild(
+                        Column.span3()
+                            .appendChild(h(6).textContent("Minimal"))
+                            .appendChild(
+                                Icons.account()
+                                    .addCss(dui_blue, dui_emphasis_minimal)))
+                    .appendChild(
+                        Column.span3()
+                            .appendChild(h(6).textContent("Combined"))
+                            .appendChild(
+                                Icons.account()
+                                    .setSquare(true)
+                                    .setBordered(true)
+                                    .setSurface(true)
+                                    .addCss(dui_blue, dui_emphasis_subtle))))
             .setCollapsible(true));
   }
 }

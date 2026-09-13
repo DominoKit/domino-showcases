@@ -190,6 +190,10 @@
     }
 
     .dui.dui-solution-menu.dui-active .dui.dui-site-menu-body {
+        left: 0;
+    }
+
+    .dui.dui-solution-menu.dui-active .dui-site-menu-icons + .dui.dui-site-menu-body {
         left: 49px;
     }
 

@@ -11,14 +11,23 @@ import org.dominokit.domino.ui.forms.TextBox;
 import org.dominokit.domino.ui.grid.Row;
 import org.dominokit.domino.ui.typography.BlockHeader;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
+import org.dominokit.domino.ui.utils.DynamicCss;
+import org.dominokit.domino.ui.utils.DynamicCssDefinition;
 
+import static org.dominokit.domino.ui.style.SpacingUtilitiesCss.dui_m_2;
 import static org.dominokit.domino.ui.utils.Domino.div;
+import static org.dominokit.domino.ui.utils.Domino.dui_clr_;
+import static org.dominokit.domino.ui.utils.Domino.dui_h_;
+import static org.dominokit.domino.ui.utils.Domino.dui_m_;
+import static org.dominokit.domino.ui.utils.Domino.dui_p_;
 import static org.dominokit.domino.ui.utils.Domino.dui_p_2;
+import static org.dominokit.domino.ui.utils.Domino.dui_w_;
 import static org.dominokit.domino.ui.utils.Domino.text;
 
 public class BasicFormsInputSample extends BaseDominoElement<HTMLDivElement, BasicFormsInputSample> {
 
     private DivElement element;
+    public static DynamicCssDefinition dui_padding = DynamicCssDefinition.of("dui-p", "dui-padding", "padding");
 
     public static BasicFormsInputSample create() {
         return new BasicFormsInputSample();
@@ -31,13 +40,6 @@ public class BasicFormsInputSample extends BaseDominoElement<HTMLDivElement, Bas
 
         this.element = div().addCss(dui_p_2)
                 .appendChild(BlockHeader.create("Basic Example"))
-                .appendChild(Row.create()
-                        .appendChild(Button.create("test").addClickListener(this::handleEvent))
-                        .span12(textBox.setLabel("User name")
-//                                .setPlaceholder("Username")
-                        )
-
-                )
                 .appendChild(Row.create()
                         .span12(PasswordBox.create().setLabel("Password").setPlaceholder("Password"))
                 )

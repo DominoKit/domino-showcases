@@ -7,6 +7,7 @@ import java.util.Map;
 import org.dominokit.brix.Brix;
 import org.dominokit.brix.api.BrixComponentInitializer;
 import org.dominokit.brix.api.BrixComponentInitializer_ServiceLoader;
+import org.dominokit.brix.api.BrixModuleDescriptor_ServiceLoader;
 import org.dominokit.brix.api.BrixStartupTask_ServiceLoader;
 import org.dominokit.domino.history.StateToken;
 import org.dominokit.domino.ui.style.DominoCss;
@@ -32,8 +33,7 @@ public class App implements EntryPoint, ElementsFactory, DominoCss {
    */
   public void onModuleLoad() {
 
-    BrixComponentInitializer_ServiceLoader.load()
-        .forEach(BrixComponentInitializer::init);
+    Brix.get().initModules(BrixModuleDescriptor_ServiceLoader.load(), BrixComponentInitializer_ServiceLoader.load());
 
     DominoRestConfig.initDefaults()
         .setDefaultServiceRoot(resolveInitialApiRoot());

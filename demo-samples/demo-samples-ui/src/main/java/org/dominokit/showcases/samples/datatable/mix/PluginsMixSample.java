@@ -16,7 +16,7 @@ import org.dominokit.domino.ui.datatable.plugins.filter.header.EnumHeaderFilter;
 import org.dominokit.domino.ui.datatable.plugins.filter.header.SelectHeaderFilter;
 import org.dominokit.domino.ui.datatable.plugins.filter.header.TextHeaderFilter;
 import org.dominokit.domino.ui.datatable.plugins.grouping.GroupingPlugin;
-import org.dominokit.domino.ui.datatable.plugins.header.BordersTableAction;
+import org.dominokit.showcases.samples.datatable.TableBorderModeActions;
 import org.dominokit.domino.ui.datatable.plugins.header.CondenseTableAction;
 import org.dominokit.domino.ui.datatable.plugins.header.HoverTableAction;
 import org.dominokit.domino.ui.datatable.plugins.header.NavigationBarPlugin;
@@ -176,7 +176,7 @@ public class PluginsMixSample extends BaseDominoElement<HTMLDivElement, PluginsM
                             .appendChild(PostfixAddOn.of(HoverTableAction.create(datatable)))
                             .appendChild(PostfixAddOn.of(CondenseTableAction.create(datatable)))
                             .appendChild(PostfixAddOn.of(StripesTableAction.create(datatable)))
-                            .appendChild(PostfixAddOn.of(BordersTableAction.create(datatable)))
+                            .appendChild(PostfixAddOn.of(TableBorderModeActions.create(datatable)))
                             .appendChild(PostfixAddOn.of(Icons.close_circle()
                                     .clickable()
                                     .setTooltip("Select Inactive")

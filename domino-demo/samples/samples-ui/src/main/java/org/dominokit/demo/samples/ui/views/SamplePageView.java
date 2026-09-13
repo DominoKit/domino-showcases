@@ -14,7 +14,7 @@ import org.dominokit.brix.impl.BrixView;
 import org.dominokit.demo.samples.ui.components.SampleShowcase;
 import org.dominokit.domino.ui.IsElement;
 import org.dominokit.domino.ui.elements.DivElement;
-import org.dominokit.domino.ui.typography.BlockHeader;
+import org.dominokit.domino.ui.layout.PageHeader;
 
 public abstract class SamplePageView<H extends UiHandlers> extends BrixView<HTMLDivElement, H>
     implements Viewable {
@@ -25,7 +25,7 @@ public abstract class SamplePageView<H extends UiHandlers> extends BrixView<HTML
   protected final DivElement root;
 
   protected SamplePageView(String title, String description) {
-    this(title, description, BlockHeader.create(title, description));
+    this(title, description, PageHeader.create(title).setDescription(description));
   }
 
   protected SamplePageView(String title, String description, IsElement<?> header) {

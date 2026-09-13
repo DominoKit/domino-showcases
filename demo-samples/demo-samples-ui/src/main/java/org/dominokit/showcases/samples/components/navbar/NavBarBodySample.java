@@ -46,14 +46,12 @@ public class NavBarBodySample extends BaseDominoElement<HTMLDivElement, NavBarBo
                                     body
                                             .addCss(dui_flex, dui_justify_center, dui_items_center)
                                             .appendChild(SearchBox.create()
-                                                    .addCss(dui_w_72, dui_bg_l_1, dui_rounded_md)
+                                                    .addCss(dui_w_72, dui_rounded_md)
                                             );
                                 })
                         )
                 );
         init(this);
-
-
     }
 
     @Override

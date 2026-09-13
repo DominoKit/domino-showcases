@@ -53,7 +53,6 @@
 .demo-mode-option.demo-option-active {
     border-color: var(--dui-accent);
     background: var(--dui-accent);
-    color: var(--dui-color-invert);
     font-weight: 600;
 }
 

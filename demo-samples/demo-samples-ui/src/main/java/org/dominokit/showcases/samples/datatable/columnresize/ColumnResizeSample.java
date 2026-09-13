@@ -8,11 +8,14 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.plugins.column.ResizeColumnMeta;
 import org.dominokit.domino.ui.datatable.plugins.column.ResizeColumnsPlugin;
+import org.dominokit.domino.ui.datatable.plugins.header.NavigationBarPlugin;
 import org.dominokit.domino.ui.datatable.store.LocalListDataStore;
 import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.icons.lib.Icons;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
 import org.dominokit.showcases.samples.datatable.ContactUiUtils;
+import org.dominokit.showcases.samples.datatable.TableBorderModeActions;
 import org.dominokit.showcases.samples.model.Contact;
 import org.dominokit.showcases.samples.model.ContactsProvider;
 
@@ -92,7 +95,13 @@ public class ColumnResizeSample extends BaseDominoElement<HTMLDivElement, Column
                                             cell.appendChild(text(""));
                                         }))
                 .addPlugin(new ResizeColumnsPlugin<Contact>()
-                        .configure(config -> config.setClipContent(true)));
+                        .configure(config -> config.setClipContent(true)))
+                .addPlugin(new NavigationBarPlugin<>((datatable, navBar) -> {
+                    navBar
+                            .setTitle("Column resize")
+                            .setDescription("Resize columns by dragging their edges")
+                            .appendChild(PostfixAddOn.of(TableBorderModeActions.create(datatable)));
+                }));
 
         LocalListDataStore<Contact> localListDataStore = new LocalListDataStore<>();
         DataTable<Contact> table = new DataTable<>(tableConfig, localListDataStore);

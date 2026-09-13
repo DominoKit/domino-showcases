@@ -8,7 +8,7 @@ import org.dominokit.domino.ui.datatable.DataTable;
 import org.dominokit.domino.ui.datatable.TableConfig;
 import org.dominokit.domino.ui.datatable.plugins.column.PinColumnMeta;
 import org.dominokit.domino.ui.datatable.plugins.column.PinColumnsPlugin;
-import org.dominokit.domino.ui.datatable.plugins.header.BordersTableAction;
+import org.dominokit.showcases.samples.datatable.TableBorderModeActions;
 import org.dominokit.domino.ui.datatable.plugins.header.CondenseTableAction;
 import org.dominokit.domino.ui.datatable.plugins.header.HoverTableAction;
 import org.dominokit.domino.ui.datatable.plugins.header.NavigationBarPlugin;
@@ -113,7 +113,7 @@ public class ColumnPinSample extends BaseDominoElement<HTMLDivElement, ColumnPin
                             .appendChild(PostfixAddOn.of(HoverTableAction.create(datatable)))
                             .appendChild(PostfixAddOn.of(CondenseTableAction.create(datatable)))
                             .appendChild(PostfixAddOn.of(StripesTableAction.create(datatable)))
-                            .appendChild(PostfixAddOn.of(BordersTableAction.create(datatable)));
+                            .appendChild(PostfixAddOn.of(TableBorderModeActions.create(datatable)));
                 }))
                 .addPlugin(new PinColumnsPlugin<Contact>().configure(config -> config.setShowPinMenu(true).setShowPinIcon(true)));
         LocalListDataStore<Contact> localListDataStore = new LocalListDataStore<>();

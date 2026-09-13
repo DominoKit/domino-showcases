@@ -255,6 +255,12 @@ body.dui {
     flex-direction: column;
     min-width: 270px;
     transition: left 0.5s ease-in-out;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.dui.dui-solution-menu.dui-active .dui-site-menu-icons + .dui.dui-site-menu-body {
+    width: calc(100% - 49px);
 }
 
 .dui-menu-content {
@@ -750,14 +756,9 @@ code span {
     margin: var(--dui-spc-12) var(--dui-spc-4) var(--dui-spc-12) var(--dui-spc-4);
 }
 
-.dui.dui-hide-left-menu #dui-site-docs-left-menu-button.dui.dui-show-on-small-and-down {
-    display: none;
-}
-
 body.dui {
     overflow-x: hidden;
 }
-
 
 .authors {
     text-align: center;

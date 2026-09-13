@@ -29,10 +29,15 @@ public class BlueprintSamplePageViewArchitectureTest {
     assertTrue(
         "BlueprintSamplePageView must create a NavBar",
         blueprintPageView.contains("NavBar.create"));
+    String samplePageView =
+        Files.readString(
+            Paths.get("src/main/java/org/dominokit/demo/samples/ui/views/SamplePageView.java"));
     assertTrue(
-        "The shared non-blueprint page view must retain BlockHeader",
-        Files.readString(Paths.get("src/main/java/org/dominokit/demo/samples/ui/views/SamplePageView.java"))
-            .contains("BlockHeader"));
+        "The shared non-blueprint page view must use PageHeader",
+        samplePageView.contains("PageHeader.create"));
+    assertTrue(
+        "The shared non-blueprint page view must not use BlockHeader",
+        !samplePageView.contains("BlockHeader"));
 
     List<Path> blueprintViews =
         Files.walk(BLUEPRINT_VIEWS)
