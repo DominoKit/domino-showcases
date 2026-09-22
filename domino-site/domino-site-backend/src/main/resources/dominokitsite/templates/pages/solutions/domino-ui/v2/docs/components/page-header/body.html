@@ -6,12 +6,18 @@
         <li class="dui"><a class="dui">Components</a></li>
         <li class="dui dui-active"><a class="dui" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2/docs/components/page-header">Page header</a></li>
     </ol>
-    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav" dui-site-data="Top,Overview,Docs"></div>
+    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav" dui-site-data="Top,Overview,Examples,Docs"></div>
     <h1 class="dui dui-site-docs-title">PageHeader</h1>
     <p class="dui">A page-level variant of NavBar that provides a compact title and description treatment for documentation and application views.</p>
     <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-overview">Overview</h2>
     <p class="dui">PageHeader keeps NavBar composition while using an uppercase, reduced-opacity title and a lighter description with natural page spacing.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content('PageHeader.create(&quot;Orders&quot;)
+    .setDescription(&quot;Review and manage your customer orders.&quot;)
+    .withPostfixElement((parent, postfix) -> postfix.appendChild(Button.create(&quot;Create order&quot;)));')"></div>
+    <p class="dui">Use PageHeader for a page-level heading. Use NavBar when the content is a component or section header that should retain the standard navigation-bar height.</p>
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-examples">Examples</h2>
     <div id="dui-demo-sample-slot"></div>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="page-header-overview"></div>
     <div id="dui-side-nav-docs"></div>
     <div th:replace="fragments/commons/components/javadocs :: content('dui-page-header-method-docs', 'PageHeader', 'https://www.javadoc.io/doc/org.dominokit/domino-ui/latest/org/dominokit/domino/ui/pageheader/PageHeader.html')"></div>
 </div>

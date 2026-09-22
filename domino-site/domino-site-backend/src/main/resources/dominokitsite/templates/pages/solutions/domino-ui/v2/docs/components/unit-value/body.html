@@ -11,6 +11,11 @@
     <p class="dui">Display a value together with its unit, title, and description in a compact, semantically grouped component.</p>
     <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-overview">Overview</h2>
     <p class="dui">The value inherits contextual color while emphasis changes its surface and border treatment.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content('UnitValue.create(&quot;603.455&quot;, &quot;JOD&quot;)
+    .setTitle(&quot;Total revenue&quot;)
+    .setDescription(&quot;Current month&quot;)
+    .addCss(dui_success);')"></div>
+    <p class="dui">Contextual colors change the value text, not the component background. Add <code class="dui">dui_emphasis_subtle</code> or <code class="dui">dui_emphasis_minimal</code> when a themed surface or border is needed.</p>
     <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-examples">Examples</h2>
     <div id="dui-demo-sample-slot"></div>
     <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="unit-value-overview"></div>
