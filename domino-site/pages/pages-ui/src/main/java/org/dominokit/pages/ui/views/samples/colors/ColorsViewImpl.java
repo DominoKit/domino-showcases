@@ -8,7 +8,6 @@ import org.dominokit.domino.ui.elements.DivElement;
 import org.dominokit.domino.ui.utils.Domino;
 import org.dominokit.pages.views.ColorsView;
 import org.dominokit.showcases.samples.colors.ColorsSample;
-import org.dominokit.showcases.samples.themes.ThemeCompositionSample;
 
 @UiView
 public class ColorsViewImpl extends BrixView<HTMLDivElement, ColorsView.ColorsUiHandlers>
@@ -20,8 +19,7 @@ public class ColorsViewImpl extends BrixView<HTMLDivElement, ColorsView.ColorsUi
   public ColorsViewImpl() {
     this.root =
         Domino.div()
-            .appendChild(ColorsSample.create())
-            .appendChild(ThemeCompositionSample.create());
+            .appendChild(ColorsSample.create());
     init(this);
   }
 
