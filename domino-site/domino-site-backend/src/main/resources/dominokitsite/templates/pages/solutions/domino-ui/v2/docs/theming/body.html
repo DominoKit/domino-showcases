@@ -1,0 +1,136 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <div id="dui-side-nav-top"></div>
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui"><a class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2">Domino UI</a></li>
+        <li class="dui dui-active"><a class="dui" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2/docs/theming">Theming and styling</a></li>
+    </ol>
+
+    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav"
+         dui-site-data="Top,Theme layers,Composition,Theme catalog,Surface treatments,Emphasis,Scoped CSS,Accessibility,Fonts,WaitMe">
+    </div>
+
+    <h1 class="dui dui-site-docs-title">Theming and styling</h1>
+    <p class="dui">
+        Domino UI themes are composable CSS layers. A theme changes semantic variables rather than imposing global
+        element selectors, so an application can theme a Domino UI subtree while continuing to coexist with another
+        UI system on the same page.
+    </p>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-theme-layers">Theme layers</h2>
+    <p class="dui">
+        Start with the default main theme, then select one value from each replacement category. Identity, accent,
+        density, character, and surface treatments are intentionally separate: changing the accent does not replace
+        the visual identity, and applying elevation does not remove borders or rounding.
+    </p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><strong>Main:</strong> the core component token set, provided by <code class="dui">DominoThemeDefault</code>.</li>
+        <li class="dui"><strong>Color mode:</strong> light or dark.</li>
+        <li class="dui"><strong>Identity:</strong> the dominant application color family, such as Ocean, Forest, or Graphite.</li>
+        <li class="dui"><strong>Accent:</strong> a composable action and emphasis color that retains its own color identity.</li>
+        <li class="dui"><strong>Density:</strong> default or compact spacing and control sizing.</li>
+        <li class="dui"><strong>Character:</strong> a material treatment such as Glass, Paper, Terminal, or Aurora.</li>
+        <li class="dui"><strong>Surface:</strong> independently composable bordered, elevated, rounded, and accent-header treatments.</li>
+    </ul>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-composition">Compose themes</h2>
+    <p class="dui">
+        Apply theme descriptors to the application root, or to a specific Domino UI subtree. Applying another theme
+        in the same category replaces only the earlier value in that category. Surface treatments use separate
+        categories, so they can be enabled and cleared independently.
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('ElementThemeManager themes = ElementThemeManager.INSTANCE;
+themes.apply(DominoThemeDefault.INSTANCE, appRoot);
+themes.apply(DominoThemeLight.INSTANCE, appRoot);
+themes.apply(DominoThemeIdentity.OCEAN, appRoot);
+themes.apply(DominoThemeAccent.TEAL, appRoot);
+themes.apply(DominoThemeDensity.COMPACT, appRoot);
+themes.apply(DominoThemeSurface.BORDERED, appRoot);
+themes.apply(DominoThemeSurface.ROUNDED, appRoot);')"></div>
+    <p class="dui">Use the corresponding clear descriptor when a user turns off a surface treatment. This does not disturb the other selected layers:</p>
+    <div th:replace="fragments/commons/components/inline-code :: content('themes.apply(DominoThemeSurface.CLEAR_BORDER, appRoot);
+themes.apply(DominoThemeSurface.CLEAR_RADIUS, appRoot);')"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title">
+        <span class="dui dui-fg-teal">Interactive composition</span>
+        <small class="dui">Apply modes and accents to one preview subtree without changing its sibling.</small>
+    </h3>
+    <div id="dui-demo-sample-slot"></div>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="theming-composition"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-theme-catalog">Built-in catalog</h2>
+    <p class="dui">
+        Include <code class="dui">domino-ui-themes.css</code> to make every built-in optional theme available, or
+        include only the individual theme stylesheets your application offers. The Java descriptors and the CSS class
+        names use the same family names, for example <code class="dui">DominoThemeIdentity.OCEAN</code> applies
+        <code class="dui">dui-theme-ocean</code>.
+    </p>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="theming-catalog"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-surface-treatments">Surface treatments</h2>
+    <p class="dui">
+        Surface themes are deliberately orthogonal. Bordered controls border presentation, Elevated controls shadows,
+        Rounded controls radius, and Accent headers controls the headers of cards, menus, trees, and DataTables. Their
+        CSS variables remain theme-aware, so the treatment keeps contrast in light and dark modes.
+    </p>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="theming-surfaces"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-emphasis">Emphasis modifiers</h2>
+    <p class="dui">
+        Use emphasis classes to change the surface treatment of an already contextual component. Filled is the default;
+        subtle uses a translucent contextual background and border; minimal keeps a contextual border over a transparent
+        surface. Add the modifier directly to a component, or to a container when the component family supports inherited
+        emphasis. Icons intentionally react only to emphasis placed directly on the icon.
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('Button.create(&quot;Save&quot;).addCss(dui_success, dui_emphasis_subtle);
+Card.create(&quot;Summary&quot;).addCss(dui_info, dui_emphasis_minimal);
+Alert.warning().addCss(dui_emphasis_filled);')"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title"><span class="dui dui-fg-teal">Component emphasis</span><small class="dui">Filled, subtle, and minimal variants on contextual components.</small></h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="theming-emphasis-components"></div>
+    <h3 class="dui dui-docs-demo-sample-title"><span class="dui dui-fg-teal">Group emphasis</span><small class="dui">Use a parent modifier only where the component family supports inheritance.</small></h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="theming-emphasis-groups"></div>
+    <h3 class="dui dui-docs-demo-sample-title"><span class="dui dui-fg-teal">Card emphasis</span><small class="dui">Cards support the same contextual filled, subtle, and minimal treatments.</small></h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="theming-emphasis-cards"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-scoped-css">Scoped CSS and custom variables</h2>
+    <p class="dui">
+        Domino UI styles are rooted at <code class="dui">.dui</code>. Keep application overrides scoped to a Domino
+        root or your own application root rather than styling HTML elements globally. Prefer documented CSS variables
+        over copying component selectors: variables compose with color mode, identity, accent, and nested surfaces.
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('.my-app-theme.dui {
+  --dui-font-family-body: &quot;Acme Sans&quot;, sans-serif;
+  --dui-radius-md: 0.5rem;
+}
+
+.my-app-theme.dui .my-app-summary {
+  --dui-card-nested-background: color-mix(in srgb, var(--dui-clr-dominant-l-3) 75%, var(--dui-clr-dominant-l-1) 25%);
+}')"></div>
+    <p class="dui">
+        Contextual palette classes such as <code class="dui">dui_blue</code>, <code class="dui">dui_success</code>,
+        and <code class="dui">dui_error</code> expose <code class="dui">--dui-context-color</code> and related
+        background shades. That makes the same component APIs work with predefined and dynamic color schemes.
+    </p>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-accessibility">Accessibility and contrast</h2>
+    <p class="dui">
+        Theme tokens choose foreground colors for contextual and interactive surfaces, including progress indicators,
+        toggle buttons, table states, form placeholders, and alerts. When creating a custom theme, test both light and
+        dark modes, keyboard focus, disabled controls, hover states, and subtle/minimal emphasis. Do not communicate
+        meaning only with color; pair state colors with text, icons, or accessible labels.
+    </p>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-fonts">Fonts</h2>
+    <p class="dui">
+        Source Sans 3 is the default body family. Font families are tokenized and can be changed globally or within a
+        <code class="dui">dui-font-scope</code> subtree. See <a class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2/docs/typography">Typography</a>
+        for bundled families, custom webfont loading, and form-label typography details.
+    </p>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-waitme">WaitMe loaders</h2>
+    <p class="dui">
+        WaitMe is included as a ready-to-use Domino UI-owned loader stylesheet, but it is not part of the theme token
+        contract. Its classes use the <code class="dui">dui-waitme-*</code> convention and it is available in the
+        aggregate CSS bundles, including their minified forms.
+    </p>
+</div>

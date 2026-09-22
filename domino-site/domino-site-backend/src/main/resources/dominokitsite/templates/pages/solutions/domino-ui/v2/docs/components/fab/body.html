@@ -1,0 +1,24 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-fab" dui-site-data="org.dominokit.domino.ui.fab.Fab"></div>
+    <div id="dui-side-nav-top"></div>
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui"><a class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2">Domino UI</a></li>
+        <li class="dui"><a class="dui">Components</a></li>
+        <li class="dui dui-active"><a class="dui" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2/docs/components/fab">Floating action button</a></li>
+    </ol>
+    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav" dui-site-data="Top,Overview,Examples,Docs"></div>
+    <h1 class="dui dui-site-docs-title">Floating action button</h1>
+    <p class="dui">A document-level primary action that can stay single or reveal a related action list on click.</p>
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-overview">Overview</h2>
+    <p class="dui">A FAB mounts on the document instead of being appended to arbitrary component content. An expanded FAB replaces its main action with close control while it is open.</p>
+    <div th:replace="fragments/commons/components/inline-code :: content('Fab fab = Fab.create(Icons.plus())
+    .withButton((self, button) -> button.setAriaLabel(&quot;Create&quot;))
+    .addAction(Button.create(Icons.email()).setAriaLabel(&quot;Email&quot;));
+body().appendChild(fab.element());')"></div>
+    <p class="dui">A single FAB has no expansion behavior. An expanded FAB opens only on click and closes after an action is selected. Remove or replace an active FAB before mounting another one.</p>
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-examples">Examples</h2>
+    <div id="dui-demo-sample-slot"></div>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="fab-overview"></div>
+    <div id="dui-side-nav-docs"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-fab-method-docs', 'Fab', 'https://www.javadoc.io/doc/org.dominokit/domino-ui/latest/org/dominokit/domino/ui/fab/Fab.html')"></div>
+</div>
