@@ -5,10 +5,105 @@
         <li class="dui"><a class="dui" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2/docs/helpers">Helpers CSS</a></li>
         <li class="dui dui-active"><a class="dui" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2/docs/helpers/dynamic-css">Dynamic CSS</a></li>
     </ol>
-    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav" dui-site-data="Top,Overview"></div>
+
+    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav"
+         dui-site-data="Top,When to use it,Value utilities,Reuse and variables,Color schemes,Runtime behavior,Development,Safe checklist">
+    </div>
+
     <h1 class="dui dui-site-docs-title">Dynamic CSS</h1>
-    <p class="dui">Create reusable runtime utility classes for values and color schemes while preserving Domino UI naming and scoping conventions.</p>
-    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-overview">Overview</h2>
-    <p class="dui">Use predefined utilities first; dynamic utilities are for deliberate application-specific values that cannot be expressed with the static classes.</p>
+    <p class="dui">
+        Dynamic CSS creates shared Domino UI utility rules at runtime. It is designed for the uncommon application
+        value that cannot be represented by an existing utility class while preserving the same naming, variables,
+        scoping, and reuse behavior as Domino UI’s static utilities.
+    </p>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-when-to-use-it">When to use it</h2>
+    <p class="dui">
+        Prefer a well-defined existing Domino UI class whenever one exists. Static classes are more discoverable,
+        communicate intent directly, and keep a shared visual rhythm. Use Dynamic CSS for deliberate, application-owned
+        values such as an exact dashboard width, a design-token fallback expression, or a generated brand color.
+    </p>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-value-utilities">Value utilities</h2>
+    <p class="dui">
+        The factory naming mirrors the static utility convention. Each call returns a <code class="dui">CssClass</code>
+        for use with <code class="dui">addCss</code>. String values are passed to the browser without validation;
+        callers must use trusted, valid CSS. Integer overloads are a convenient spelling of the same string value.
+    </p>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui"><strong>Spacing:</strong> <code class="dui">dui_p_</code>, <code class="dui">dui_m_</code>, <code class="dui">dui_gap_</code>, including axis and side variants.</li>
+        <li class="dui"><strong>Sizing:</strong> <code class="dui">dui_w_</code>, <code class="dui">dui_h_</code>, and min/max width and height variants.</li>
+        <li class="dui"><strong>Layout:</strong> indent, inset, top/right/bottom/left, z-index, flex basis/grow/shrink/order, and grid tracks.</li>
+        <li class="dui"><strong>Visual values:</strong> border width, radius, outline width/offset, font size/weight, line height, and letter spacing.</li>
+    </ul>
+    <div th:replace="fragments/commons/components/inline-code :: content('div().addCss(dui_p_(&quot;1.25rem&quot;), dui_gap_(12));
+div().addCss(dui_w_(&quot;min(100%, 42rem)&quot;), dui_m_x_(&quot;auto&quot;));
+div().addCss(dui_font_size_(Unit.rem.of(1.125)), dui_tracking_(&quot;0.03em&quot;));')"></div>
+
+    <h3 class="dui dui-docs-demo-sample-title"><span class="dui dui-fg-teal">Runtime layout values</span><small class="dui">Raw CSS values and values that reuse an existing spacing token.</small></h3>
     <div id="dui-demo-sample-slot"></div>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="dynamic-css-layout"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-reuse-and-variables">Reuse and variables</h2>
+    <p class="dui">
+        Dynamic CSS deduplicates by utility definition and source value. Repeating the same factory call returns the
+        same generated class and does not duplicate rules. If a compatible static Domino UI variable already exists,
+        such as a spacing token, the generated rule reuses it instead of defining a second variable.
+    </p>
+    <p class="dui">
+        CSS variable expressions remain expressions; they are not copied or evaluated by Java. A deterministic codec
+        turns them into a safe shared class token, so the generated class can be reused without exposing the expression
+        in a selector.
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('CssClass appSpacing = dui_p_(&quot;var(--dui-my-app-spc-5, var(--dui-my-app-default-spc))&quot;);
+Card.create().addCss(appSpacing);')"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-color-schemes">Dynamic color schemes</h2>
+    <p class="dui">
+        <code class="dui">dui_clr_</code> returns a directly usable base color class. For the complete palette,
+        use <code class="dui">dui_clr_schm_</code>. A literal color receives generated lighter and darker shades for
+        light and dark mode, then emits the same contextual, foreground, background, border, accent, shadow, outline,
+        and emphasis-compatible utility pattern used by Domino UI’s predefined palettes.
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('Button.create(&quot;Literal brand&quot;).addCss(dui_clr_(&quot;#3657d6&quot;));
+
+DynamicColorScheme brand = dui_clr_schm_(&quot;#3657d6&quot;);
+Button.create(&quot;Subtle brand&quot;).addCss(brand.getContextColor(), dui_emphasis_subtle);
+Badge.create(&quot;Brand&quot;).addCss(brand.getBackground());')"></div>
+    <p class="dui">
+        You can also use an application-owned palette reference, for example
+        <code class="dui">dui_clr_schm_(&quot;var(--dui-clr-my-brand)&quot;)</code>. In that case the application must supply
+        the corresponding <code class="dui">-l-5</code> through <code class="dui">-l-1</code>, base,
+        <code class="dui">-d-1</code> through <code class="dui">-d-4</code>, and foreground variables following
+        Domino UI’s palette convention. Dynamic CSS does not validate color correctness or contrast: choosing and
+        testing the color remains the application author’s responsibility.
+    </p>
+    <h3 class="dui dui-docs-demo-sample-title"><span class="dui dui-fg-teal">Runtime color schemes</span><small class="dui">Literal base-color and contextual-scheme forms.</small></h3>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="dynamic-css-colors"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-runtime-behavior">Runtime behavior</h2>
+    <p class="dui">
+        Dynamic rules are injected into dedicated document style elements, separate from the legacy
+        <code class="dui">DynamicStyleSheet</code> implementation. Rules are global to the document but retain
+        Domino UI’s <code class="dui">.dui</code>-scoped selectors. The registry shares classes and variables for
+        identical inputs, so using one value across many components does not multiply style rules.
+    </p>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-development">Development and production</h2>
+    <p class="dui">
+        Migrated static value utilities resolve lazily in production: only classes retained by the compiled application
+        are injected when used. In Super Dev Mode, the migrated utility registry is preloaded so developers can inspect
+        and experiment with the familiar utility vocabulary in browser tools. Dynamic values themselves are still emitted
+        only when a factory is called.
+    </p>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-safe-checklist">Safe Dynamic CSS checklist</h2>
+    <ul class="dui dui-site-docs-list">
+        <li class="dui">Prefer well-defined static CSS classes before introducing an arbitrary dynamic value.</li>
+        <li class="dui">Pass only trusted CSS values; dynamic factory strings are intentionally not validated.</li>
+        <li class="dui">Use application variables for values that should react to the active theme.</li>
+        <li class="dui">Reuse a scheme object when several components share a generated dynamic color.</li>
+        <li class="dui">Check light mode, dark mode, focus, hover, disabled state, and subtle/minimal emphasis for custom colors.</li>
+        <li class="dui">Keep app-specific CSS selectors scoped to your Domino UI root.</li>
+    </ul>
 </div>
