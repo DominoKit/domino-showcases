@@ -1,0 +1,17 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-page-header" dui-site-data="org.dominokit.domino.ui.pageheader.PageHeader"></div>
+    <div id="dui-side-nav-top"></div>
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui"><a class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2">Domino UI</a></li>
+        <li class="dui"><a class="dui">Components</a></li>
+        <li class="dui dui-active"><a class="dui" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2/docs/components/page-header">Page header</a></li>
+    </ol>
+    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav" dui-site-data="Top,Overview,Docs"></div>
+    <h1 class="dui dui-site-docs-title">PageHeader</h1>
+    <p class="dui">A page-level variant of NavBar that provides a compact title and description treatment for documentation and application views.</p>
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-overview">Overview</h2>
+    <p class="dui">PageHeader keeps NavBar composition while using an uppercase, reduced-opacity title and a lighter description with natural page spacing.</p>
+    <div id="dui-demo-sample-slot"></div>
+    <div id="dui-side-nav-docs"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-page-header-method-docs', 'PageHeader', 'https://www.javadoc.io/doc/org.dominokit/domino-ui/latest/org/dominokit/domino/ui/pageheader/PageHeader.html')"></div>
+</div>

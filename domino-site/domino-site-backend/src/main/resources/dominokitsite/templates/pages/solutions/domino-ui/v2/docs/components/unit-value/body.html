@@ -1,0 +1,19 @@
+<div th:fragment="content" class="dui dui-site-solution-doc-body">
+    <div class="dui dui-site-component-docs-class" dui-site-docs="true" dui-site-data-id-prefix="dui-unit-value" dui-site-data="org.dominokit.domino.ui.unitvalue.UnitValue"></div>
+    <div id="dui-side-nav-top"></div>
+    <ol class="dui dui-breadcrumb dui-p-0">
+        <li class="dui"><a class="dui dui-fg-teal" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2">Domino UI</a></li>
+        <li class="dui"><a class="dui">Components</a></li>
+        <li class="dui dui-active"><a class="dui" dui-site-data="nav-anchor" href="/solutions/domino-ui/v2/docs/components/unit-value">UnitValue</a></li>
+    </ol>
+    <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav" dui-site-data="Top,Overview,Examples,Docs"></div>
+    <h1 class="dui dui-site-docs-title">UnitValue</h1>
+    <p class="dui">Display a value together with its unit, title, and description in a compact, semantically grouped component.</p>
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-overview">Overview</h2>
+    <p class="dui">The value inherits contextual color while emphasis changes its surface and border treatment.</p>
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-examples">Examples</h2>
+    <div id="dui-demo-sample-slot"></div>
+    <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="unit-value-overview"></div>
+    <div id="dui-side-nav-docs"></div>
+    <div th:replace="fragments/commons/components/javadocs :: content('dui-unit-value-method-docs', 'UnitValue', 'https://www.javadoc.io/doc/org.dominokit/domino-ui/latest/org/dominokit/domino/ui/unitvalue/UnitValue.html')"></div>
+</div>
