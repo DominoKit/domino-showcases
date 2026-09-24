@@ -6,7 +6,7 @@
     </ol>
 
     <div class="dui dui-site-scroll-fire" id="dui-site-doc-page-side-nav"
-         dui-site-data="Top,Theme layers,Composition,Theme catalog,Surface treatments,Emphasis,Scoped CSS,Accessibility,Fonts,WaitMe">
+         dui-site-data="Top,Theme layers,Composition,Theme change events,Theme catalog,Surface treatments,Emphasis,Scoped CSS,Accessibility,Fonts,WaitMe">
     </div>
 
     <h1 class="dui dui-site-docs-title">Theming and styling</h1>
@@ -56,6 +56,40 @@ themes.apply(DominoThemeSurface.CLEAR_RADIUS, appRoot);')"></div>
     </h3>
     <div id="dui-demo-sample-slot"></div>
     <div class="dui" dui-site-data="dui-sample-container" dui-sample-id="theming-composition"></div>
+
+    <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-theme-change-events">Theme change events</h2>
+    <p class="dui">
+        Observe global or element-scoped theme changes through the corresponding theme manager. Each
+        <code class="dui">ThemeChange</code> identifies whether a theme was applied or removed, its category,
+        the affected target, and the old and new selections. The whole selection before and after the operation is
+        also available as read-only snapshots, which is useful when an application persists or synchronizes a
+        composed theme choice.
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('ThemeChangeListener listener = change -> {
+  IsDominoTheme previous = change.getPreviousTheme();
+  IsDominoTheme current = change.getCurrentTheme();
+
+  DomGlobal.console.log(change.getScope() + &quot; &quot; + change.getOperation()
+      + &quot;: &quot; + (previous == null ? &quot;none&quot; : previous.getName())
+      + &quot; -&gt; &quot; + (current == null ? &quot;none&quot; : current.getName()));
+};
+
+DominoThemeManager.INSTANCE.addThemeChangeListener(listener);
+ElementThemeManager.INSTANCE.addThemeChangeListener(listener);')"></div>
+    <p class="dui">
+        A global event targets <code class="dui">document.body</code>; an element-scoped event targets the element
+        supplied to <code class="dui">ElementThemeManager</code>. Restoring persisted themes emits one event per
+        descriptor. Reapplying a descriptor also emits an apply event, while removing a theme that is not active
+        emits nothing.
+    </p>
+    <p class="dui">
+        Listeners run synchronously after the manager operation is complete. A listener can make a further theme
+        change; its event is delivered after every listener has received the current event. Theme implementations
+        themselves must not recursively change the same manager state from their <code class="dui">apply</code> or
+        <code class="dui">cleanup</code> callbacks. Remove observers when they are no longer needed:
+    </p>
+    <div th:replace="fragments/commons/components/inline-code :: content('DominoThemeManager.INSTANCE.removeThemeChangeListener(listener);
+ElementThemeManager.INSTANCE.removeThemeChangeListener(listener);')"></div>
 
     <h2 class="dui dui-site-docs-subtitle" id="dui-side-nav-theme-catalog">Built-in catalog</h2>
     <p class="dui">
